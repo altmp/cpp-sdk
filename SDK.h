@@ -53,6 +53,7 @@
 #include "events/CPlayerLeaveVehicleEvent.h"
 #include "events/CPlayerChangeVehicleSeatEvent.h"
 #include "events/CRemoveEntityEvent.h"
+#include "events/CConsoleCommandEvent.h"
 
 #ifdef ALT_CLIENT_API
 

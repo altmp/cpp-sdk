@@ -28,12 +28,14 @@ namespace alt
 
 			REMOVE_ENTITY_EVENT = 11,
 
-			// Client
-			WEB_VIEW_EVENT = 12,
-			KEYBOARD_EVENT = 13,
+			CONSOLE_COMMAND_EVENT = 12,
 
-			ALL = 14,
-			SIZE = 15
+			// Client
+			WEB_VIEW_EVENT = 13,
+			KEYBOARD_EVENT = 14,
+
+			ALL = 15,
+			SIZE = 16
 		};
 
 		CEvent(Type _type) :type(_type) { }
