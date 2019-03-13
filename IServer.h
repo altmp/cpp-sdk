@@ -22,6 +22,7 @@ namespace alt
 	class IBlip;
 	class ICheckpoint;
 	class IScriptRuntime;
+	class IVoiceChannel;
 
 	using EventCallback = bool(*)(const CEvent* e);
 	using TickCallback = void(*)();
@@ -61,6 +62,9 @@ namespace alt
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::Type type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::Type type, IEntity* attachTo) = 0;
 		virtual void RemoveBlip(IBlip* blip) = 0;
+
+		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
+		virtual void RemoveVoiceChannel(IVoiceChannel* channel) = 0;
 
 		virtual Array<IPlayer*> GetPlayersByName(StringView name) const = 0;
 

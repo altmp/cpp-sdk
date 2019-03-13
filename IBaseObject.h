@@ -14,7 +14,8 @@ namespace alt
 			VEHICLE = 1,
 			CHECKPOINT = 2,
 			BLIP = 3,
-			WEBVIEW = 4
+			WEBVIEW = 4,
+			VOICE_CHANNEL = 5
 		};
 
 		virtual Type GetType() const = 0;
