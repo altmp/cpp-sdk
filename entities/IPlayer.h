@@ -50,6 +50,10 @@ namespace alt
 
 		virtual void Kick(StringView reason = "kicked out") = 0;
 
+#ifdef ALT_SERVER_API
+		virtual void SetModel(uint32_t model) = 0;
+#endif // ALT_SERVER_API
+
 	protected:
 		virtual ~IPlayer() = default;
 	};
