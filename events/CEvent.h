@@ -33,9 +33,10 @@ namespace alt
 			// Client
 			WEB_VIEW_EVENT = 13,
 			KEYBOARD_EVENT = 14,
+			CONNECTION_COMPLETE = 15,
 
-			ALL = 15,
-			SIZE = 16
+			ALL = 16,
+			SIZE = 17
 		};
 
 		CEvent(Type _type) :type(_type) { }
