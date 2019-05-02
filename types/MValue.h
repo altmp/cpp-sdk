@@ -134,6 +134,7 @@ namespace alt
 		MValue(int32_t val) { Create<Int>(val); }
 		MValue(uint32_t val) { Create<UInt>(val); }
 		MValue(const char* val) { Create<String>(val); }
+		MValue(const std::string& val) { Create<String>(val); }
 
 		MValue(const MValue& that) { Copy(that); }
 
