@@ -23,6 +23,7 @@ namespace alt
 			RADIUS = 7,
 			PICKUP = 8,
 			COP = 9,
+			AREA = 11,
 			GALLERY = 12,
 			PICKUP_OBJECT = 13
 		};
