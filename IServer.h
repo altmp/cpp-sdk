@@ -51,7 +51,7 @@ namespace alt
 		virtual void TriggerServerEvent(StringView ev, MValueList args) = 0;
 		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;
 
-		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, float heading) = 0;
+		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
 		virtual void RemoveEntity(IEntity* entity) = 0;
 
