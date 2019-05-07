@@ -53,6 +53,7 @@
 #include "events/CPlayerEnterVehicleEvent.h"
 #include "events/CPlayerLeaveVehicleEvent.h"
 #include "events/CPlayerChangeVehicleSeatEvent.h"
+#include "events/CDataNodeReceivedEvent.h"
 #include "events/CRemoveEntityEvent.h"
 #include "events/CConsoleCommandEvent.h"
 
