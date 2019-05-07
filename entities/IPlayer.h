@@ -25,6 +25,10 @@ namespace alt
 		virtual void SetDateTime(int day, int month, int year, int hour, int minute, int second) = 0;
 		virtual void SetWeather(uint32_t weather) = 0;
 
+		virtual void GiveWeapon(uint32_t weapon, int32_t ammo, bool selectWeapon) = 0;
+		virtual void RemoveWeapon(uint32_t weapon) = 0;
+		virtual void RemoveAllWeapons() = 0;
+
 		virtual bool IsDead() const = 0;
 
 		virtual bool IsJumping() const = 0;
