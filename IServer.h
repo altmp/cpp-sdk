@@ -1,25 +1,20 @@
 #pragma once
 
-#include <vector>
-
+#include "deps/alt-math/alt-math.h"
+#include "types/RGBA.h"
 #include "types/MValue.h"
+#include "types/MValueList.h"
+#include "types/StringView.h"
 
 #include "events/CEvent.h"
 
-#ifdef _WIN32
-#define _AMD64_
-#include "minwindef.h"
-#include "libloaderapi.h"
-#else
-#include <dlfcn.h>
-#endif
+#include "script-objects/IBlip.h"
 
 namespace alt
 {
 	class IEntity;
 	class IPlayer;
 	class IVehicle;
-	class IBlip;
 	class ICheckpoint;
 	class IScriptRuntime;
 	class IVoiceChannel;
@@ -31,6 +26,8 @@ namespace alt
 	class IServer
 	{
 	public:
+		virtual StringView GetRootDirectory() = 0;
+
 		virtual IResource* GetResource(StringView name) = 0;
 		virtual bool RequireResource(IResource* referrer, IResource* resource) = 0;
 

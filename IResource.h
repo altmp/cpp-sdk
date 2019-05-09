@@ -25,6 +25,7 @@ namespace alt
 		{
 			String type;
 			String name;
+			String path;
 			String main;
 			Array<String> deps;
 			IPackage* pkg;
@@ -37,6 +38,7 @@ namespace alt
 
 		StringView GetType() const { return type; }
 		StringView GetName() const { return name; }
+		StringView GetPath() const { return path; }
 		StringView GetMain() const { return main; }
 		IPackage* GetPackage() const { return pkg; }
 		MValueDict GetExports() { return exports; }
@@ -57,6 +59,7 @@ namespace alt
 	protected:
 		String type;
 		String name;
+		String path;
 		String main;
 		IPackage* pkg;
 
@@ -66,6 +69,7 @@ namespace alt
 		IResource(CreationInfo* info) :
 			type(info->type),
 			name(info->name),
+			path(info->path),
 			main(info->main),
 			pkg(info->pkg),
 			state(State::STOPPED)
