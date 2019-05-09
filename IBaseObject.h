@@ -10,12 +10,12 @@ namespace alt
 	public:
 		enum class Type : uint8_t
 		{
-			PLAYER = 0,
-			VEHICLE = 1,
-			CHECKPOINT = 2,
-			BLIP = 3,
-			WEBVIEW = 4,
-			VOICE_CHANNEL = 5
+			PLAYER,
+			VEHICLE,
+			CHECKPOINT,
+			BLIP,
+			WEBVIEW,
+			VOICE_CHANNEL
 		};
 
 		virtual Type GetType() const = 0;
