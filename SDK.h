@@ -59,6 +59,8 @@
 
 #ifdef ALT_CLIENT_API
 
+#include "events/CConnectionComplete.h"
+#include "events/CDisconnectEvent.h"
 #include "events/CGameEntityCreateEvent.h"
 #include "events/CGameEntityRemoveEvent.h"
 #include "events/CKeyboardEvent.h"
