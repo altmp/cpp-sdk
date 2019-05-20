@@ -82,6 +82,9 @@ namespace alt
 		virtual void SetNeonActive(bool left, bool right, bool front, bool back) = 0;
 		virtual RGBA GetNeonColor() = 0;
 		virtual void SetNeonColor(RGBA color) = 0;
+
+		virtual String GetAppearanceDataBase64() = 0;
+		virtual void LoadAppearanceDataFromBase64(StringView base64) = 0;
 		
 		//vehicle game state
 		virtual bool IsEngineOn() = 0;
@@ -91,6 +94,9 @@ namespace alt
 
 		virtual uint8_t GetHeadlightColor() = 0;
 		virtual void SetHeadlightColor(uint8_t color) = 0;
+
+		virtual uint32_t GetRadioStationIndex() = 0;
+		virtual void SetRadioStationIndex(uint32_t stationIndex) = 0;
 
 		virtual bool IsSirenActive() = 0;
 		virtual void SetSirenActive(bool state) = 0;
@@ -170,6 +176,13 @@ namespace alt
 
 		virtual String GetDamageDataBase64() = 0;
 		virtual void LoadDamageDataFromBase64(StringView base64) = 0;
+
+		//vehicle script data
+		virtual void SetManualEngineControl(bool state) = 0;
+		virtual bool IsManualEngineControl() = 0;
+
+		virtual String GetScriptDataBase64() = 0;
+		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
 
 	protected:
 		virtual ~IVehicle() = default;
