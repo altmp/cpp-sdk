@@ -1,5 +1,7 @@
 #pragma once
 
+#define _USE_MATH_DEFINES
+
 #include <cstddef>
 #include <cstdio>
 #include <cstring>
@@ -243,7 +245,7 @@ namespace alt
         PointPaddedLayout(const ULayout& layout) : PointLayout{ layout } { }
 
     private:
-        float pad;
+        float pad = 0.f;
     };
 
     using Point = Vector<float, 3, PointLayout>;
@@ -259,9 +261,9 @@ namespace alt
 
         static const std::size_t Width = 3;
 
-        RotationLayout() : roll{ 0 }, pitch{ 0 }, yaw{ 0 } { };
-        RotationLayout(float _roll, float _pitch, float _yaw) : roll{ _roll }, pitch{ _pitch }, yaw{ _yaw } { }
-        RotationLayout(const float (&elements)[Width]) : roll{ elements[0] }, pitch{ elements[1] }, yaw{ elements[2] } { }
+		RotationLayout(float _roll, float _pitch, float _yaw) : roll{ Normalize(_roll) }, pitch{ Normalize(_pitch) }, yaw{ Normalize(_yaw) } { }
+        RotationLayout() : RotationLayout(0, 0, 0) { };
+        RotationLayout(const float (&elements)[Width]) : RotationLayout(elements[0], elements[1], elements[2]) { }
 
         template<class ULayout, typename = typename std::enable_if<ULayout::Width >= Width>::type>
         RotationLayout(const ULayout& _layout)
@@ -277,7 +279,25 @@ namespace alt
             return stream << "Rotation{ roll: " << layout.roll << ", pitch: " << layout.pitch << ", yaw: " << layout.yaw << " }";
         }
 
+		void Normalize()
+		{
+			roll = Normalize(roll);
+			pitch = Normalize(pitch);
+			yaw = Normalize(yaw);
+		}
+
         float roll, pitch, yaw;
+
+	private:
+		static float Normalize(float ang)
+		{
+			ang = fmod(ang, M_PI * 2);
+
+			if (ang < 0)
+				ang += M_PI * 2;
+
+			return ang;
+		}
     };
 
     class RotationPaddedLayout : public RotationLayout
@@ -291,7 +311,7 @@ namespace alt
         RotationPaddedLayout(const ULayout& layout) : RotationLayout{ layout } { }
 
     private:
-        float pad;
+        float pad = 0.f;
     };
 
     using Rotation = Vector<float, 3, RotationLayout>;
