@@ -49,19 +49,18 @@ namespace alt
 		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;
 
 		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
-		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
-		virtual void RemoveEntity(IEntity* entity) = 0;
 
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(IPlayer* target, uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
-		virtual void RemoveCheckpoint(ICheckpoint* checkpoint) = 0;
 
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::Type type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::Type type, IEntity* attachTo) = 0;
-		virtual void RemoveBlip(IBlip* blip) = 0;
 
 		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
-		virtual void RemoveVoiceChannel(IVoiceChannel* channel) = 0;
+
+		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
+
+		virtual void DestroyBaseObject(IBaseObject* handle) const = 0;
 
 		virtual Array<IPlayer*> GetPlayersByName(StringView name) const = 0;
 
