@@ -60,7 +60,7 @@ namespace alt
 
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
 
-		virtual void DestroyBaseObject(IBaseObject* handle) const = 0;
+		virtual void DestroyBaseObject(IBaseObject* handle) = 0;
 
 		virtual Array<IPlayer*> GetPlayersByName(StringView name) const = 0;
 
