@@ -9,6 +9,7 @@
 #include "events/CEvent.h"
 
 #include "script-objects/IBlip.h"
+#include "script-objects/IColShape.h"
 
 namespace alt
 {
@@ -57,6 +58,12 @@ namespace alt
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::Type type, IEntity* attachTo) = 0;
 
 		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
+
+		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
+		virtual IColShape* CreateColShapeSphere(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCircle(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCube(Position pos, Position pos2) = 0;
+		virtual IColShape* CreateColShapeRectangle(Position pos, Position pos2) = 0;
 
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
 

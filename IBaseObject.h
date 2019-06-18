@@ -15,7 +15,8 @@ namespace alt
 			CHECKPOINT,
 			BLIP,
 			WEBVIEW,
-			VOICE_CHANNEL
+			VOICE_CHANNEL,
+			COLSHAPE
 		};
 
 		virtual Type GetType() const = 0;
