@@ -50,6 +50,7 @@
 #include "events/CPlayerDamageEvent.h"
 #include "events/CPlayerDeathEvent.h"
 #include "events/CCheckpointEvent.h"
+#include "events/CColShapeEvent.h"
 #include "events/CPlayerEnterVehicleEvent.h"
 #include "events/CPlayerLeaveVehicleEvent.h"
 #include "events/CPlayerChangeVehicleSeatEvent.h"
