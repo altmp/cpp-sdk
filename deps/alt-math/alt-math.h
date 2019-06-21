@@ -10,6 +10,9 @@
 
 namespace alt
 {
+	static constexpr double PI = M_PI;
+	static constexpr double TWO_PI = 2 * PI;
+
     template<class T, std::size_t W>
     class VectorLayout
     {
@@ -291,12 +294,7 @@ namespace alt
 	private:
 		static float Normalize(float ang)
 		{
-			ang = fmod(ang, M_PI * 2);
-
-			if (ang < 0)
-				ang += M_PI * 2;
-
-			return ang;
+			return fmod(fmod(ang - PI, TWO_PI) + TWO_PI, TWO_PI) - PI;
 		}
     };
 
