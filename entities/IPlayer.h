@@ -70,6 +70,8 @@ namespace alt
 		virtual IEntity* GetEntityAimingAt() const = 0;
 		virtual Position GetEntityAimOffset() const = 0;
 
+		virtual bool IsFlashlightActive() const = 0;
+
 		virtual void Kick(StringView reason = "kicked out") = 0;
 
 #ifdef ALT_SERVER_API
