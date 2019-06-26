@@ -18,6 +18,14 @@
 
 #endif // _WIN32
 
+/*
+EXPORT uint32_t GetSDKVersion()
+{
+	return ALTV_SDK_VERSION;
+}
+*/
+#define ALTV_SDK_VERSION 1 //Increment manually on changes
+
 
 #include "deps/alt-math/alt-math.h"
 
