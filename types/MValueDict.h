@@ -27,6 +27,8 @@ namespace alt
 			*(MValue*)this = val;
 		}
 
-		MValue& operator[](String key) { return Get<Dict>()[key]; }
+		MValue& operator[](const String& key) { return Get<Dict>()[key]; }
+
+		void Delete(const String& key) { Get<Dict>().erase(key); }
 	};
 }
