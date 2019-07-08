@@ -18,7 +18,11 @@ namespace alt
 		virtual void Despawn() = 0;
 
 		virtual StringView GetName() const = 0;
-		virtual void SetName(StringView name) = 0;
+
+		virtual uint64_t GetSocialID() const = 0;
+		virtual uint64_t GetHwidHash() const = 0;
+		virtual uint64_t GetHwidExHash() const = 0;
+		virtual StringView GetAuthToken() const = 0;
 
 		virtual uint16_t GetHealth() const = 0;
 		virtual void SetHealth(uint16_t health) = 0;
