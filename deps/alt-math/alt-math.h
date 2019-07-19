@@ -22,7 +22,12 @@ namespace alt
         static const std::size_t Width = W;
 
         VectorLayout() : elements{ 0 } { };
-        VectorLayout(const Element (&_elements)[Width]) : elements{ _elements } { };
+        VectorLayout(const Element (&_elements)[Width]) {
+            for(size_t i = 0; i < Width; i++)
+            {
+                elements[i] = _elements[i];
+            }
+        };
         VectorLayout(const Element& el) { };
 
         template <typename... Args, typename = typename std::enable_if<sizeof...(Args) == Width>::type>
