@@ -24,7 +24,7 @@ EXPORT uint32_t GetSDKVersion()
 	return ALTV_SDK_VERSION;
 }
 */
-#define ALTV_SDK_VERSION 2 //Increment manually on changes
+#define ALTV_SDK_VERSION 3 //Increment manually on changes
 
 
 #include "deps/alt-math/alt-math.h"
