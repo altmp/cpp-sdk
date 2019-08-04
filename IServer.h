@@ -75,6 +75,8 @@ namespace alt
 		virtual Array<IPlayer*> GetPlayers() const = 0;
 		virtual Array<IVehicle*> GetVehicles() const = 0;
 
+		virtual uint32_t GetNetTime() const = 0;
+
 #ifndef ALT_SERVER
 		static IServer& Instance() { return *_instance(); }
 		static void SetInstance(IServer* server) { _instance() = server; }

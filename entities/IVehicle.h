@@ -83,6 +83,11 @@ namespace alt
 		virtual RGBA GetNeonColor() = 0;
 		virtual void SetNeonColor(RGBA color) = 0;
 
+		virtual uint8_t GetLivery() = 0;
+		virtual void SetLivery(uint8_t livery) = 0;
+		virtual uint8_t GetRoofLivery() = 0;
+		virtual void SetRoofLivery(uint8_t roofLivery) = 0;
+
 		virtual String GetAppearanceDataBase64() = 0;
 		virtual void LoadAppearanceDataFromBase64(StringView base64) = 0;
 		
@@ -119,6 +124,9 @@ namespace alt
 		virtual void SetRoofOpened(bool state) = 0;
 
 		virtual bool IsFlamethrowerActive() = 0;
+
+		virtual float GetLightsMultiplier() = 0;
+		virtual void SetLightsMultiplier(float multiplier) = 0;
 
 		virtual String GetGameStateBase64() = 0;
 		virtual void LoadGameStateFromBase64(StringView base64) = 0;
