@@ -20,9 +20,9 @@ namespace alt
 	class IScriptRuntime;
 	class IVoiceChannel;
 
-	using EventCallback = bool(*)(const CEvent* e);
-	using TickCallback = void(*)();
-	using CommandCallback = void(*)(StringView cmd, Array<StringView> args);
+	using EventCallback = bool(*)(const CEvent* e, void* userData);
+	using TickCallback = void(*)(void* userData);
+	using CommandCallback = void(*)(StringView cmd, Array<StringView> args, void* userData);
 
 	class IServer
 	{
@@ -42,9 +42,9 @@ namespace alt
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime* runtime) = 0;
 
-		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb) = 0;
-		virtual void SubscribeTick(TickCallback cb) = 0;
-		virtual void SubscribeCommand(StringView cmd, CommandCallback cb) = 0;
+		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb, void* userData = nullptr) = 0;
+		virtual void SubscribeTick(TickCallback cb, void* userData = nullptr) = 0;
+		virtual void SubscribeCommand(StringView cmd, CommandCallback cb, void* userData = nullptr) = 0;
 
 		virtual void TriggerServerEvent(StringView ev, MValueList args) = 0;
 		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;

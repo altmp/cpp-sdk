@@ -18,13 +18,7 @@
 
 #endif // _WIN32
 
-/*
-EXPORT uint32_t GetSDKVersion()
-{
-	return ALTV_SDK_VERSION;
-}
-*/
-#define ALTV_SDK_VERSION 3 //Increment manually on changes
+#define ALTV_SDK_VERSION 4 //Increment manually on changes
 
 
 #include "deps/alt-math/alt-math.h"
@@ -71,7 +65,7 @@ EXPORT uint32_t GetSDKVersion()
 #include "events/CConnectionComplete.h"
 #include "events/CDisconnectEvent.h"
 #include "events/CGameEntityCreateEvent.h"
-#include "events/CGameEntityRemoveEvent.h"
+#include "events/CGameEntityDestroyEvent.h"
 #include "events/CKeyboardEvent.h"
 #include "events/CWebViewEvent.h"
 
