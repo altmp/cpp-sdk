@@ -12,8 +12,8 @@ namespace alt
 	public:
 		virtual ~IScriptRuntime() = default;
 
-		virtual bool CreateResource(IResource* resource) = 0;
-		virtual void RemoveResource(IResource* resource) = 0;
+		virtual IResource::Impl* CreateImpl(IResource* resource) = 0;
+		virtual void DestroyImpl(IResource::Impl* impl) = 0;
 
 		virtual void OnTick() { };
 	};

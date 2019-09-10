@@ -27,7 +27,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 5;
+		static constexpr uint32_t SDK_VERSION = 6;
 
 		// Shared methods
 		virtual IResource* GetResource(StringView name) = 0;

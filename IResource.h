@@ -25,7 +25,7 @@ namespace alt
 			IPackage* pkg;
 		};
 
-		class CImpl
+		class Impl
 		{
 		public:
 #ifdef ALT_SERVER_API
@@ -40,11 +40,11 @@ namespace alt
 			virtual void OnCreateBaseObject(IBaseObject* object) { };
 			virtual void OnRemoveBaseObject(IBaseObject* object) { };
 
-			virtual ~CImpl() = default;
+			virtual ~Impl() = default;
 		};
 
 		virtual IScriptRuntime* GetRuntime() const = 0;
-		virtual CImpl* GetImpl() const = 0;
+		virtual Impl* GetImpl() const = 0;
 
 		virtual bool IsStarted() const = 0;
 
@@ -55,7 +55,6 @@ namespace alt
 		virtual IPackage* GetPackage() const = 0;
 		virtual MValueDict GetExports() const = 0;
 
-		virtual void SetImpl(CImpl* impl) = 0;
 		virtual void SetExports(MValueDict exports) = 0;
 
 	protected:
