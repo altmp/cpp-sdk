@@ -8,19 +8,13 @@
 
 namespace alt
 {
+	class IScriptRuntime;
 	class IPackage;
 	class CEvent;
 
 	class IResource
 	{
 	public:
-		enum class State
-		{
-			STOPPED,
-			INSTANTIATING,
-			STARTED
-		};
-
 		struct CreationInfo
 		{
 			String type;
@@ -31,50 +25,40 @@ namespace alt
 			IPackage* pkg;
 		};
 
-		virtual ~IResource() = default;
-
-		State GetState() const { return state; }
-		bool IsStarted() const { return state == State::STARTED; }
-
-		StringView GetType() const { return type; }
-		StringView GetName() const { return name; }
-		StringView GetPath() const { return path; }
-		StringView GetMain() const { return main; }
-		IPackage* GetPackage() const { return pkg; }
-		MValueDict GetExports() { return exports; }
-
+		class CImpl
+		{
+		public:
 #ifdef ALT_SERVER_API
-		virtual void MakeClient(CreationInfo* info, Array<String> files) { };
+			virtual bool MakeClient(CreationInfo* info, Array<String> files) { return true; };
 #endif
-		virtual bool Instantiate() { state = State::INSTANTIATING; return true; }
-		virtual bool Start() { state = State::STARTED; return true; };
-		virtual bool Stop() { state = State::STOPPED; return true; };
+			virtual bool Start() { return true; };
+			virtual bool Stop() { return true; };
 
-		virtual bool OnEvent(const CEvent* ev) { return true; };
-		virtual void OnTick() { };
+			virtual bool OnEvent(const CEvent* ev) { return true; };
+			virtual void OnTick() { };
 
-		virtual void OnCreateBaseObject(IBaseObject* object) { };
-		virtual void OnRemoveBaseObject(IBaseObject* object) { };
+			virtual void OnCreateBaseObject(IBaseObject* object) { };
+			virtual void OnRemoveBaseObject(IBaseObject* object) { };
+
+			virtual ~CImpl() = default;
+		};
+
+		virtual IScriptRuntime* GetRuntime() const = 0;
+		virtual CImpl* GetImpl() const = 0;
+
+		virtual bool IsStarted() const = 0;
+
+		virtual StringView GetType() const = 0;
+		virtual StringView GetName() const = 0;
+		virtual StringView GetPath() const = 0;
+		virtual StringView GetMain() const = 0;
+		virtual IPackage* GetPackage() const = 0;
+		virtual MValueDict GetExports() const = 0;
+
+		virtual void SetImpl(CImpl* impl) = 0;
+		virtual void SetExports(MValueDict exports) = 0;
 
 	protected:
-		String type;
-		String name;
-		String path;
-		String main;
-		IPackage* pkg;
-
-		State state;
-		MValueDict exports;
-
-		IResource(CreationInfo* info) :
-			type(info->type),
-			name(info->name),
-			path(info->path),
-			main(info->main),
-			pkg(info->pkg),
-			state(State::STOPPED)
-		{
-
-		}
+		virtual ~IResource() = default;
 	};
 }

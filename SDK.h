@@ -18,8 +18,6 @@
 
 #endif // _WIN32
 
-#define ALTV_SDK_VERSION 4 //Increment manually on changes
-
 
 #include "deps/alt-math/alt-math.h"
 
@@ -75,6 +73,4 @@
 #include "IResource.h"
 #include "IScriptRuntime.h"
 
-#ifdef ALT_SERVER_API
-#include "IServer.h"
-#endif
+#include "ICore.h"

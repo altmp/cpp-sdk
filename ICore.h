@@ -24,13 +24,13 @@ namespace alt
 	using TickCallback = void(*)(void* userData);
 	using CommandCallback = void(*)(StringView cmd, Array<StringView> args, void* userData);
 
-	class IServer
+	class ICore
 	{
 	public:
-		virtual StringView GetRootDirectory() = 0;
+		static constexpr uint32_t SDK_VERSION = 5;
 
+		// Shared methods
 		virtual IResource* GetResource(StringView name) = 0;
-		virtual bool RequireResource(IResource* referrer, IResource* resource) = 0;
 
 		virtual void LogInfo(StringView str) = 0;
 		virtual void LogDebug(StringView str) = 0;
@@ -44,7 +44,10 @@ namespace alt
 
 		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb, void* userData = nullptr) = 0;
 		virtual void SubscribeTick(TickCallback cb, void* userData = nullptr) = 0;
-		virtual void SubscribeCommand(StringView cmd, CommandCallback cb, void* userData = nullptr) = 0;
+		virtual bool SubscribeCommand(StringView cmd, CommandCallback cb, void* userData = nullptr) = 0;
+
+#ifdef ALT_SERVER_API // Server methods
+		virtual StringView GetRootDirectory() = 0;
 
 		virtual void TriggerServerEvent(StringView ev, MValueList args) = 0;
 		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;
@@ -76,19 +79,19 @@ namespace alt
 		virtual Array<IVehicle*> GetVehicles() const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
+#endif
 
-#ifndef ALT_SERVER
-		static IServer& Instance() { return *_instance(); }
-		static void SetInstance(IServer* server) { _instance() = server; }
+		static ICore& Instance() { return *_instance(); }
+		static void SetInstance(ICore* server) { _instance() = server; }
+
+	protected:
+		virtual ~ICore() = default;
 
 	private:
-		static IServer*& _instance()
+		static ICore*& _instance()
 		{
-			static IServer* instance = nullptr;
+			static ICore* instance = nullptr;
 			return instance;
 		}
-#endif
-	protected:
-		virtual ~IServer() = default;
 	};
 }
