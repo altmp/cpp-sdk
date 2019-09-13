@@ -23,6 +23,9 @@ namespace alt
 
 			PLAYER_DAMAGE,
 			PLAYER_DEATH,
+			FIRE_EVENT,
+			EXPLOSION_EVENT,
+			WEAPON_DAMAGE_EVENT,
 
 			CHECKPOINT_EVENT,
 			COLSHAPE_EVENT,
@@ -56,6 +59,6 @@ namespace alt
 
 	private:
 		Type type;
-		mutable bool cancelled;
+		mutable bool cancelled = false;
 	};
 }
