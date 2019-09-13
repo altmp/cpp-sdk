@@ -1,13 +1,14 @@
 #pragma once
 
-#include "../alt-math/alt-math.h"
+#include "../deps/alt-math/alt-math.h"
 #include "../entities/IPlayer.h"
 
 #include "CEvent.h"
 
 namespace alt
 {
-	// TODO
+	class IPlayer;
+
 	class CExplosionEvent : public CEvent
 	{
 	public:
@@ -65,6 +66,11 @@ namespace alt
 		{
 
 		}
+
+		IPlayer* GetSource() const { return source; }
+		ExplosionType GetExplosionType() const { return explosionType; }
+		Position GetPosition() const { return position; }
+		uint32_t GetExplosionFX() const { return explosionFX; }
 
 	private:
 		IPlayer* source;

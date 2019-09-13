@@ -1,11 +1,14 @@
 #pragma once
 
-#include "../alt-math/alt-math.h"
+#include "../deps/alt-math/alt-math.h"
 
 #include "CEvent.h"
 
 namespace alt
 {
+	class IPlayer;
+	class IEntity;
+
 	class CWeaponDamageEvent : public CEvent
 	{
 	public:

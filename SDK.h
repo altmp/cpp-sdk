@@ -57,6 +57,8 @@
 #include "events/CDataNodeReceivedEvent.h"
 #include "events/CRemoveEntityEvent.h"
 #include "events/CConsoleCommandEvent.h"
+#include "events/CWeaponDamageEvent.h"
+#include "events/CExplosionEvent.h"
 
 #ifdef ALT_CLIENT_API
 
