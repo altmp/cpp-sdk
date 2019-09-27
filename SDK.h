@@ -59,6 +59,9 @@
 #include "events/CConsoleCommandEvent.h"
 #include "events/CWeaponDamageEvent.h"
 #include "events/CExplosionEvent.h"
+#include "events/CResourceStartEvent.h"
+#include "events/CResourceStopEvent.h"
+#include "events/CResourceErrorEvent.h"
 
 #ifdef ALT_CLIENT_API
 
