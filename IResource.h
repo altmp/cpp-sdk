@@ -19,9 +19,7 @@ namespace alt
 		{
 			String type;
 			String name;
-			String path;
 			String main;
-			Array<String> deps;
 			IPackage* pkg;
 		};
 
