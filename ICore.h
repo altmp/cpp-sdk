@@ -27,7 +27,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 8;
+		static constexpr uint32_t SDK_VERSION = 9;
 
 		// Shared methods
 		virtual IResource* GetResource(StringView name) = 0;
@@ -48,6 +48,10 @@ namespace alt
 
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
+
+		virtual IResource* StartResource(StringView name) = 0;
+		virtual void StopResource(StringView name) = 0;
+		virtual IResource* RestartResource(StringView name) = 0;
 
 		virtual void TriggerServerEvent(StringView ev, MValueList args) = 0;
 		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;
