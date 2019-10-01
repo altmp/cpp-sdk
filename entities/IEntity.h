@@ -7,10 +7,14 @@
 
 namespace alt
 {
+	class IPlayer;
+
 	class IEntity : public virtual IWorldObject
 	{
 	public:
 		virtual uint16_t GetID() const = 0;
+
+		virtual IPlayer* GetNetworkOwner() const = 0;
 
 		virtual uint32_t GetModel() const = 0;
 
