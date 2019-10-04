@@ -27,7 +27,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 10;
+		static constexpr uint32_t SDK_VERSION = 11;
 
 		// Shared methods
 		virtual IResource* GetResource(StringView name) = 0;
@@ -45,6 +45,9 @@ namespace alt
 		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb, void* userData = nullptr) = 0;
 		virtual void SubscribeTick(TickCallback cb, void* userData = nullptr) = 0;
 		virtual bool SubscribeCommand(StringView cmd, CommandCallback cb, void* userData = nullptr) = 0;
+
+		virtual bool FileExists(StringView path) = 0;
+		virtual String FileRead(StringView path) = 0;
 
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
