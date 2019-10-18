@@ -112,6 +112,7 @@ namespace alt
 			delete[] data;
 			
 			data = buf;
+			size = new_size;
 		}
 
 		bool IsEmpty() const { return size == 0; }
