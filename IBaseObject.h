@@ -21,7 +21,7 @@ namespace alt
 
 		virtual Type GetType() const = 0;
 
-		virtual MValue GetMetaData(StringView key) const = 0;
+		virtual MValueConst GetMetaData(StringView key) const = 0;
 		virtual void SetMetaData(StringView key, MValue val) = 0;
 
 	protected:

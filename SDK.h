@@ -27,9 +27,6 @@
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
-#include "types/MValueList.h"
-#include "types/MValueDict.h"
-#include "types/MValueFunction.h"
 
 #include "IBaseObject.h"
 #include "IWorldObject.h"

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../types/MValue.h"
-#include "../types/MValueList.h"
 
 #include "CEvent.h"
 
@@ -12,7 +11,7 @@ namespace alt
 	class CServerScriptEvent : public CEvent
 	{
 	public:
-		CServerScriptEvent(StringView _name, MValueList _args) :
+		CServerScriptEvent(StringView _name, const MValueArgs& _args) :
 			CEvent(Type::SERVER_SCRIPT_EVENT),
 			name(_name),
 			args(_args)
@@ -21,10 +20,10 @@ namespace alt
 		}
 
 		StringView GetName() const { return name; }
-		MValueList GetArgs() const { return args; }
+		const MValueArgs& GetArgs() const { return args; }
 
 	private:
 		String name;
-		MValueList args;
+		MValueArgs args;
 	};
 }

@@ -3,8 +3,6 @@
 #include "types/StringView.h"
 #include "types/String.h"
 #include "types/MValue.h"
-#include "types/MValueList.h"
-#include "types/MValueDict.h"
 
 namespace alt
 {

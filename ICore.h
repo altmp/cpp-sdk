@@ -2,11 +2,12 @@
 
 #include "deps/alt-math/alt-math.h"
 #include "types/RGBA.h"
+#include "types/Array.h"
 #include "types/MValue.h"
-#include "types/MValueList.h"
 #include "types/StringView.h"
 
 #include "events/CEvent.h"
+#include "IResource.h"
 
 #include "script-objects/IBlip.h"
 #include "script-objects/IColShape.h"
@@ -38,6 +39,17 @@ namespace alt
 		virtual void LogError(StringView str) = 0;
 		virtual void LogColored(StringView str) = 0;
 
+		virtual MValueNil CreateMValueNil() = 0;
+		virtual MValueBool CreateMValueBool(bool val) = 0;
+		virtual MValueInt CreateMValueInt(int64_t val) = 0;
+		virtual MValueUInt CreateMValueUInt(uint64_t val) = 0;
+		virtual MValueDouble CreateMValueDouble(double val) = 0;
+		virtual MValueString CreateMValueString(String val) = 0;
+		virtual MValueList CreateMValueList(Size size = 0) = 0;
+		virtual MValueDict CreateMValueDict() = 0;
+		virtual MValueBaseObject CreateMValueBaseObject(IBaseObject* val) = 0;
+		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl* impl) = 0;
+
 		virtual uint32_t Hash(StringView str) const = 0;
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime* runtime) = 0;
@@ -56,8 +68,8 @@ namespace alt
 		virtual void StopResource(StringView name) = 0;
 		virtual IResource* RestartResource(StringView name) = 0;
 
-		virtual void TriggerServerEvent(StringView ev, MValueList args) = 0;
-		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueList args) = 0;
+		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(IPlayer* target, StringView ev, MValueArgs args) = 0;
 
 		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
