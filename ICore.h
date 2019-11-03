@@ -31,8 +31,6 @@ namespace alt
 		static constexpr uint32_t SDK_VERSION = 11;
 
 		// Shared methods
-		virtual IResource* GetResource(StringView name) = 0;
-
 		virtual void LogInfo(StringView str) = 0;
 		virtual void LogDebug(StringView str) = 0;
 		virtual void LogWarning(StringView str) = 0;
@@ -60,6 +58,8 @@ namespace alt
 
 		virtual bool FileExists(StringView path) = 0;
 		virtual String FileRead(StringView path) = 0;
+
+		virtual IResource* GetResource(StringView name) = 0;
 
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;

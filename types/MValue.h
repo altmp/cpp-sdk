@@ -68,6 +68,7 @@ namespace alt
 
 		virtual Type GetType() const = 0;
 		virtual String ToString() const = 0;
+		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
 	};
 
@@ -147,9 +148,6 @@ namespace alt
 		public:
 			virtual MValue Call(MValueArgs args) const = 0;
 
-		protected:
-			~Impl() = default;
-
 			virtual void AddRef() { ++refCount; }
 
 			virtual void RemoveRef()
@@ -157,6 +155,9 @@ namespace alt
 				if (--refCount == 0)
 					delete this;
 			}
+
+		protected:
+			~Impl() = default;
 
 		private:
 			Size refCount = 0;
