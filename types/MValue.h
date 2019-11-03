@@ -145,9 +145,21 @@ namespace alt
 		class Impl
 		{
 		public:
-			virtual void AddRef() = 0;
-			virtual void RemoveRef() = 0;
 			virtual MValue Call(MValueArgs args) const = 0;
+
+		protected:
+			~Impl() = default;
+
+			virtual void AddRef() { ++refCount; }
+
+			virtual void RemoveRef()
+			{
+				if (--refCount == 0)
+					delete this;
+			}
+
+		private:
+			Size refCount = 0;
 		};
 
 		virtual MValue Call(MValueArgs args) const = 0;
