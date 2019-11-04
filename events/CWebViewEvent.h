@@ -2,6 +2,7 @@
 
 #include "../types/StringView.h"
 #include "../types/MValue.h"
+#include "../Ref.h"
 
 #include "CEvent.h"
 

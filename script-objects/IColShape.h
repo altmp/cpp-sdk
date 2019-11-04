@@ -5,6 +5,7 @@
 #include "../types/RGBA.h"
 #include "../IWorldObject.h"
 #include "../entities/IEntity.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -21,11 +22,10 @@ namespace alt
 	class IColShape : public virtual IWorldObject
 	{
 	public:
+		virtual ~IColShape() = default;
+
 		virtual ColShapeType GetColshapeType() const = 0;
 
-		virtual bool IsEntityIn(IEntity* ent) const = 0;
-
-	protected:
-		virtual ~IColShape() = default;
+		virtual bool IsEntityIn(Ref<IEntity> ent) const = 0;
 	};
 }

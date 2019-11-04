@@ -14,7 +14,9 @@ namespace alt
 	class IVehicle : public virtual IEntity
 	{
 	public:
-		virtual IPlayer* GetDriver() = 0;
+		virtual ~IVehicle() = default;
+
+		virtual Ref<IPlayer> GetDriver() = 0;
 
 		virtual uint8_t GetMod(uint8_t category) = 0;
 		virtual uint8_t GetModsCount(uint8_t category) = 0;
@@ -152,7 +154,7 @@ namespace alt
 		virtual uint8_t GetRepairsCount() = 0;
 
 		// Will be moved to event
-		//virtual IEntity* GetLastAttacker() = 0;
+		//virtual Ref<IEntity> GetLastAttacker() = 0;
 		//virtual uint32_t GetLastDamagedWith() = 0;
 
 		virtual uint32_t GetBodyHealth() = 0;
@@ -191,8 +193,5 @@ namespace alt
 
 		virtual String GetScriptDataBase64() = 0;
 		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
-
-	protected:
-		virtual ~IVehicle() = default;
 	};
 }

@@ -2,6 +2,7 @@
 
 #include "../types/StringView.h"
 #include "../types/String.h"
+#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -12,13 +13,13 @@ namespace alt
 	class CPlayerConnectEvent : public CEvent
 	{
 	public:
-		CPlayerConnectEvent(IPlayer* _target) :
+		CPlayerConnectEvent(Ref<IPlayer> _target) :
 			CEvent(Type::PLAYER_CONNECT),
 			target(_target)
 		{
 		}
 
-		IPlayer* GetTarget() const { return target; }
+		Ref<IPlayer> GetTarget() const { return target; }
 		StringView GetReason() { return reason; }
 
 		void Cancel(StringView _reason)
@@ -28,7 +29,7 @@ namespace alt
 		}
 
 	private:
-		IPlayer* target;
+		Ref<IPlayer> target;
 		String reason;
 	};
 }

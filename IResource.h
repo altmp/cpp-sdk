@@ -33,8 +33,8 @@ namespace alt
 			virtual bool OnEvent(const CEvent* ev) { return true; };
 			virtual void OnTick() { };
 
-			virtual void OnCreateBaseObject(IBaseObject* object) { };
-			virtual void OnRemoveBaseObject(IBaseObject* object) { };
+			virtual void OnCreateBaseObject(Ref<IBaseObject> object) { };
+			virtual void OnRemoveBaseObject(Ref<IBaseObject> object) { };
 
 			virtual ~Impl() = default;
 		};

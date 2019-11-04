@@ -12,9 +12,11 @@ namespace alt
 	class IEntity : public virtual IWorldObject
 	{
 	public:
+		virtual ~IEntity() = default;
+
 		virtual uint16_t GetID() const = 0;
 
-		virtual IPlayer* GetNetworkOwner() const = 0;
+		virtual Ref<IPlayer> GetNetworkOwner() const = 0;
 
 		virtual uint32_t GetModel() const = 0;
 
@@ -26,8 +28,5 @@ namespace alt
 #ifdef ALT_SERVER_API
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
 #endif // ALT_SERVER_API
-
-	protected:
-		virtual ~IEntity() = default;
 	};
 }

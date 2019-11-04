@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CEvent.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -10,7 +11,7 @@ namespace alt
 	class CPlayerLeaveVehicleEvent : public CEvent
 	{
 	public:
-		CPlayerLeaveVehicleEvent(IVehicle* _target, IPlayer* _player, uint8_t _seat) :
+		CPlayerLeaveVehicleEvent(Ref<IVehicle> _target, Ref<IPlayer> _player, uint8_t _seat) :
 			CEvent(Type::PLAYER_LEAVE_VEHICLE),
 			target(_target),
 			player(_player),
@@ -19,13 +20,13 @@ namespace alt
 
 		}
 
-		IVehicle* GetTarget() const { return target; }
-		IPlayer* GetPlayer() const { return player; }
+		Ref<IVehicle> GetTarget() const { return target; }
+		Ref<IPlayer> GetPlayer() const { return player; }
 		uint8_t GetSeat() const { return seat; }
 
 	private:
-		IVehicle* target;
-		IPlayer* player;
+		Ref<IVehicle> target;
+		Ref<IPlayer> player;
 		uint8_t seat;
 	};
 }

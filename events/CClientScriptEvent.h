@@ -1,8 +1,10 @@
 #pragma once
 
 #include "../types/StringView.h"
+#include "../types/MValue.h"
 
 #include "CEvent.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -12,7 +14,7 @@ namespace alt
 	class CClientScriptEvent : public CEvent
 	{
 	public:
-		CClientScriptEvent(IPlayer* _target, StringView _name, const MValueArgs&_args) :
+		CClientScriptEvent(Ref<IPlayer> _target, StringView _name, const MValueArgs&_args) :
 			CEvent(Type::CLIENT_SCRIPT_EVENT),
 			target(_target),
 			name(_name),
@@ -21,18 +23,16 @@ namespace alt
 
 		}
 
-		IPlayer* GetTarget() const { return target; }
+		Ref<IPlayer> GetTarget() const { return target; }
 		StringView GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
-		IPlayer* target;
+		Ref<IPlayer> target;
 		String name;
 		MValueArgs args;
 	};
 #else
-	class IPlayer;
-
 	class CClientScriptEvent : public CEvent
 	{
 	public:

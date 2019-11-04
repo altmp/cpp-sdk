@@ -2,6 +2,7 @@
 
 #include "../deps/alt-math/alt-math.h"
 #include "../entities/IPlayer.h"
+#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -57,7 +58,7 @@ namespace alt
 			UNKNOWN = -1
 		};
 
-		CExplosionEvent(IPlayer* _source, ExplosionType _explosionType, Position _position, uint32_t _explosionFX) :
+		CExplosionEvent(Ref<IPlayer> _source, ExplosionType _explosionType, Position _position, uint32_t _explosionFX) :
 			CEvent(Type::EXPLOSION_EVENT),
 			source(_source),
 			explosionType(_explosionType),
@@ -67,13 +68,13 @@ namespace alt
 
 		}
 
-		IPlayer* GetSource() const { return source; }
+		Ref<IPlayer> GetSource() const { return source; }
 		ExplosionType GetExplosionType() const { return explosionType; }
 		Position GetPosition() const { return position; }
 		uint32_t GetExplosionFX() const { return explosionFX; }
 
 	private:
-		IPlayer* source;
+		Ref<IPlayer> source;
 		ExplosionType explosionType;
 		Position position;
 		uint32_t explosionFX;

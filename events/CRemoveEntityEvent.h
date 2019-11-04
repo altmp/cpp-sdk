@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CEvent.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -9,16 +10,16 @@ namespace alt
 	class CRemoveEntityEvent : public CEvent
 	{
 	public:
-		CRemoveEntityEvent(IEntity* _target) :
+		CRemoveEntityEvent(Ref<IEntity> _target) :
 			CEvent(Type::REMOVE_ENTITY_EVENT),
 			target(_target)
 		{
 
 		}
 
-		IEntity* GetEntity() const { return target; }
+		Ref<IEntity> GetEntity() const { return target; }
 
 	private:
-		IEntity* target;
+		Ref<IEntity> target;
 	};
 }

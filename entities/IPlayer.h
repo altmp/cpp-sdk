@@ -9,6 +9,8 @@ namespace alt
 	class IPlayer : public virtual IEntity
 	{
 	public:
+		virtual ~IPlayer() = default;
+
 		virtual bool IsConnected() const = 0;
 
 		virtual uint32_t GetPing() const = 0;
@@ -38,7 +40,7 @@ namespace alt
 
 		virtual void AddWeaponComponent(uint32_t weapon, uint32_t component) = 0;
 		virtual void RemoveWeaponComponent(uint32_t weapon, uint32_t component) = 0;
-		virtual alt::Array<uint32_t> GetCurrentWeaponComponents() const = 0;
+		virtual Array<uint32_t> GetCurrentWeaponComponents() const = 0;
 
 		virtual void SetWeaponTintIndex(uint32_t weapon, uint8_t tintIndex) = 0;
 		virtual uint8_t GetCurrentWeaponTintIndex() const = 0;
@@ -68,10 +70,10 @@ namespace alt
 		virtual Rotation GetHeadRotation() const = 0;
 
 		virtual bool IsInVehicle() const = 0;
-		virtual IVehicle* GetVehicle() const = 0;
+		virtual Ref<IVehicle> GetVehicle() const = 0;
 		virtual uint8_t GetSeat() const = 0;
 
-		virtual IEntity* GetEntityAimingAt() const = 0;
+		virtual Ref<IEntity> GetEntityAimingAt() const = 0;
 		virtual Position GetEntityAimOffset() const = 0;
 
 		virtual bool IsFlashlightActive() const = 0;
@@ -81,8 +83,5 @@ namespace alt
 #ifdef ALT_SERVER_API
 		virtual void SetModel(uint32_t model) = 0;
 #endif // ALT_SERVER_API
-
-	protected:
-		virtual ~IPlayer() = default;
 	};
 }

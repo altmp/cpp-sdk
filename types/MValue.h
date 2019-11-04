@@ -137,7 +137,7 @@ namespace alt
 	class IMValueBaseObject : public virtual IMValue
 	{
 	public:
-		virtual IBaseObject* Value() const = 0;
+		virtual Ref<IBaseObject> Value() const = 0;
 	};
 
 	class IMValueFunction : public virtual IMValue

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CEvent.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -10,7 +11,7 @@ namespace alt
 	class CCheckpointEvent : public CEvent
 	{
 	public:
-		CCheckpointEvent(ICheckpoint* _target, IEntity* _entity, bool _state) :
+		CCheckpointEvent(Ref<ICheckpoint> _target, Ref<IEntity> _entity, bool _state) :
 			CEvent(Type::CHECKPOINT_EVENT),
 			target(_target),
 			entity(_entity),
@@ -19,13 +20,13 @@ namespace alt
 
 		}
 
-		ICheckpoint* GetTarget() const { return target; }
-		IEntity* GetEntity() const { return entity; }
+		Ref<ICheckpoint> GetTarget() const { return target; }
+		Ref<IEntity> GetEntity() const { return entity; }
 		bool GetState() const { return state; }
 
 	private:
-		ICheckpoint* target;
-		IEntity* entity;
+		Ref<ICheckpoint> target;
+		Ref<IEntity> entity;
 		bool state;
 	};
 }

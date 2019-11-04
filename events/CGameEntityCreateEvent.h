@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CEvent.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -9,16 +10,16 @@ namespace alt
 	class CGameEntityCreateEvent : public CEvent
 	{
 	public:
-		CGameEntityCreateEvent(IEntity* _target) :
+		CGameEntityCreateEvent(Ref<IEntity> _target) :
 			CEvent(Type::GAME_ENTITY_CREATE),
 			target(_target)
 		{
 
 		}
 
-		IEntity* GetTarget() const { return target; }
+		Ref<IEntity> GetTarget() const { return target; }
 
 	private:
-		IEntity* target;
+		Ref<IEntity> target;
 	};
 }

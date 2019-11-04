@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include "../IBaseObject.h"
+#include "../Ref.h"
 
 namespace alt
 {
@@ -10,16 +11,15 @@ namespace alt
 	class IVoiceChannel: public virtual IBaseObject
 	{
 	public:
-		virtual void AddPlayer(IPlayer* player) = 0;
-		virtual void RemovePlayer(IPlayer* player) = 0;
-		virtual void MutePlayer(IPlayer* player) = 0;
-		virtual void UnmutePlayer(IPlayer* player) = 0;
-		virtual bool IsPlayerConnected(IPlayer* player) = 0;
-		virtual bool IsPlayerMuted(IPlayer* player) = 0;
+		virtual ~IVoiceChannel() = default;
+
+		virtual void AddPlayer(Ref<IPlayer> player) = 0;
+		virtual void RemovePlayer(Ref<IPlayer> player) = 0;
+		virtual void MutePlayer(Ref<IPlayer> player) = 0;
+		virtual void UnmutePlayer(Ref<IPlayer> player) = 0;
+		virtual bool IsPlayerConnected(Ref<IPlayer> player) = 0;
+		virtual bool IsPlayerMuted(Ref<IPlayer> player) = 0;
 		virtual bool IsSpatial() = 0;
 		virtual float GetMaxDistance() = 0;
-
-	protected:
-		virtual ~IVoiceChannel() = default;
 	};
 }
