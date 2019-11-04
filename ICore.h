@@ -62,6 +62,8 @@ namespace alt
 
 		virtual IResource* GetResource(StringView name) = 0;
 
+		virtual Ref<IEntity> GetEntityByID(uint16_t id) const = 0;
+
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
 
@@ -87,8 +89,6 @@ namespace alt
 		virtual Ref<IColShape> CreateColShapeCircle(Position pos, float radius) = 0;
 		virtual Ref<IColShape> CreateColShapeCube(Position pos, Position pos2) = 0;
 		virtual Ref<IColShape> CreateColShapeRectangle(Position pos, Position pos2) = 0;
-
-		virtual Ref<IEntity> GetEntityByID(uint16_t id) const = 0;
 
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 

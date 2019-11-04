@@ -24,7 +24,7 @@ namespace alt
 
 		virtual Type GetType() const = 0;
 
-		virtual bool IsDeleted() const = 0;
+		virtual bool IsDestroyed() const = 0;
 
 		virtual MValueConst GetMetaData(StringView key) const = 0;
 		virtual void SetMetaData(StringView key, MValue val) = 0;
