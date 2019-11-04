@@ -84,19 +84,19 @@ namespace alt
 		const T& operator*() const { return *Get(); }
 
 		template<class U>
-		bool operator==(ConstRef<U> rhs) { return Get() == rhs.Get(); }
+		bool operator==(ConstRef<U> rhs) const { return Get() == rhs.Get(); }
 
 		template<class U>
-		bool operator==(U* rhs) { return Get() == rhs; }
+		bool operator==(U* rhs) const { return Get() == rhs; }
 
 		template<class U>
-		bool operator!=(ConstRef<U> rhs) { return Get() != rhs.Get(); }
+		bool operator!=(ConstRef<U> rhs) const { return Get() != rhs.Get(); }
 
 		template<class U>
-		bool operator!=(U* rhs) { return Get() != rhs; }
+		bool operator!=(U* rhs) const { return Get() != rhs; }
 
 		template<class U>
-		ConstRef<U> As() { return ConstRef<U>(dynamic_cast<U*>(Get())); }
+		ConstRef<U> As() const { return ConstRef<U>(dynamic_cast<U*>(const_cast<T*>(Get()))); }
 
 		template<class... Args>
 		static ConstRef New(Args... args)
@@ -108,8 +108,6 @@ namespace alt
 		template<class U> friend class ConstRef;
 
 		std::atomic<T*> ptr = nullptr;
-
-		T* Get() { return ptr.load(); }
 
 		void Alloc(T* _ptr)
 		{
@@ -160,11 +158,17 @@ namespace alt
 namespace std
 {
 	template<class T>
-	struct hash<alt::Ref<T>> : hash<T*>
+	struct hash<alt::ConstRef<T>>
 	{
-		size_t operator()(alt::Ref<T> ref) const
+		hash<const T*> _hash;
+		hash() = default;
+
+		size_t operator()(const alt::ConstRef<T>& ref) const
 		{
-			return (*this)(ref.Get());
+			return _hash(ref.Get());
 		}
 	};
+
+	template<class T>
+	struct hash<alt::Ref<T>> : public hash<alt::ConstRef<T>> { };
 }
