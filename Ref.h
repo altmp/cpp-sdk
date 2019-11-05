@@ -18,8 +18,12 @@ namespace alt
 
 		std::atomic_uint64_t refCount = 0;
 
-		virtual uint64_t AddRef() { return ++refCount; }
-		virtual uint64_t RemoveRef() { return --refCount; }
+		virtual void AddRef() { ++refCount; }
+
+		virtual void RemoveRef() {
+			if (--refCount == 0)
+				delete this;
+		}
 	};
 
 	template<class T>
@@ -72,11 +76,7 @@ namespace alt
 		void Free()
 		{
 			T* oldPtr = ptr.exchange(nullptr);
-
-			if (oldPtr && oldPtr->RemoveRef() == 0)
-				delete oldPtr;
-
-			oldPtr = nullptr;
+			if (oldPtr) oldPtr->RemoveRef();
 		}
 
 		const T* Get() const { return ptr.load(); }
