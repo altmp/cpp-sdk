@@ -167,7 +167,7 @@ namespace alt
 
 		template<class U>
 		ConstAtomicRef(const ConstRef<U>& other) :
-			ConstRef(const_cast<U*>(other.Get())) { }
+			ConstAtomicRef(const_cast<U*>(other.Get())) { }
 
 		template<class U>
 		ConstAtomicRef(ConstRef<U>&& other)
