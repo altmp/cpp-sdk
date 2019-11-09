@@ -19,6 +19,7 @@ namespace alt
 
 		std::atomic_uint64_t refCount = 0;
 
+	public:
 		virtual void AddRef() { ++refCount; }
 
 		virtual void RemoveRef() {
