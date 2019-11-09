@@ -10,6 +10,14 @@ namespace alt
 {
 	class CRefCountable
 	{
+	public:
+		virtual void AddRef() { ++refCount; }
+
+		virtual void RemoveRef() {
+			if (--refCount == 0)
+				delete this;
+		}
+		
 	protected:
 		virtual ~CRefCountable() = default;
 
@@ -18,14 +26,6 @@ namespace alt
 		template<class T> friend class ConstAtomicRef;
 
 		std::atomic_uint64_t refCount = 0;
-
-	public:
-		virtual void AddRef() { ++refCount; }
-
-		virtual void RemoveRef() {
-			if (--refCount == 0)
-				delete this;
-		}
 	};
 
 	template<class T>
