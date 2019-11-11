@@ -3,28 +3,24 @@
 #include <cstdint>
 #include <atomic>
 
-// Checks types on conversion
-#define ALT_REF_TYPE_CHECK(T, U) if (false) { *(static_cast<T* volatile*>(0)) = static_cast<U*>(0); }
-
 namespace alt
 {
 	class CRefCountable
 	{
+	public:
+		virtual void AddRef() { ++refCount; }
+
+		virtual void RemoveRef()
+		{
+			if (--refCount == 0)
+				delete this;
+		}
+
 	protected:
 		virtual ~CRefCountable() = default;
 
 	private:
-		template<class T> friend class ConstRef;
-		template<class T> friend class ConstAtomicRef;
-
 		std::atomic_uint64_t refCount = 0;
-
-		virtual void AddRef() { ++refCount; }
-
-		virtual void RemoveRef() {
-			if (--refCount == 0)
-				delete this;
-		}
 	};
 
 	template<class T>
