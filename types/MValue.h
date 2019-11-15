@@ -116,8 +116,8 @@ namespace alt
 		virtual void Push(MValue val) = 0;
 
 		// Will clone an MValueConst
-		virtual void Set(Size i, MValueConst val) = 0;
-		virtual void Push(MValueConst val) = 0;
+		virtual void SetConst(Size i, MValueConst val) = 0;
+		virtual void PushConst(MValueConst val) = 0;
 	};
 
 	class IMValueDict : public virtual IMValue
@@ -138,7 +138,7 @@ namespace alt
 		virtual void Set(String key, MValue val) = 0;
 
 		// Will clone an MValueConst
-		virtual void Set(String key, MValueConst val) = 0;
+		virtual void SetConst(String key, MValueConst val) = 0;
 
 		virtual void Delete(String key) = 0;
 
