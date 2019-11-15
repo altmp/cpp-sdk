@@ -8,6 +8,8 @@ namespace alt
 	class CRefCountable
 	{
 	public:
+		virtual uint64_t GetRefCount() { return refCount; }
+
 		virtual void AddRef() { ++refCount; }
 
 		virtual void RemoveRef()

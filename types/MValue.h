@@ -110,8 +110,14 @@ namespace alt
 		virtual Size GetSize() const = 0;
 		virtual MValue Get(Size i) = 0;
 		virtual MValueConst Get(Size i) const = 0;
+
+		// Transfers ownership of MValue (You should not have any more refs to this copy)
 		virtual void Set(Size i, MValue val) = 0;
 		virtual void Push(MValue val) = 0;
+
+		// Will clone an MValueConst
+		virtual void Set(Size i, MValueConst val) = 0;
+		virtual void Push(MValueConst val) = 0;
 	};
 
 	class IMValueDict : public virtual IMValue
@@ -127,7 +133,13 @@ namespace alt
 		virtual Size GetSize() const = 0;
 		virtual MValue Get(String key) = 0;
 		virtual MValueConst Get(String key) const = 0;
+
+		// Transfers ownership of MValue (You should not have any more refs to this copy)
 		virtual void Set(String key, MValue val) = 0;
+
+		// Will clone an MValueConst
+		virtual void Set(String key, MValueConst val) = 0;
+
 		virtual void Delete(String key) = 0;
 
 		virtual Iterator* Begin() const = 0;
