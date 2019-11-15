@@ -98,6 +98,23 @@ namespace alt
 			return *this;
 		}
 
+		void Resize(Size new_size)
+		{
+			char* buf = nullptr;
+			if(new_size != 0)
+			{
+				buf = new char[new_size+1];
+				for (Size i = 0; i < new_size && i < size; i++)
+					buf[i] = data[i];
+				buf[new_size] = '\0';
+			}
+			
+			delete[] data;
+			
+			data = buf;
+			size = new_size;
+		}
+
 		bool IsEmpty() const { return size == 0; }
 
 		const char* GetData() const { return data; }
