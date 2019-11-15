@@ -9,23 +9,26 @@
 
 namespace alt
 {
-	enum class ColShapeType: uint8_t {
-		ColshapeSphere,
-		ColshapeCylinder,
-		ColshapeCircle,
-		ColshapeCube,
-		ColshapeRect
-	};
-
 	class IEntity;
 
 	class IColShape : public virtual IWorldObject
 	{
 	public:
+		enum class ColShapeType : uint8_t
+		{
+			SPHERE,
+			CYLINDER,
+			CIRCLE,
+			CUBOID,
+			RECT,
+			CHECKPOINT_CYLINDER
+		};
+
 		virtual ~IColShape() = default;
 
 		virtual ColShapeType GetColshapeType() const = 0;
 
 		virtual bool IsEntityIn(Ref<IEntity> ent) const = 0;
+		virtual bool IsPointIn(Position p) const = 0;
 	};
 }

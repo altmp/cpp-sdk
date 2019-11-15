@@ -13,7 +13,6 @@ namespace alt
 		{
 			PLAYER,
 			VEHICLE,
-			CHECKPOINT,
 			BLIP,
 			WEBVIEW,
 			VOICE_CHANNEL,

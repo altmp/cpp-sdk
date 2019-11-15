@@ -29,7 +29,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 15;
+		static constexpr uint32_t SDK_VERSION = 16;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -77,7 +77,7 @@ namespace alt
 		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
 		// TODO make enum for types
-		virtual Ref<ICheckpoint> CreateCheckpoint(Ref<IPlayer> target, uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
+		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
 
 		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::Type type, Position pos) = 0;
 		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::Type type, Ref<IEntity> attachTo) = 0;
@@ -88,7 +88,7 @@ namespace alt
 		virtual Ref<IColShape> CreateColShapeSphere(Position pos, float radius) = 0;
 		virtual Ref<IColShape> CreateColShapeCircle(Position pos, float radius) = 0;
 		virtual Ref<IColShape> CreateColShapeCube(Position pos, Position pos2) = 0;
-		virtual Ref<IColShape> CreateColShapeRectangle(Position pos, Position pos2) = 0;
+		virtual Ref<IColShape> CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
 
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 
