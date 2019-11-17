@@ -6,10 +6,10 @@
 
 #include "CEvent.h"
 
-class CWebView;
-
 namespace alt
 {
+	class CWebView;
+
 	class CWebViewEvent : public CEvent
 	{
 	public:
