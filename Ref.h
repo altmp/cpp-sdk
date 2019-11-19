@@ -114,11 +114,13 @@ namespace alt
 
 		inline T* Get() const { return ptr; }
 
-		template<class U, typename = std::enable_if_t<!std::is_const_v<T>>>
-		RefBase<RefStore<U>> As() const { return RefBase<RefStore<U>>(dynamic_cast<U*>(Get())); }
+		template<class U>
+		std::enable_if_t<!std::is_const_v<T>, RefBase<RefStore<U>>>
+		As() const { return RefBase<RefStore<U>>(dynamic_cast<U*>(Get())); }
 
-		template<class U, typename = std::enable_if_t<std::is_const_v<T>>>
-		RefBase<RefStore<const U>> As() const { return RefBase<RefStore<const U>>(dynamic_cast<const U*>(Get())); }
+		template<class U>
+		std::enable_if_t<std::is_const_v<T>, RefBase<RefStore<const U>>>
+		As() const { return RefBase<RefStore<const U>>(dynamic_cast<const U*>(Get())); }
 
 	private:
 		template<class U> friend class RefStore;
