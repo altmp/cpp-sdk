@@ -2,265 +2,187 @@
 
 #include <cstdint>
 #include <atomic>
+#include <unordered_map>
+
+#include "CRefCountable.h"
 
 namespace alt
 {
-	class CRefCountable
+	template<class MyStore>
+	class RefBase : public MyStore
 	{
 	public:
-		virtual uint64_t GetRefCount() { return refCount; }
+		using ValueType = typename MyStore::ValueType;
 
-		virtual void AddRef() { ++refCount; }
+		RefBase() = default;
+		RefBase(ValueType* _ptr) { this->Assign(_ptr); }
 
-		virtual void RemoveRef()
+		RefBase(const RefBase& other) :
+			RefBase(const_cast<ValueType*>(other.Get())) { }
+
+		RefBase(RefBase&& other) noexcept
 		{
-			if (--refCount == 0)
-				delete this;
+			this->Move(std::move(other));
 		}
 
-	protected:
-		virtual ~CRefCountable() = default;
+		template<class UStore>
+		RefBase(const RefBase<UStore>& other) :
+			RefBase(const_cast<typename UStore::ValueType*>(other.Get())) { }
 
-	private:
-		std::atomic_uint64_t refCount = 0;
-	};
-
-	template<class T>
-	class ConstRef
-	{
-	public:
-		ConstRef() = default;
-
-		ConstRef(T* _ptr) { Alloc(_ptr); }
-
-		ConstRef(const ConstRef& other) :
-			ConstRef(const_cast<T*>(other.ptr)) { }
-
-		ConstRef(ConstRef&& other) noexcept
+		template<class UStore>
+		RefBase(RefBase<UStore>&& other) noexcept
 		{
-			ptr = other.ptr;
-			other.ptr = nullptr;
+			this->template Move<typename UStore::ValueType>(std::move(other));
 		}
 
-		template<class U>
-		ConstRef(const ConstRef<U>& other) :
-			ConstRef(const_cast<U*>(other.ptr)) { }
+		RefBase(std::nullptr_t) :
+			RefBase(static_cast<ValueType*>(nullptr)) { }
 
-		template<class U>
-		ConstRef(ConstRef<U>&& other) noexcept
+		~RefBase()
 		{
-			ptr = other.ptr;
-			other.ptr = nullptr;
+			this->Free();
 		}
 
-		ConstRef(std::nullptr_t) :
-			ConstRef(static_cast<T*>(nullptr)) { }
-
-		~ConstRef() { Free(); }
-
-		ConstRef& operator=(const ConstRef& that)
+		RefBase& operator=(const RefBase& that)
 		{
-			if (Get() != that.ptr)
+			if (this->Get() != that.Get())
 			{
-				Free();
-				Alloc(const_cast<T*>(that.ptr));
+				this->Free();
+				this->Assign(const_cast<ValueType*>(that.Get()));
 			}
 
 			return *this;
 		}
 
-		bool IsEmpty() const { return Get() == nullptr; }
+		bool IsEmpty() const { return this->Get() == nullptr; }
 		operator bool() const { return !IsEmpty(); }
 
-		void Free()
+		ValueType* operator->() const { return this->Get(); }
+		ValueType& operator*() const { return *this->Get(); }
+
+		template<class UStore>
+		bool operator==(RefBase<UStore> rhs) const { return this->Get() == rhs.Get(); }
+
+		template<class U>
+		bool operator==(U* rhs) const { return this->Get() == rhs; }
+
+		template<class UStore>
+		bool operator!=(RefBase<UStore> rhs) const { return this->Get() != rhs.Get(); }
+
+		template<class U>
+		bool operator!=(U* rhs) const { return this->Get() != rhs; }
+
+		template<class... Args>
+		static RefBase New(const Args&... args)
 		{
-			if (ptr) ptr->RemoveRef();
-			ptr = nullptr;
+			return RefBase(new ValueType(args...));
 		}
+	};
 
-		const T* Get() const { return ptr; }
-		const T* operator->() const { return ptr; }
-		const T& operator*() const { return *ptr; }
-
-		template<class U>
-		bool operator==(ConstRef<U> rhs) const { return Get() == rhs.Get(); }
-
-		template<class U>
-		bool operator==(U* rhs) const { return Get() == rhs; }
+	template<class T>
+	class RefStore
+	{
+	public:
+		using ValueType = T;
 
 		template<class U>
-		bool operator!=(ConstRef<U> rhs) const { return Get() != rhs.Get(); }
+		using OtherType = RefStore<U>;
 
-		template<class U>
-		bool operator!=(U* rhs) const { return Get() != rhs; }
-
-		template<class U>
-		ConstRef<U> As() const { return ConstRef<U>(dynamic_cast<U*>(ptr)); }
-
-	protected:
-		template<class U> friend class ConstRef;
-
-		T* ptr = nullptr;
-
-		void Alloc(T* _ptr)
+		void Assign(T* _ptr)
 		{
 			if (_ptr) _ptr->AddRef();
 			ptr = _ptr;
 		}
-	};
-
-	template<class T>
-	class Ref : public ConstRef<T>
-	{
-	public:
-		Ref() = default;
-
-		Ref(T * _ptr) : ConstRef<T>(_ptr) { }
-
-		template<class U>
-		Ref(const Ref<U>& other) :
-			ConstRef<T>(other) { }
-
-		template<class U>
-		Ref(Ref<U>&& other) :
-			ConstRef<T>(std::move(other)) { }
-
-		Ref(std::nullptr_t) :
-			ConstRef<T>(nullptr) { }
-
-		T* Get() const { return const_cast<T*>(ConstRef<T>::Get()); }
-		T* operator->() const { return Get(); }
-
-		Ref& operator=(const Ref& that)
-		{
-			ConstRef<T>::operator=(that);
-			return *this;
-		}
-
-		template<class U>
-		Ref<U> As() const { return Ref<U>(dynamic_cast<U*>(Get())); }
-
-		template<class... Args>
-		static Ref New(Args... args) { return Ref{ new T(args...) }; }
-
-	private:
-		template<class U> friend class Ref;
-	};
-
-	template<class T>
-	class ConstAtomicRef
-	{
-	public:
-		ConstAtomicRef() = default;
-
-		ConstAtomicRef(T* _ptr) { Alloc(_ptr); }
-
-		ConstAtomicRef(const ConstRef<T>& other) :
-			ConstAtomicRef(const_cast<T*>(other.Get())) { }
-
-		ConstAtomicRef(ConstRef<T>&& other)
-		{
-			ptr = other.ptr.exchange(nullptr);
-		}
-
-		template<class U>
-		ConstAtomicRef(const ConstRef<U>& other) :
-			ConstAtomicRef(const_cast<U*>(other.Get())) { }
-
-		template<class U>
-		ConstAtomicRef(ConstRef<U>&& other)
-		{
-			ptr = other.ptr.exchange(nullptr);
-		}
-
-		ConstAtomicRef(std::nullptr_t) :
-			ConstAtomicRef(static_cast<T*>(nullptr)) { }
-
-		~ConstAtomicRef() { Free(); }
-
-		ConstAtomicRef& operator=(const ConstRef<T>& that)
-		{
-			T* otherPtr = const_cast<T*>(that.Get());
-
-			if (Get() != otherPtr)
-			{
-				Free();
-				Alloc(otherPtr);
-			}
-
-			return *this;
-		}
-
-		const T* Get() const { return ptr.load(); }
-		ConstRef<T> Load() const { return ConstRef<T>{ Get() }; }
-		bool IsEmpty() const { return Get() == nullptr; }
-		operator bool() const { return !IsEmpty(); }
 
 		void Free()
 		{
-			T* oldPtr = ptr.exchange(nullptr);
-			if (oldPtr) oldPtr->RemoveRef();
+			if (ptr)
+			{
+				ptr->RemoveRef();
+				ptr = nullptr;
+			}
 		}
-
-	protected:
-		template<class U> friend class ConstAtomicRef;
-
-		std::atomic<T*> ptr = nullptr;
-
-		void Alloc(T* _ptr)
-		{
-			if (_ptr) _ptr->AddRef();
-			ptr.store(_ptr);
-		}
-	};
-
-	template<class T>
-	class AtomicRef : public ConstAtomicRef<T>
-	{
-	public:
-		AtomicRef() = default;
-
-		AtomicRef(T* _ptr) : ConstAtomicRef<T>(_ptr) { }
 
 		template<class U>
-		AtomicRef(const Ref<U>& other) :
-			ConstAtomicRef<T>(other) { }
-
-		template<class U>
-		AtomicRef(Ref<U>&& other) :
-			ConstAtomicRef<T>(std::move(other)) { }
-
-		AtomicRef(std::nullptr_t) :
-			ConstAtomicRef<T>(nullptr) { }
-
-		T* Get() const { return const_cast<T*>(ConstAtomicRef<T>::Get()); }
-		Ref<T> Load() const { return Ref<T>{ Get() }; }
-
-		AtomicRef& operator=(const Ref<T>& that)
+		void Move(RefStore<U>&& other)
 		{
-			ConstAtomicRef<T>::operator=(that);
-			return *this;
+			Free();
+
+			ptr = other.ptr;
+			other.ptr = nullptr;
 		}
+
+		inline T* Get() const { return ptr; }
+
+		template<class U, typename = std::enable_if_t<!std::is_const_v<T>>>
+		RefBase<RefStore<U>> As() const { return RefBase<RefStore<U>>(dynamic_cast<U*>(Get())); }
+
+		template<class U, typename = std::enable_if_t<std::is_const_v<T>>>
+		RefBase<RefStore<const U>> As() const { return RefBase<RefStore<const U>>(dynamic_cast<const U*>(Get())); }
 
 	private:
-		template<class U> friend class AtomicRef;
+		template<class U> friend class RefStore;
+
+		T* ptr = nullptr;
 	};
+
+	template<class T> using Ref = RefBase<RefStore<T>>;
+	template<class T> using ConstRef = RefBase<RefStore<const T>>;
+
+	template<class T>
+	class AtomicRefStore
+	{
+	public:
+		using ValueType = T;
+
+		void Assign(T* _ptr)
+		{
+			if (_ptr) _ptr->AddRef();
+			ptr = _ptr;
+		}
+
+		void Free()
+		{
+			if (ptr)
+			{
+				T* oldPtr = ptr.exchange(nullptr);
+				if (oldPtr) oldPtr->RemoveRef();
+			}
+		}
+
+		template<class U>
+		void Move(AtomicRefStore<U>&& other)
+		{
+			Free();
+
+			ptr = other.ptr.exchange(nullptr);
+		}
+
+		inline T* Get() const { return ptr; }
+
+		Ref<T> Load() const { return Ref<T>(ptr); }
+
+	private:
+		template<class U> friend class AtomicRefStore;
+
+		std::atomic<T*> ptr = nullptr;
+	};
+
+	template<class T> using AtomicRef = RefBase<AtomicRefStore<T>>;
+	template<class T> using ConstAtomicRef = RefBase<AtomicRefStore<const T>>;
 }
 
 namespace std
 {
 	template<class T>
-	struct hash<alt::ConstRef<T>>
+	struct hash<alt::RefBase<T>>
 	{
-		hash<const T*> _hash;
+		hash<typename T::ValueType*> _hash;
 		hash() = default;
 
-		size_t operator()(const alt::ConstRef<T>& ref) const
+		size_t operator()(const alt::RefBase<T>& ref) const
 		{
 			return _hash(ref.Get());
 		}
 	};
-
-	template<class T>
-	struct hash<alt::Ref<T>> : public hash<alt::ConstRef<T>> { };
 }
