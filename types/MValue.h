@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include "String.h"
+#include "StringView.h"
 #include "../Ref.h"
 #include "Array.h"
 

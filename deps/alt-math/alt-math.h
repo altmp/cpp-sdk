@@ -5,7 +5,7 @@
 #include <cstddef>
 #include <cstdio>
 #include <cstring>
-#include <cmath>
+#include <math.h>
 #include <ostream>
 
 namespace alt

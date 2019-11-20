@@ -1,11 +1,11 @@
 #pragma once
 
 #include "types/StringView.h"
+#include "IResource.h"
 
 namespace alt
 {
 	class IPackage;
-	class IResource;
 
 	class IScriptRuntime
 	{
