@@ -106,8 +106,6 @@ namespace alt
 		template<class U>
 		void Move(RefStore<U>&& other)
 		{
-			Free();
-
 			ptr = other.ptr;
 			other.ptr = nullptr;
 		}
@@ -116,11 +114,11 @@ namespace alt
 
 		template<class U>
 		std::enable_if_t<!std::is_const_v<T>, RefBase<RefStore<U>>>
-		As() const { return RefBase<RefStore<U>>(dynamic_cast<U*>(Get())); }
+			As() const { return RefBase<RefStore<U>>(dynamic_cast<U*>(Get())); }
 
 		template<class U>
 		std::enable_if_t<std::is_const_v<T>, RefBase<RefStore<const U>>>
-		As() const { return RefBase<RefStore<const U>>(dynamic_cast<const U*>(Get())); }
+			As() const { return RefBase<RefStore<const U>>(dynamic_cast<const U*>(Get())); }
 
 	private:
 		template<class U> friend class RefStore;
@@ -145,18 +143,13 @@ namespace alt
 
 		void Free()
 		{
-			if (ptr)
-			{
-				T* oldPtr = ptr.exchange(nullptr);
-				if (oldPtr) oldPtr->RemoveRef();
-			}
+			T* oldPtr = ptr.exchange(nullptr);
+			if (oldPtr) oldPtr->RemoveRef();
 		}
 
 		template<class U>
 		void Move(AtomicRefStore<U>&& other)
 		{
-			Free();
-
 			ptr = other.ptr.exchange(nullptr);
 		}
 
@@ -172,6 +165,46 @@ namespace alt
 
 	template<class T> using AtomicRef = RefBase<AtomicRefStore<T>>;
 	template<class T> using ConstAtomicRef = RefBase<AtomicRefStore<const T>>;
+
+	template<class T>
+	class WeakRefStore : public IWeakRef
+	{
+	public:
+		using ValueType = T;
+
+		void Assign(T* _ptr)
+		{
+			if (_ptr) _ptr->AddWeakRef(this);
+			ptr = _ptr;
+		}
+
+		void Free()
+		{
+			T* oldPtr = ptr.exchange(nullptr);
+			if (oldPtr) oldPtr->RemoveWeakRef(this);
+		}
+
+		template<class U>
+		void Move(AtomicRefStore<U>&& other)
+		{
+			Assign(other.ptr);
+			other.Free();
+		}
+
+		inline T* Get() const { return ptr; }
+
+		void OnDestroy() override { ptr = nullptr; }
+
+		Ref<T> Load() const { return Ref<T>(ptr); }
+
+	private:
+		template<class U> friend class WeakRefStore;
+
+		std::atomic<T*> ptr = nullptr;
+	};
+
+	template<class T> using WeakRef = RefBase<WeakRefStore<T>>;
+	template<class T> using ConstWeakRef = RefBase<WeakRefStore<const T>>;
 }
 
 namespace std
