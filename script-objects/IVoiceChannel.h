@@ -13,13 +13,15 @@ namespace alt
 	public:
 		virtual ~IVoiceChannel() = default;
 
+		virtual bool IsSpatial() const = 0;
+		virtual float GetMaxDistance() const = 0;
+
+		virtual bool HasPlayer(Ref<IPlayer> player) const = 0;
 		virtual void AddPlayer(Ref<IPlayer> player) = 0;
 		virtual void RemovePlayer(Ref<IPlayer> player) = 0;
+
+		virtual bool IsPlayerMuted(Ref<IPlayer> player) const = 0;
 		virtual void MutePlayer(Ref<IPlayer> player) = 0;
 		virtual void UnmutePlayer(Ref<IPlayer> player) = 0;
-		virtual bool IsPlayerConnected(Ref<IPlayer> player) = 0;
-		virtual bool IsPlayerMuted(Ref<IPlayer> player) = 0;
-		virtual bool IsSpatial() = 0;
-		virtual float GetMaxDistance() = 0;
 	};
 }
