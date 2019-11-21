@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <atomic>
+#include <mutex>
 #include <unordered_set>
 
 namespace alt
