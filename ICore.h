@@ -29,7 +29,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 17;
+		static constexpr uint32_t SDK_VERSION = 18;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -64,6 +64,10 @@ namespace alt
 
 		virtual Ref<IEntity> GetEntityByID(uint16_t id) const = 0;
 
+		virtual Array<Ref<IEntity>> GetEntities() const = 0;
+		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
+		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
+
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
 
@@ -93,10 +97,6 @@ namespace alt
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 
 		virtual Array<Ref<IPlayer>> GetPlayersByName(StringView name) const = 0;
-
-		virtual Array<Ref<IEntity>> GetEntities() const = 0;
-		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
-		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
 #endif
