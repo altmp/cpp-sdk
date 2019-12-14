@@ -29,7 +29,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 19;
+		static constexpr uint32_t SDK_VERSION = 20;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -83,8 +83,8 @@ namespace alt
 		// TODO make enum for types
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
 
-		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::Type type, Position pos) = 0;
-		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::Type type, Ref<IEntity> attachTo) = 0;
+		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Position pos) = 0;
+		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Ref<IEntity> attachTo) = 0;
 
 		virtual Ref<IVoiceChannel> CreateVoiceChannel(bool spatial, float maxDistance) = 0;
 

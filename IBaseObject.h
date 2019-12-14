@@ -16,7 +16,8 @@ namespace alt
 			BLIP,
 			WEBVIEW,
 			VOICE_CHANNEL,
-			COLSHAPE
+			COLSHAPE,
+			CHECKPOINT
 		};
 
 		virtual ~IBaseObject() = default;

@@ -13,7 +13,7 @@ namespace alt
 	class IBlip : public virtual IWorldObject
 	{
 	public:
-		enum class Type
+		enum class BlipType
 		{
 			VEHICLE = 1,
 			PED = 2,
@@ -36,7 +36,7 @@ namespace alt
 
 		virtual bool IsAttached() const = 0;
 		virtual Ref<IEntity> AttachedTo() const = 0;
-		virtual Type GetBlipType() const = 0;
+		virtual BlipType GetBlipType() const = 0;
 
 		virtual void SetSprite(uint16_t sprite) = 0;
 		virtual void SetColor(uint8_t color) = 0;
