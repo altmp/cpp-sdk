@@ -56,7 +56,9 @@ namespace alt
 
 		virtual uint8_t GetWheelType() = 0;
 		virtual uint8_t GetWheelVariation() = 0;
+		virtual uint8_t GetRearWheelVariation() = 0;
 		virtual void SetWheels(uint8_t type, uint8_t variation) = 0;
+		virtual void SetRearWheels(uint8_t variation) = 0;
 
 		virtual bool GetCustomTires() = 0;
 		virtual void SetCustomTires(bool state) = 0;
