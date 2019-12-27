@@ -150,6 +150,12 @@ namespace alt
 		virtual bool DoesWheelHasTire(uint8_t wheelId) = 0;
 		virtual void SetWheelHasTire(uint8_t wheelId, bool state) = 0;
 
+		virtual bool IsWheelDetached(uint8_t wheelId) = 0;
+		virtual void SetWheelDetached(uint8_t wheelId, bool state) = 0;
+
+		virtual bool IsWheelOnFire(uint8_t wheelId) = 0;
+		virtual void SetWheelOnFire(uint8_t wheelId, bool state) = 0;
+
 		virtual float GetWheelHealth(uint8_t wheelId) = 0;
 		virtual void SetWheelHealth(uint8_t wheelId, float health) = 0;
 
