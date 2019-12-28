@@ -68,6 +68,8 @@ namespace alt
 		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
 		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
 
+		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
+
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
 
@@ -75,7 +77,6 @@ namespace alt
 		virtual void StopResource(StringView name) = 0;
 		virtual IResource* RestartResource(StringView name) = 0;
 
-		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
 
 		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
