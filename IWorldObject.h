@@ -13,11 +13,9 @@ namespace alt
 		virtual ~IWorldObject() = default;
 
 		virtual Position GetPosition() const = 0;
-		virtual int32_t GetDimension() const = 0;
-
-#ifdef ALT_SERVER_API
 		virtual void SetPosition(Position pos) = 0;
+
+		virtual int32_t GetDimension() const = 0;
 		virtual void SetDimension(int32_t dimension) = 0;
-#endif // ALT_SERVER_API
 	};
 }
