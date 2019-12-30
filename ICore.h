@@ -5,6 +5,7 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 #include "types/StringView.h"
+#include "types/Discord.h"
 #include "Ref.h"
 
 #include "events/CEvent.h"
@@ -29,7 +30,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 23;
+		static constexpr uint32_t SDK_VERSION = 24;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -69,6 +70,10 @@ namespace alt
 		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
 
 		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
+
+#ifdef ALT_CLIENT_API // Client methods
+		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
+#endif
 
 #ifdef ALT_SERVER_API // Server methods
 		virtual StringView GetRootDirectory() = 0;
