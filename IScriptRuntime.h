@@ -16,5 +16,6 @@ namespace alt
 		virtual void DestroyImpl(IResource::Impl* impl) = 0;
 
 		virtual void OnTick() { };
+		virtual void OnDispose() { };
 	};
 }

@@ -30,7 +30,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 24;
+		static constexpr uint32_t SDK_VERSION = 25;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
