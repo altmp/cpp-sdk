@@ -13,6 +13,7 @@ namespace alt
 	class IBaseObject;
 
 	class IMValue;
+	class IMValueNone;
 	class IMValueNil;
 	class IMValueBool;
 	class IMValueInt;
@@ -25,8 +26,10 @@ namespace alt
 	class IMValueFunction;
 	class IMValueVector3;
 	class IMValueRGBA;
+	class IMValueByteArray;
 
 	using MValue = Ref<IMValue>;
+	using MValueNone = Ref<IMValueNone>;
 	using MValueNil = Ref<IMValueNil>;
 	using MValueBool = Ref<IMValueBool>;
 	using MValueInt = Ref<IMValueInt>;
@@ -39,8 +42,10 @@ namespace alt
 	using MValueFunction = Ref<IMValueFunction>;
 	using MValueVector3 = Ref<IMValueVector3>;
 	using MValueRGBA = Ref<IMValueRGBA>;
+	using MValueByteArray = Ref<IMValueByteArray>;
 
 	using MValueConst = ConstRef<IMValue>;
+	using MValueNoneConst = ConstRef<IMValueNone>;
 	using MValueNilConst = ConstRef<IMValueNil>;
 	using MValueBoolConst = ConstRef<IMValueBool>;
 	using MValueIntConst = ConstRef<IMValueInt>;
@@ -53,6 +58,7 @@ namespace alt
 	using MValueFunctionConst = ConstRef<IMValueFunction>;
 	using MValueVector3Const = ConstRef<IMValueVector3>;
 	using MValueRGBAConst = ConstRef<IMValueRGBA>;
+	using MValueByteArrayConst = ConstRef<IMValueByteArray>;
 
 	using MValueArgs = Array<MValueConst>;
 
@@ -61,6 +67,7 @@ namespace alt
 	public:
 		enum class Type : uint8_t
 		{
+			NONE,
 			NIL,
 			BOOL,
 			INT,
@@ -72,7 +79,8 @@ namespace alt
 			BASE_OBJECT,
 			FUNCTION,
 			VECTOR3,
-			RGBA
+			RGBA,
+			BYTE_ARRAY
 		};
 
 		virtual ~IMValue() = default;
@@ -83,6 +91,10 @@ namespace alt
 		virtual MValue Clone() const = 0;
 	};
 
+	// Represents lack of value
+	class IMValueNone : public virtual IMValue { };
+
+	// Represents null value
 	class IMValueNil : public virtual IMValue { };
 
 	class IMValueBool : public virtual IMValue
@@ -199,5 +211,12 @@ namespace alt
 	{
 	public:
 		virtual RGBA Value() const = 0;
+	};
+
+	class IMValueByteArray : public virtual IMValue
+	{
+	public:
+		virtual Size GetSize() const = 0;
+		virtual const uint8_t* GetData() const = 0;
 	};
 }

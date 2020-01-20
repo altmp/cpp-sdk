@@ -71,7 +71,7 @@ namespace alt
 
 		}
 
-		String(String&& that) :
+		String(String&& that) noexcept:
 			String()
 		{
 			String tmp;
@@ -91,7 +91,7 @@ namespace alt
 			return *this;
 		}
 
-		String& operator=(String&& that)
+		String& operator=(String&& that) noexcept
 		{
 			String tmp(that);
 			Swap(tmp);
