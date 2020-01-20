@@ -27,6 +27,6 @@ namespace alt
 		virtual bool HasMetaData(StringView key) const = 0;
 		virtual MValueConst GetMetaData(StringView key) const = 0;
 		virtual void SetMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteMetaData(String key) = 0;
+		virtual void DeleteMetaData(StringView key) = 0;
 	};
 }
