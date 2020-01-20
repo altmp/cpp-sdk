@@ -39,6 +39,7 @@ namespace alt
 		virtual void LogError(StringView str) = 0;
 		virtual void LogColored(StringView str) = 0;
 
+		virtual MValueNone CreateMValueNone() = 0;
 		virtual MValueNil CreateMValueNil() = 0;
 		virtual MValueBool CreateMValueBool(bool val) = 0;
 		virtual MValueInt CreateMValueInt(int64_t val) = 0;
@@ -51,6 +52,8 @@ namespace alt
 		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl* impl) = 0;
 		virtual MValueVector3 CreateMValueVector3(Vector3f val) = 0;
 		virtual MValueRGBA CreateMValueRGBA(RGBA val) = 0;
+		virtual MValueByteArray CreateMValueByteArray(const uint8_t* data, Size size) = 0;
+		virtual MValueByteArray CreateMValueByteArray(Size size) = 0;
 
 		virtual uint32_t Hash(StringView str) const = 0;
 
