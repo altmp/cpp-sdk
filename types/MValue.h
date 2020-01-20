@@ -5,6 +5,8 @@
 #include "StringView.h"
 #include "../Ref.h"
 #include "Array.h"
+#include "../types/RGBA.h"
+#include "../deps/alt-math/alt-math.h"
 
 namespace alt
 {
@@ -21,6 +23,8 @@ namespace alt
 	class IMValueDict;
 	class IMValueBaseObject;
 	class IMValueFunction;
+	class IMValueVector3;
+	class IMValueRGBA;
 
 	using MValue = Ref<IMValue>;
 	using MValueNil = Ref<IMValueNil>;
@@ -33,6 +37,8 @@ namespace alt
 	using MValueDict = Ref<IMValueDict>;
 	using MValueBaseObject = Ref<IMValueBaseObject>;
 	using MValueFunction = Ref<IMValueFunction>;
+	using MValueVector3 = Ref<IMValueVector3>;
+	using MValueRGBA = Ref<IMValueRGBA>;
 
 	using MValueConst = ConstRef<IMValue>;
 	using MValueNilConst = ConstRef<IMValueNil>;
@@ -45,6 +51,8 @@ namespace alt
 	using MValueDictConst = ConstRef<IMValueDict>;
 	using MValueBaseObjectConst = ConstRef<IMValueBaseObject>;
 	using MValueFunctionConst = ConstRef<IMValueFunction>;
+	using MValueVector3Const = ConstRef<IMValueVector3>;
+	using MValueRGBAConst = ConstRef<IMValueRGBA>;
 
 	using MValueArgs = Array<MValueConst>;
 
@@ -62,7 +70,9 @@ namespace alt
 			LIST,
 			DICT,
 			BASE_OBJECT,
-			FUNCTION
+			FUNCTION,
+			VECTOR3,
+			RGBA
 		};
 
 		virtual ~IMValue() = default;
@@ -177,5 +187,17 @@ namespace alt
 		};
 
 		virtual MValue Call(MValueArgs args) const = 0;
+	};
+
+	class IMValueVector3 : public virtual IMValue
+	{
+	public:
+		virtual Vector3f Value() const = 0;
+	};
+
+	class IMValueRGBA : public virtual IMValue
+	{
+	public:
+		virtual RGBA Value() const = 0;
 	};
 }
