@@ -74,6 +74,8 @@ namespace alt
 		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
 		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
 
+		virtual uint16_t GetMaxPlayers() const = 0;
+
 		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
