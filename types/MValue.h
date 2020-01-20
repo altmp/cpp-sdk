@@ -218,5 +218,6 @@ namespace alt
 	public:
 		virtual Size GetSize() const = 0;
 		virtual const uint8_t* GetData() const = 0;
+		virtual uint8_t* GetData() = 0;
 	};
 }

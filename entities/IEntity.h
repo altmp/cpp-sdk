@@ -23,12 +23,16 @@ namespace alt
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation rot) = 0;
 
+		virtual bool HasSyncedMetaData(StringView key) const = 0;
 		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
+		virtual bool HasStreamSyncedMetaData(StringView key) const = 0;
 		virtual MValueConst GetStreamSyncedMetaData(StringView key) const = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
+		virtual void DeleteSyncedMetaData(StringView key) = 0;
 		virtual void SetStreamSyncedMetaData(StringView key, MValue val) = 0;
+		virtual void DeleteStreamSyncedMetaData(StringView key) = 0;
 #endif // ALT_SERVER_API
 	};
 }
