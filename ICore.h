@@ -27,6 +27,9 @@ namespace alt
 	using TickCallback = void(*)(void* userData);
 	using CommandCallback = void(*)(StringView cmd, Array<StringView> args, void* userData);
 
+	static constexpr int32_t DEFAULT_DIMENSION = 0;
+	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
+
 	class ICore
 	{
 	public:
