@@ -201,5 +201,7 @@ namespace alt
 
 		virtual String GetScriptDataBase64() = 0;
 		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
+
+		virtual bool IsDestroyed() const = 0;
 	};
 }
