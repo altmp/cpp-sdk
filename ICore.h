@@ -30,10 +30,18 @@ namespace alt
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
 
+	struct KeyState
+	{
+		const bool down : 1, toggled : 1;
+		KeyState(bool down, bool toggled)
+			: down(down), toggled(toggled)
+		{}
+	};
+
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 29;
+		static constexpr uint32_t SDK_VERSION = 30;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -81,6 +89,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
+		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
