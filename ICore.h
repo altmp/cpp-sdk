@@ -32,10 +32,15 @@ namespace alt
 
 	struct KeyState
 	{
-		const bool down : 1, toggled : 1;
 		KeyState(bool down, bool toggled)
 			: down(down), toggled(toggled)
 		{}
+
+		bool IsDown() { return down; }
+		bool IsToggled() { return toggled; }
+
+	private:
+		bool down : 1, toggled : 1;
 	};
 
 	class ICore
