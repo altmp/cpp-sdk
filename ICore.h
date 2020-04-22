@@ -14,6 +14,8 @@
 #include "script-objects/IBlip.h"
 #include "script-objects/IColShape.h"
 
+#include "types/KeyState.h"
+
 namespace alt
 {
 	class IEntity;
@@ -29,19 +31,6 @@ namespace alt
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
-
-	struct KeyState
-	{
-		KeyState(bool down, bool toggled)
-			: down(down), toggled(toggled)
-		{}
-
-		bool IsDown() { return down; }
-		bool IsToggled() { return toggled; }
-
-	private:
-		bool down : 1, toggled : 1;
-	};
 
 	class ICore
 	{
