@@ -14,6 +14,8 @@
 #include "script-objects/IBlip.h"
 #include "script-objects/IColShape.h"
 
+#include "types/KeyState.h"
+
 namespace alt
 {
 	class IEntity;
@@ -33,7 +35,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 29;
+		static constexpr uint32_t SDK_VERSION = 30;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -81,6 +83,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
+		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
