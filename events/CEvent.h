@@ -58,6 +58,7 @@ namespace alt
 		};
 
 		CEvent(Type _type) :type(_type) { }
+		virtual ~CEvent() = default;
 
 		Type GetType() const { return type; };
 		bool WasCancelled() const { return cancelled; }
