@@ -59,6 +59,9 @@
 #include "events/CResourceStopEvent.h"
 #include "events/CResourceErrorEvent.h"
 #include "events/CSyncedMetaDataChangeEvent.h"
+#include "events/CStreamSyncedMetaDataChangeEvent.h"
+#include "events/CGlobalMetaDataChangeEvent.h"
+#include "events/CGlobalSyncedMetaDataChangeEvent.h"
 
 #ifdef ALT_CLIENT_API
 
