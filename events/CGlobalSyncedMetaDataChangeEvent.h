@@ -11,7 +11,7 @@ namespace alt
 	{
 	public:
 		CGlobalSyncedMetaDataChangeEvent(StringView _key, MValue _val) :
-			CEvent(Type::GLOABAL_SYNCED_META_CHANGE),
+			CEvent(Type::GLOBAL_SYNCED_META_CHANGE),
 			key(_key),
 			val(_val)
 		{
