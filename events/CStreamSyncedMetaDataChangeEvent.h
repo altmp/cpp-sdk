@@ -13,22 +13,25 @@ namespace alt
 	class CStreamSyncedMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CStreamSyncedMetaDataChangeEvent(Ref<IEntity> _target, StringView _key, MValue _val) :
+		CStreamSyncedMetaDataChangeEvent(Ref<IEntity> _target, StringView _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::STREAM_SYNCED_META_CHANGE),
 			target(_target),
 			key(_key),
-			val(_val)
+			val(_val),
+			oldVal(_oldVal)
 		{
 
 		}
 
 		Ref<IEntity> GetTarget() const { return target; }
 		StringView GetKey() const { return key; }
-		MValue GetVal() const { return val; }
+		MValueConst GetVal() const { return val; }
+		MValueConst GetOldVal() const { return oldVal; }
 
 	private:
 		Ref<IEntity> target;
 		String key;
-		MValue val;
+		MValueConst val;
+		MValueConst oldVal;
 	};
 }

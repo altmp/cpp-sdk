@@ -7,11 +7,11 @@
 
 namespace alt
 {
-	class CGlobalSyncedMetaDataChangeEvent : public CEvent
+	class CGlobalMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CGlobalSyncedMetaDataChangeEvent(StringView _key, MValueConst _val, MValueConst _oldVal) :
-			CEvent(Type::GLOBAL_SYNCED_META_CHANGE),
+		CGlobalMetaDataChangeEvent(StringView _key, MValueConst _val, MValueConst _oldVal) :
+			CEvent(Type::GLOBAL_META_CHANGE),
 			key(_key),
 			val(_val),
 			oldVal(_oldVal)
