@@ -35,7 +35,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 31;
+		static constexpr uint32_t SDK_VERSION = 32;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -81,6 +81,14 @@ namespace alt
 
 		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
 
+		virtual bool HasMetaData(StringView key) const = 0;
+		virtual MValueConst GetMetaData(StringView key) const = 0;
+		virtual void SetMetaData(StringView key, MValue val) = 0;
+		virtual void DeleteMetaData(StringView key) = 0;
+
+		virtual bool HasSyncedMetaData(StringView key) const = 0;
+		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
@@ -94,6 +102,9 @@ namespace alt
 		virtual IResource* RestartResource(StringView name) = 0;
 
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
+
+		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
+		virtual void DeleteSyncedMetaData(StringView key) = 0;
 
 		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
