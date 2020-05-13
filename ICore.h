@@ -35,7 +35,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 33;
+		static constexpr uint32_t SDK_VERSION = 34;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -59,6 +59,8 @@ namespace alt
 		virtual MValueRGBA CreateMValueRGBA(RGBA val) = 0;
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t* data, Size size) = 0;
 		virtual MValueByteArray CreateMValueByteArray(Size size) = 0;
+
+		virtual bool IsDebug() const = 0;
 
 		virtual uint32_t Hash(StringView str) const = 0;
 
