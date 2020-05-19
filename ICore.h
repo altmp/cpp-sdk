@@ -92,6 +92,10 @@ namespace alt
 #ifdef ALT_CLIENT_API // Client methods
 		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
+
+		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
+		virtual bool GetConfigFlag(StringView flag) = 0;
+		virtual bool DoesConfigFlagExist(StringView flag) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
