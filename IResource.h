@@ -50,6 +50,8 @@ namespace alt
 		virtual StringView GetMain() const = 0;
 		virtual IPackage* GetPackage() const = 0;
 		virtual MValueDict GetExports() const = 0;
+		virtual const Array<StringView> GetDependencies() const = 0;
+		virtual const Array<StringView> GetDependants() const = 0;
 
 		virtual void SetExports(MValueDict exports) = 0;
 

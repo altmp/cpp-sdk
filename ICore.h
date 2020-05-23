@@ -60,6 +60,8 @@ namespace alt
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t* data, Size size) = 0;
 		virtual MValueByteArray CreateMValueByteArray(Size size) = 0;
 
+		virtual bool IsDebug() const = 0;
+
 		virtual uint32_t Hash(StringView str) const = 0;
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime* runtime) = 0;

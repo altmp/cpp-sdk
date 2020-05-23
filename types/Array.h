@@ -90,6 +90,11 @@ namespace alt
 			++size;
 		}
 
+		void Reserve(Size size)
+		{
+			if(size > this->size) Realloc(size);
+		}
+
 		Size GetSize() const { return size; }
 		Size GetCapacity() const { return capacity; }
 
