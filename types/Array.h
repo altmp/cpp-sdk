@@ -70,7 +70,7 @@ namespace alt
 			return *this;
 		}
 
-		Array& operator=(Array&& that)
+		Array& operator=(Array&& that) noexcept
 		{
 			data = that.data;
 			size = that.size;
@@ -92,7 +92,7 @@ namespace alt
 
 		void Reserve(Size size)
 		{
-			if(size > this->size) Realloc(size);
+			Realloc(size);
 		}
 
 		Size GetSize() const { return size; }
