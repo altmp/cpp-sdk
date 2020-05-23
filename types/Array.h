@@ -92,7 +92,7 @@ namespace alt
 
 		void Reserve(Size size)
 		{
-			Realloc(this->size + size);
+			if(size > this->size) Realloc(size);
 		}
 
 		Size GetSize() const { return size; }
