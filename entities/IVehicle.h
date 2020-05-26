@@ -17,6 +17,7 @@ namespace alt
 		virtual ~IVehicle() = default;
 
 		virtual Ref<IPlayer> GetDriver() = 0;
+		virtual bool IsDestroyed() = 0;
 
 		virtual uint8_t GetMod(uint8_t category) = 0;
 		virtual uint8_t GetModsCount(uint8_t category) = 0;

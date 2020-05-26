@@ -62,6 +62,7 @@
 #include "events/CStreamSyncedMetaDataChangeEvent.h"
 #include "events/CGlobalMetaDataChangeEvent.h"
 #include "events/CGlobalSyncedMetaDataChangeEvent.h"
+#include "events/CVehicleDestroyEvent.h"
 
 #ifdef ALT_CLIENT_API
 
