@@ -5,7 +5,6 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 #include "types/StringView.h"
-#include "types/Discord.h"
 #include "Ref.h"
 
 #include "events/CEvent.h"
@@ -92,7 +91,6 @@ namespace alt
 		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
-		virtual void RequestDiscordOAuth2Token(DiscordOAuth2Callback callback, void* userData) = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 
 		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
