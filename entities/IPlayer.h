@@ -78,7 +78,7 @@ namespace alt
 
 		virtual bool IsFlashlightActive() const = 0;
 
-		virtual void Kick(StringView reason = "kicked out") = 0;
+		virtual void Kick(StringView reason = "KICKED_OUT") = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetModel(uint32_t model) = 0;
