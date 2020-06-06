@@ -96,6 +96,9 @@ namespace alt
 		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
 		virtual bool GetConfigFlag(StringView flag) = 0;
 		virtual bool DoesConfigFlagExist(StringView flag) = 0;
+
+		virtual void SetVoiceInputMuted(bool state) = 0;
+		virtual bool IsVoiceInputMuted() = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
