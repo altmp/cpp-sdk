@@ -99,6 +99,8 @@ namespace alt
 
 		virtual void SetVoiceInputMuted(bool state) = 0;
 		virtual bool IsVoiceInputMuted() = 0;
+
+		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
