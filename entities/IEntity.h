@@ -17,6 +17,7 @@ namespace alt
 		virtual uint16_t GetID() const = 0;
 
 		virtual Ref<IPlayer> GetNetworkOwner() const = 0;
+		virtual void SetNetworkOwner(Ref<IPlayer> player, bool disableMigration) = 0;
 
 		virtual uint32_t GetModel() const = 0;
 
