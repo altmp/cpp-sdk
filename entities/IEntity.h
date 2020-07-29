@@ -29,6 +29,8 @@ namespace alt
 		virtual MValueConst GetStreamSyncedMetaData(StringView key) const = 0;
 
 #ifdef ALT_SERVER_API
+		virtual void SetNetworkOwner(Ref<IPlayer> player, bool disableMigration) = 0;
+
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(StringView key) = 0;
 		virtual void SetStreamSyncedMetaData(StringView key, MValue val) = 0;
