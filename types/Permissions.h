@@ -7,10 +7,13 @@ namespace alt
 	// DO NOT CHANGE ORDER, ADD IN DECSENDING FASHION
 	enum class PermissionState : uint8_t
 	{
-		Always,
-		Once,
+		// Permission is allowed by the user
+		Allowed,
+		// Permission is denied by the user
 		Denied,
-		Never,
+		// When a permission has not been specified by any of the resources
+		Unspecified,
+		// When an action requiring permission fails
 		Failed
 	};
 
@@ -21,13 +24,14 @@ namespace alt
 		ScreenCapture,
 		All
 	};
-
-	struct PermissionRequestData
+	static Permission GetPermissionFromString(StringView val)
 	{
-		using Callback = void(*)(PermissionState result, void* extra);
-		Callback callback;
-		void* extra;
-		PermissionRequestData(Callback callback, void* extra = nullptr)
-			: callback(callback), extra(extra) {}
-	};
+		if(val == "ScreenCapture") return Permission::ScreenCapture;
+		return Permission::None;
+	}
+	static String GetStringFromPermission(Permission val)
+	{
+		if(val == Permission::ScreenCapture) return "ScreenCapture";
+		return "None";
+	}
 }

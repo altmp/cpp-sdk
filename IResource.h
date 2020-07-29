@@ -3,6 +3,7 @@
 #include "types/StringView.h"
 #include "types/String.h"
 #include "types/MValue.h"
+#include "types/Permissions.h"
 
 namespace alt
 {
@@ -52,6 +53,8 @@ namespace alt
 		virtual MValueDict GetExports() const = 0;
 		virtual const Array<StringView> GetDependencies() const = 0;
 		virtual const Array<StringView> GetDependants() const = 0;
+		virtual const Array<Permission> GetRequiredPermissions() const = 0;
+		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
 		virtual void SetExports(MValueDict exports) = 0;
 

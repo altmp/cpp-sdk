@@ -91,6 +91,9 @@ namespace alt
 		virtual bool HasSyncedMetaData(StringView key) const = 0;
 		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
 
+		virtual const Array<Permission> GetRequiredPermissions() const = 0;
+		virtual const Array<Permission> GetOptionalPermissions() const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 
@@ -103,11 +106,7 @@ namespace alt
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
-		// Permissions
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
-		virtual void RequestPermission(Permission permission, const alt::PermissionRequestData& data) const = 0;
-
-		// Functions requiring permissions
 		virtual PermissionState TakeScreenshot(StringView name) const = 0;
 #endif
 
