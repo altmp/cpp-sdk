@@ -22,16 +22,19 @@ namespace alt
 	{
 		None,
 		ScreenCapture,
+		WebRTC,
 		All
 	};
 	static Permission GetPermissionFromString(StringView val)
 	{
 		if(val == "ScreenCapture") return Permission::ScreenCapture;
+		if(val == "WebRTC") return Permission::WebRTC;
 		return Permission::None;
 	}
 	static String GetStringFromPermission(Permission val)
 	{
 		if(val == Permission::ScreenCapture) return "ScreenCapture";
+		if(val == Permission::WebRTC) return "WebRTC";
 		return "None";
 	}
 }
