@@ -15,7 +15,9 @@
 
 #include "types/KeyState.h"
 
+#ifdef ALT_CLIENT_API
 #include "IGFX.h"
+#endif
 
 namespace alt
 {
