@@ -15,6 +15,8 @@
 
 #include "types/KeyState.h"
 
+#include "IGFX.h"
+
 namespace alt
 {
 	class IEntity;
@@ -101,6 +103,8 @@ namespace alt
 		virtual bool IsVoiceInputMuted() = 0;
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
+
+		virtual IGFX* GetGFX() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
