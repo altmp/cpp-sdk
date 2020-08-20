@@ -14,7 +14,7 @@ namespace alt
 	{
 	public:
 		CStartProjectileEvent(Ref<IPlayer> _source, Position _startPosition, Vector3f _direction, uint32_t _ammoHash, uint32_t _weaponHash) :
-			CEvent(Type::EXPLOSION_EVENT),
+			CEvent(Type::START_PROJECTILE_EVENT),
 			source(_source),
 			startPosition(_startPosition),
 			direction(_direction),
