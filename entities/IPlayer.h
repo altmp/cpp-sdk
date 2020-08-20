@@ -63,9 +63,6 @@ namespace alt
 
 		virtual float GetMoveSpeed() const = 0;
 
-		virtual uint32_t GetWeapon() const = 0;
-		virtual uint16_t GetAmmo() const = 0;
-
 		virtual Position GetAimPos() const = 0;
 		virtual Rotation GetHeadRotation() const = 0;
 
