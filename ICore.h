@@ -14,6 +14,7 @@
 #include "script-objects/IColShape.h"
 
 #include "types/KeyState.h"
+#include "types/Permissions.h"
 
 namespace alt
 {
@@ -34,7 +35,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 40;
+		static constexpr uint32_t SDK_VERSION = 41;
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -90,6 +91,9 @@ namespace alt
 		virtual bool HasSyncedMetaData(StringView key) const = 0;
 		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
 
+		virtual const Array<Permission> GetRequiredPermissions() const = 0;
+		virtual const Array<Permission> GetOptionalPermissions() const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 
@@ -101,6 +105,9 @@ namespace alt
 		virtual bool IsVoiceInputMuted() = 0;
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
+
+		virtual PermissionState GetPermissionState(Permission permission) const = 0;
+		virtual PermissionState TakeScreenshot(StringView name) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
