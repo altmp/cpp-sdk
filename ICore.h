@@ -35,7 +35,11 @@ namespace alt
 	class ICore
 	{
 	public:
+#ifdef ALT_SERVER_API
 		static constexpr uint32_t SDK_VERSION = 41;
+#else
+		static constexpr uint32_t SDK_VERSION = 42;
+#endif
 
 		// Shared methods
 		virtual void LogInfo(StringView str) = 0;
@@ -108,6 +112,7 @@ namespace alt
 
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
 		virtual PermissionState TakeScreenshot(StringView name) const = 0;
+		virtual PermissionState TakeScreenshotBase64(String& base64) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
