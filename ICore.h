@@ -110,6 +110,8 @@ namespace alt
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
+		virtual bool IsInStreamerMode() const = 0;
+
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
 		virtual PermissionState TakeScreenshot(StringView name) const = 0;
 		virtual PermissionState TakeScreenshotBase64(String& base64) = 0;
