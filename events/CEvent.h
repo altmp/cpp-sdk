@@ -56,6 +56,7 @@ namespace alt
 			KEYBOARD_EVENT,
 			GAME_ENTITY_CREATE,
 			GAME_ENTITY_DESTROY,
+			RENDER,
 
 			ALL,
 			SIZE
