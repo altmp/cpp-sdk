@@ -38,7 +38,7 @@ namespace alt
 #ifdef ALT_SERVER_API
 		static constexpr uint32_t SDK_VERSION = 42;
 #else
-		static constexpr uint32_t SDK_VERSION = 42;
+		static constexpr uint32_t SDK_VERSION = 43;
 #endif
 
 		// Shared methods
@@ -118,9 +118,16 @@ namespace alt
 		/**
 		 * This is an async operation.
 		 * @param callback will be called when the screenshot has been taken.
-		 * The screenshot is taken upon the next frame rendering.
+		 * The screenshot is taken exactly after the webviews has rendered.
 		 */
 		virtual PermissionState TakeScreenshot(TakeScreenshotCallback callback, const void* userData) const = 0;
+		
+		/**
+		 * This is an async operation.
+		 * @param callback will be called when the screenshot has been taken.
+		 * The screenshot is taken exactly after GTA:V has rendered it's stuff and before alt:V renders anything custom.
+		 */
+		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback, const void* userData) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
