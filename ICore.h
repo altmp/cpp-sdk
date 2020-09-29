@@ -113,14 +113,6 @@ namespace alt
 		virtual bool IsInStreamerMode() const = 0;
 
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
-
-		using TakeScreenshotCallback = void(*)(bool ok, const void* userData);
-		/**
-		 * This is an async operation.
-		 * @param callback will be called when the screenshot has been taken.
-		 * The screenshot is taken upon the next frame rendering.
-		 */
-		virtual PermissionState TakeScreenshot(StringView name, TakeScreenshotCallback callback, const void* userData) const = 0;
 		
 		using TakeScreenshotBase64Callback = void(*)(StringView base64, const void* userData);
 		/**
