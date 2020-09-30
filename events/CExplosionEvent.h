@@ -1,13 +1,13 @@
 #pragma once
 
 #include "../deps/alt-math/alt-math.h"
-#include "../entities/IPlayer.h"
 #include "../Ref.h"
 
 #include "CEvent.h"
 
 namespace alt
 {
+	class IEntity;
 	class IPlayer;
 
 	class CExplosionEvent : public CEvent
@@ -58,23 +58,26 @@ namespace alt
 			UNKNOWN = -1
 		};
 
-		CExplosionEvent(Ref<IPlayer> _source, ExplosionType _explosionType, Position _position, uint32_t _explosionFX) :
+		CExplosionEvent(Ref<IPlayer> _source, ExplosionType _explosionType, Position _position, uint32_t _explosionFX, Ref<IEntity> _target) :
 			CEvent(Type::EXPLOSION_EVENT),
 			source(_source),
 			explosionType(_explosionType),
 			position(_position),
-			explosionFX(_explosionFX)
+			explosionFX(_explosionFX),
+			target(_target)
 		{
 
 		}
 
 		Ref<IPlayer> GetSource() const { return source; }
+		Ref<IEntity> GetTarget() const { return target; }
 		ExplosionType GetExplosionType() const { return explosionType; }
 		Position GetPosition() const { return position; }
 		uint32_t GetExplosionFX() const { return explosionFX; }
 
 	private:
 		Ref<IPlayer> source;
+		Ref<IEntity> target;
 		ExplosionType explosionType;
 		Position position;
 		uint32_t explosionFX;

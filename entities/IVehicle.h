@@ -125,8 +125,8 @@ namespace alt
 		virtual bool IsDaylightOn() = 0;
 		virtual bool IsNightlightOn() = 0;
 
-		virtual bool IsRoofOpened() = 0;
-		virtual void SetRoofOpened(bool state) = 0;
+		virtual uint8_t GetRoofState() = 0;
+		virtual void SetRoofState(uint8_t state) = 0;
 
 		virtual bool IsFlamethrowerActive() = 0;
 
