@@ -16,12 +16,9 @@
 #include "types/KeyState.h"
 #include "types/Permissions.h"
 
-#ifdef ALT_CLIENT_API
-#include "IGFX.h"
-#endif
-
 namespace alt
 {
+	class IGFX;
 	class IEntity;
 	class IPlayer;
 	class IVehicle;
@@ -185,3 +182,7 @@ namespace alt
 		}
 	};
 }
+
+#ifdef ALT_CLIENT_API
+#include "IGFX.h"
+#endif
