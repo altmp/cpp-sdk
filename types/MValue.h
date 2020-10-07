@@ -89,6 +89,20 @@ namespace alt
 		virtual String ToString() const = 0;
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
+		virtual Size GetMemorySize(bool includingType = true) const = 0;
+
+		/// Calculates total size of all the MValues inside the MValueArgs
+		/// if includingType is true, the memory size of the type will also be counted
+		/// if includingArgsSize is true, the memory size of the MValueArgs.GetSize (alt::Size) will also be coutner
+		static Size CalculateMemorySize(const MValueArgs& args, bool includingType = true, bool includingArgsSize = true)
+		{
+			Size size = includingArgsSize ? sizeof(args.GetSize()) : 0;
+			for(auto& val : args)
+			{
+				size += val->GetMemorySize(includingType);
+			}
+			return size;
+		}
 	};
 
 	// Represents lack of value
