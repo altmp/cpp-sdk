@@ -36,9 +36,9 @@ namespace alt
 	{
 	public:
 #ifdef ALT_SERVER_API
-		static constexpr uint32_t SDK_VERSION = 43;
+		static constexpr uint32_t SDK_VERSION = 42;
 #else
-		static constexpr uint32_t SDK_VERSION = 44;
+		static constexpr uint32_t SDK_VERSION = 43;
 #endif
 
 		// Shared methods
