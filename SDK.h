@@ -13,11 +13,10 @@
 
 #else
 
-#define EXPORT EXTERN __attribute__ ((visibility ("default")))
+#define EXPORT EXTERN __attribute__((visibility("default")))
 #define IMPORT
 
 #endif // _WIN32
-
 
 #include "deps/alt-math/alt-math.h"
 

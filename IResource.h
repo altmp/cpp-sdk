@@ -4,6 +4,7 @@
 #include "types/String.h"
 #include "types/MValue.h"
 #include "types/Permissions.h"
+#include "ILocalStorage.h"
 
 namespace alt
 {
@@ -19,29 +20,35 @@ namespace alt
 			String type;
 			String name;
 			String main;
-			IPackage* pkg;
+			IPackage *pkg;
 		};
 
 		class Impl
 		{
 		public:
 #ifdef ALT_SERVER_API
-			virtual bool MakeClient(CreationInfo* info, Array<String> files) { return true; };
+			virtual bool MakeClient(CreationInfo *info, Array<String> files)
+			{
+				return true;
+			};
 #endif
-			virtual bool Start() { return true; };
+			virtual bool Start()
+			{
+				return true;
+			};
 			virtual bool Stop() { return true; };
 
-			virtual bool OnEvent(const CEvent* ev) { return true; };
-			virtual void OnTick() { };
+			virtual bool OnEvent(const CEvent *ev) { return true; };
+			virtual void OnTick(){};
 
-			virtual void OnCreateBaseObject(Ref<IBaseObject> object) { };
-			virtual void OnRemoveBaseObject(Ref<IBaseObject> object) { };
+			virtual void OnCreateBaseObject(Ref<IBaseObject> object){};
+			virtual void OnRemoveBaseObject(Ref<IBaseObject> object){};
 
 			virtual ~Impl() = default;
 		};
 
-		virtual IScriptRuntime* GetRuntime() const = 0;
-		virtual Impl* GetImpl() const = 0;
+		virtual IScriptRuntime *GetRuntime() const = 0;
+		virtual Impl *GetImpl() const = 0;
 
 		virtual bool IsStarted() const = 0;
 
@@ -49,7 +56,7 @@ namespace alt
 		virtual StringView GetName() const = 0;
 		virtual StringView GetPath() const = 0;
 		virtual StringView GetMain() const = 0;
-		virtual IPackage* GetPackage() const = 0;
+		virtual IPackage *GetPackage() const = 0;
 		virtual MValueDict GetExports() const = 0;
 		virtual const Array<StringView> GetDependencies() const = 0;
 		virtual const Array<StringView> GetDependants() const = 0;
@@ -58,7 +65,13 @@ namespace alt
 
 		virtual void SetExports(MValueDict exports) = 0;
 
+#ifdef ALT_CLIENT_API
+		virtual ILocalStorage *GetLocalStorage() const = 0;
+		virtual void EnableNatives() = 0;
+		virtual void PushNativeUpdate() = 0;
+#endif
+
 	protected:
 		virtual ~IResource() = default;
 	};
-}
+} // namespace alt
