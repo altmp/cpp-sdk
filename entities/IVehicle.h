@@ -83,7 +83,7 @@ namespace alt
 		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 
 		virtual bool IsNeonActive() = 0;
-		virtual void GetNeonActive(bool* left, bool* right, bool* front, bool* back) = 0;
+		virtual void GetNeonActive(bool *left, bool *right, bool *front, bool *back) = 0;
 		virtual void SetNeonActive(bool left, bool right, bool front, bool back) = 0;
 		virtual RGBA GetNeonColor() = 0;
 		virtual void SetNeonColor(RGBA color) = 0;
@@ -95,7 +95,7 @@ namespace alt
 
 		virtual String GetAppearanceDataBase64() = 0;
 		virtual void LoadAppearanceDataFromBase64(StringView base64) = 0;
-		
+
 		//vehicle game state
 		virtual bool IsEngineOn() = 0;
 		virtual void SetEngineOn(bool state) = 0;
@@ -204,5 +204,16 @@ namespace alt
 		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
 
 		virtual bool IsDestroyed() const = 0;
+
+#ifdef ALT_CLIENT_API
+		virtual float GetWheelSpeed() = 0;
+		virtual int GetCurrentGear() = 0;
+		virtual float GetCurrentRPM() = 0;
+		virtual Vector3f GetSpeedVector() = 0;
+
+		virtual bool IsHandlingModified() = 0;
+		virtual IHandlingData *GetHandling() = 0;
+		virtual void ResetHandling() = 0;
+#endif
 	};
-}
+} // namespace alt
