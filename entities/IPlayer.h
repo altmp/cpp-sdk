@@ -35,14 +35,16 @@ namespace alt
 		virtual void SetWeather(uint32_t weather) = 0;
 
 		virtual void GiveWeapon(uint32_t weapon, int32_t ammo, bool selectWeapon) = 0;
-		virtual void RemoveWeapon(uint32_t weapon) = 0;
+		virtual bool RemoveWeapon(uint32_t weapon) = 0;
 		virtual void RemoveAllWeapons() = 0;
 
 		virtual void AddWeaponComponent(uint32_t weapon, uint32_t component) = 0;
 		virtual void RemoveWeaponComponent(uint32_t weapon, uint32_t component) = 0;
+		virtual bool HasWeaponComponent(uint32_t weapon, uint32_t component);
 		virtual Array<uint32_t> GetCurrentWeaponComponents() const = 0;
 
 		virtual void SetWeaponTintIndex(uint32_t weapon, uint8_t tintIndex) = 0;
+		virtual uint8_t GetWeaponTintIndex(uint32_t weapon) const = 0;
 		virtual uint8_t GetCurrentWeaponTintIndex() const = 0;
 
 		virtual uint32_t GetCurrentWeapon() const = 0;
@@ -79,6 +81,9 @@ namespace alt
 
 #ifdef ALT_SERVER_API
 		virtual void SetModel(uint32_t model) = 0;
+#else
+		virtual bool IsTalking() = 0;
+		virtual bool GetMicLevel() = 0;
 #endif // ALT_SERVER_API
 	};
-}
+} // namespace alt
