@@ -118,9 +118,12 @@ namespace alt
 
 		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 
+		virtual Ref<IPlayer> GetLocalPlayer() = 0;
+
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
 
+		virtual bool IsSandbox() = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
 		virtual Vector2i GetCursorPosition() const = 0;
@@ -141,7 +144,6 @@ namespace alt
 		virtual bool IsMenuOpen() const = 0;
 		virtual bool IsConsoleOpen() const = 0;
 
-		// Natives
 		virtual Array<INative *> GetAllNatives() = 0;
 		virtual INative::Context *GetNativesContext() = 0;
 
