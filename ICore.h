@@ -98,6 +98,8 @@ namespace alt
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
+        virtual WebSocketConnection* CreateWebSocket(StringView url, StringView binaryType) const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual KeyState GetKeyState(uint32_t keyCode) = 0;
 
