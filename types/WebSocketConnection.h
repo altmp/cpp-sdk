@@ -5,8 +5,8 @@
 namespace alt {
 
 	using WebSocketStateCallback = void (*)(WebSocketConnection *WebSocketConnection, State oldState,
-											State newState);
-	using WebSocketMessageCallback = void (*)(WebSocketConnection *WebSocketConnection, uint8_t *data);
+											State newState, void* userData);
+	using WebSocketMessageCallback = void (*)(WebSocketConnection *WebSocketConnection, uint8_t *data, void* userData);
 
 	class WebSocketConnection
 	{
