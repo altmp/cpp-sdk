@@ -6,6 +6,7 @@
 #include "../types/StringView.h"
 #include "../types/RGBA.h"
 #include "IEntity.h"
+#include "../IHandlingData.h"
 
 namespace alt
 {
