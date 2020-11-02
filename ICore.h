@@ -48,8 +48,8 @@ namespace alt
 #endif
 
 		// Shared methods
-		virtual String GetVersion() = 0;
-		virtual String GetBranch() = 0;
+		virtual String GetVersion() const = 0;
+		virtual String GetBranch() const = 0;
 
 		virtual void LogInfo(StringView str) = 0;
 		virtual void LogDebug(StringView str) = 0;
@@ -120,9 +120,6 @@ namespace alt
 
 		virtual Ref<IPlayer> GetLocalPlayer() = 0;
 
-		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
-		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
-
 		virtual bool IsSandbox() = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
@@ -144,8 +141,8 @@ namespace alt
 		virtual bool IsMenuOpen() const = 0;
 		virtual bool IsConsoleOpen() const = 0;
 
-		virtual Array<INative *> GetAllNatives() = 0;
-		virtual INative::Context *GetNativesContext() = 0;
+		virtual Array<INative *> GetAllNatives() const = 0;
+		virtual INative::Context *GetNativesContext() const = 0;
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 

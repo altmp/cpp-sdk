@@ -69,6 +69,9 @@ namespace alt
 		virtual ILocalStorage *GetLocalStorage() const = 0;
 		virtual void EnableNatives() = 0;
 		virtual void PushNativeUpdate() = 0;
+
+		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
+		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
 #endif
 
 	protected:
