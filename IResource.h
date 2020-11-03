@@ -5,6 +5,7 @@
 #include "types/MValue.h"
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
+#include "script-objects/IWebView.h"
 
 namespace alt
 {
