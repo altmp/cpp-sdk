@@ -49,16 +49,16 @@ namespace alt
 
             virtual bool ResultBool() = 0;
             virtual int32_t ResultInt() = 0;
-            virtual int32_t ResultUint() = 0;
+            virtual uint32_t ResultUint() = 0;
             virtual float ResultFloat() = 0;
             virtual Vector3 ResultVector3() = 0;
             virtual const char *ResultString() = 0;
         };
 
-        virtual String GetName() = 0;
+        virtual String GetName() const = 0;
+        virtual Type GetRetnType() const = 0;
+        virtual Array<Type> GetArgTypes() const = 0;
+        virtual bool IsValid() const = 0;
         virtual bool Invoke(Context *ctx) = 0;
-        virtual Type GetRetnType() = 0;
-        virtual Array<Type> GetArgTypes() = 0;
-        virtual bool IsValid() = 0;
     };
 } // namespace alt

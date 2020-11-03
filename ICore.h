@@ -118,9 +118,9 @@ namespace alt
 
 		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 
-		virtual Ref<IPlayer> GetLocalPlayer() = 0;
+		virtual Ref<IPlayer> GetLocalPlayer() const = 0;
 
-		virtual bool IsSandbox() = 0;
+		virtual bool IsSandbox() const = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
 		virtual Vector2i GetCursorPosition() const = 0;
