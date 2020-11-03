@@ -1,14 +1,14 @@
 #pragma once
 
 #include <cstdint>
-#include "../IBaseObject.h"
+#include "../entities/IBaseObject.h"
 #include "../Ref.h"
 
 namespace alt
 {
 	class IPlayer;
 
-	class IVoiceChannel: public virtual IBaseObject
+	class IVoiceChannel : public virtual IBaseObject
 	{
 	public:
 		virtual ~IVoiceChannel() = default;
@@ -24,4 +24,4 @@ namespace alt
 		virtual void MutePlayer(Ref<IPlayer> player) = 0;
 		virtual void UnmutePlayer(Ref<IPlayer> player) = 0;
 	};
-}
+} // namespace alt

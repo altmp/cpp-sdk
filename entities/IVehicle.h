@@ -6,7 +6,7 @@
 #include "../types/StringView.h"
 #include "../types/RGBA.h"
 #include "IEntity.h"
-#include "../IHandlingData.h"
+#include "../script-objects/IHandlingData.h"
 
 namespace alt
 {
@@ -14,9 +14,10 @@ namespace alt
 
 	class IVehicle : public virtual IEntity
 	{
-	public:
+	protected:
 		virtual ~IVehicle() = default;
 
+	public:
 		virtual Ref<IPlayer> GetDriver() = 0;
 		virtual bool IsDestroyed() = 0;
 		virtual uint8_t GetMod(uint8_t category) = 0;

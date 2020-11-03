@@ -15,6 +15,9 @@ namespace alt
 
 	class IResource
 	{
+	protected:
+		virtual ~IResource() = default;
+
 	public:
 		struct CreationInfo
 		{
@@ -74,8 +77,5 @@ namespace alt
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
 #endif
-
-	protected:
-		virtual ~IResource() = default;
 	};
 } // namespace alt

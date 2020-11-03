@@ -5,8 +5,10 @@ namespace alt
 {
     class IStatData
     {
-    public:
+    protected:
         virtual ~IStatData() = default;
+
+    public:
         virtual void Reset() = 0;
         virtual void SetInt32Value(int32_t value) = 0;
         virtual void SetInt64Value(int64_t value) = 0;

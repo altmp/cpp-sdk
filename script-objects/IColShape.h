@@ -3,7 +3,7 @@
 #include <cstdint>
 
 #include "../types/RGBA.h"
-#include "../IWorldObject.h"
+#include "../entities/IWorldObject.h"
 #include "../entities/IEntity.h"
 #include "../Ref.h"
 
@@ -33,4 +33,4 @@ namespace alt
 		virtual void SetPlayersOnly(bool state) = 0;
 		virtual bool IsPlayersOnly() const = 0;
 	};
-}
+} // namespace alt

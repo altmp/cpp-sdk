@@ -7,6 +7,9 @@ namespace alt
 {
     class INative
     {
+    protected:
+        virtual ~INative() = default;
+
     public:
         enum class Type
         {
@@ -32,6 +35,9 @@ namespace alt
 
         class Context
         {
+        protected:
+            virtual ~Context() = default;
+
         public:
             virtual void Reset() = 0;
 

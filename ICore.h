@@ -11,13 +11,13 @@
 #include "IResource.h"
 #include "IPackage.h"
 #include "IDiscordManager.h"
-#include "IStatData.h"
-#include "IHandlingData.h"
-#include "INative.h"
 
 #include "script-objects/IBlip.h"
 #include "script-objects/IColShape.h"
 #include "script-objects/IWebView.h"
+#include "script-objects/IStatData.h"
+#include "script-objects/IHandlingData.h"
+#include "script-objects/INative.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"

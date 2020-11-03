@@ -27,9 +27,8 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 
-#include "IBaseObject.h"
-#include "IWorldObject.h"
-
+#include "entities/IBaseObject.h"
+#include "entities/IWorldObject.h"
 #include "entities/IEntity.h"
 #include "entities/IPlayer.h"
 #include "entities/IVehicle.h"

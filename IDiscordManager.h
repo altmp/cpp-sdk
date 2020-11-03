@@ -6,6 +6,9 @@ namespace alt
 {
     class IDiscordManager
     {
+    protected:
+        virtual ~IDiscordManager() = default;
+
     public:
         virtual bool IsUserDataReady() = 0;
         virtual alt::String GetUserID() = 0;

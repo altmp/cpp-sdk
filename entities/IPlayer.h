@@ -7,9 +7,10 @@ namespace alt
 {
 	class IPlayer : public virtual IEntity
 	{
-	public:
+	protected:
 		virtual ~IPlayer() = default;
 
+	public:
 		virtual StringView GetName() const = 0;
 
 		virtual uint16_t GetHealth() const = 0;

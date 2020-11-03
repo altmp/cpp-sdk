@@ -6,7 +6,7 @@ namespace alt
 {
     class ILocalPlayer : public virtual IPlayer
     {
-    public:
+    protected:
         virtual ~ILocalPlayer() = default;
     };
 } // namespace alt

@@ -1,11 +1,14 @@
 #pragma once
 
-#include "deps/alt-math/alt-math.h"
+#include "../deps/alt-math/alt-math.h"
 
 namespace alt
 {
     class IHandlingData
     {
+    protected:
+        virtual ~IHandlingData() = default;
+
     public:
         virtual float GetHandlingNameHash() = 0;
         virtual float GetMass() = 0;

@@ -8,9 +8,10 @@ namespace alt
 {
     class ILocalStorage
     {
-    public:
-        virtual ~ILocalStorage() = delete;
+    protected:
+        virtual ~ILocalStorage() = default;
 
+    public:
         virtual MValueConst Get(StringView key) const = 0;
         virtual void Set(StringView key, MValue) const = 0;
         virtual void Delete(StringView key) const = 0;

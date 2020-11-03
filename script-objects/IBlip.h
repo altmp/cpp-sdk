@@ -2,8 +2,7 @@
 
 #include <cstdint>
 #include "../Ref.h"
-
-#include "../IWorldObject.h"
+#include "../entities/IWorldObject.h"
 
 namespace alt
 {
@@ -43,4 +42,4 @@ namespace alt
 		virtual void SetRoute(bool state) = 0;
 		virtual void SetRouteColor(uint8_t color) = 0;
 	};
-}
+} // namespace alt
