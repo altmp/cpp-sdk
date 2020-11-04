@@ -27,11 +27,11 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 
-#include "entities/IBaseObject.h"
-#include "entities/IWorldObject.h"
-#include "entities/IEntity.h"
-#include "entities/IPlayer.h"
-#include "entities/IVehicle.h"
+#include "objects/IBaseObject.h"
+#include "objects/IWorldObject.h"
+#include "objects/IEntity.h"
+#include "objects/IPlayer.h"
+#include "objects/IVehicle.h"
 
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/IBlip.h"

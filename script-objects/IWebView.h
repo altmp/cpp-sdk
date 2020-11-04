@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "../entities/IBaseObject.h"
+#include "../objects/IBaseObject.h"
 
 namespace alt
 {

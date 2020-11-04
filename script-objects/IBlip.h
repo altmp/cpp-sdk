@@ -2,7 +2,7 @@
 
 #include <cstdint>
 #include "../Ref.h"
-#include "../entities/IWorldObject.h"
+#include "../objects/IWorldObject.h"
 
 namespace alt
 {
