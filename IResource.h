@@ -6,6 +6,7 @@
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
 #include "script-objects/IWebView.h"
+#include "script-objects/IBlip.h"
 
 namespace alt
 {
@@ -76,6 +77,10 @@ namespace alt
 
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
+		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
+		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
+		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
+		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 #endif
 	};
 } // namespace alt
