@@ -1,13 +1,16 @@
 #pragma once
 
-#include "types/StringView.h"
-#include "types/MValue.h"
-#include "Ref.h"
+#include "../types/StringView.h"
+#include "../types/MValue.h"
+#include "../Ref.h"
 
 namespace alt
 {
 	class IBaseObject : public virtual CRefCountable
 	{
+	protected:
+		virtual ~IBaseObject() = default;
+
 	public:
 		enum class Type : uint8_t
 		{
@@ -20,8 +23,6 @@ namespace alt
 			CHECKPOINT
 		};
 
-		virtual ~IBaseObject() = default;
-
 		virtual Type GetType() const = 0;
 
 		virtual bool HasMetaData(StringView key) const = 0;
@@ -29,4 +30,4 @@ namespace alt
 		virtual void SetMetaData(StringView key, MValue val) = 0;
 		virtual void DeleteMetaData(StringView key) = 0;
 	};
-}
+} // namespace alt

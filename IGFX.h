@@ -1982,19 +1982,18 @@ namespace alt
         /// @param[in] _dstSize Destination index buffer in bytes. It must be
         ///    large enough to contain output indices. If destination size is
         ///    insufficient index buffer will be truncated.
-        virtual /// @param[in] _dir Direction (vector must be normalized).
-            /// @param[in] _pos Position.
-            /// @param[in] _vertices Pointer to first vertex represented as
-            ///    float x, y, z. Must contain at least number of vertices
-            ///    referencende by index buffer.
-            /// @param[in] _stride Vertex stride.
-            /// @param[in] _indices Source indices.
-            /// @param[in] _numIndices Number of input indices.
-            /// @param[in] _index32 Set to `true` if input indices are 32-bit.
-            ///
-            ///
-            virtual void
-            topologySortTriList(TopologySort::Enum _sort, void *_dst, uint32_t _dstSize, const float _dir[3], const float _pos[3], const void *_vertices, uint32_t _stride, const void *_indices, uint32_t _numIndices, bool _index32) = 0;
+        /// @param[in] _dir Direction (vector must be normalized).
+        /// @param[in] _pos Position.
+        /// @param[in] _vertices Pointer to first vertex represented as
+        ///    float x, y, z. Must contain at least number of vertices
+        ///    referencende by index buffer.
+        /// @param[in] _stride Vertex stride.
+        /// @param[in] _indices Source indices.
+        /// @param[in] _numIndices Number of input indices.
+        /// @param[in] _index32 Set to `true` if input indices are 32-bit.
+        ///
+        ///
+        virtual void topologySortTriList(TopologySort::Enum _sort, void *_dst, uint32_t _dstSize, const float _dir[3], const float _pos[3], const void *_vertices, uint32_t _stride, const void *_indices, uint32_t _numIndices, bool _index32) = 0;
 
         /// Returns supported backend API renderers.
         ///
