@@ -8,27 +8,25 @@
 
 namespace alt
 {
-	class CWebView;
+	class IWebView;
 
 	class CWebViewEvent : public CEvent
 	{
 	public:
-		CWebViewEvent(CWebView* _target, StringView _name, const MValueArgs& _args) :
-			CEvent(Type::WEB_VIEW_EVENT),
-			target(_target),
-			name(_name),
-			args(_args)
+		CWebViewEvent(IWebView *_target, StringView _name, const MValueArgs &_args) : CEvent(Type::WEB_VIEW_EVENT),
+																					  target(_target),
+																					  name(_name),
+																					  args(_args)
 		{
-
 		}
 
-		CWebView* GetTarget() const { return target; }
+		IWebView *GetTarget() const { return target; }
 		StringView GetName() const { return name; }
-		const MValueArgs& GetArgs() const { return args; }
+		const MValueArgs &GetArgs() const { return args; }
 
 	private:
-		CWebView* target;
+		IWebView *target;
 		String name;
 		MValueArgs args;
 	};
-}
+} // namespace alt

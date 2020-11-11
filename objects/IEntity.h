@@ -3,7 +3,7 @@
 #include "../deps/alt-math/alt-math.h"
 #include "../types/StringView.h"
 #include "../types/MValue.h"
-#include "../IWorldObject.h"
+#include "IWorldObject.h"
 
 namespace alt
 {
@@ -11,9 +11,10 @@ namespace alt
 
 	class IEntity : public virtual IWorldObject
 	{
-	public:
+	protected:
 		virtual ~IEntity() = default;
 
+	public:
 		virtual uint16_t GetID() const = 0;
 
 		virtual Ref<IPlayer> GetNetworkOwner() const = 0;
@@ -41,4 +42,4 @@ namespace alt
 		virtual int32_t GetScriptGuid() const = 0;
 #endif // ALT_CLIENT_API
 	};
-}
+} // namespace alt

@@ -2,8 +2,7 @@
 
 #include <cstdint>
 #include "../Ref.h"
-
-#include "../IWorldObject.h"
+#include "../objects/IWorldObject.h"
 
 namespace alt
 {
@@ -33,14 +32,77 @@ namespace alt
 
 		virtual bool IsGlobal() const = 0;
 		virtual Ref<IPlayer> GetTarget() const = 0;
-
 		virtual bool IsAttached() const = 0;
 		virtual Ref<IEntity> AttachedTo() const = 0;
 		virtual BlipType GetBlipType() const = 0;
 
-		virtual void SetSprite(uint16_t sprite) = 0;
-		virtual void SetColor(uint8_t color) = 0;
+#ifdef ALT_CLIENT_API
+		virtual float GetScale() = 0;
+		virtual Vector2f GetScaleXY() = 0;
+		virtual void SetScaleXY(float x, float y) = 0;
+		virtual int GetDisplay() = 0;
+		virtual void SetDisplay(int display) = 0;
+		virtual int GetSprite() = 0;
+		virtual int GetColor() = 0;
+		virtual uint32_t GetSecondaryColor() = 0;
+		virtual int GetAlpha() = 0;
+		virtual int GetFlashTimer() = 0;
+		virtual int GetFlashInterval() = 0;
+		virtual bool GetAsFriendly() = 0;
+		virtual bool GetRoute() = 0;
+		virtual bool GetBright() = 0;
+		virtual int GetNumber() = 0;
+		virtual bool GetShowCone() = 0;
+		virtual bool GetFlashes() = 0;
+		virtual bool GetFlashesAlternate() = 0;
+		virtual bool GetAsShortRange() = 0;
+		virtual int GetPriority() = 0;
+		virtual float GetRotation() = 0;
+		virtual const char *GetGxtName() = 0;
+		virtual const char *GetName() = 0;
+		virtual uint32_t GetRouteColor() = 0;
+		virtual bool GetPulse() = 0;
+		virtual bool GetAsMissionCreator() = 0;
+		virtual bool GetTickVisible() = 0;
+		virtual bool GetHeadingIndicatorVisible() = 0;
+		virtual bool GetOutlineIndicatorVisible() = 0;
+		virtual bool GetFriendIndicatorVisible() = 0;
+		virtual bool GetCrewIndicatorVisible() = 0;
+		virtual int GetCategory() = 0;
+		virtual bool GetAsHighDetail() = 0;
+		virtual bool GetShrinked() = 0;
+
+		virtual void SetSprite(int sprite) = 0;
+		virtual void SetColor(int color) = 0;
 		virtual void SetRoute(bool state) = 0;
-		virtual void SetRouteColor(uint8_t color) = 0;
+		virtual void SetRouteColor(uint32_t color) = 0;
+		virtual void SetScale(float scale) = 0;
+		virtual void SetSecondaryColor(uint32_t color) = 0;
+		virtual void SetAlpha(int alpha) = 0;
+		virtual void SetFlashTimer(int timer) = 0;
+		virtual void SetFlashInterval(int interval) = 0;
+		virtual void SetAsFriendly(bool friendly) = 0;
+		virtual void SetBright(bool bright) = 0;
+		virtual void SetNumber(int number) = 0;
+		virtual void SetShowCone(bool state) = 0;
+		virtual void SetFlashes(bool state) = 0;
+		virtual void SetFlashesAlternate(bool state) = 0;
+		virtual void SetAsShortRange(bool state) = 0;
+		virtual void SetPriority(int state) = 0;
+		virtual void SetRotation(float rot) = 0;
+		virtual void SetGxtName(const char *name) = 0;
+		virtual void SetName(const char *name) = 0;
+		virtual void SetPulse(bool val) = 0;
+		virtual void SetAsMissionCreator(bool val) = 0;
+		virtual void SetTickVisible(bool val) = 0;
+		virtual void SetHeadingIndicatorVisible(bool val) = 0;
+		virtual void SetOutlineIndicatorVisible(bool val) = 0;
+		virtual void SetFriendIndicatorVisible(bool val) = 0;
+		virtual void SetCrewIndicatorVisible(bool val) = 0;
+		virtual void SetCategory(int val) = 0;
+		virtual void SetAsHighDetail(bool val) = 0;
+		virtual void SetShrinked(bool val) = 0;
+		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
+#endif
 	};
-}
+} // namespace alt

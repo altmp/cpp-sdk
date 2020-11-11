@@ -13,11 +13,10 @@
 
 #else
 
-#define EXPORT EXTERN __attribute__ ((visibility ("default")))
+#define EXPORT EXTERN __attribute__((visibility("default")))
 #define IMPORT
 
 #endif // _WIN32
-
 
 #include "deps/alt-math/alt-math.h"
 
@@ -28,12 +27,11 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 
-#include "IBaseObject.h"
-#include "IWorldObject.h"
-
-#include "entities/IEntity.h"
-#include "entities/IPlayer.h"
-#include "entities/IVehicle.h"
+#include "objects/IBaseObject.h"
+#include "objects/IWorldObject.h"
+#include "objects/IEntity.h"
+#include "objects/IPlayer.h"
+#include "objects/IVehicle.h"
 
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/IBlip.h"

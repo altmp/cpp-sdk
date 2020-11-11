@@ -13,66 +13,52 @@ namespace alt
 	class String
 	{
 	public:
-		String(Size _size, char fill = '\0') :
-			size(_size)
+		String(Size _size, char fill = '\0') : size(_size)
 		{
 			data = new char[size + 1];
 			memset(data, fill, size);
 			data[size] = '\0';
 		}
 
-		template<class Iter>
+		template <class Iter>
 		String(Iter first, Iter last)
 		{
 			size = std::distance(first, last);
 
 			data = new char[size + 1];
-			
+
 			for (Size i = 0; first != last; ++i)
 				data[i] = *(first++);
-				
+
 			data[size] = '\0';
 		}
 
-		String(const char* _data, Size size) :
-			String(_data, _data + size)
+		String(const char *_data, Size size) : String(_data, _data + size)
 		{
-
 		}
 
-		String() :
-			String(nullptr, 0)
+		String() : String(nullptr, 0)
 		{
-
 		}
 
-		String(const char* _str) :
-			String(_str, strlen(_str))
+		String(const char *_str) : String(_str, strlen(_str))
 		{
-
 		}
 
-		template<Size Size>
-		String(const char(&_data)[Size]) :
-			String(_data, Size - 1)
+		template <Size Size>
+		String(const char (&_data)[Size]) : String(_data, Size - 1)
 		{
-
 		}
 
-		String(const std::string& _str) :
-			String(_str.data(), _str.size())
+		String(const std::string &_str) : String(_str.data(), _str.size())
 		{
-
 		}
 
-		String(const String& that) :
-			String(that.data, that.size)
+		String(const String &that) : String(that.data, that.size)
 		{
-
 		}
 
-		String(String&& that) noexcept:
-			String()
+		String(String &&that) noexcept : String()
 		{
 			String tmp;
 			tmp.Swap(that);
@@ -81,17 +67,17 @@ namespace alt
 
 		~String() { delete[] data; }
 
-		char& operator[](Size key) { return data[key]; }
+		char &operator[](Size key) { return data[key]; }
 		char operator[](Size key) const { return data[key]; }
 
-		String& operator=(const String& that)
+		String &operator=(const String &that)
 		{
 			String tmp(that);
 			Swap(tmp);
 			return *this;
 		}
 
-		String& operator=(String&& that) noexcept
+		String &operator=(String &&that) noexcept
 		{
 			String tmp(that);
 			Swap(tmp);
@@ -100,54 +86,56 @@ namespace alt
 
 		void Resize(Size new_size)
 		{
-			char* buf = nullptr;
-			if(new_size != 0)
+			char *buf = nullptr;
+			if (new_size != 0)
 			{
-				buf = new char[new_size+1];
+				buf = new char[new_size + 1];
 				for (Size i = 0; i < new_size && i < size; i++)
 					buf[i] = data[i];
 				buf[new_size] = '\0';
 			}
-			
+
 			delete[] data;
-			
+
 			data = buf;
 			size = new_size;
 		}
 
 		bool IsEmpty() const { return size == 0; }
 
-		const char* GetData() const { return data; }
-		char* GetData() { return data; }
+		const char *GetData() const { return data; }
+		char *GetData() { return data; }
 		Size GetSize() const { return size; }
 
 		bool operator==(String that) const { return size == that.size && memcmp(data, that.data, size) == 0; }
 		bool operator!=(String that) const { return !(*this == that); }
 
 		std::string ToString() const { return std::string(data, size); }
-		const char* CStr() const { return data; }
+		const char *CStr() const { return data; }
 
-		friend String operator+(const String& lhs, const String& rhs) { return Concat(lhs.CStr(), lhs.GetSize(), rhs.GetData(), rhs.GetSize()); }
-		
-		friend String operator+(const String& lhs, const char* rhs) { return Concat(lhs.CStr(), lhs.GetSize(), rhs, strlen(rhs)); }
-		friend String operator+(const char* lhs, const String& rhs) { return Concat(lhs, strlen(lhs), rhs.GetData(), rhs.GetSize()); }
+		friend String operator+(const String &lhs, const String &rhs) { return Concat(lhs.CStr(), lhs.GetSize(), rhs.GetData(), rhs.GetSize()); }
 
-		friend String operator+(const String& lhs, char rhs) { return Concat(lhs.CStr(), lhs.GetSize(), &rhs, 1); }
-		friend String operator+(char lhs, const String& rhs) { return Concat(&lhs, 1, rhs.GetData(), rhs.GetSize()); }
+		friend String operator+(const String &lhs, const char *rhs) { return Concat(lhs.CStr(), lhs.GetSize(), rhs, strlen(rhs)); }
+		friend String operator+(const char *lhs, const String &rhs) { return Concat(lhs, strlen(lhs), rhs.GetData(), rhs.GetSize()); }
 
-		friend std::ostream& operator<<(std::ostream& stream, String str) { return stream << str.CStr(); }
+		friend String operator+(const String &lhs, char rhs) { return Concat(lhs.CStr(), lhs.GetSize(), &rhs, 1); }
+		friend String operator+(char lhs, const String &rhs) { return Concat(&lhs, 1, rhs.GetData(), rhs.GetSize()); }
+
+		friend String operator+=(String &lhs, const String &rhs) { return Concat(lhs.CStr(), lhs.GetSize(), rhs.GetData(), rhs.GetSize()); }
+
+		friend std::ostream &operator<<(std::ostream &stream, String str) { return stream << str.CStr(); }
 
 	private:
-		char* data;
+		char *data;
 		Size size;
 
-		void Swap(String& that)
+		void Swap(String &that)
 		{
 			std::swap(data, that.data);
 			std::swap(size, that.size);
 		}
 
-		static String Concat(const char* lData, Size lSize, const char* rData, Size rSize)
+		static String Concat(const char *lData, Size lSize, const char *rData, Size rSize)
 		{
 			String res(lSize + rSize);
 
@@ -158,15 +146,15 @@ namespace alt
 		}
 	};
 
-	inline String operator"" _s(const char* _str, std::size_t len) { return String{ _str, len }; }
-}
+	inline String operator"" _s(const char *_str, std::size_t len) { return String{_str, len}; }
+} // namespace alt
 
 namespace std
 {
-	template<>
+	template <>
 	struct hash<alt::String>
 	{
-		size_t operator()(const alt::String& val) const
+		size_t operator()(const alt::String &val) const
 		{
 			uint32_t hash, i;
 			for (hash = i = 0; i < val.GetSize(); ++i)
@@ -182,4 +170,4 @@ namespace std
 			return hash;
 		}
 	};
-}
+} // namespace std
