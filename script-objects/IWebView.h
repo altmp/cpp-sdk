@@ -19,5 +19,7 @@ namespace alt
         virtual void SetVisible(bool visible) = 0;
         virtual bool IsOverlay() const = 0;
         virtual bool IsReady() const = 0;
+        
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
     };
 } // namespace alt

@@ -102,5 +102,7 @@ namespace alt
 		virtual void SetShrinked(bool val) = 0;
 		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
 #endif
+
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 } // namespace alt

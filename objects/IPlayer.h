@@ -79,5 +79,7 @@ namespace alt
 		virtual bool IsTalking() const = 0;
 		virtual float GetMicLevel() const = 0;
 #endif // ALT_SERVER_API
+		
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 } // namespace alt

@@ -89,6 +89,8 @@ namespace alt
 		virtual String ToString() const = 0;
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
+		
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 
 	// Represents lack of value

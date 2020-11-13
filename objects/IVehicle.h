@@ -162,5 +162,7 @@ namespace alt
 		virtual IHandlingData *GetHandling() = 0;
 		virtual void ResetHandling() = 0;
 #endif
+		
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 } // namespace alt
