@@ -142,7 +142,7 @@ namespace alt
 		virtual bool IsConsoleOpen() const = 0;
 
 		virtual Array<INative *> GetAllNatives() const = 0;
-		virtual INative::Context *GetNativesContext() const = 0;
+		virtual alt::Ref<alt::INative::Context> CreateNativesContext() const = 0;
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
