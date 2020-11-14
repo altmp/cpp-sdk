@@ -15,18 +15,18 @@ namespace alt
 		RGBA() = default;
 
 		RGBA(uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a) :
-			r(_r),
-			g(_g),
-			b(_b),
-			a(_a)
-		{
-
-		}
+			r(_r), g(_g), b(_b), a(_a) { }
 
 		friend std::ostream& operator<<(std::ostream& stream, const RGBA& rgba)
 		{
 			stream << "RGBA{ " << (int)rgba.r << ", " << (int)rgba.g << ", " << (int)rgba.b << ", " << (int)rgba.a << " }";
 			return stream;
+		}
+
+		//also works as fromBGRA
+		RGBA toBGRA()
+		{
+			return RGBA(b, g, r, a);
 		}
 	};
 }
