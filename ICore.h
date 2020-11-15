@@ -44,7 +44,7 @@ namespace alt
 #ifdef ALT_SERVER_API
 		static constexpr uint32_t SDK_VERSION = 44;
 #else
-		static constexpr uint32_t SDK_VERSION = 44;
+		static constexpr uint32_t SDK_VERSION = 45;
 #endif
 
 		// Shared methods
@@ -142,7 +142,7 @@ namespace alt
 		virtual bool IsConsoleOpen() const = 0;
 
 		virtual const Array<INative *> GetAllNatives() const = 0;
-		virtual alt::Ref<alt::INative::Context> CreateNativesContext() const = 0;
+		virtual Ref<INative::Context> CreateNativesContext() const = 0;
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
