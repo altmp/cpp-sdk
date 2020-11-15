@@ -72,7 +72,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual ILocalStorage *GetLocalStorage() const = 0;
-		virtual void EnableNatives() = 0;
+		virtual void EnableNatives(alt::IResource::Impl*) = 0;
 		virtual void PushNativeUpdate() = 0;
 
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
