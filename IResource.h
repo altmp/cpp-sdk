@@ -81,7 +81,7 @@ namespace alt
 		virtual Ref<INative::Context> CreateNativesContext() const = 0;
 		virtual Ref<INative::Scope> PushNativesScope() = 0;
 
-		virtual ILocalStorage *GetLocalStorage() const = 0;
+		virtual ILocalStorage *GetLocalStorage() = 0;
 
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
