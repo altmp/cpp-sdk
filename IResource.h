@@ -89,6 +89,14 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
+
+		virtual void AddGxtText(uint32_t hash, const std::string& text) = 0;
+		virtual void RemoveGxtText(uint32_t hash) = 0;
+		virtual const std::string& GetGxtText(uint32_t hash) = 0;
+		virtual bool ToggleCursor(bool state) = 0;
+		virtual void ToggleGameControls(bool state) = 0;
+		virtual bool CursorVisible() = 0;
+		virtual bool GameControlsActive() = 0;
 #endif
 	};
 } // namespace alt
