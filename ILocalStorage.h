@@ -12,10 +12,10 @@ namespace alt
         virtual ~ILocalStorage() = default;
 
     public:
-        virtual MValueConst Get(StringView key) const = 0;
-        virtual void Set(StringView key, MValue) const = 0;
-        virtual void Delete(StringView key) const = 0;
-        virtual void Clear() const = 0;
-        virtual bool Save() const = 0;
+        virtual MValueConst Get(StringView key) = 0;
+        virtual void Set(StringView key, MValue value) = 0;
+        virtual void Delete(StringView key) = 0;
+        virtual void Clear() = 0;
+        virtual bool Save() = 0;
     };
 } // namespace alt

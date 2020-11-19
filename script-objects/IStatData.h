@@ -47,5 +47,6 @@ namespace alt
     public:
         virtual const char *GetStatType() = 0;
         virtual int GetSize() = 0;
+
     };
 } // namespace alt

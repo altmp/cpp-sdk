@@ -32,5 +32,7 @@ namespace alt
 		virtual bool IsPointIn(Position p) const = 0;
 		virtual void SetPlayersOnly(bool state) = 0;
 		virtual bool IsPlayersOnly() const = 0;
+
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 } // namespace alt

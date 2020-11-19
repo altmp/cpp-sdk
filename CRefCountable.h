@@ -46,6 +46,8 @@ namespace alt
 			weakRefs.erase(ref);
 		}
 
+		virtual const std::type_info& GetTypeInfo() = 0;
+
 	protected:
 		virtual ~CRefCountable() = default;
 

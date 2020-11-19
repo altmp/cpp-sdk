@@ -23,5 +23,7 @@ namespace alt
 		virtual bool IsPlayerMuted(Ref<IPlayer> player) const = 0;
 		virtual void MutePlayer(Ref<IPlayer> player) = 0;
 		virtual void UnmutePlayer(Ref<IPlayer> player) = 0;
+		
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 } // namespace alt

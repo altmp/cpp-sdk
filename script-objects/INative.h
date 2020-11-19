@@ -2,6 +2,8 @@
 
 #include <cstdint>
 #include "../types/String.h"
+#include "../IResource.h"
+#include "../CRefCountable.h"
 
 namespace alt
 {
@@ -33,7 +35,7 @@ namespace alt
             float x, __padx, y, __pady, z, __padz;
         };
 
-        class Context
+        class Context : public CRefCountable
         {
         protected:
             virtual ~Context() = default;
@@ -59,12 +61,20 @@ namespace alt
             virtual float ResultFloat() = 0;
             virtual Vector3 ResultVector3() = 0;
             virtual const char *ResultString() = 0;
+
+		    const std::type_info& GetTypeInfo() override { return typeid(this); }
+        };
+
+        class Scope : public CRefCountable {
+        public:
+            virtual ~Scope() = default;
+		    const std::type_info& GetTypeInfo() override { return typeid(this); }
         };
 
         virtual String GetName() const = 0;
         virtual Type GetRetnType() const = 0;
         virtual Array<Type> GetArgTypes() const = 0;
         virtual bool IsValid() const = 0;
-        virtual bool Invoke(Context *ctx) = 0;
+        virtual bool Invoke(alt::Ref<INative::Context> ctx) = 0;
     };
 } // namespace alt

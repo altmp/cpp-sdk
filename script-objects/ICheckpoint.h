@@ -19,5 +19,7 @@ namespace alt
 		virtual float GetHeight() const = 0;
 		virtual float GetRadius() const = 0;
 		virtual RGBA GetColor() const = 0;
+
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
 	};
 }

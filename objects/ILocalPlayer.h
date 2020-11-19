@@ -8,5 +8,7 @@ namespace alt
     {
     protected:
         virtual ~ILocalPlayer() = default;
+
+		const std::type_info& GetTypeInfo() override { return typeid(this); }
     };
 } // namespace alt
