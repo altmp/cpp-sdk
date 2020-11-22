@@ -2055,7 +2055,7 @@ namespace alt
         ///   library via `IGFX::makeRef` calls.
         ///
         ///
-        virtual uint32_t frame(bool _capture = false) = 0;
+        // virtual uint32_t frame(bool _capture = false) = 0;
 
         /// Returns current renderer backend API type.
         ///
@@ -2125,7 +2125,7 @@ namespace alt
         ///     primitives will be rendered as lines.
         ///
         ///
-        virtual void setDebug(uint32_t _debug) = 0;
+        // virtual void setDebug(uint32_t _debug) = 0;
 
         /// Clear internal debug text buffer.
         ///
@@ -2135,39 +2135,36 @@ namespace alt
         ///
         virtual void dbgTextClear(uint8_t _attr = 0, bool _small = false) = 0;
 
-        virtual /// Print into internal debug text character-buffer (VGA-compatible text mode).
-            ///
-            /// @param[in] _x, _y 2D position from top-left.
-            /// @param[in] _attr Color palette. Where top 4-bits represent index of background, and bottom
-            virtual ///   4-bits represent foreground color from standard VGA text palette (ANSI escape codes).
-            /// @param[in] _format `printf` style format.
-            ///
-            ///
-            virtual void
-            dbgTextPrintf(uint16_t _x, uint16_t _y, uint8_t _attr, const char *_format, ...) = 0;
+        /// Print into internal debug text character-buffer (VGA-compatible text mode).
+        ///
+        /// @param[in] _x, _y 2D position from top-left.
+        /// @param[in] _attr Color palette. Where top 4-bits represent index of background, and bottom
+        ///   4-bits represent foreground color from standard VGA text palette (ANSI escape codes).
+        /// @param[in] _format `printf` style format.
+        ///
+        ///
+        virtual void dbgTextPrintf(uint16_t _x, uint16_t _y, uint8_t _attr, const char *_format, ...) = 0;
 
-        virtual /// Print into internal debug text character-buffer (VGA-compatible text mode).
-            ///
-            /// @param[in] _x, _y 2D position from top-left.
-            /// @param[in] _attr Color palette. Where top 4-bits represent index of background, and bottom
-            virtual ///   4-bits represent foreground color from standard VGA text palette (ANSI escape codes).
-            /// @param[in] _format `printf` style format.
-            /// @param[in] _argList additional arguments for format string
-            ///
-            ///
-            virtual void
-            dbgTextPrintfVargs(uint16_t _x, uint16_t _y, uint8_t _attr, const char *_format, va_list _argList) = 0;
+        /// Print into internal debug text character-buffer (VGA-compatible text mode).
+        ///
+        /// @param[in] _x, _y 2D position from top-left.
+        /// @param[in] _attr Color palette. Where top 4-bits represent index of background, and bottom
+        ///   4-bits represent foreground color from standard VGA text palette (ANSI escape codes).
+        /// @param[in] _format `printf` style format.
+        /// @param[in] _argList additional arguments for format string
+        ///
+        ///
+        virtual void dbgTextPrintfVargs(uint16_t _x, uint16_t _y, uint8_t _attr, const char *_format, va_list _argList) = 0;
 
         /// Draw image into internal debug text buffer.
         ///
         /// @param[in] _x, _y 2D position from top-left.
         /// @param[in] _width, _height  Image width and height.
-        virtual /// @param[in] _data  Raw image data (character/attribute raw encoding).
-            /// @param[in] _pitch Image pitch in bytes.
-            ///
-            ///
-            virtual void
-            dbgTextImage(uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const void *_data, uint16_t _pitch) = 0;
+        /// @param[in] _data  Raw image data (character/attribute raw encoding).
+        /// @param[in] _pitch Image pitch in bytes.
+        ///
+        ///
+        virtual void dbgTextImage(uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const void *_data, uint16_t _pitch) = 0;
 
         /// Create static index buffer.
         ///
@@ -2192,12 +2189,11 @@ namespace alt
         ///
         /// @param[in] _handle Static index buffer handle.
         /// @param[in] _name Static index buffer name.
-        virtual /// @param[in] _len Static index buffer name length (if length is INT32_MAX, it's expected
-            ///   that _name is zero terminated string.
-            ///
-            ///
-            virtual void
-            setName(IndexBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
+        /// @param[in] _len Static index buffer name length (if length is INT32_MAX, it's expected
+        ///   that _name is zero terminated string.
+        ///
+        ///
+        virtual void setName(IndexBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
 
         /// Destroy static index buffer.
         ///
@@ -2241,12 +2237,11 @@ namespace alt
         ///
         /// @param[in] _handle Static vertex buffer handle.
         /// @param[in] _name Static vertex buffer name.
-        virtual /// @param[in] _len Static vertex buffer name length (if length is INT32_MAX, it's expected
-            ///   that _name is zero terminated string.
-            ///
-            ///
-            virtual void
-            setName(VertexBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
+        /// @param[in] _len Static vertex buffer name length (if length is INT32_MAX, it's expected
+        ///   that _name is zero terminated string.
+        ///
+        ///
+        virtual void setName(VertexBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
 
         /// Destroy static vertex buffer.
         ///
@@ -2474,12 +2469,11 @@ namespace alt
         ///
         /// @param[in] _handle Shader handle.
         /// @param[in] _name Shader name.
-        virtual /// @param[in] _len Shader name length (if length is INT32_MAX, it's expected
-            ///   that _name is zero terminated string.
-            ///
-            ///
-            virtual void
-            setName(ShaderHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
+        /// @param[in] _len Shader name length (if length is INT32_MAX, it's expected
+        ///   that _name is zero terminated string.
+        ///
+        ///
+        virtual void setName(ShaderHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
 
         /// Destroy shader. Once a shader program is created with _handle,
         /// it is safe to destroy that shader.
@@ -2547,20 +2541,19 @@ namespace alt
         /// Create texture from memory buffer.
         ///
         /// @param[in] _mem DDS, KTX or PVR texture data.
-        virtual /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
-            ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            /// @param[in] _skip Skip top level mips when parsing texture.
-            /// @param[out] _info When non-`NULL` is specified it returns parsed texture information.
-            /// @returns Texture handle.
-            ///
-            ///
-            virtual TextureHandle
-            createTexture(const Memory *_mem, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, uint8_t _skip = 0, TextureInfo *_info = NULL) = 0;
+        /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
+        ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        /// @param[in] _skip Skip top level mips when parsing texture.
+        /// @param[out] _info When non-`NULL` is specified it returns parsed texture information.
+        /// @returns Texture handle.
+        ///
+        ///
+        virtual TextureHandle createTexture(const Memory *_mem, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, uint8_t _skip = 0, TextureInfo *_info = NULL) = 0;
 
         /// Create 2D texture.
         ///
@@ -2570,20 +2563,19 @@ namespace alt
         /// @param[in] _numLayers Number of layers in texture array. Must be 1 if caps
         ///   `ALT_GFX_CAPS_TEXTURE_2D_ARRAY` flag is not set.
         /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
-        virtual /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
-            ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
-            ///   `_mem` is NULL content of the texture is uninitialized. When `_numLayers` is more than
-            ///   1, expected memory layout is texture and all mips together for each array element.
-            ///
-            ///
-            virtual TextureHandle
-            createTexture2D(uint16_t _width, uint16_t _height, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
+        /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
+        ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
+        ///   `_mem` is NULL content of the texture is uninitialized. When `_numLayers` is more than
+        ///   1, expected memory layout is texture and all mips together for each array element.
+        ///
+        ///
+        virtual TextureHandle createTexture2D(uint16_t _width, uint16_t _height, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
 
         /// Create texture with size based on backbuffer ratio. Texture will maintain ratio
         /// if back buffer resolution changes.
@@ -2594,16 +2586,15 @@ namespace alt
         /// @param[in] _numLayers Number of layers in texture array. Must be 1 if caps
         ///   `ALT_GFX_CAPS_TEXTURE_2D_ARRAY` flag is not set.
         /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
-        virtual /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
-            ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            ///
-            virtual TextureHandle
-            createTexture2D(BackbufferRatio::Enum _ratio, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE) = 0;
+        /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
+        ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        ///
+        virtual TextureHandle createTexture2D(BackbufferRatio::Enum _ratio, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE) = 0;
 
         /// Create 3D texture.
         ///
@@ -2612,19 +2603,18 @@ namespace alt
         /// @param[in] _depth Depth.
         /// @param[in] _hasMips Indicates that texture contains full mip-map chain.
         /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
-        virtual /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
-            ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
-            ///   `_mem` is NULL content of the texture is uninitialized.
-            ///
-            ///
-            virtual TextureHandle
-            createTexture3D(uint16_t _width, uint16_t _height, uint16_t _depth, bool _hasMips, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
+        /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
+        ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
+        ///   `_mem` is NULL content of the texture is uninitialized.
+        ///
+        ///
+        virtual TextureHandle createTexture3D(uint16_t _width, uint16_t _height, uint16_t _depth, bool _hasMips, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
 
         /// Create Cube texture.
         ///
@@ -2633,20 +2623,19 @@ namespace alt
         /// @param[in] _numLayers Number of layers in texture array. Must be 1 if caps
         ///   `ALT_GFX_CAPS_TEXTURE_CUBE_ARRAY` flag is not set.
         /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
-        virtual /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
-            ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
-            ///   `_mem` is NULL content of the texture is uninitialized. When `_numLayers` is more than
-            ///   1, expected memory layout is texture and all mips together for each array element.
-            ///
-            ///
-            virtual TextureHandle
-            createTextureCube(uint16_t _size, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
+        /// @param[in] _flags Texture creation (see `ALT_GFX_TEXTURE_*`.), and sampler (see `ALT_GFX_SAMPLER_*`)
+        ///   flags. Default texture sampling mode is linear, and wrap mode is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        /// @param[in] _mem Texture data. If `_mem` is non-NULL, created texture will be immutable. If
+        ///   `_mem` is NULL content of the texture is uninitialized. When `_numLayers` is more than
+        ///   1, expected memory layout is texture and all mips together for each array element.
+        ///
+        ///
+        virtual TextureHandle createTextureCube(uint16_t _size, bool _hasMips, uint16_t _numLayers, TextureFormat::Enum _format, uint64_t _flags = ALT_GFX_TEXTURE_NONE | ALT_GFX_SAMPLER_NONE, const Memory *_mem = NULL) = 0;
 
         /// Update 2D texture.
         ///
@@ -2658,14 +2647,13 @@ namespace alt
         /// @param[in] _width Width of texture block.
         /// @param[in] _height Height of texture block.
         /// @param[in] _mem Texture update data.
-        virtual /// @param[in] _pitch Pitch of input image (bytes). When _pitch is set to
-            ///   UINT16_MAX, it will be calculated internally based on _width.
-            ///
-            /// @attention It's valid to update only mutable texture. See `IGFX::createTexture2D` for more info.
-            ///
-            ///
-            virtual void
-            updateTexture2D(TextureHandle _handle, uint16_t _layer, uint8_t _mip, uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const Memory *_mem, uint16_t _pitch = UINT16_MAX) = 0;
+        /// @param[in] _pitch Pitch of input image (bytes). When _pitch is set to
+        ///   UINT16_MAX, it will be calculated internally based on _width.
+        ///
+        /// @attention It's valid to update only mutable texture. See `IGFX::createTexture2D` for more info.
+        ///
+        ///
+        virtual void updateTexture2D(TextureHandle _handle, uint16_t _layer, uint8_t _mip, uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const Memory *_mem, uint16_t _pitch = UINT16_MAX) = 0;
 
         /// Update 3D texture.
         ///
@@ -2714,14 +2702,13 @@ namespace alt
         /// @param[in] _width Width of texture block.
         /// @param[in] _height Height of texture block.
         /// @param[in] _mem Texture update data.
-        virtual /// @param[in] _pitch Pitch of input image (bytes). When _pitch is set to
-            ///   UINT16_MAX, it will be calculated internally based on _width.
-            ///
-            /// @attention It's valid to update only mutable texture. See `IGFX::createTextureCube` for more info.
-            ///
-            ///
-            virtual void
-            updateTextureCube(TextureHandle _handle, uint16_t _layer, uint8_t _side, uint8_t _mip, uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const Memory *_mem, uint16_t _pitch = UINT16_MAX) = 0;
+        /// @param[in] _pitch Pitch of input image (bytes). When _pitch is set to
+        ///   UINT16_MAX, it will be calculated internally based on _width.
+        ///
+        /// @attention It's valid to update only mutable texture. See `IGFX::createTextureCube` for more info.
+        ///
+        ///
+        virtual void updateTextureCube(TextureHandle _handle, uint16_t _layer, uint8_t _side, uint8_t _mip, uint16_t _x, uint16_t _y, uint16_t _width, uint16_t _height, const Memory *_mem, uint16_t _pitch = UINT16_MAX) = 0;
 
         /// Read back texture content.
         ///
@@ -2740,12 +2727,11 @@ namespace alt
         ///
         /// @param[in] _handle Texture handle.
         /// @param[in] _name Texture name.
-        virtual /// @param[in] _len Texture name length (if length is INT32_MAX, it's expected
-            ///   that _name is zero terminated string.
-            ///
-            ///
-            virtual void
-            setName(TextureHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
+        /// @param[in] _len Texture name length (if length is INT32_MAX, it's expected
+        ///   that _name is zero terminated string.
+        ///
+        ///
+        virtual void setName(TextureHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
 
         /// Returns texture direct access pointer.
         ///
@@ -2757,11 +2743,10 @@ namespace alt
         ///   will be valid until texture is destroyed.
         ///
         /// @attention Availability depends on: `ALT_GFX_CAPS_TEXTURE_DIRECT_ACCESS`. This feature
-        virtual ///   is available on GPUs that have unified memory architecture (UMA) support.
-            ///
-            ///
-            virtual void *
-            getDirectAccessPtr(TextureHandle _handle) = 0;
+        ///   is available on GPUs that have unified memory architecture (UMA) support.
+        ///
+        ///
+        virtual void *getDirectAccessPtr(TextureHandle _handle) = 0;
 
         /// Destroy texture.
         ///
@@ -2770,23 +2755,22 @@ namespace alt
         ///
         virtual void destroy(TextureHandle _handle) = 0;
 
-        virtual /// Create frame buffer (simple).
-            ///
-            /// @param[in] _width Texture width.
-            /// @param[in] _height Texture height.
-            /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
-            /// @param[in] _textureFlags Default texture sampling mode is linear, and wrap mode
-            ///   is repeat.
-            ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
-            ///     mode.
-            ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
-            ///     sampling.
-            ///
-            /// @returns Handle to frame buffer object.
-            ///
-            ///
-            virtual FrameBufferHandle
-            createFrameBuffer(uint16_t _width, uint16_t _height, TextureFormat::Enum _format, uint64_t _textureFlags = ALT_GFX_SAMPLER_U_CLAMP | ALT_GFX_SAMPLER_V_CLAMP) = 0;
+        /// Create frame buffer (simple).
+        ///
+        /// @param[in] _width Texture width.
+        /// @param[in] _height Texture height.
+        /// @param[in] _format Texture format. See: `TextureFormat::Enum`.
+        /// @param[in] _textureFlags Default texture sampling mode is linear, and wrap mode
+        ///   is repeat.
+        ///   - `ALT_GFX_SAMPLER_[U/V/W]_[MIRROR/CLAMP]` - Mirror or clamp to edge wrap
+        ///     mode.
+        ///   - `ALT_GFX_SAMPLER_[MIN/MAG/MIP]_[POINT/ANISOTROPIC]` - Point or anisotropic
+        ///     sampling.
+        ///
+        /// @returns Handle to frame buffer object.
+        ///
+        ///
+        virtual FrameBufferHandle createFrameBuffer(uint16_t _width, uint16_t _height, TextureFormat::Enum _format, uint64_t _textureFlags = ALT_GFX_SAMPLER_U_CLAMP | ALT_GFX_SAMPLER_V_CLAMP) = 0;
 
         /// Create frame buffer with size based on backbuffer ratio. Frame buffer will maintain ratio
         /// if back buffer resolution changes.
@@ -2806,18 +2790,17 @@ namespace alt
         ///
         virtual FrameBufferHandle createFrameBuffer(BackbufferRatio::Enum _ratio, TextureFormat::Enum _format, uint64_t _textureFlags = ALT_GFX_SAMPLER_U_CLAMP | ALT_GFX_SAMPLER_V_CLAMP) = 0;
 
-        virtual /// Create MRT frame buffer from texture handles (simple).
-            ///
-            /// @param[in] _num Number of texture attachments.
-            /// @param[in] _handles Texture attachments.
-            /// @param[in] _destroyTextures If true, textures will be destroyed when
-            ///   frame buffer is destroyed.
-            ///
-            /// @returns Handle to frame buffer object.
-            ///
-            ///
-            virtual FrameBufferHandle
-            createFrameBuffer(uint8_t _num, const TextureHandle *_handles, bool _destroyTextures = false) = 0;
+        /// Create MRT frame buffer from texture handles (simple).
+        ///
+        /// @param[in] _num Number of texture attachments.
+        /// @param[in] _handles Texture attachments.
+        /// @param[in] _destroyTextures If true, textures will be destroyed when
+        ///   frame buffer is destroyed.
+        ///
+        /// @returns Handle to frame buffer object.
+        ///
+        ///
+        virtual FrameBufferHandle createFrameBuffer(uint8_t _num, const TextureHandle *_handles, bool _destroyTextures = false) = 0;
 
         /// Create MRT frame buffer from texture handles with specific layer and
         /// mip level.
@@ -2852,12 +2835,11 @@ namespace alt
         ///
         /// @param[in] _handle frame buffer handle.
         /// @param[in] _name frame buffer name.
-        virtual /// @param[in] _len frame buffer name length (if length is INT32_MAX, it's expected
-            ///   that _name is zero terminated string.
-            ///
-            ///
-            virtual void
-            setName(FrameBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
+        /// @param[in] _len frame buffer name length (if length is INT32_MAX, it's expected
+        ///   that _name is zero terminated string.
+        ///
+        ///
+        virtual void setName(FrameBufferHandle _handle, const char *_name, int32_t _len = INT32_MAX) = 0;
 
         /// Obtain texture handle of frame buffer attachment.
         ///
@@ -2880,38 +2862,37 @@ namespace alt
         /// Create shader uniform parameter.
         ///
         /// @param[in] _name Uniform name in shader.
-        virtual /// @param[in] _type Type of uniform (See: `IGFX::UniformType`).
-            /// @param[in] _num Number of elements in array.
-            ///
-            /// @returns Handle to uniform object.
-            ///
-            /// @remarks
-            ///   1. Uniform names are unique. It's valid to call `IGFX::createUniform`
-            ///      multiple times with the same uniform name. The library will always
-            ///      return the same handle, but the handle reference count will be
-            ///      incremented. This means that the same number of `IGFX::destroyUniform`
-            ///      must be called to properly destroy the uniform.
-            ///
-            virtual ///   2. Predefined uniforms (declared in `ALT_GFX_shader.sh`):
-            virtual ///      - `u_viewRect vec4(x, y, width, height)` - view rectangle for current
-            ///        view, in pixels.
-            virtual ///      - `u_viewTexel vec4(1.0/width, 1.0/height, undef, undef)` - inverse
-            ///        width and height
-            ///      - `u_view mat4` - view matrix
-            ///      - `u_invView mat4` - inverted view matrix
-            ///      - `u_proj mat4` - projection matrix
-            ///      - `u_invProj mat4` - inverted projection matrix
-            ///      - `u_viewProj mat4` - concatenated view projection matrix
-            ///      - `u_invViewProj mat4` - concatenated inverted view projection matrix
-            ///      - `u_model mat4[ALT_GFX_CONFIG_MAX_BONES]` - array of model matrices.
-            ///      - `u_modelView mat4` - concatenated model view matrix, only first
-            ///        model matrix from array is used.
-            ///      - `u_modelViewProj mat4` - concatenated model view projection matrix.
-            ///      - `u_alphaRef float` - alpha reference value for alpha test.
-            ///
-            ///
-            virtual UniformHandle
-            createUniform(const char *_name, UniformType::Enum _type, uint16_t _num = 1) = 0;
+        /// @param[in] _type Type of uniform (See: `IGFX::UniformType`).
+        /// @param[in] _num Number of elements in array.
+        ///
+        /// @returns Handle to uniform object.
+        ///
+        /// @remarks
+        ///   1. Uniform names are unique. It's valid to call `IGFX::createUniform`
+        ///      multiple times with the same uniform name. The library will always
+        ///      return the same handle, but the handle reference count will be
+        ///      incremented. This means that the same number of `IGFX::destroyUniform`
+        ///      must be called to properly destroy the uniform.
+        ///
+        ///   2. Predefined uniforms (declared in `ALT_GFX_shader.sh`):
+        ///      - `u_viewRect vec4(x, y, width, height)` - view rectangle for current
+        ///        view, in pixels.
+        ///      - `u_viewTexel vec4(1.0/width, 1.0/height, undef, undef)` - inverse
+        ///        width and height
+        ///      - `u_view mat4` - view matrix
+        ///      - `u_invView mat4` - inverted view matrix
+        ///      - `u_proj mat4` - projection matrix
+        ///      - `u_invProj mat4` - inverted projection matrix
+        ///      - `u_viewProj mat4` - concatenated view projection matrix
+        ///      - `u_invViewProj mat4` - concatenated inverted view projection matrix
+        ///      - `u_model mat4[ALT_GFX_CONFIG_MAX_BONES]` - array of model matrices.
+        ///      - `u_modelView mat4` - concatenated model view matrix, only first
+        ///        model matrix from array is used.
+        ///      - `u_modelViewProj mat4` - concatenated model view projection matrix.
+        ///      - `u_alphaRef float` - alpha reference value for alpha test.
+        ///
+        ///
+        virtual UniformHandle createUniform(const char *_name, UniformType::Enum _type, uint16_t _num = 1) = 0;
 
         /// Retrieve uniform info.
         ///
@@ -2988,13 +2969,12 @@ namespace alt
         ///
         ///       "nnnce <view name>"
         ///        ^  ^^ ^
-        virtual     ///        |  |+-- eye (L/R)
-            virtual ///        |  +--- compute (C)
-            ///        +------ view id
-            ///
-            ///
-            virtual void
-            setViewName(ViewId _id, const char *_name) = 0;
+        ///        |  |+-- eye (L/R)
+        ///        |  +--- compute (C)
+        ///        +------ view id
+        ///
+        ///
+        virtual void setViewName(ViewId _id, const char *_name) = 0;
 
         /// Set view rectangle. Draw primitive outside view will be clipped.
         ///
