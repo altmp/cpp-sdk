@@ -83,6 +83,7 @@ namespace alt
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
 
+		virtual bool RemoveReference(Ref<CRefCountable> ref);
 		virtual Ref<IWebView> CreateWebView(StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
