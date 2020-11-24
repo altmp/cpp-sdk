@@ -83,6 +83,14 @@ namespace alt
 		virtual Ref<INative::Scope> PushNativesScope() = 0;
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
+
+		virtual void AddGxtText(uint32_t hash, const std::string& text) = 0;
+		virtual void RemoveGxtText(uint32_t hash) = 0;
+		virtual const std::string& GetGxtText(uint32_t hash) = 0;
+		virtual bool ToggleCursor(bool state) = 0;
+		virtual void ToggleGameControls(bool state) = 0;
+		virtual bool CursorVisible() = 0;
+		virtual bool GameControlsActive() = 0;
 #endif
 	};
 } // namespace alt

@@ -197,13 +197,6 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
 
-		virtual void AddGxtText(uint32_t hash, const std::string& text) = 0;
-		virtual void RemoveGxtText(uint32_t hash) = 0;
-		virtual const std::string& GetGxtText(uint32_t hash) = 0;
-		virtual bool ToggleCursor(bool state) = 0;
-		virtual void ToggleGameControls(bool state) = 0;
-		virtual bool CursorVisible() = 0;
-		virtual bool GameControlsActive() = 0;
 		virtual void SetAngularVelocity(uint32_t, alt::Vector4f) = 0;
 #endif
 
