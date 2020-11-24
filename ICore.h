@@ -19,6 +19,7 @@
 #include "script-objects/IStatData.h"
 #include "script-objects/IHandlingData.h"
 #include "script-objects/INative.h"
+#include "script-objects/IMapData.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -162,6 +163,13 @@ namespace alt
 		virtual void SetWeatherSyncActive(bool active) = 0;
 
 		virtual void SetCamFrozen(bool frozen) = 0;
+
+		virtual alt::Ref<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
+		virtual alt::Ref<alt::IMapData> GetMapData(StringView alias) = 0;
+		virtual uint8_t GetMapDataIDFromAlias(StringView alias) = 0;
+		virtual void ResetMapData(uint8_t zoomDataId) = 0;
+		virtual void ResetMapData(StringView alias) = 0;
+		virtual void ResetAllMapData() = 0;
 
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
 
