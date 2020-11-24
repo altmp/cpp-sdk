@@ -83,8 +83,6 @@ namespace alt
 		virtual Ref<INative::Scope> PushNativesScope() = 0;
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
-
-		virtual uint64_t RemoveReference(Ref<CRefCountable> ref) = 0;
 #endif
 	};
 } // namespace alt
