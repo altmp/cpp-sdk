@@ -13,6 +13,7 @@
 #include "IDiscordManager.h"
 
 #include "script-objects/IBlip.h"
+#include "script-objects/ICheckpoint.h"
 #include "script-objects/IColShape.h"
 #include "script-objects/IWebView.h"
 #include "script-objects/IStatData.h"
