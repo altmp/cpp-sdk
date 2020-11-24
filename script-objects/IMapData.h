@@ -4,7 +4,7 @@
 
 namespace alt
 {
-    class IMapData : public virtual IBaseObject
+    class IMapData : public virtual CRefCountable
     {
     public:
         virtual ~IMapData() = default;
