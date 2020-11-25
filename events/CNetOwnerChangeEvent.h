@@ -11,19 +11,22 @@ namespace alt
 	class CNetOwnerChangeEvent : public CEvent
 	{
 	public:
-		CNetOwnerChangeEvent(Ref<IEntity> _target, Ref<IPlayer> _player) :
+		CNetOwnerChangeEvent(Ref<IEntity> _target, Ref<IPlayer> _newowner, Ref<IPlayer> _oldowner) :
 			CEvent(Type::NETOWNER_CHANGE),
 			target(_target),
-			player(_player)
+			newOwner(_newowner),
+			oldOwner(_oldowner)
 		{
 
 		}
 
 		Ref<IEntity> GetTarget() const { return target; }
-		Ref<IPlayer> GetPlayer() const { return player; }
+		Ref<IPlayer> GetNewOwner() const { return newOwner; }
+		Ref<IPlayer> GetOldOwner() const { return oldOwner; }
 
 	private:
 		Ref<IEntity> target;
-		Ref<IPlayer> player;
+		Ref<IPlayer> newOwner;
+		Ref<IPlayer> oldOwner;
 	};
 }
