@@ -11,7 +11,7 @@ namespace alt
 	{
 	public:
 		CVehicleDetachEvent(Ref<IVehicle> _target, Ref<IVehicle> _detached) :
-			CEvent(Type::VEHICLE_DEATACH),
+			CEvent(Type::VEHICLE_DETACH),
 			target(_target),
 			detached(_detached)
 		{
