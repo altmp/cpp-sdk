@@ -152,6 +152,8 @@ namespace alt
 		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
 		virtual void LoadGameStateFromBase64(StringView base64) = 0;
 		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
+		virtual Ref<IVehicle> GetAttached() = 0;
+		virtual Ref<IVehicle> GetAttachedTo() = 0;
 #else
 		virtual float GetWheelSpeed() = 0;
 		virtual int GetCurrentGear() = 0;
