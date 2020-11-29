@@ -67,6 +67,7 @@ namespace alt
 		virtual void SetWeaponTintIndex(uint32_t weapon, uint8_t tintIndex) = 0;
 		virtual void AddWeaponComponent(uint32_t weapon, uint32_t component) = 0;
 		virtual void RemoveWeaponComponent(uint32_t weapon, uint32_t component) = 0;
+		virtual void ClearBloodDamage() = 0;
 		virtual void SetHealth(uint16_t health) = 0;
 		virtual void SetMaxHealth(uint16_t health) = 0;
 		virtual void GiveWeapon(uint32_t weapon, int32_t ammo, bool selectWeapon) = 0;
