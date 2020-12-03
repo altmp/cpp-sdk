@@ -47,7 +47,7 @@ namespace alt
 #ifdef ALT_SERVER_API
 		static constexpr uint32_t SDK_VERSION = 47;
 #else
-		static constexpr uint32_t SDK_VERSION = 46;
+		static constexpr uint32_t SDK_VERSION = 47;
 #endif
 
 		// Shared methods
@@ -198,6 +198,8 @@ namespace alt
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
 
 		virtual void SetAngularVelocity(uint32_t, alt::Vector4f) = 0;
+
+		virtual bool IsGameFocused() = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
