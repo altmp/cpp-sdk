@@ -95,7 +95,7 @@ namespace alt
 		virtual bool IsDestroyed() const = 0;
 
 #ifdef ALT_SERVER_API
-
+		virtual void SetFixed() = 0;
 		virtual bool SetMod(uint8_t category, uint8_t id) = 0;
 		virtual bool SetModKit(uint8_t id) = 0;
 		virtual void SetPrimaryColor(uint8_t color) = 0;
