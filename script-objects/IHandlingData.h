@@ -4,13 +4,13 @@
 
 namespace alt
 {
-    class IHandlingData
+    class IHandlingData : public virtual CRefCountable
     {
     protected:
         virtual ~IHandlingData() = default;
 
     public:
-        virtual float GetHandlingNameHash() = 0;
+        virtual uint32_t GetHandlingNameHash() = 0;
         virtual float GetMass() = 0;
         virtual float GetInitialDragCoeff() = 0;
         virtual float GetDownforceModifier() = 0;
@@ -142,5 +142,7 @@ namespace alt
         virtual void SetModelFlags(uint32_t val) = 0;
         virtual void SetHandlingFlags(uint32_t val) = 0;
         virtual void SetDamageFlags(uint32_t val) = 0;
+
+        const std::type_info& GetTypeInfo() override { return typeid(this); }
     };
 } // namespace alt

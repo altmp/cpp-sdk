@@ -115,7 +115,7 @@ namespace alt
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
-		virtual IHandlingData *GetHandlingData(uint32_t modelHash) const = 0;
+		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
 		virtual IGFX* GetGFX() const = 0;
 
 		virtual alt::IPackage::PathInfo Resolve(IResource *resource, alt::StringView path, StringView currentModulePath) const = 0;

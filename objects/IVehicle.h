@@ -161,7 +161,7 @@ namespace alt
 		virtual Vector3f GetSpeedVector() = 0;
 
 		virtual bool IsHandlingModified() = 0;
-		virtual IHandlingData *GetHandling() = 0;
+		virtual alt::Ref<alt::IHandlingData> GetHandling() = 0;
 		virtual void ResetHandling() = 0;
 #endif
 		
