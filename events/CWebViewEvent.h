@@ -13,19 +13,19 @@ namespace alt
 	class CWebViewEvent : public CEvent
 	{
 	public:
-		CWebViewEvent(IWebView *_target, StringView _name, const MValueArgs &_args) : CEvent(Type::WEB_VIEW_EVENT),
+		CWebViewEvent(Ref<IWebView> _target, StringView _name, const MValueArgs &_args) : CEvent(Type::WEB_VIEW_EVENT),
 																					  target(_target),
 																					  name(_name),
 																					  args(_args)
 		{
 		}
 
-		IWebView *GetTarget() const { return target; }
+		Ref<IWebView> GetTarget() const { return target; }
 		StringView GetName() const { return name; }
 		const MValueArgs &GetArgs() const { return args; }
 
 	private:
-		IWebView *target;
+		Ref<IWebView> target;
 		String name;
 		MValueArgs args;
 	};
