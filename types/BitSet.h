@@ -6,20 +6,24 @@ namespace alt
 	class bitset
 	{
 	private:
-		uint8_t _bitset[(_count >> 3) + 1] = { 0 };
+#pragma pack(push, 1)
+		struct _bit
+		{
+			bool b : 1;
+		};
+#pragma pack(pop)
+
+		_bit _bitset[_count] = { 0 };
 
 	public:
 		void set(size_t pos, bool state)
 		{
-			if (state)
-				_bitset[pos >> 3] |= (1UL << (pos & 7));
-			else
-				_bitset[pos >> 3] &= ~(1UL << (pos & 7));
+			_bitset[pos].b = state;
 		}
 
 		bool test(size_t pos) const
 		{
-			return (_bitset[pos >> 3] >> (pos & 7)) & 1UL;
+			return _bitset[pos].b;
 		}
 	};
 }
