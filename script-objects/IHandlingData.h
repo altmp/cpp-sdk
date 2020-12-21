@@ -45,7 +45,7 @@ namespace alt
         virtual float GetTractionSpringDeltaMax() = 0;
         virtual float GetTractionSpringDeltaMaxRatio() = 0;
         virtual float GetLowSpeedTractionLossMult() = 0;
-        virtual float GetCamberStiffnesss() = 0;
+        virtual float GetCamberStiffness() = 0;
         virtual float GetTractionBiasFront() = 0;
         virtual float GetTractionBiasRear() = 0;
         virtual float GetTractionLossMult() = 0;
@@ -111,7 +111,7 @@ namespace alt
         virtual void SetTractionSpringDeltaMax(float val) = 0;
         virtual void SetTractionSpringDeltaMaxRatio(float val) = 0;
         virtual void SetLowSpeedTractionLossMult(float val) = 0;
-        virtual void SetCamberStiffnesss(float val) = 0;
+        virtual void SetCamberStiffness(float val) = 0;
         virtual void SetTractionBiasFront(float val) = 0;
         virtual void SetTractionBiasRear(float val) = 0;
         virtual void SetTractionLossMult(float val) = 0;
