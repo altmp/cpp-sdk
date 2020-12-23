@@ -103,6 +103,6 @@ namespace alt
 		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
 #endif
 
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

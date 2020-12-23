@@ -21,6 +21,6 @@ namespace alt
         virtual void SetTilesCountX(float val) = 0;
         virtual void SetTilesCountY(float val) = 0;
         
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

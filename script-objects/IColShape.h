@@ -33,6 +33,6 @@ namespace alt
 		virtual void SetPlayersOnly(bool state) = 0;
 		virtual bool IsPlayersOnly() const = 0;
 
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

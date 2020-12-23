@@ -27,8 +27,7 @@ namespace alt
 				{
 					std::unique_lock lock{ weakRefsMutex };
 					for (auto ref : weakRefs)
-						if (ref)
-							ref->OnDestroy();
+						ref->OnDestroy();
 				}
 
 				delete this;
@@ -47,7 +46,7 @@ namespace alt
 			weakRefs.erase(ref);
 		}
 
-		virtual const std::type_info& GetTypeInfo() = 0;
+		virtual const std::type_info& GetTypeInfo() const = 0;
 
 	protected:
 		virtual ~CRefCountable() = default;

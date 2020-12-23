@@ -90,7 +90,7 @@ namespace alt
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
 		
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 
 	// Represents lack of value

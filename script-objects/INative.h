@@ -62,13 +62,13 @@ namespace alt
             virtual Vector3 ResultVector3() = 0;
             virtual const char *ResultString() = 0;
 
-		    const std::type_info& GetTypeInfo() override { return typeid(this); }
+		    const std::type_info& GetTypeInfo() const override { return typeid(this); }
         };
 
         class Scope : public CRefCountable {
         public:
             virtual ~Scope() = default;
-		    const std::type_info& GetTypeInfo() override { return typeid(this); }
+		    const std::type_info& GetTypeInfo() const override { return typeid(this); }
         };
 
         virtual String GetName() const = 0;

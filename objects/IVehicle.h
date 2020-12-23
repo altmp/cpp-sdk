@@ -165,6 +165,6 @@ namespace alt
 		virtual void ResetHandling() = 0;
 #endif
 		
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

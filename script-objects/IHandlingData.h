@@ -143,6 +143,6 @@ namespace alt
         virtual void SetHandlingFlags(uint32_t val) = 0;
         virtual void SetDamageFlags(uint32_t val) = 0;
 
-        const std::type_info& GetTypeInfo() override { return typeid(this); }
+        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

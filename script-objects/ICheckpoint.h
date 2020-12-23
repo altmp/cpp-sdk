@@ -27,6 +27,6 @@ namespace alt
 		virtual void SetColor(RGBA) = 0;
 		virtual void SetNextPosition(alt::Position) = 0;
 
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }

@@ -81,6 +81,6 @@ namespace alt
 		virtual float GetMicLevel() const = 0;
 #endif // ALT_SERVER_API
 		
-		const std::type_info& GetTypeInfo() override { return typeid(this); }
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt
