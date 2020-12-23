@@ -29,8 +29,6 @@ namespace alt
 					for (auto ref : weakRefs)
 						if (ref)
 							ref->OnDestroy();
-						else 
-							alt::Log::Warning << "invalid ref" << alt::Log::Endl;
 				}
 
 				delete this;
