@@ -27,7 +27,10 @@ namespace alt
 				{
 					std::unique_lock lock{ weakRefsMutex };
 					for (auto ref : weakRefs)
-						ref->OnDestroy();
+						if (ref)
+							ref->OnDestroy();
+						else 
+							alt::Log::Warning << "invalid ref" << alt::Log::Endl;
 				}
 
 				delete this;
