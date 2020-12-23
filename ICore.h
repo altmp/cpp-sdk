@@ -200,6 +200,9 @@ namespace alt
 		virtual void SetAngularVelocity(uint32_t, alt::Vector4f) = 0;
 
 		virtual bool IsGameFocused() = 0;
+
+		virtual void LoadModel(uint32_t hash) = 0;
+		virtual void LoadModelAsync(uint32_t hash) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
