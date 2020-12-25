@@ -163,6 +163,7 @@ namespace alt
 		virtual bool IsHandlingModified() = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandling() = 0;
 		virtual void ResetHandling() = 0;
+		virtual void ReplaceHandling() = 0;
 #endif
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
