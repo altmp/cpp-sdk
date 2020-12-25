@@ -203,6 +203,9 @@ namespace alt
 
 		virtual void LoadModel(uint32_t hash) = 0;
 		virtual void LoadModelAsync(uint32_t hash) = 0;
+
+		virtual bool LoadYtyp(const std::string& path) = 0;
+		virtual bool UnloadYtyp(const std::string& path) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
