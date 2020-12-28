@@ -191,6 +191,7 @@ namespace alt
 
 		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
+		virtual Ref<IWebSocketClient> CreateWebSocketClient(StringView url, IResource* res) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;

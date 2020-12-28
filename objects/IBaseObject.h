@@ -20,7 +20,8 @@ namespace alt
 			WEBVIEW,
 			VOICE_CHANNEL,
 			COLSHAPE,
-			CHECKPOINT
+			CHECKPOINT,
+			WEBSOCKET_CLIENT
 		};
 
 		virtual Type GetType() const = 0;
