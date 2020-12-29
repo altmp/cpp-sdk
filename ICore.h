@@ -138,6 +138,7 @@ namespace alt
 		virtual bool IsVoiceInputMuted() const = 0;
 		virtual bool IsVoiceActivationEnabled() const = 0;
 		virtual void ToggleVoiceControls(bool state) = 0;
+		virtual uint32_t GetVoiceActivationKey() = 0;
 
 		virtual String GetLicenseHash() const = 0;
 		virtual String GetLocale() const = 0;
