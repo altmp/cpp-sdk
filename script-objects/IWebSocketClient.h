@@ -11,6 +11,10 @@ namespace alt
 
         virtual StringView GetUrl() const = 0;
         virtual void SetUrl(StringView _url) = 0;
+
+        virtual void AddSubProtocol(StringView protocol) = 0;
+        virtual std::vector<StringView> GetSubProtocols() const = 0;
+
         virtual uint8_t GetState() const = 0;
 
         virtual bool IsAutoReconnectEnabled() const = 0;
