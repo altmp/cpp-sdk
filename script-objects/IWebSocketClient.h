@@ -21,7 +21,7 @@ namespace alt
 
         virtual void Start() = 0;
         virtual void Stop() = 0;
-        virtual void Send(StringView message) = 0;
+        virtual bool Send(StringView message) = 0;
 
         virtual void SetPingInterval(uint16_t seconds) = 0;
         virtual uint16_t GetPingInterval() const = 0;
