@@ -36,7 +36,7 @@ namespace alt
 
 	using EventCallback = bool (*)(const CEvent *e, void *userData);
 	using TickCallback = void (*)(void *userData);
-	using CommandCallback = void (*)(StringView cmd, Array<StringView> args, void *userData);
+	using CommandCallback = void (*)(Array<StringView> args, void *userData);
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
