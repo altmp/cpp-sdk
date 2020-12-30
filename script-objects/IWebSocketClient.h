@@ -16,6 +16,9 @@ namespace alt
         virtual bool IsAutoReconnectEnabled() const = 0;
         virtual void SetAutoReconnectEnabled(bool toggle) = 0;
 
+        virtual bool IsPerMessageDeflateEnabled() const = 0;
+        virtual void SetPerMessageDeflateEnabled(bool toggle) = 0;
+
         virtual void Start() = 0;
         virtual void Stop() = 0;
         virtual void Send(StringView message) = 0;
