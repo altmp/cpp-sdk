@@ -11,14 +11,21 @@ namespace alt
 
         virtual StringView GetUrl() const = 0;
         virtual void SetUrl(StringView _url) = 0;
+
+        virtual void AddSubProtocol(StringView protocol) = 0;
+        virtual std::vector<StringView> GetSubProtocols() const = 0;
+
         virtual uint8_t GetState() const = 0;
 
         virtual bool IsAutoReconnectEnabled() const = 0;
         virtual void SetAutoReconnectEnabled(bool toggle) = 0;
 
+        virtual bool IsPerMessageDeflateEnabled() const = 0;
+        virtual void SetPerMessageDeflateEnabled(bool toggle) = 0;
+
         virtual void Start() = 0;
         virtual void Stop() = 0;
-        virtual void Send(StringView message) = 0;
+        virtual bool Send(StringView message) = 0;
 
         virtual void SetPingInterval(uint16_t seconds) = 0;
         virtual uint16_t GetPingInterval() const = 0;
