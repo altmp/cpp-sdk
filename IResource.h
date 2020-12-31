@@ -6,6 +6,7 @@
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
 #include "script-objects/IWebView.h"
+#include "script-objects/IWebSocketClient.h"
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
