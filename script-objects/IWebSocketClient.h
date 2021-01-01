@@ -15,7 +15,10 @@ namespace alt
         virtual void AddSubProtocol(StringView protocol) = 0;
         virtual alt::Array<StringView> GetSubProtocols() const = 0;
 
-        virtual uint8_t GetState() const = 0;
+        virtual void SetExtraHeader(StringView name, StringView value) = 0;
+        virtual alt::MValueDict GetExtraHeaders() const = 0;
+
+        virtual uint8_t GetReadyState() const = 0;
 
         virtual bool IsAutoReconnectEnabled() const = 0;
         virtual void SetAutoReconnectEnabled(bool toggle) = 0;
