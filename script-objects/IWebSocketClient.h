@@ -13,7 +13,7 @@ namespace alt
         virtual void SetUrl(StringView _url) = 0;
 
         virtual void AddSubProtocol(StringView protocol) = 0;
-        virtual std::vector<StringView> GetSubProtocols() const = 0;
+        virtual alt::Array<StringView> GetSubProtocols() const = 0;
 
         virtual uint8_t GetState() const = 0;
 
