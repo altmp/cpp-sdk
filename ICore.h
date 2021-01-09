@@ -44,11 +44,7 @@ namespace alt
 	class ICore
 	{
 	public:
-#ifdef ALT_SERVER_API
-		static constexpr uint32_t SDK_VERSION = 48;
-#else
-		static constexpr uint32_t SDK_VERSION = 48;
-#endif
+		static constexpr uint32_t SDK_VERSION = 49;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;

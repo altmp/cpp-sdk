@@ -19,7 +19,7 @@ namespace alt
 
 	public:
 		virtual Ref<IPlayer> GetDriver() const = 0;
-		virtual bool IsDestroyed() = 0;
+		virtual bool IsDestroyed() const = 0;
 		virtual uint8_t GetMod(uint8_t category) = 0;
 		virtual uint8_t GetModsCount(uint8_t category) = 0;
 		virtual uint8_t GetModKitsCount() const = 0;
@@ -92,7 +92,6 @@ namespace alt
 		virtual String GetDamageDataBase64() = 0;
 		virtual bool IsManualEngineControl() const = 0;
 		virtual String GetScriptDataBase64() = 0;
-		virtual bool IsDestroyed() const = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
