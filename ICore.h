@@ -238,7 +238,7 @@ namespace alt
 
 		virtual uint32_t GetNetTime() const = 0;
 
-        virtual bool IsEntityInStream(Ref<IPlayer> player) const = 0;
+		virtual bool IsEntityInStream(Ref<IPlayer> player) const = 0;
 #endif
 
 		static ICore &Instance()
