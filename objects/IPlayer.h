@@ -76,6 +76,7 @@ namespace alt
 		virtual void SetDateTime(int day, int month, int year, int hour, int minute, int second) = 0;
 		virtual void SetWeather(uint32_t weather) = 0;
 		virtual void Kick(StringView reason = "Kicked") = 0;
+		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 #else
 		virtual bool IsTalking() const = 0;
 		virtual float GetMicLevel() const = 0;
