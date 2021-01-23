@@ -3,6 +3,7 @@
 #include "IEntity.h"
 #include "IVehicle.h"
 #include "../types/Cloth.h"
+#include "../types/DlcCloth.h"
 
 namespace alt
 {
@@ -79,6 +80,8 @@ namespace alt
 		virtual void Kick(StringView reason = "Kicked") = 0;
 		virtual alt::Cloth GetClothes(uint8_t component) const = 0;
 		virtual void SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
+		virtual alt::DlcCloth GetDlcClothes(uint8_t component) const = 0;
+		virtual void SetDlcClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 #else
 		virtual bool IsTalking() const = 0;
