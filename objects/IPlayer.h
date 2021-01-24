@@ -4,6 +4,8 @@
 #include "IVehicle.h"
 #include "../types/Cloth.h"
 #include "../types/DlcCloth.h"
+#include "../types/Prop.h"
+#include "../types/DlcProp.h"
 
 namespace alt
 {
@@ -82,6 +84,10 @@ namespace alt
 		virtual void SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
 		virtual alt::DlcCloth GetDlcClothes(uint8_t component) const = 0;
 		virtual void SetDlcClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
+		virtual alt::Prop GetProps(uint8_t component) const = 0;
+		virtual void SetProps(uint8_t component, uint16_t drawable, uint8_t texture) = 0;
+		virtual alt::DlcProp GetDlcProps(uint8_t component) const = 0;
+		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 #else
 		virtual bool IsTalking() const = 0;
