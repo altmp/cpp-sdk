@@ -44,7 +44,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 50;
+		static constexpr uint32_t SDK_VERSION = 51;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
@@ -67,6 +67,7 @@ namespace alt
 		virtual MValueDict CreateMValueDict() = 0;
 		virtual MValueBaseObject CreateMValueBaseObject(Ref<IBaseObject> val) = 0;
 		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl *impl) = 0;
+		virtual MValueVector2 CreateMValueVector2(Vector2f val) = 0;
 		virtual MValueVector3 CreateMValueVector3(Vector3f val) = 0;
 		virtual MValueRGBA CreateMValueRGBA(RGBA val) = 0;
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t *data, Size size) = 0;
