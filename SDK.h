@@ -63,6 +63,13 @@
 #include "events/CVehicleDestroyEvent.h"
 #include "events/CCreateBaseObjectEvent.h"
 #include "events/CRemoveBaseObjectEvent.h"
+#include <events/CFireEvent.h> 
+#include <events/CStartProjectileEvent.h> 
+#include <events/CPlayerWeaponChangeEvent.h> 
+#include <events/CVehicleAttachEvent.h> 
+#include <events/CVehicleDetachEvent.h> 
+#include <events/CNetOwnerChangeEvent.h> 
+#include <events/CPlayerEnteringVehicleEvent.h>
 
 #ifdef ALT_CLIENT_API
 
