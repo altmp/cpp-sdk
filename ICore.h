@@ -39,7 +39,7 @@ namespace alt
 	using CommandCallback = void (*)(Array<StringView> args, void *userData);
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
-	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
+	static constexpr int32_t GLOBAL_DIMENSION = INT_MIN;
 
 	class ICore
 	{
