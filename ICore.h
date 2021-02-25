@@ -1,5 +1,7 @@
 #pragma once
 
+#include <climits>
+
 #include "deps/alt-math/alt-math.h"
 #include "types/RGBA.h"
 #include "types/Array.h"
