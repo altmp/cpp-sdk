@@ -76,10 +76,17 @@ namespace alt
 		virtual void SetDateTime(int day, int month, int year, int hour, int minute, int second) = 0;
 		virtual void SetWeather(uint32_t weather) = 0;
 		virtual void Kick(StringView reason = "Kicked") = 0;
-#else
+#endif // ALT_SERVER_API
+
+#ifdef ALT_CLIENT_API
 		virtual bool IsTalking() const = 0;
 		virtual float GetMicLevel() const = 0;
-#endif // ALT_SERVER_API
+
+		virtual float GetSpatialVolume() const = 0;
+		virtual void SetSpatialVolume(float volume) = 0;
+		virtual float GetNonSpatialVolume() const = 0;
+		virtual void SetNonSpatialVolume(float volume) = 0;
+#endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
