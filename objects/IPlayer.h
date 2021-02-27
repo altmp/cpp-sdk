@@ -88,6 +88,7 @@ namespace alt
 		virtual void SetProps(uint8_t component, uint16_t drawable, uint8_t texture) = 0;
 		virtual alt::DlcProp GetDlcProps(uint8_t component) const = 0;
 		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
+		virtual void ClearProps(uint8_t component) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 #endif // ALT_SERVER_API
 
