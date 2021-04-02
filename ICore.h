@@ -198,7 +198,7 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
 
-		virtual void SetAngularVelocity(uint32_t, alt::Vector4f) = 0;
+		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
 		virtual bool IsGameFocused() = 0;
 
