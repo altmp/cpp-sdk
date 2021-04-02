@@ -21,11 +21,11 @@ namespace alt
 		virtual RGBA GetColor() const = 0;
 		virtual alt::Position GetNextPosition() const = 0;
 
-		virtual void SetCheckpointType(uint8_t) = 0;
-		virtual void SetHeight(float) = 0;
-		virtual void SetRadius(float) = 0;
-		virtual void SetColor(RGBA) = 0;
-		virtual void SetNextPosition(alt::Position) = 0;
+		virtual void SetCheckpointType(uint8_t type) = 0;
+		virtual void SetHeight(float height) = 0;
+		virtual void SetRadius(float radius) = 0;
+		virtual void SetColor(RGBA color) = 0;
+		virtual void SetNextPosition(alt::Position pos) = 0;
 
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
