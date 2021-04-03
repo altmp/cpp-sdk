@@ -2,7 +2,7 @@
 
 namespace alt
 {
-  struct KeyState
+	struct KeyState
 	{
 		KeyState(bool down, bool toggled)
 			: down(down), toggled(toggled)
