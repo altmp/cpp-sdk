@@ -80,7 +80,9 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual void EnableNatives() = 0;
+		[[nodiscard]]
 		virtual Ref<INative::Context> CreateNativesContext() const = 0;
+		[[nodiscard]]
 		virtual Ref<INative::Scope> PushNativesScope() = 0;
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
