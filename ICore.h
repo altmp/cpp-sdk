@@ -207,6 +207,8 @@ namespace alt
 
 		virtual bool LoadYtyp(const std::string& path) = 0;
 		virtual bool UnloadYtyp(const std::string& path) = 0;
+
+		virtual alt::String HeadshotToBase64(uint8_t id) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
