@@ -136,6 +136,7 @@ namespace alt
 		virtual void SetWheelDetached(uint8_t wheelId, bool state) = 0;
 		virtual void SetWheelOnFire(uint8_t wheelId, bool state) = 0;
 		virtual void SetWheelHealth(uint8_t wheelId, float health) = 0;
+		virtual void SetWheelFixed(uint8_t wheelId) = 0;
 		virtual void SetBodyHealth(uint32_t health) = 0;
 		virtual void SetBodyAdditionalHealth(uint32_t health) = 0;
 		virtual void SetPartDamageLevel(uint8_t partId, uint8_t damage) = 0;
