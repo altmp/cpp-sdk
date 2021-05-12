@@ -36,6 +36,7 @@
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/IBlip.h"
 #include "script-objects/IVoiceChannel.h"
+#include "script-objects/IHttpClient.h"
 
 #include "events/CEvent.h"
 #include "events/CServerScriptEvent.h"
