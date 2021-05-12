@@ -21,7 +21,8 @@ namespace alt
 			VOICE_CHANNEL,
 			COLSHAPE,
 			CHECKPOINT,
-			WEBSOCKET_CLIENT
+			WEBSOCKET_CLIENT,
+			HTTP_CLIENT
 		};
 
 		virtual Type GetType() const = 0;
