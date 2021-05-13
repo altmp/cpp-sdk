@@ -22,7 +22,8 @@ namespace alt
 			COLSHAPE,
 			CHECKPOINT,
 			WEBSOCKET_CLIENT,
-			HTTP_CLIENT
+			HTTP_CLIENT,
+			AUDIO
 		};
 
 		virtual Type GetType() const = 0;
