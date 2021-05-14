@@ -33,9 +33,9 @@ namespace alt
         virtual void Play() = 0;
         virtual void Pause() = 0;
         virtual void Reset() = 0;
-        virtual size_t GetCurrentTime() const = 0; //seconds
-        virtual size_t GetMaxTime() const = 0; //seconds
-        virtual void Seek(size_t time) = 0; //seconds
+        virtual double GetCurrentTime() const = 0; //seconds
+        virtual double GetMaxTime() const = 0; //seconds
+        virtual void Seek(double time) = 0; //seconds
         virtual bool IsPlaying() const = 0;
 
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
