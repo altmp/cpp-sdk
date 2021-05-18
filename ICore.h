@@ -199,7 +199,7 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
-		virtual Ref<IAudio> CreateAudio(StringView source, float volume, StringView category, IResource* res) = 0;
+		virtual Ref<IAudio> CreateAudio(StringView source, float volume, uint32_t category, IResource* res) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
