@@ -15,11 +15,11 @@ namespace alt
 
         virtual void SetLoop(bool toggle) = 0;
         virtual void SetVolume(float volume) = 0;  //0.0 - 1.0 range
-        virtual void SetCategory(StringView category) = 0; //default: radio
+        virtual void SetCategory(uint32_t category) = 0; //default: radio
 
         virtual bool IsLoop() const = 0;
         virtual float GetVolume() const = 0;
-        virtual StringView GetCategory() const = 0;
+        virtual uint32_t GetCategory() const = 0;
 
         virtual void SetFrontendPlay(bool toggle) = 0;
         virtual bool IsFrontendPlay() const = 0;
