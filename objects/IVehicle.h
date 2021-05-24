@@ -92,6 +92,7 @@ namespace alt
 		virtual String GetDamageDataBase64() = 0;
 		virtual bool IsManualEngineControl() const = 0;
 		virtual String GetScriptDataBase64() = 0;
+		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
@@ -114,7 +115,6 @@ namespace alt
 		virtual void SetNumberplateText(StringView text) = 0;
 		virtual void SetWindowTint(uint8_t tint) = 0;
 		virtual void SetDirtLevel(uint8_t level) = 0;
-		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 		virtual void SetNeonActive(bool left, bool right, bool front, bool back) = 0;
 		virtual void SetNeonColor(RGBA color) = 0;
 		virtual void SetLivery(uint8_t livery) = 0;
