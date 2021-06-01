@@ -156,9 +156,13 @@ namespace alt
 		virtual Ref<IVehicle> GetAttachedTo() = 0;
 #else
 		virtual float GetWheelSpeed() = 0;
-		virtual int GetCurrentGear() = 0;
+		virtual uint16_t GetCurrentGear() = 0;
 		virtual float GetCurrentRPM() = 0;
 		virtual Vector3f GetSpeedVector() = 0;
+		virtual uint16_t GetMaxGear() = 0;
+
+		virtual void SetCurrentGear(uint16_t currentGear) = 0;
+		virtual void SetMaxGear(uint16_t gearMax) = 0;
 
 		virtual bool IsHandlingModified() = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandling() = 0;
