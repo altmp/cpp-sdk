@@ -26,7 +26,7 @@ namespace alt
 
         virtual void AddOutput(alt::Ref<alt::IEntity> entity) = 0;
         virtual void AddOutput(uint32_t scriptID) = 0;
-        virtual void RemoveOutput(alt::Ref<alt::IEntity> entity) = 0;
+        virtual void RemoveOutput(alt::Ref<alt::IEntity> entity, bool removeRef = true) = 0;
         virtual void RemoveOutput(uint32_t scriptID) = 0;
         virtual MValueList GetOutputs() = 0;
 

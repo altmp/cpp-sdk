@@ -65,6 +65,7 @@ namespace alt
 			GAME_ENTITY_DESTROY,
 			RENDER,
 			WEB_SOCKET_CLIENT_EVENT,
+			AUDIO_EVENT,
 
 			ALL,
 			SIZE
