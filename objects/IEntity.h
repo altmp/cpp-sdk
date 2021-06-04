@@ -39,7 +39,7 @@ namespace alt
 		virtual void DeleteStreamSyncedMetaData(StringView key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 
-		virtual void AttachToEntity(Ref<IEntity> entity, uint16_t otherBoneIndex, uint16_t myBoneIndex, Position position, Position rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(Ref<IEntity> entity, uint16_t otherBoneIndex, uint16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
 #endif // ALT_SERVER_API
 
