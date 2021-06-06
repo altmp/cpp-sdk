@@ -168,6 +168,9 @@ namespace alt
 		virtual alt::Ref<alt::IHandlingData> GetHandling() = 0;
 		virtual void ResetHandling() = 0;
 		virtual void ReplaceHandling() = 0;
+
+		virtual uint8_t GetLightsIndicator() const = 0;
+		virtual void SetLightsIndicator(uint8_t lightsIndicatorFlag) = 0;
 #endif
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
