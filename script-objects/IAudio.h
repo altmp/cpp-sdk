@@ -21,7 +21,6 @@ namespace alt
         virtual float GetVolume() const = 0;
         virtual uint32_t GetCategory() const = 0;
 
-        virtual void SetFrontendPlay(bool toggle) = 0;
         virtual bool IsFrontendPlay() const = 0;
 
         virtual void AddOutput(alt::Ref<alt::IEntity> entity) = 0;
