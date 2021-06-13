@@ -13,7 +13,7 @@ namespace alt
         virtual void Focus() = 0;
         virtual void Unfocus() = 0;
         virtual bool IsFocused() const = 0;
-        virtual String GetUrl() const = 0;
+        virtual alt::StringView GetUrl() const = 0;
         virtual void SetUrl(alt::StringView url) = 0;
         virtual bool IsVisible() const = 0;
         virtual void SetVisible(bool visible) = 0;
