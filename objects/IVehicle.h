@@ -152,20 +152,20 @@ namespace alt
 		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
 		virtual void LoadGameStateFromBase64(StringView base64) = 0;
 		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
-		virtual Ref<IVehicle> GetAttached() = 0;
-		virtual Ref<IVehicle> GetAttachedTo() = 0;
+		virtual Ref<IVehicle> GetAttached() const = 0;
+		virtual Ref<IVehicle> GetAttachedTo() const = 0;
 #else
-		virtual float GetWheelSpeed() = 0;
-		virtual uint16_t GetCurrentGear() = 0;
-		virtual float GetCurrentRPM() = 0;
-		virtual Vector3f GetSpeedVector() = 0;
-		virtual uint16_t GetMaxGear() = 0;
+		virtual float GetWheelSpeed() const = 0;
+		virtual uint16_t GetCurrentGear() const = 0;
+		virtual float GetCurrentRPM() const = 0;
+		virtual Vector3f GetSpeedVector() const = 0;
+		virtual uint16_t GetMaxGear() const = 0;
 
 		virtual void SetCurrentGear(uint16_t currentGear) = 0;
 		virtual void SetMaxGear(uint16_t gearMax) = 0;
 
-		virtual bool IsHandlingModified() = 0;
-		virtual alt::Ref<alt::IHandlingData> GetHandling() = 0;
+		virtual bool IsHandlingModified() const = 0;
+		virtual alt::Ref<alt::IHandlingData> GetHandling() const = 0;
 		virtual void ResetHandling() = 0;
 		virtual void ReplaceHandling() = 0;
 
