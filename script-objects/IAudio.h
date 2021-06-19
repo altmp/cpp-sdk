@@ -37,8 +37,6 @@ namespace alt
         virtual void Seek(double time) = 0; //seconds
         virtual bool IsPlaying() const = 0;
 
-        virtual bool Ready() const = 0;
-
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 }
