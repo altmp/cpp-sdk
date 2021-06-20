@@ -24,6 +24,7 @@ namespace alt
 	class IMValueDict;
 	class IMValueBaseObject;
 	class IMValueFunction;
+	class IMValueVector2;
 	class IMValueVector3;
 	class IMValueRGBA;
 	class IMValueByteArray;
@@ -40,6 +41,7 @@ namespace alt
 	using MValueDict = Ref<IMValueDict>;
 	using MValueBaseObject = Ref<IMValueBaseObject>;
 	using MValueFunction = Ref<IMValueFunction>;
+	using MValueVector2 = Ref<IMValueVector2>;
 	using MValueVector3 = Ref<IMValueVector3>;
 	using MValueRGBA = Ref<IMValueRGBA>;
 	using MValueByteArray = Ref<IMValueByteArray>;
@@ -56,6 +58,7 @@ namespace alt
 	using MValueDictConst = ConstRef<IMValueDict>;
 	using MValueBaseObjectConst = ConstRef<IMValueBaseObject>;
 	using MValueFunctionConst = ConstRef<IMValueFunction>;
+	using MValueVector2Const = ConstRef<IMValueVector2>;
 	using MValueVector3Const = ConstRef<IMValueVector3>;
 	using MValueRGBAConst = ConstRef<IMValueRGBA>;
 	using MValueByteArrayConst = ConstRef<IMValueByteArray>;
@@ -80,7 +83,8 @@ namespace alt
 			FUNCTION,
 			VECTOR3,
 			RGBA,
-			BYTE_ARRAY
+			BYTE_ARRAY,
+			VECTOR2
 		};
 
 		virtual ~IMValue() = default;
@@ -201,6 +205,12 @@ namespace alt
 		};
 
 		virtual MValue Call(MValueArgs args) const = 0;
+	};
+
+	class IMValueVector2 : public virtual IMValue
+	{
+	public:
+		virtual Vector2f Value() const = 0;
 	};
 
 	class IMValueVector3 : public virtual IMValue

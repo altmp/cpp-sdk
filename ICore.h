@@ -1,5 +1,7 @@
 #pragma once
 
+#include <climits>
+
 #include "deps/alt-math/alt-math.h"
 #include "types/RGBA.h"
 #include "types/Array.h"
@@ -20,6 +22,8 @@
 #include "script-objects/IHandlingData.h"
 #include "script-objects/INative.h"
 #include "script-objects/IMapData.h"
+#include "script-objects/IHttpClient.h"
+#include "script-objects/IAudio.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -36,19 +40,15 @@ namespace alt
 
 	using EventCallback = bool (*)(const CEvent *e, void *userData);
 	using TickCallback = void (*)(void *userData);
-	using CommandCallback = void (*)(StringView cmd, Array<StringView> args, void *userData);
+	using CommandCallback = void (*)(Array<StringView> args, void *userData);
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
-	static constexpr int32_t GLOBAL_DIMENSION = -2147483648;
+	static constexpr int32_t GLOBAL_DIMENSION = INT_MIN;
 
 	class ICore
 	{
 	public:
-#ifdef ALT_SERVER_API
-		static constexpr uint32_t SDK_VERSION = 52;
-#else
-		static constexpr uint32_t SDK_VERSION = 52;
-#endif
+		static constexpr uint32_t SDK_VERSION = 54;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
@@ -71,6 +71,7 @@ namespace alt
 		virtual MValueDict CreateMValueDict() = 0;
 		virtual MValueBaseObject CreateMValueBaseObject(Ref<IBaseObject> val) = 0;
 		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl *impl) = 0;
+		virtual MValueVector2 CreateMValueVector2(Vector2f val) = 0;
 		virtual MValueVector3 CreateMValueVector3(Vector3f val) = 0;
 		virtual MValueRGBA CreateMValueRGBA(RGBA val) = 0;
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t *data, Size size) = 0;
@@ -116,7 +117,6 @@ namespace alt
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
-		virtual IGFX* GetGFX() const = 0;
 
 		virtual alt::IPackage::PathInfo Resolve(IResource *resource, alt::StringView path, StringView currentModulePath) const = 0;
 
@@ -138,6 +138,7 @@ namespace alt
 		virtual bool IsVoiceInputMuted() const = 0;
 		virtual bool IsVoiceActivationEnabled() const = 0;
 		virtual void ToggleVoiceControls(bool state) = 0;
+		virtual uint32_t GetVoiceActivationKey() = 0;
 
 		virtual String GetLicenseHash() const = 0;
 		virtual String GetLocale() const = 0;
@@ -191,18 +192,26 @@ namespace alt
 
 		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
 		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
+		virtual Ref<IWebSocketClient> CreateWebSocketClient(StringView url, IResource* res) = 0;
+		virtual Ref<IHttpClient> CreateHttpClient(IResource* res) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
+		virtual Ref<IAudio> CreateAudio(StringView source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
 
-		virtual void SetAngularVelocity(uint32_t, alt::Vector4f) = 0;
+		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
 		virtual bool IsGameFocused() = 0;
 
 		virtual void LoadModel(uint32_t hash) = 0;
 		virtual void LoadModelAsync(uint32_t hash) = 0;
+
+		virtual bool LoadYtyp(const std::string& path) = 0;
+		virtual bool UnloadYtyp(const std::string& path) = 0;
+
+		virtual alt::String HeadshotToBase64(uint8_t id) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
@@ -213,6 +222,8 @@ namespace alt
 		virtual IResource *RestartResource(StringView name) = 0;
 
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventForAll(StringView ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(StringView key) = 0;
@@ -236,6 +247,8 @@ namespace alt
 		virtual Array<Ref<IPlayer>> GetPlayersByName(StringView name) const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
+
+		virtual void SetPassword(StringView password) const = 0;
 #endif
 
 		static ICore &Instance()
@@ -255,7 +268,3 @@ namespace alt
 		}
 	};
 } // namespace alt
-
-#ifdef ALT_CLIENT_API
-#include "IGFX.h"
-#endif

@@ -36,6 +36,7 @@
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/IBlip.h"
 #include "script-objects/IVoiceChannel.h"
+#include "script-objects/IHttpClient.h"
 
 #include "events/CEvent.h"
 #include "events/CServerScriptEvent.h"
@@ -63,6 +64,13 @@
 #include "events/CVehicleDestroyEvent.h"
 #include "events/CCreateBaseObjectEvent.h"
 #include "events/CRemoveBaseObjectEvent.h"
+#include "events/CFireEvent.h"
+#include "events/CStartProjectileEvent.h"
+#include "events/CPlayerWeaponChangeEvent.h"
+#include "events/CVehicleAttachEvent.h"
+#include "events/CVehicleDetachEvent.h" 
+#include "events/CNetOwnerChangeEvent.h" 
+#include "events/CPlayerEnteringVehicleEvent.h"
 
 #ifdef ALT_CLIENT_API
 

@@ -299,7 +299,7 @@ namespace alt
 	private:
 		static float Normalize(float ang)
 		{
-			return fmod(fmod(ang - PI, TWO_PI) + TWO_PI, TWO_PI) - PI;
+			return (float)(fmod(fmod(ang - PI, TWO_PI) + TWO_PI, TWO_PI) - PI);
 		}
     };
 

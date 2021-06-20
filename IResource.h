@@ -6,6 +6,7 @@
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
 #include "script-objects/IWebView.h"
+#include "script-objects/IWebSocketClient.h"
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
@@ -79,7 +80,9 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual void EnableNatives() = 0;
+		[[nodiscard]]
 		virtual Ref<INative::Context> CreateNativesContext() const = 0;
+		[[nodiscard]]
 		virtual Ref<INative::Scope> PushNativesScope() = 0;
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
