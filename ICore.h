@@ -48,7 +48,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 53;
+		static constexpr uint32_t SDK_VERSION = 54;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
@@ -222,6 +222,8 @@ namespace alt
 		virtual IResource *RestartResource(StringView name) = 0;
 
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventForAll(StringView ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(StringView key) = 0;
