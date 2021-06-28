@@ -154,7 +154,8 @@ namespace alt
 		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
 		virtual Ref<IVehicle> GetAttached() const = 0;
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
-#else
+#endif
+#ifdef ALT_CLIENT_API
 		virtual float GetWheelSpeed() const = 0;
 		virtual uint16_t GetCurrentGear() const = 0;
 		virtual float GetCurrentRPM() const = 0;
