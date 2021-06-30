@@ -154,7 +154,9 @@ namespace alt
 		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
 		virtual Ref<IVehicle> GetAttached() const = 0;
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
-#else
+#endif // ALT_SERVER_API
+
+#ifdef ALT_CLIENT_API
 		virtual float GetWheelSpeed() const = 0;
 		virtual uint16_t GetCurrentGear() const = 0;
 		virtual float GetCurrentRPM() const = 0;
@@ -171,7 +173,7 @@ namespace alt
 
 		virtual uint8_t GetLightsIndicator() const = 0;
 		virtual void SetLightsIndicator(uint8_t lightsIndicatorFlag) = 0;
-#endif
+#endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
