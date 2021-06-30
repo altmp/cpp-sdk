@@ -155,6 +155,7 @@ namespace alt
 		virtual Ref<IVehicle> GetAttached() const = 0;
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
 #endif // ALT_SERVER_API
+
 #ifdef ALT_CLIENT_API
 		virtual float GetWheelSpeed() const = 0;
 		virtual uint16_t GetCurrentGear() const = 0;
