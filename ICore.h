@@ -14,6 +14,8 @@
 #include "IPackage.h"
 #include "IDiscordManager.h"
 
+#include "objects/ILocalPlayer.h"
+
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/IColShape.h"
@@ -37,6 +39,7 @@ namespace alt
 	class ICheckpoint;
 	class IScriptRuntime;
 	class IVoiceChannel;
+	class ILocalPlayer;
 
 	using EventCallback = bool (*)(const CEvent *e, void *userData);
 	using TickCallback = void (*)(void *userData);
@@ -48,7 +51,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 54;
+		static constexpr uint32_t SDK_VERSION = 55;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
@@ -122,7 +125,7 @@ namespace alt
 
 		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 
-		virtual Ref<IPlayer> GetLocalPlayer() const = 0;
+		virtual Ref<ILocalPlayer> GetLocalPlayer() const = 0;
 
 		virtual bool IsSandbox() const = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;

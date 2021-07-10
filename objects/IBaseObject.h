@@ -23,7 +23,8 @@ namespace alt
 			CHECKPOINT,
 			WEBSOCKET_CLIENT,
 			HTTP_CLIENT,
-			AUDIO
+			AUDIO,
+			LOCAL_PLAYER
 		};
 
 		virtual Type GetType() const = 0;
