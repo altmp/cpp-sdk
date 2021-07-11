@@ -2,7 +2,7 @@ name: Documentation
 on:
   push:
     branches:
-      - master
+      - docs
     # paths:
     #   - "docs/api/**.md"
     #   - "docs/articles/**.md"
