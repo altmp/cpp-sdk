@@ -1,13 +1,11 @@
 - name: Introduction
   href: introduction.md
-- name: Contributing
-  href: contributing.md
-- name: Creating resource
-  href: creating-resource.md
-- name: Creating runtime
+- name: First Steps
+  href: first-steps.md
+- name: Module runtime
   href: creating-runtime.md
-- name: Final steps
-  href: final-steps.md
+- name: Module resources
+  href: creating-resource.md
 - name: Handling events
   href: handling-events.md
 - name: MValues
