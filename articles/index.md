@@ -1,6 +1,6 @@
-# alt:V Module SDK Guide
+# C++ Module SDK Documentation
 
-A guide for the usage of the [alt:V C++ Module SDK](https://github.com/altmp/cpp-sdk) to make your own module.
+The documentation for the [alt:V C++ Module SDK](https://github.com/altmp/cpp-sdk).
 
 ## Table of Contents
 
@@ -11,14 +11,3 @@ A guide for the usage of the [alt:V C++ Module SDK](https://github.com/altmp/cpp
 5. [Handling events](handling-events.md) 
 6. [MValues](mvalues.md)
 7. [Refs](refs.md)
-8. [Final steps](final-steps.md)
-
-## Contribution
-
-Contributions are always appreciated.
-
-For information on how to contribute see the [Contribution guidelines](contributing.md).
-
-## Credits
-
-- [The altMP Team](https://github.com/altmp) - For creating the C++ Module SDK
