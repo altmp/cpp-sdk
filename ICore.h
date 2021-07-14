@@ -215,6 +215,10 @@ namespace alt
 		virtual bool UnloadYtyp(const std::string& path) = 0;
 
 		virtual alt::String HeadshotToBase64(uint8_t id) = 0;
+
+		virtual void SetDlcClothes(int32_t scriptID, uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
+		virtual void SetDlcProps(int32_t scriptID, uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
+		virtual void ClearProps(int32_t scriptID, uint8_t component) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
