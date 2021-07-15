@@ -11,3 +11,9 @@ The documentation for the [alt:V C++ Module SDK](https://github.com/altmp/cpp-sd
 5. [Handling events](handling-events.md) 
 6. [MValues](mvalues.md)
 7. [Refs](refs.md)
+
+## Boilerplate
+
+Alongside this documentation, there is also a boilerplate for alt:V modules available, to quickstart the development of a module.
+
+The boilerplate can be found [here](https://github.com/LeonMrBonnie/altv-module-boilerplate).
