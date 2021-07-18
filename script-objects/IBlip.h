@@ -38,7 +38,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual Vector2f GetScaleXY() const = 0;
-		virtual void SetScaleXY(float x, float y) = 0;
+		virtual void SetScaleXY(Vector2f scale) = 0;
 		virtual int GetDisplay() const = 0;
 		virtual void SetDisplay(int display) = 0;
 		virtual int GetSprite() const = 0;
@@ -57,8 +57,8 @@ namespace alt
 		virtual bool GetAsShortRange() const = 0;
 		virtual int GetPriority() const = 0;
 		virtual float GetRotation() const = 0;
-		virtual const char *GetGxtName() const = 0;
-		virtual const char *GetName() const = 0;
+		virtual StringView GetGxtName() const = 0;
+		virtual StringView GetName() const = 0;
 		virtual alt::RGBA GetRouteColor() const = 0;
 		virtual bool GetPulse() const = 0;
 		virtual bool GetAsMissionCreator() const = 0;
@@ -88,8 +88,8 @@ namespace alt
 		virtual void SetAsShortRange(bool state) = 0;
 		virtual void SetPriority(int state) = 0;
 		virtual void SetRotation(float rot) = 0;
-		virtual void SetGxtName(const char *name) = 0;
-		virtual void SetName(const char *name) = 0;
+		virtual void SetGxtName(StringView name) = 0;
+		virtual void SetName(StringView name) = 0;
 		virtual void SetPulse(bool val) = 0;
 		virtual void SetAsMissionCreator(bool val) = 0;
 		virtual void SetTickVisible(bool val) = 0;
