@@ -28,8 +28,8 @@ namespace alt
 
 		virtual ColShapeType GetColshapeType() const = 0;
 
-		virtual bool IsEntityIn(Ref<IEntity> ent) const = 0;
-		virtual bool IsPointIn(Position p) const = 0;
+		virtual bool IsEntityIn(Ref<IEntity> entity) const = 0;
+		virtual bool IsPointIn(Vector3f point) const = 0;
 		virtual void SetPlayersOnly(bool state) = 0;
 		virtual bool IsPlayersOnly() const = 0;
 

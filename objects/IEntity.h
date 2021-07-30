@@ -21,8 +21,8 @@ namespace alt
 
 		virtual uint32_t GetModel() const = 0;
 
-		virtual Rotation GetRotation() const = 0;
-		virtual void SetRotation(Rotation rot) = 0;
+		virtual Vector3f GetRotation() const = 0;
+		virtual void SetRotation(Vector3f rot) = 0;
 
 		virtual bool HasSyncedMetaData(StringView key) const = 0;
 		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
@@ -39,7 +39,7 @@ namespace alt
 		virtual void DeleteStreamSyncedMetaData(StringView key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 
-		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Vector3f position, Vector3f rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
 #endif // ALT_SERVER_API
 

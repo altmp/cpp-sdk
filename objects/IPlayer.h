@@ -41,15 +41,15 @@ namespace alt
 
 		virtual float GetMoveSpeed() const = 0;
 
-		virtual Position GetAimPos() const = 0;
-		virtual Rotation GetHeadRotation() const = 0;
+		virtual Vector3f GetAimPos() const = 0;
+		virtual Vector3f GetHeadRotation() const = 0;
 
 		virtual bool IsInVehicle() const = 0;
 		virtual Ref<IVehicle> GetVehicle() const = 0;
 		virtual uint8_t GetSeat() const = 0;
 
 		virtual Ref<IEntity> GetEntityAimingAt() const = 0;
-		virtual Position GetEntityAimOffset() const = 0;
+		virtual Vector3f GetEntityAimOffset() const = 0;
 
 		virtual bool IsFlashlightActive() const = 0;
 
@@ -62,7 +62,7 @@ namespace alt
 		virtual uint64_t GetHwidExHash() const = 0;
 		virtual StringView GetAuthToken() const = 0;
 
-		virtual void Spawn(Position pos, uint32_t delayMs) = 0;
+		virtual void Spawn(Vector3f pos, uint32_t delayMs) = 0;
 		virtual void Despawn() = 0;
 		virtual void SetModel(uint32_t model) = 0;
 		virtual void SetArmour(uint16_t armor) = 0;

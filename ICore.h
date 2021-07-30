@@ -235,21 +235,21 @@ namespace alt
 		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(StringView key) = 0;
 
-		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
+		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Vector3f pos, Vector3f rot) = 0;
 
 		// TODO make enum for types
-		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
+		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, float radius, float height, RGBA color) = 0;
 
-		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Position pos) = 0;
+		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Vector3f pos) = 0;
 		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Ref<IEntity> attachTo) = 0;
 
 		virtual Ref<IVoiceChannel> CreateVoiceChannel(bool spatial, float maxDistance) = 0;
 
-		virtual Ref<IColShape> CreateColShapeCylinder(Position pos, float radius, float height) = 0;
-		virtual Ref<IColShape> CreateColShapeSphere(Position pos, float radius) = 0;
-		virtual Ref<IColShape> CreateColShapeCircle(Position pos, float radius) = 0;
-		virtual Ref<IColShape> CreateColShapeCube(Position pos, Position pos2) = 0;
-		virtual Ref<IColShape> CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
+		virtual Ref<IColShape> CreateColShapeCylinder(Vector3f pos, float radius, float height) = 0;
+		virtual Ref<IColShape> CreateColShapeSphere(Vector3f pos, float radius) = 0;
+		virtual Ref<IColShape> CreateColShapeCircle(Vector2f pos, float radius) = 0;
+		virtual Ref<IColShape> CreateColShapeCube(Vector3f pos, Vector3f pos2) = 0;
+		virtual Ref<IColShape> CreateColShapeRectangle(Vector2f pos, Vector2f pos2) = 0;
 
 		virtual Array<Ref<IPlayer>> GetPlayersByName(StringView name) const = 0;
 
