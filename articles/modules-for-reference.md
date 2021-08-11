@@ -16,5 +16,5 @@ Make sure to provide credit where credit is due.
 | [Client JS module](https://github.com/altmp/altv-client-js)     | The official alt:V clientside module providing support for the JS language, using the V8 runtime                         |
 | [C# module](https://github.com/FabianTerhorst/coreclr-module)   | An alt:V module providing support for the C# language, has a C++ part for the module itself, and a runtime part in C#    |
 | [Python module](https://github.com/Marvisak/altv-python-module) | An alt:V module providing support for the Python language, fully written in C++ using pybind11 (**UNFINISHED**)          |
-| [Go module](https://github.com/shockdev04/altv-go-module)       | An alt:V module providing support for Golang, written in C(++) and Go. (**UNFINISHED**)                                  |
+| [Go module](https://github.com/shockdev04/altv-go-module)       | An alt:V module providing support for Golang, written in C(++) and Go (**UNFINISHED**)                                  |
 | [AngelScript module](https://github.com/LeonMrBonnie/altv-angelscript-module) | An alt:V module providing support for the AngelScript language, fully written in C++                       |
