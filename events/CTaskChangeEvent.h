@@ -19,8 +19,8 @@ namespace alt
 		}
 
 		Ref<IPlayer> GetTarget() const { return target; }
-		uint32_t GetOldTask() { return oldTask; }
-		uint32_t GetNewTask() { return newTask; }
+		uint32_t GetOldTask() const { return oldTask; }
+		uint32_t GetNewTask() const { return newTask; }
 
 	private:
 		Ref<IPlayer> target;
