@@ -66,6 +66,7 @@ namespace alt
 			RENDER,
 			WEB_SOCKET_CLIENT_EVENT,
 			AUDIO_EVENT,
+			TASK_CHANGE,
 
 			ALL,
 			SIZE

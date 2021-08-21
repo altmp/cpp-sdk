@@ -80,6 +80,7 @@
 #include "events/CGameEntityDestroyEvent.h"
 #include "events/CKeyboardEvent.h"
 #include "events/CWebViewEvent.h"
+#include "events/CTaskChangeEvent.h"
 
 #endif
 
