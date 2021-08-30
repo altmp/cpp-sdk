@@ -41,6 +41,9 @@ namespace alt
 
 		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
+
+		virtual void SetStreamed(bool toggle) = 0;
+		virtual bool GetStreamed() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
