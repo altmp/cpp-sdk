@@ -19,6 +19,7 @@ namespace alt
         virtual void SetVisible(bool visible) = 0;
         virtual bool IsOverlay() const = 0;
         virtual bool IsReady() const = 0;
+        virtual void SetExtraHeader(alt::StringView name, alt::StringView value) = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
