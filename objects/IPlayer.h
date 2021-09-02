@@ -53,9 +53,6 @@ namespace alt
 
 		virtual bool IsFlashlightActive() const = 0;
 
-		virtual void SetInvincible(bool toggle) = 0;
-		virtual bool GetInvincible() const = 0;
-
 #ifdef ALT_SERVER_API
 		virtual bool IsConnected() const = 0;
 		virtual uint32_t GetPing() const = 0;
@@ -93,6 +90,8 @@ namespace alt
 		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(uint8_t component) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
+		virtual void SetInvincible(bool toggle) = 0;
+		virtual bool GetInvincible() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
