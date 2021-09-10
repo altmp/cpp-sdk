@@ -92,6 +92,7 @@ namespace alt
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
+		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
