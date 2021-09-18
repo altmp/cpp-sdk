@@ -70,6 +70,7 @@ namespace alt
 		virtual int GetCategory() const = 0;
 		virtual bool GetAsHighDetail() const = 0;
 		virtual bool GetShrinked() const = 0;
+		virtual uint32_t GetScriptID() const = 0;
 
 		virtual void SetSprite(int sprite) = 0;
 		virtual void SetColor(int color) = 0;
