@@ -100,6 +100,7 @@ namespace alt
 		virtual Array<Ref<IEntity>> GetEntities() const = 0;
 		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
 		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
+		virtual Array<Ref<IBlip>> GetBlips() const = 0;
 
 		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
 
