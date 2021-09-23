@@ -34,6 +34,7 @@ namespace alt
 		virtual Ref<IPlayer> GetTarget() const = 0;
 		virtual bool IsAttached() const = 0;
 		virtual Ref<IEntity> AttachedTo() const = 0;
+		virtual void AttachTo(Ref<IEntity> entity) = 0;
 		virtual BlipType GetBlipType() const = 0;
 
 		virtual Vector2f GetScaleXY() const = 0;
