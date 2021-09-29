@@ -1,4 +1,5 @@
 #pragma once
+#include "types/String.h"
 
 namespace alt
 {
@@ -24,14 +25,19 @@ namespace alt
         virtual ~IAudioFilter() = default;
 
     public:
-        virtual void SetParam(const std::string& key, int32_t value) {}
-        virtual void SetParam(const std::string& key, float value) {}
-        virtual void SetParam(const std::string& key, bool value) {}
+        virtual void SetParam(const size_t& key, int32_t value) {}
+        virtual void SetParam(const size_t& key, float value) {}
+        virtual void SetParam(const size_t& key, bool value) {}
 
-        virtual void GetParam(const std::string& key, int32_t& value) {}
-        virtual void GetParam(const std::string& key, float& value) {}
-        virtual void GetParam(const std::string& key, bool& value) {}
+        virtual void GetParam(const size_t& key, int32_t& value) {}
+        virtual void GetParam(const size_t& key, float& value) {}
+        virtual void GetParam(const size_t& key, bool& value) {}
 
         virtual void Process(pcmSample* data, uint32_t size) = 0;
+
+        static size_t hash(const char* str)
+        {
+            return std::hash<alt::String>{}(str);
+        }
     };
 }
