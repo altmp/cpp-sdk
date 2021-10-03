@@ -93,6 +93,7 @@ namespace alt
 		virtual bool IsManualEngineControl() const = 0;
 		virtual String GetScriptDataBase64() = 0;
 		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
+		virtual Vector3f GetVelocity() const = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
