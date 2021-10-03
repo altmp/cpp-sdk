@@ -222,6 +222,9 @@ namespace alt
 		virtual void ClearProps(int32_t scriptID, uint8_t component) = 0;
 
 		virtual void SetWatermarkPosition(uint8_t pos) = 0;
+
+		virtual uint16_t GetFps() const = 0;
+		virtual uint16_t GetPing() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
