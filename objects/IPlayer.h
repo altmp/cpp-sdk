@@ -97,6 +97,7 @@ namespace alt
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
 		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
+		virtual void PlayAmbientSpeech(alt::StringView speechName, alt::StringView speechParam, uint32_t speechDictHash) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
