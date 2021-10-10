@@ -155,6 +155,8 @@ namespace alt
 		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
 		virtual Ref<IVehicle> GetAttached() const = 0;
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
+		virtual bool IsDriftMode() const = 0;
+		virtual void SetDriftMode(bool state) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
