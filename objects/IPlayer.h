@@ -6,6 +6,8 @@
 #include "../types/DlcCloth.h"
 #include "../types/Prop.h"
 #include "../types/DlcProp.h"
+#include "../types/HeadBlendData.h"
+#include "../types/HeadOverlay.h"
 
 namespace alt
 {
@@ -98,6 +100,25 @@ namespace alt
 		virtual bool GetInvincible() const = 0;
 		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
 		virtual void PlayAmbientSpeech(alt::StringView speechName, alt::StringView speechParam, uint32_t speechDictHash) = 0;
+		virtual bool SetHeadOverlay(uint8_t overlayID, uint8_t index, float opacity) = 0;
+		virtual bool RemoveHeadOverlay(uint8_t overlayID) = 0;
+		virtual bool SetHeadOverlayColor(uint8_t overlayID, uint8_t colorType, uint8_t colorIndex, uint8_t secondColorIndex) = 0;
+		virtual HeadOverlay GetHeadOverlay(uint8_t overlayID) const = 0;
+		virtual bool SetFaceFeature(uint8_t index, float scale) = 0;
+		virtual float GetFaceFeatureScale(uint8_t index) const  = 0;
+		virtual bool RemoveFaceFeature(uint8_t index) = 0;
+		virtual bool SetHeadBlendPaletteColor(uint8_t id, uint8_t red, uint8_t green, uint8_t blue) = 0;
+		virtual RGBA GetHeadBlendPaletteColor(uint8_t id) const = 0;
+		virtual void SetHeadBlendData(uint32_t shapeFirstID, uint32_t shapeSecondID, uint32_t shapeThirdID,
+			uint32_t skinFirstID, uint32_t skinSecondID, uint32_t skinThirdID,
+			float shapeMix, float skinMix, float thirdMix) = 0;
+		virtual HeadBlendData GetHeadBlendData() const  = 0;
+		virtual bool SetEyeColor(int16_t eyeColor) = 0;
+		virtual int16_t GetEyeColor() const  = 0;
+		virtual void SetHairColor(uint8_t hairColor) = 0;
+		virtual uint8_t GetHairColor() const  = 0;
+		virtual void SetHairHighlightColor(uint8_t hairHighlightColor) = 0;
+		virtual uint8_t GetHairHighlightColor() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
