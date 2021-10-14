@@ -157,6 +157,37 @@ namespace alt
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
 		virtual bool IsDriftMode() const = 0;
 		virtual void SetDriftMode(bool state) = 0;
+
+		virtual bool IsTrainMissionTrain() const = 0;
+		virtual void SetTrainMissionTrain(bool value) = 0;
+		virtual int8_t GetTrainTrackId() const = 0;
+		virtual void SetTrainTrackId(int8_t trackId) = 0;
+		virtual Ref<IVehicle> GetTrainEngineId() const = 0;
+		virtual void SetTrainEngineId(Ref<IVehicle> vehicle) = 0;
+		virtual int8_t GetTrainConfigIndex() const = 0;
+		virtual void SetTrainConfigIndex(int8_t trainConfigIndex) = 0;
+		virtual float GetTrainDistanceFromEngine() const = 0;
+		virtual void SetTrainDistanceFromEngine(float distanceFromEngine) = 0;
+		virtual bool IsTrainEngine() const = 0;
+		virtual void SetTrainIsEngine(bool isEngine) = 0;
+		virtual bool IsTrainCaboose() const = 0;
+		virtual void SetTrainIsCaboose(bool isCaboose) = 0;
+		virtual bool GetTrainDirection() const = 0;
+		virtual void SetTrainDirection(bool direction) = 0;
+		virtual bool HasTrainPassengerCarriages() const = 0;
+		virtual void SetTrainHasPassengerCarriages(bool hasPassengerCarriages) = 0;
+		virtual bool GetTrainRenderDerailed() const = 0;
+		virtual void SetTrainRenderDerailed(bool renderDerailed) = 0;
+		virtual bool GetTrainForceDoorsOpen() const = 0;
+		virtual void SetTrainForceDoorsOpen(bool forceDoorsOpen) = 0;
+		virtual float GetTrainCruiseSpeed() const = 0;
+		virtual void SetTrainCruiseSpeed(float cruiseSpeed) = 0;
+		virtual int8_t GetTrainCarriageConfigIndex() const = 0;
+		virtual void SetTrainCarriageConfigIndex(int8_t carriageConfigIndex) = 0;
+		virtual Ref<IVehicle> GetTrainLinkedToBackwardId() const = 0;
+		virtual void SetTrainLinkedToBackwardId(Ref<IVehicle> vehicle) = 0;
+		virtual Ref<IVehicle> GetTrainLinkedToForwardId() const = 0;
+		virtual void SetTrainLinkedToForwardId(Ref<IVehicle> vehicle) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
