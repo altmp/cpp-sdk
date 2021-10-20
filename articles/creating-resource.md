@@ -57,38 +57,38 @@ public:
     }
 
     // Returns a boolean indicating whether the resource could be successfully loaded
-    bool Start()
+    bool Start() override
     {
         // Start some resource specific logic here e.g. instantiating a new context for the script of the resource
         return true;
     }
 
     // Returns a boolean indicating whether the resource could be successfully stopped
-    bool Stop()
+    bool Stop() override
     {
         // Stop the resource specific logic e.g. destroying the context of the script of the resource
         return true;
     }
 
     // Returns a bool whether other resources should receive this event
-    bool OnEvent(const alt::CEvent* ev)
+    bool OnEvent(const alt::CEvent* ev) override
     {
         // Proper event handling will be explained in another article
         return true;
     }
 
-    void OnTick()
+    void OnTick() override
     {
         // This can be used to clean up stuff in chunks etc. to save performance
         // Also useful for handling timers
     }
 
-    void OnCreateBaseObject(alt::Ref<alt::IBaseObject> object)
+    void OnCreateBaseObject(alt::Ref<alt::IBaseObject> object) override
     {
         // Here you can e.g. add the base object to some list for validating if a base object still exists
     }
 
-    void OnRemoveBaseObject(alt::Ref<alt::IBaseObject> object)
+    void OnRemoveBaseObject(alt::Ref<alt::IBaseObject> object) override
     {
         // Here you can e.g. remove the base object from some aforementioned list
     }
