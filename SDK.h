@@ -72,6 +72,7 @@
 #include "events/CNetOwnerChangeEvent.h" 
 #include "events/CPlayerEnteringVehicleEvent.h"
 #include "events/CVehicleDamageEvent.h" 
+#include "events/CPlayerBeforeConnectEvent.h" 
 
 #ifdef ALT_CLIENT_API
 

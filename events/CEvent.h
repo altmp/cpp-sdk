@@ -13,6 +13,7 @@ namespace alt
 
 			// Shared
 			PLAYER_CONNECT,
+			PLAYER_BEFORE_CONNECT,
 			PLAYER_DISCONNECT,
 
 			RESOURCE_START,
