@@ -8,6 +8,7 @@
 #include "../types/DlcProp.h"
 #include "../types/HeadBlendData.h"
 #include "../types/HeadOverlay.h"
+#include "../types/Weapon.h"
 
 namespace alt
 {
@@ -119,6 +120,7 @@ namespace alt
 		virtual uint8_t GetHairColor() const  = 0;
 		virtual void SetHairHighlightColor(uint8_t hairHighlightColor) = 0;
 		virtual uint8_t GetHairHighlightColor() const = 0;
+		virtual Array<Weapon> GetWeapons() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
