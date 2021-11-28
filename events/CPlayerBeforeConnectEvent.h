@@ -3,6 +3,7 @@
 #include "../types/StringView.h"
 #include "../types/String.h"
 #include "../Ref.h"
+#include "../types/ConnectionInfo.h"
 
 #include "CEvent.h"
 
@@ -13,16 +14,14 @@ namespace alt
 	class CPlayerBeforeConnectEvent : public CEvent
 	{
 	public:
-		CPlayerBeforeConnectEvent(Ref<IPlayer> _target, uint64_t _passwordHash, StringView _cdnUrl) :
+		CPlayerBeforeConnectEvent(ConnectionInfo _connectionInfo) :
 			CEvent(Type::PLAYER_BEFORE_CONNECT),
-			target(_target), passwordHash(_passwordHash), cdnUrl(_cdnUrl)
+			connectionInfo(_connectionInfo)
 		{
 		}
 
-		Ref<IPlayer> GetTarget() const { return target; }
-		uint64_t GetPasswordHash() const { return passwordHash; }
-		StringView GetCdnUrl() const { return cdnUrl; }
-		StringView GetReason() { return reason; }
+		ConnectionInfo GetConnectionInfo() const { return connectionInfo; }
+		StringView GetReason() const { return reason; }
 
 		void Cancel(StringView _reason)
 		{
@@ -31,9 +30,7 @@ namespace alt
 		}
 
 	private:
-		Ref<IPlayer> target;
-		uint64_t passwordHash;
-		StringView cdnUrl;
+		ConnectionInfo connectionInfo;
 		String reason;
 	};
 }
