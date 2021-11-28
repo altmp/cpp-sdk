@@ -265,6 +265,7 @@ namespace alt
 		virtual uint32_t GetNetTime() const = 0;
 
 		virtual void SetPassword(StringView password) const = 0;
+		virtual uint64_t HashServerPassword(StringView password) const = 0;
 #endif
 
 		static ICore &Instance()
