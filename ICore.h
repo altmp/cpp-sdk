@@ -227,6 +227,8 @@ namespace alt
 		virtual uint16_t GetPing() const = 0;
 		virtual uint64_t GetTotalPacketsSent() const = 0;
 		virtual uint32_t GetTotalPacketsLost() const = 0;
+		virtual alt::String GetServerIp() const = 0;
+		virtual uint16_t GetServerPort() const = 0;
 		virtual alt::String GetClientPath() const = 0;
 #endif
 
