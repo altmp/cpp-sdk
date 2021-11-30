@@ -51,7 +51,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 58;
+		static constexpr uint32_t SDK_VERSION = 59;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
