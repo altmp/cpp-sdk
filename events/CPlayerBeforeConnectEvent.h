@@ -21,9 +21,9 @@ namespace alt
 		}
 
 		ConnectionInfo GetConnectionInfo() const { return connectionInfo; }
-		String GetReason() const { return reason; }
+		std::string GetReason() const { return reason; }
 
-		void Cancel(String _reason)
+		void Cancel(std::string _reason)
 		{
 			reason = _reason;
 			CEvent::Cancel();
@@ -31,6 +31,6 @@ namespace alt
 
 	private:
 		ConnectionInfo connectionInfo;
-		String reason;
+		std::string reason;
 	};
 }
