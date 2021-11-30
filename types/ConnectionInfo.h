@@ -21,8 +21,8 @@ namespace alt
 
 		ConnectionInfo() = default;
 
-		ConnectionInfo(String _name, uint64_t _socialId, uint64_t _hwidHash, uint64_t _hwidExHash,
-			String _authToken, bool _isDebug, StringView _branch, uint32_t _build, StringView _cdnUrl, uint64_t _passwordHash) :
+		ConnectionInfo(StringView _name, uint64_t _socialId, uint64_t _hwidHash, uint64_t _hwidExHash,
+			StringView _authToken, bool _isDebug, StringView _branch, uint32_t _build, StringView _cdnUrl, uint64_t _passwordHash) :
 			name(_name), socialId(_socialId), hwidHash(_hwidHash), hwidExHash(_hwidExHash), authToken(_authToken), isDebug(_isDebug),
 		branch(_branch), build(_build), cdnUrl(_cdnUrl), passwordHash(_passwordHash) { }
 
