@@ -21,9 +21,9 @@ namespace alt
 		}
 
 		ConnectionInfo GetConnectionInfo() const { return connectionInfo; }
-		StringView GetReason() const { return reason; }
+		String GetReason() const { return reason; }
 
-		void Cancel(StringView _reason)
+		void Cancel(String _reason)
 		{
 			reason = _reason;
 			CEvent::Cancel();
