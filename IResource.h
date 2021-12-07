@@ -40,10 +40,10 @@ namespace alt
 				return true;
 			};
 
-            virtual bool WriteClientFile(IPackage* package, StringView fileName, void* buffer, uint64_t size)
-            {
-                return false;
-            };
+			virtual bool WriteClientFile(IPackage* package, StringView fileName, void* buffer, uint64_t size)
+			{
+				return false;
+			};
 #endif
 			virtual bool Start()
 			{
