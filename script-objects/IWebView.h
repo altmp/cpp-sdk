@@ -18,6 +18,7 @@ namespace alt
         virtual bool IsVisible() const = 0;
         virtual void SetVisible(bool visible) = 0;
         virtual bool IsOverlay() const = 0;
+        virtual bool IsLoaded() const = 0;
         virtual bool IsReady() const = 0;
         virtual void SetExtraHeader(alt::StringView name, alt::StringView value) = 0;
         virtual void SetZoomLevel(double value) = 0;
