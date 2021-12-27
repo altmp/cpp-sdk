@@ -115,14 +115,14 @@ namespace alt
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
+        virtual alt::IPackage::PathInfo Resolve(IResource *resource, StringView path, StringView currentModulePath) const = 0;
+
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
-
-		virtual alt::IPackage::PathInfo Resolve(IResource *resource, alt::StringView path, StringView currentModulePath) const = 0;
 
 		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 
