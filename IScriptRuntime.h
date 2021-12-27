@@ -20,6 +20,8 @@ namespace alt
 		virtual void OnTick() { };
 		virtual void OnDispose() { };
 
-		virtual void WriteClientFile(IPackage* package, const std::string& fileName, void* buffer, uint64_t size) { };
+#ifdef ALT_SERVER_API
+		virtual void WriteClientFile(IResource* resource, IPackage* package, const std::string& fileName, void* buffer, uint64_t size) { };
+#endif
 	};
 }
