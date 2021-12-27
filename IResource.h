@@ -88,7 +88,7 @@ namespace alt
 
 		virtual void SetExports(MValueDict exports) = 0;
 
-#ifdef ALT_SERVER
+#ifdef ALT_SERVER_API
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
 		virtual const std::unordered_set<std::string>& GetClientFiles() const = 0;
