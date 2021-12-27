@@ -83,6 +83,12 @@ namespace alt
 
 		virtual void SetExports(MValueDict exports) = 0;
 
+#ifdef ALT_SERVER
+		virtual std::string GetClientType() const = 0;
+		virtual std::string GetClientMain() const = 0;
+		virtual const std::unordered_set<std::string>& GetClientFiles() const = 0;
+#endif
+
 #ifdef ALT_CLIENT_API
 		virtual void EnableNatives() = 0;
 		[[nodiscard]]
