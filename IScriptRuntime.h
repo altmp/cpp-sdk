@@ -19,5 +19,7 @@ namespace alt
 
 		virtual void OnTick() { };
 		virtual void OnDispose() { };
+
+		virtual void WriteClientFile(IPackage* package, const std::string& fileName, void* buffer, uint64_t size) { };
 	};
 }

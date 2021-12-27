@@ -44,6 +44,11 @@ namespace alt
 			{
 				return false;
 			};
+			
+			virtual bool GetWriteClientFileRuntime(std::string& runtimeName)
+			{
+				return false;
+			};
 #endif
 			virtual bool Start()
 			{
