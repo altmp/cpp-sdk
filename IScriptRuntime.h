@@ -21,7 +21,8 @@ namespace alt
 		virtual void OnDispose() { };
 
 #ifdef ALT_SERVER_API
-		virtual void WriteClientFile(IResource* resource, IPackage* package, const std::string& fileName, void* buffer, uint64_t size) { };
+        virtual bool GetProcessClientType(std::string& clientType) { return false; }
+		virtual void ProcessClientFile(IResource* resource, IPackage* clientPackage) { };
 #endif
 	};
 }

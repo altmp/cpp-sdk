@@ -41,16 +41,6 @@ namespace alt
 			{
 				return true;
 			};
-
-			virtual bool WriteClientFile(IPackage* package, const std::string& fileName, void* buffer, uint64_t size)
-			{
-				return false;
-			};
-			
-			virtual bool GetWriteClientFileRuntime(std::string& runtimeName)
-			{
-				return false;
-			};
 #endif
 			virtual bool Start()
 			{
