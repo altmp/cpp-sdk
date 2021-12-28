@@ -10,6 +10,8 @@
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
+#include <vector>
+#include <unordered_set>
 
 namespace alt
 {
