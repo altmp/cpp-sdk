@@ -11,7 +11,7 @@
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
 #include <vector>
-#include <unordered_set>
+#include <set>
 
 namespace alt
 {
@@ -83,12 +83,12 @@ namespace alt
 #ifdef ALT_SERVER_API
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
-		virtual const std::unordered_set<std::string>& GetClientFiles() const = 0;
+		virtual const std::set<std::string>& GetClientFiles() const = 0;
 		virtual std::string GetConfigString(const std::string& key, const std::string& defaultVal) = 0;
 		virtual double GetConfigNumber(const std::string& key, double defaultVal) = 0;
 		virtual bool GetConfigBool(const std::string& key, bool defaultVal) = 0;
 		virtual std::vector<std::string> GetConfigStringList(const std::string& key) = 0;
-		virtual std::unordered_set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
+		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
 #endif
 
 #ifdef ALT_CLIENT_API
