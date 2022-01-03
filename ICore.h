@@ -32,7 +32,6 @@
 
 namespace alt
 {
-	class IGFX;
 	class IEntity;
 	class IPlayer;
 	class IVehicle;
@@ -41,9 +40,7 @@ namespace alt
 	class IVoiceChannel;
 	class ILocalPlayer;
 
-	using EventCallback = bool (*)(const CEvent *e, void *userData);
-	using TickCallback = void (*)(void *userData);
-	using CommandCallback = void (*)(Array<StringView> args, void *userData);
+	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = INT_MIN;
@@ -86,7 +83,7 @@ namespace alt
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime *runtime) = 0;
 
-		virtual bool SubscribeCommand(StringView cmd, CommandCallback cb, void *userData = nullptr) = 0;
+		virtual bool SubscribeCommand(const std::string& cmd, CommandCallback cb) = 0;
 
 		virtual bool FileExists(StringView path) = 0;
 		virtual String FileRead(StringView path) = 0;
