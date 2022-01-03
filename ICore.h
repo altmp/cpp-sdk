@@ -86,8 +86,6 @@ namespace alt
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime *runtime) = 0;
 
-		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb, void *userData = nullptr) = 0;
-		virtual void SubscribeTick(TickCallback cb, void *userData = nullptr) = 0;
 		virtual bool SubscribeCommand(StringView cmd, CommandCallback cb, void *userData = nullptr) = 0;
 
 		virtual bool FileExists(StringView path) = 0;
