@@ -163,6 +163,7 @@ namespace alt
 		virtual void SetWeatherSyncActive(bool active) = 0;
 
 		virtual void SetCamFrozen(bool frozen) = 0;
+		virtual bool IsCamFrozen() = 0;
 
 		virtual alt::Ref<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
 		virtual alt::Ref<alt::IMapData> GetMapData(StringView alias) = 0;
