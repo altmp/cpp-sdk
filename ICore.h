@@ -235,7 +235,7 @@ namespace alt
 
 		virtual IResource *StartResource(StringView name) = 0;
 		virtual void StopResource(StringView name) = 0;
-		virtual IResource *RestartResource(StringView name) = 0;
+		virtual void RestartResource(StringView name) = 0;
 
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
