@@ -25,7 +25,7 @@ namespace alt
 		virtual void MutePlayer(Ref<IPlayer> player) = 0;
 		virtual void UnmutePlayer(Ref<IPlayer> player) = 0;
 
-		virtual const std::vector<Ref<IPlayer>>& GetPlayers() const = 0;
+		virtual const std::vector<Ref<IPlayer>> GetPlayers() const = 0;
 		virtual size_t GetPlayerCount() const = 0;
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
