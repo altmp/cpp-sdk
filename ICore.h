@@ -264,6 +264,8 @@ namespace alt
 
 		virtual void SetPassword(StringView password) const = 0;
 		virtual uint64_t HashServerPassword(StringView password) const = 0;
+
+		virtual void StopServer() = 0;
 #endif
 
 		static ICore &Instance()
