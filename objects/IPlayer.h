@@ -97,6 +97,7 @@ namespace alt
 		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(uint8_t component) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
+		virtual bool IsEntityInStreamingRange(uint16_t entityId) = 0;
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
 		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
