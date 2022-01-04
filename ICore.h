@@ -114,6 +114,8 @@ namespace alt
 
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 
+		virtual const std::vector<IResource*> GetAllResources() const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
