@@ -68,6 +68,7 @@ namespace alt
 			WEB_SOCKET_CLIENT_EVENT,
 			AUDIO_EVENT,
 			TASK_CHANGE,
+			SPAWNED,
 
 			ALL,
 			SIZE
