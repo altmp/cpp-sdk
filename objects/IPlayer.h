@@ -97,6 +97,7 @@ namespace alt
 		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(uint8_t component) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
+		virtual bool IsEntityInStreamingRange(uint16_t entityId) = 0;
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
 		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
@@ -121,6 +122,11 @@ namespace alt
 		virtual void SetHairHighlightColor(uint8_t hairHighlightColor) = 0;
 		virtual uint8_t GetHairHighlightColor() const = 0;
 		virtual Array<Weapon> GetWeapons() const = 0;
+
+		virtual bool HasLocalMetaData(StringView key) const = 0;
+		virtual void SetLocalMetaData(StringView key, MValue val) = 0;
+		virtual MValue GetLocalMetaData(StringView key) const = 0;
+		virtual void DeleteLocalMetaData(StringView key) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API

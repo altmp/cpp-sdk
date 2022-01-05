@@ -10,7 +10,7 @@ namespace alt
 	class CConsoleCommandEvent : public CEvent
 	{
 	public:
-		CConsoleCommandEvent(StringView _name, Array<StringView> _args) :
+		CConsoleCommandEvent(const std::string& _name, const std::vector<std::string>& _args) :
 			CEvent(Type::CONSOLE_COMMAND_EVENT),
 			name(_name),
 			args(_args)
@@ -18,11 +18,11 @@ namespace alt
 
 		}
 
-		StringView GetName() const { return name; }
-		const Array<StringView>& GetArgs() const { return args; }
+		std::string GetName() const { return name; }
+		const std::vector<std::string>& GetArgs() const { return args; }
 
 	private:
-		StringView name;
-		Array<StringView> args;
+		std::string name;
+		std::vector<std::string> args;
 	};
 }

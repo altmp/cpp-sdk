@@ -19,5 +19,10 @@ namespace alt
 
 		virtual void OnTick() { };
 		virtual void OnDispose() { };
+
+#ifdef ALT_SERVER_API
+		virtual bool GetProcessClientType(std::string& clientType) { return false; }
+		virtual void ProcessClientFile(IResource* resource, IPackage* clientPackage) { };
+#endif
 	};
 }

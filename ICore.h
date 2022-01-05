@@ -33,7 +33,6 @@
 
 namespace alt
 {
-	class IGFX;
 	class IEntity;
 	class IPlayer;
 	class IVehicle;
@@ -42,9 +41,7 @@ namespace alt
 	class IVoiceChannel;
 	class ILocalPlayer;
 
-	using EventCallback = bool (*)(const CEvent *e, void *userData);
-	using TickCallback = void (*)(void *userData);
-	using CommandCallback = void (*)(Array<StringView> args, void *userData);
+	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = INT_MIN;
@@ -52,7 +49,7 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 60;
+		static constexpr uint32_t SDK_VERSION = 61;
 
 		// Shared methods
 		virtual String GetVersion() const = 0;
@@ -87,9 +84,7 @@ namespace alt
 
 		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime *runtime) = 0;
 
-		virtual void SubscribeEvent(CEvent::Type ev, EventCallback cb, void *userData = nullptr) = 0;
-		virtual void SubscribeTick(TickCallback cb, void *userData = nullptr) = 0;
-		virtual bool SubscribeCommand(StringView cmd, CommandCallback cb, void *userData = nullptr) = 0;
+		virtual bool SubscribeCommand(const std::string& cmd, CommandCallback cb) = 0;
 
 		virtual bool FileExists(StringView path) = 0;
 		virtual String FileRead(StringView path) = 0;
@@ -116,14 +111,16 @@ namespace alt
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
+        virtual alt::IPackage::PathInfo Resolve(IResource *resource, StringView path, StringView currentModulePath) const = 0;
+
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
+
+		virtual const std::vector<IResource*> GetAllResources() const = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
-
-		virtual alt::IPackage::PathInfo Resolve(IResource *resource, alt::StringView path, StringView currentModulePath) const = 0;
 
 		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
 
@@ -169,6 +166,7 @@ namespace alt
 		virtual void SetWeatherSyncActive(bool active) = 0;
 
 		virtual void SetCamFrozen(bool frozen) = 0;
+		virtual bool IsCamFrozen() = 0;
 
 		virtual alt::Ref<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
 		virtual alt::Ref<alt::IMapData> GetMapData(StringView alias) = 0;
@@ -232,6 +230,9 @@ namespace alt
 		virtual alt::String GetServerIp() const = 0;
 		virtual uint16_t GetServerPort() const = 0;
 		virtual alt::String GetClientPath() const = 0;
+
+		virtual bool HasLocalMetaData(StringView key) const = 0;
+		virtual MValue GetLocalMetaData(StringView key) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
@@ -239,7 +240,7 @@ namespace alt
 
 		virtual IResource *StartResource(StringView name) = 0;
 		virtual void StopResource(StringView name) = 0;
-		virtual IResource *RestartResource(StringView name) = 0;
+		virtual void RestartResource(StringView name) = 0;
 
 		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
@@ -270,6 +271,8 @@ namespace alt
 
 		virtual void SetPassword(StringView password) const = 0;
 		virtual uint64_t HashServerPassword(StringView password) const = 0;
+
+		virtual void StopServer() = 0;
 #endif
 
 		static ICore &Instance()
