@@ -228,6 +228,8 @@ namespace alt
 		virtual alt::String GetServerIp() const = 0;
 		virtual uint16_t GetServerPort() const = 0;
 		virtual alt::String GetClientPath() const = 0;
+
+		virtual MValue GetLocalSyncedMetaData(StringView key) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
