@@ -26,6 +26,7 @@
 #include "script-objects/IMapData.h"
 #include "script-objects/IHttpClient.h"
 #include "script-objects/IAudio.h"
+#include "script-objects/IRml.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -204,6 +205,7 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
 		virtual Ref<IAudio> CreateAudio(StringView source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
+		virtual Ref<IRmlDocument> CreateDocument(std::string& url, IResource* res) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
