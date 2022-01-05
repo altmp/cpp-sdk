@@ -123,9 +123,10 @@ namespace alt
 		virtual uint8_t GetHairHighlightColor() const = 0;
 		virtual Array<Weapon> GetWeapons() const = 0;
 
-		virtual void SetLocalSyncedMetaData(StringView key, MValue val) = 0;
-		virtual MValue GetLocalSyncedMetaData(StringView key) const = 0;
-		virtual void DeleteLocalSyncedMetaData(StringView key) = 0;
+		virtual bool HasLocalMetaData(StringView key) const = 0;
+		virtual void SetLocalMetaData(StringView key, MValue val) = 0;
+		virtual MValue GetLocalMetaData(StringView key) const = 0;
+		virtual void DeleteLocalMetaData(StringView key) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API

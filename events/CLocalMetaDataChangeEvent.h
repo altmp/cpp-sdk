@@ -10,10 +10,10 @@ namespace alt
 {
 	class IPlayer;
 
-	class CLocalSyncedMetaDataChangeEvent : public CEvent
+	class CLocalMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CLocalSyncedMetaDataChangeEvent(Ref<IPlayer> _target, StringView _key, MValueConst _val, MValueConst _oldVal) :
+		CLocalMetaDataChangeEvent(Ref<IPlayer> _target, StringView _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::LOCAL_SYNCED_META_CHANGE),
 			target(_target),
 			key(_key),
