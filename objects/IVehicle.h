@@ -188,6 +188,12 @@ namespace alt
 		virtual void SetTrainLinkedToBackwardId(Ref<IVehicle> vehicle) = 0;
 		virtual Ref<IVehicle> GetTrainLinkedToForwardId() const = 0;
 		virtual void SetTrainLinkedToForwardId(Ref<IVehicle> vehicle) = 0;
+		virtual void SetTrainUnk1(bool unk1) = 0;
+		virtual bool GetTrainUnk1() const = 0;
+		virtual void SetTrainUnk2(bool unk2) = 0;
+		virtual bool GetTrainUnk2() const = 0;
+		virtual void SetTrainUnk3(bool unk3) = 0;
+		virtual bool GetTrainUnk3() const = 0;
 
 		virtual bool SetSearchLight(bool state, Ref<IEntity> spottedEntity) = 0;
 #endif // ALT_SERVER_API
