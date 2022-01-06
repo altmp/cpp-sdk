@@ -24,6 +24,7 @@ namespace alt
 			WEBSOCKET_CLIENT,
 			HTTP_CLIENT,
 			AUDIO,
+			RML_ELEMENT,
 			RML_DOCUMENT,
 			LOCAL_PLAYER
 		};
