@@ -20,7 +20,7 @@ namespace alt
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 
-    class IRmlDocument : public IRmlElement
+    class IRmlDocument : public virtual IRmlElement
     {
     public:
         virtual ~IRmlDocument() = default;
