@@ -9,6 +9,13 @@ namespace alt
     {
     public:
         virtual ~IRmlElement() = default;
+
+        virtual bool AddClass(const std::string& name) = 0;
+        virtual bool RemoveClass(const std::string& name) = 0;
+        virtual bool HasClass(const std::string& name) const = 0;
+        virtual const std::vector<std::string> GetClassList() const = 0;
+
+        virtual void SetOffset(Ref<IRmlElement> offsetParent, alt::Vector2f offset, bool fixed = false) = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
