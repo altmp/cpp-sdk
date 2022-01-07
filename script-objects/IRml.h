@@ -15,6 +15,11 @@ namespace alt
         virtual bool HasClass(const std::string& name) const = 0;
         virtual const std::vector<std::string> GetClassList() const = 0;
 
+        virtual bool AddPseudoClass(const std::string& name) = 0;
+        virtual bool RemovePseudoClass(const std::string& name) = 0;
+        virtual bool HasPseudoClass(const std::string& name) const = 0;
+        virtual const std::vector<std::string> GetPseudoClassList() const = 0;
+
         virtual void SetOffset(Ref<IRmlElement> offsetParent, Vector2f offset, bool fixed = false) = 0;
         virtual Vector2f GetRelativeOffset() const = 0;
         virtual Vector2f GetAbsoluteOffset() const = 0;
@@ -34,6 +39,8 @@ namespace alt
         virtual const std::string& GetLocalProperty(const std::string& name) const = 0;
         // Returns the relative unit (e.g. 'percent' or 'angle') as absolute value ('px' or 'rad')
         virtual float GetPropertyAbsoluteValue(const std::string& name) const = 0;
+
+        virtual Vector2f GetContainingBlock() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
