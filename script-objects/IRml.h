@@ -24,10 +24,9 @@ namespace alt
         virtual Vector2f GetRelativeOffset() const = 0;
         virtual Vector2f GetAbsoluteOffset() const = 0;
         virtual float GetBaseline() const = 0;
+        virtual float GetZIndex() const = 0;
 
         virtual bool IsPointWithinElement(Vector2f point) const = 0;
-
-        virtual float GetZIndex() const = 0;
 
         virtual bool SetProperty(const std::string& name, const std::string& value) = 0;
         virtual bool RemoveProperty(const std::string& name) = 0;
@@ -41,6 +40,16 @@ namespace alt
         virtual float GetPropertyAbsoluteValue(const std::string& name) const = 0;
 
         virtual Vector2f GetContainingBlock() const = 0;
+
+        virtual Ref<IRmlElement> GetFocusedElement() const = 0;
+
+        virtual const std::string& GetTagName() const = 0;
+        virtual const std::string& GetID() const = 0;
+        virtual void SetID(const std::string& id) = 0;
+
+        virtual void AppendChild(Ref<IRmlElement> element) = 0;
+
+        virtual bool IsOwned() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
