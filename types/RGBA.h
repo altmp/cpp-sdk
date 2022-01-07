@@ -28,5 +28,19 @@ namespace alt
 		{
 			return RGBA(b, g, r, a);
 		}
+
+		RGBA toARGB()
+		{
+			return RGBA(a ,r, g, b);
+		}
+
+		uint32_t toInt()
+		{
+			uint32_t RGB = (r << 24);
+			RGB = RGB | (g << 16);
+			RGB = RGB | (b << 8);
+			RGB = RGB | (a);
+			return RGB;
+		}
 	};
 }

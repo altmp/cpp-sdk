@@ -70,7 +70,6 @@ namespace alt
 			AUDIO_EVENT,
 			TASK_CHANGE,
 			SPAWNED,
-			VEHICLE_LOCK_STATE_CHANGE,
 
 			ALL,
 			SIZE
