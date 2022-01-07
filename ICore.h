@@ -234,6 +234,8 @@ namespace alt
 
 		virtual bool HasLocalMetaData(StringView key) const = 0;
 		virtual MValue GetLocalMetaData(StringView key) const = 0;
+		
+		virtual PermissionState CopyToClipboard(const std::string& value) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
