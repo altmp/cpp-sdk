@@ -29,6 +29,7 @@
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
+#include "types/VehicleModelInfo.h"
 
 namespace alt
 {
@@ -271,6 +272,8 @@ namespace alt
 		virtual uint64_t HashServerPassword(StringView password) const = 0;
 
 		virtual void StopServer() = 0;
+
+		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
 #endif
 
 		static ICore &Instance()
