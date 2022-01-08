@@ -48,8 +48,6 @@ namespace alt
         virtual const std::string& GetID() const = 0;
         virtual void SetID(const std::string& id) = 0;
 
-        virtual void AppendChild(Ref<IRmlElement> element) = 0;
-
         virtual bool IsOwned() const = 0;
 
         virtual void SetAttribute(const std::string& name, const std::string& value) = 0;
@@ -76,6 +74,36 @@ namespace alt
         virtual void SetScrollTop(float value) = 0;
         virtual float GetScrollWidth() const = 0;
         virtual float GetScrollHeight() const = 0;
+
+        virtual bool IsVisible() const = 0;
+
+        virtual Ref<IRmlElement> GetParent() const = 0;
+        virtual Ref<IRmlElement> GetClosest(const std::string& selectors) const = 0;
+        virtual Ref<IRmlElement> GetNextSibling() const = 0;
+        virtual Ref<IRmlElement> GetPreviousSibling() const = 0;
+        virtual Ref<IRmlElement> GetFirstChild() const = 0;
+        virtual Ref<IRmlElement> GetLastChild() const = 0;
+        virtual Ref<IRmlElement> GetChild(int index) const = 0;
+        virtual int GetChildCount() const = 0;
+        virtual void AppendChild(Ref<IRmlElement> element) = 0;
+        virtual void InsertBefore(Ref<IRmlElement> element, Ref<IRmlElement> adjacentElement) = 0;
+        virtual void ReplaceChild(Ref<IRmlElement> newElement, Ref<IRmlElement> oldElement) = 0;
+        virtual void RemoveChild(Ref<IRmlElement> element) = 0;
+        virtual bool HasChildren() const = 0;
+
+        virtual std::string GetInnerRML() const = 0;
+        virtual void SetInnerRML(const std::string& value) = 0;
+
+        virtual bool Focus() = 0;
+        virtual void Blur() = 0;
+        virtual void Click() = 0;
+        virtual void ScrollIntoView(bool alignWithTop = true) = 0;
+
+        virtual Ref<IRmlElement> GetElementByID(const std::string& id) const = 0;
+        virtual const std::vector<Ref<IRmlElement>> GetElementsByTagName(const std::string& tag) const = 0;
+        virtual const std::vector<Ref<IRmlElement>> GetElementsByClassName(const std::string& tag) const = 0;
+        virtual Ref<IRmlElement> QuerySelector(const std::string& selector) const = 0;
+        virtual const std::vector<Ref<IRmlElement>> QuerySelectorAll(const std::string& selector) const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
@@ -94,7 +122,7 @@ namespace alt
 
         virtual void Hide() = 0;
         virtual void Show(bool isModal = false, bool focused = true) = 0;
-        virtual bool IsVisible() const = 0;
+        virtual bool IsVisible() const override = 0;
         virtual bool IsModal() const = 0;
 
         virtual void Update() = 0;
