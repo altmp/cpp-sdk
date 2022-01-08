@@ -35,8 +35,8 @@ namespace alt
         virtual bool HasProperty(const std::string& name) const = 0;
         // Only check property for local element
         virtual bool HasLocalProperty(const std::string& name) const = 0;
-        virtual const std::string GetProperty(const std::string& name) const = 0;
-        virtual const std::string GetLocalProperty(const std::string& name) const = 0;
+        virtual std::string GetProperty(const std::string& name) const = 0;
+        virtual std::string GetLocalProperty(const std::string& name) const = 0;
         // Returns the relative unit (e.g. 'percent' or 'angle') as absolute value ('px' or 'rad')
         virtual float GetPropertyAbsoluteValue(const std::string& name) const = 0;
 
@@ -55,7 +55,7 @@ namespace alt
         virtual void SetAttribute(const std::string& name, const std::string& value) = 0;
         virtual bool RemoveAttribute(const std::string& name) = 0;
         virtual bool HasAttribute(const std::string& name) const = 0;
-        virtual const std::string GetAttribute(const std::string& name) const = 0;
+        virtual std::string GetAttribute(const std::string& name) const = 0;
         virtual const std::unordered_map<std::string, std::string> GetAttributes() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
