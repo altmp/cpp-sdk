@@ -57,6 +57,25 @@ namespace alt
         virtual bool HasAttribute(const std::string& name) const = 0;
         virtual std::string GetAttribute(const std::string& name) const = 0;
         virtual const std::unordered_map<std::string, std::string> GetAttributes() const = 0;
+
+        virtual float GetAbsoluteLeft() const = 0;
+        virtual float GetAbsoluteTop() const = 0;
+        virtual float GetClientLeft() const = 0;
+        virtual float GetClientTop() const = 0;
+        virtual float GetClientWidth() const = 0;
+        virtual float GetClientHeight() const = 0;
+        virtual Ref<IRmlElement> GetOffsetParent() const = 0;
+        virtual float GetOffsetLeft() const = 0;
+        virtual float GetOffsetTop() const = 0;
+        virtual float GetOffsetWidth() const = 0;
+        virtual float GetOffsetHeight() const = 0;
+
+        virtual float GetScrollLeft() const = 0;
+        virtual void SetScrollLeft(float value) = 0;
+        virtual float GetScrollTop() const = 0;
+        virtual void SetScrollTop(float value) = 0;
+        virtual float GetScrollWidth() const = 0;
+        virtual float GetScrollHeight() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
