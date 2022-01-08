@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 #include "../Ref.h"
 
@@ -31,9 +30,9 @@ namespace alt
 
 		virtual Type GetType() const = 0;
 
-		virtual bool HasMetaData(StringView key) const = 0;
-		virtual MValueConst GetMetaData(StringView key) const = 0;
-		virtual void SetMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteMetaData(StringView key) = 0;
+		virtual bool HasMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetMetaData(const std::string& key) const = 0;
+		virtual void SetMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteMetaData(const std::string& key) = 0;
 	};
 } // namespace alt

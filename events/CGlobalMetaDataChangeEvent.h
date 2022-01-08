@@ -10,7 +10,7 @@ namespace alt
 	class CGlobalMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CGlobalMetaDataChangeEvent(StringView _key, MValueConst _val, MValueConst _oldVal) :
+		CGlobalMetaDataChangeEvent(const std::string _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::GLOBAL_META_CHANGE),
 			key(_key),
 			val(_val),
@@ -19,12 +19,12 @@ namespace alt
 
 		}
 
-		StringView GetKey() const { return key; }
+		std::string GetKey() const { return key; }
 		MValueConst GetVal() const { return val; }
 		MValueConst GetOldVal() const { return oldVal; }
 
 	private:
-		String key;
+		std::string key;
 		MValueConst val;
 		MValueConst oldVal;
 	};

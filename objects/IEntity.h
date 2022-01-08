@@ -24,19 +24,19 @@ namespace alt
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation rot) = 0;
 
-		virtual bool HasSyncedMetaData(StringView key) const = 0;
-		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
-		virtual bool HasStreamSyncedMetaData(StringView key) const = 0;
-		virtual MValueConst GetStreamSyncedMetaData(StringView key) const = 0;
+		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
+		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual bool GetVisible() const = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetNetworkOwner(Ref<IPlayer> player, bool disableMigration) = 0;
 
-		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteSyncedMetaData(StringView key) = 0;
-		virtual void SetStreamSyncedMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteStreamSyncedMetaData(StringView key) = 0;
+		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
+		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 
 		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;

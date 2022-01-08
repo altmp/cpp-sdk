@@ -101,13 +101,13 @@ namespace alt
 
 		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
 
-		virtual bool HasMetaData(StringView key) const = 0;
-		virtual MValueConst GetMetaData(StringView key) const = 0;
-		virtual void SetMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteMetaData(StringView key) = 0;
+		virtual bool HasMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetMetaData(const std::string& key) const = 0;
+		virtual void SetMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteMetaData(const std::string& key) = 0;
 
-		virtual bool HasSyncedMetaData(StringView key) const = 0;
-		virtual MValueConst GetSyncedMetaData(StringView key) const = 0;
+		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
 
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
@@ -232,8 +232,8 @@ namespace alt
 		virtual uint16_t GetServerPort() const = 0;
 		virtual alt::String GetClientPath() const = 0;
 
-		virtual bool HasLocalMetaData(StringView key) const = 0;
-		virtual MValue GetLocalMetaData(StringView key) const = 0;
+		virtual bool HasLocalMetaData(const std::string& key) const = 0;
+		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
@@ -247,8 +247,8 @@ namespace alt
 		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(StringView ev, MValueArgs args) = 0;
 
-		virtual void SetSyncedMetaData(StringView key, MValue val) = 0;
-		virtual void DeleteSyncedMetaData(StringView key) = 0;
+		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
 
 		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
