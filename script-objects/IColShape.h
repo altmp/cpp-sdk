@@ -21,7 +21,8 @@ namespace alt
 			CIRCLE,
 			CUBOID,
 			RECT,
-			CHECKPOINT_CYLINDER
+			CHECKPOINT_CYLINDER,
+			POLYGON
 		};
 
 		virtual ~IColShape() = default;

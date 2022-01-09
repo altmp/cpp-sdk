@@ -267,6 +267,7 @@ namespace alt
 		virtual Ref<IColShape> CreateColShapeCircle(Position pos, float radius) = 0;
 		virtual Ref<IColShape> CreateColShapeCube(Position pos, Position pos2) = 0;
 		virtual Ref<IColShape> CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
+		virtual Ref<IColShape> CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
 
 		virtual Array<Ref<IPlayer>> GetPlayersByName(StringView name) const = 0;
 
