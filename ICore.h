@@ -238,6 +238,7 @@ namespace alt
 		virtual PermissionState CopyToClipboard(const std::string& value) = 0;
 
 		virtual void ToggleRmlDebugger(bool state) = 0;
+		virtual bool LoadRmlFontFace(const std::string& path, const std::string& name, bool italic = false, bool bold = false) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
