@@ -125,6 +125,9 @@ namespace alt
         virtual bool IsVisible() const override = 0;
         virtual bool IsModal() const = 0;
 
+        virtual Ref<IRmlElement> GetBody() const = 0;
+        virtual Ref<IRmlElement> GetHead() const = 0;
+
         virtual void Update() = 0;
 
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
