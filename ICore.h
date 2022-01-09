@@ -236,6 +236,8 @@ namespace alt
 		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
 		
 		virtual PermissionState CopyToClipboard(const std::string& value) = 0;
+
+		virtual void ToggleRmlDebugger(bool state) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
