@@ -106,7 +106,7 @@ namespace alt
         virtual Ref<IRmlElement> QuerySelector(const std::string& selector) const = 0;
         virtual const std::vector<Ref<IRmlElement>> QuerySelectorAll(const std::string& selector) const = 0;
 
-        virtual Ref<IRmlDocument> GetParentDocument() const = 0;
+        virtual Ref<IRmlDocument> GetOwnerDocument() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
