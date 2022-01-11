@@ -6,6 +6,7 @@
 
 namespace alt
 {
+    class IRmlDocument;
     class IRmlElement : public virtual IBaseObject
     {
     public:
@@ -104,6 +105,8 @@ namespace alt
         virtual const std::vector<Ref<IRmlElement>> GetElementsByClassName(const std::string& tag) const = 0;
         virtual Ref<IRmlElement> QuerySelector(const std::string& selector) const = 0;
         virtual const std::vector<Ref<IRmlElement>> QuerySelectorAll(const std::string& selector) const = 0;
+
+        virtual Ref<IRmlDocument> GetParentDocument() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
