@@ -129,7 +129,6 @@ namespace alt
         virtual bool IsModal() const = 0;
 
         virtual Ref<IRmlElement> GetBody() const = 0;
-        virtual Ref<IRmlElement> GetHead() const = 0;
 
         virtual void Update() = 0;
 
