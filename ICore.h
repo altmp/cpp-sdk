@@ -208,7 +208,7 @@ namespace alt
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
-		virtual bool IsGameFocused() = 0;
+		virtual bool IsGameFocused() const = 0;
 
 		virtual void LoadModel(uint32_t hash) = 0;
 		virtual void LoadModelAsync(uint32_t hash) = 0;
