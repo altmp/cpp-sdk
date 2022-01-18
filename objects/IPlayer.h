@@ -86,7 +86,7 @@ namespace alt
 		virtual void RemoveAllWeapons() = 0;
 		virtual void SetDateTime(int day, int month, int year, int hour, int minute, int second) = 0;
 		virtual void SetWeather(uint32_t weather) = 0;
-		virtual void Kick(StringView reason = "Kicked") = 0;
+		virtual void Kick(const std::string& reason = "Kicked") = 0;
 		virtual alt::Cloth GetClothes(uint8_t component) const = 0;
 		virtual void SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
 		virtual alt::DlcCloth GetDlcClothes(uint8_t component) const = 0;
