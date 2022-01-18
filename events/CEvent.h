@@ -73,6 +73,7 @@ namespace alt
 			AUDIO_EVENT,
 			TASK_CHANGE,
 			SPAWNED,
+			RMLUI_EVENT,
 
 			ALL,
 			SIZE

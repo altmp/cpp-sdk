@@ -6,6 +6,7 @@
 
 namespace alt
 {
+    class IRmlDocument;
     class IRmlElement : public virtual IBaseObject
     {
     public:
@@ -91,7 +92,7 @@ namespace alt
         virtual void RemoveChild(Ref<IRmlElement> element) = 0;
         virtual bool HasChildren() const = 0;
 
-        virtual std::string GetInnerRML() const = 0;
+        virtual const std::string& GetInnerRML() const = 0;
         virtual void SetInnerRML(const std::string& value) = 0;
 
         virtual bool Focus() = 0;
@@ -104,6 +105,8 @@ namespace alt
         virtual const std::vector<Ref<IRmlElement>> GetElementsByClassName(const std::string& tag) const = 0;
         virtual Ref<IRmlElement> QuerySelector(const std::string& selector) const = 0;
         virtual const std::vector<Ref<IRmlElement>> QuerySelectorAll(const std::string& selector) const = 0;
+
+        virtual Ref<IRmlDocument> GetOwnerDocument() const = 0;
         
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
@@ -126,7 +129,6 @@ namespace alt
         virtual bool IsModal() const = 0;
 
         virtual Ref<IRmlElement> GetBody() const = 0;
-        virtual Ref<IRmlElement> GetHead() const = 0;
 
         virtual void Update() = 0;
 

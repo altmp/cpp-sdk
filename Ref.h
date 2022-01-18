@@ -185,7 +185,7 @@ namespace alt
 		}
 
 		template<class U>
-		void Move(AtomicRefStore<U>&& other)
+		void Move(WeakRefStore<U>&& other)
 		{
 			Assign(other.ptr);
 			other.Free();

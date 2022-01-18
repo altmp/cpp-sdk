@@ -205,11 +205,11 @@ namespace alt
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
 		virtual Ref<IAudio> CreateAudio(StringView source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
-		virtual Ref<IRmlDocument> CreateDocument(std::string& url, IResource* res) = 0;
+		virtual Ref<IRmlDocument> CreateDocument(const std::string& url, const std::string& currentPath, IResource* res) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
-		virtual bool IsGameFocused() = 0;
+		virtual bool IsGameFocused() const = 0;
 
 		virtual void LoadModel(uint32_t hash) = 0;
 		virtual void LoadModelAsync(uint32_t hash) = 0;
@@ -239,6 +239,12 @@ namespace alt
 		virtual PermissionState CopyToClipboard(const std::string& value) = 0;
 
 		virtual void ToggleRmlDebugger(bool state) = 0;
+		virtual bool LoadRmlFontFace(IResource* resource, const std::string& path, const std::string& currentPath, const std::string& name, bool italic = false, bool bold = false) const = 0;
+		virtual void ToggleRmlControl(bool state) = 0;
+
+		virtual Vector3f WorldToScreen(Vector3f pos) = 0;
+		virtual Vector3f ScreenToWorld(Vector2f pos) = 0;
+		virtual Vector3f GetCamPos() = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods

@@ -215,6 +215,12 @@ namespace alt
 
 		virtual uint8_t GetLightsIndicator() const = 0;
 		virtual void SetLightsIndicator(uint8_t lightsIndicatorFlag) = 0;
+
+		virtual uint8_t GetSeatCount() const = 0;
+		virtual uint8_t GetOccupiedSeatsCount() const = 0;
+
+		virtual void ToggleTaxiLight(bool state) = 0;
+		virtual bool IsTaxiLightOn() const = 0;
 #endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
