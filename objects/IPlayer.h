@@ -18,7 +18,7 @@ namespace alt
 		virtual ~IPlayer() = default;
 
 	public:
-		virtual StringView GetName() const = 0;
+		virtual std::string GetName() const = 0;
 
 		virtual uint16_t GetHealth() const = 0;
 		virtual uint16_t GetMaxHealth() const = 0;
@@ -67,7 +67,7 @@ namespace alt
 		virtual uint64_t GetSocialID() const = 0;
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
-		virtual StringView GetAuthToken() const = 0;
+		virtual std::string GetAuthToken() const = 0;
 
 		virtual void Spawn(Position pos, uint32_t delayMs) = 0;
 		virtual void Despawn() = 0;
@@ -101,7 +101,7 @@ namespace alt
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
 		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
-		virtual void PlayAmbientSpeech(alt::StringView speechName, alt::StringView speechParam, uint32_t speechDictHash) = 0;
+		virtual void PlayAmbientSpeech(const std::string& speechName, const std::string& speechParam, uint32_t speechDictHash) = 0;
 		virtual bool SetHeadOverlay(uint8_t overlayID, uint8_t index, float opacity) = 0;
 		virtual bool RemoveHeadOverlay(uint8_t overlayID) = 0;
 		virtual bool SetHeadOverlayColor(uint8_t overlayID, uint8_t colorType, uint8_t colorIndex, uint8_t secondColorIndex) = 0;

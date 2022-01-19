@@ -2,8 +2,6 @@
 
 #include <cstdint>
 
-#include "../types/String.h"
-#include "../types/StringView.h"
 #include "../types/RGBA.h"
 #include "IEntity.h"
 #include "../script-objects/IHandlingData.h"
@@ -42,7 +40,7 @@ namespace alt
 		virtual bool GetCustomTires() const = 0;
 		virtual uint8_t GetSpecialDarkness() const = 0;
 		virtual uint32_t GetNumberplateIndex() const = 0;
-		virtual StringView GetNumberplateText() const = 0;
+		virtual std::string GetNumberplateText() const = 0;
 		virtual uint8_t GetWindowTint() const = 0;
 		virtual uint8_t GetDirtLevel() const = 0;
 		virtual bool IsExtraOn(uint8_t extraID) const = 0;
@@ -51,7 +49,7 @@ namespace alt
 		virtual RGBA GetNeonColor() const = 0;
 		virtual uint8_t GetLivery() const = 0;
 		virtual uint8_t GetRoofLivery() const = 0;
-		virtual String GetAppearanceDataBase64() = 0;
+		virtual std::string GetAppearanceDataBase64() = 0;
 		virtual bool IsEngineOn() const = 0;
 		virtual bool IsHandbrakeActive() const = 0;
 		virtual uint8_t GetHeadlightColor() const = 0;
@@ -67,7 +65,7 @@ namespace alt
 		virtual uint8_t GetRoofState() const = 0;
 		virtual bool IsFlamethrowerActive() const = 0;
 		virtual float GetLightsMultiplier() const = 0;
-		virtual String GetGameStateBase64() = 0;
+		virtual std::string GetGameStateBase64() = 0;
 		virtual int32_t GetEngineHealth() const = 0;
 		virtual int32_t GetPetrolTankHealth() const = 0;
 		virtual uint8_t GetWheelsCount() const = 0;
@@ -79,7 +77,7 @@ namespace alt
 		virtual uint8_t GetRepairsCount() const = 0;
 		virtual uint32_t GetBodyHealth() const = 0;
 		virtual uint32_t GetBodyAdditionalHealth() const = 0;
-		virtual String GetHealthDataBase64() = 0;
+		virtual std::string GetHealthDataBase64() = 0;
 		virtual uint8_t GetPartDamageLevel(uint8_t partId) = 0;
 		virtual uint8_t GetPartBulletHoles(uint8_t partId) = 0;
 		virtual bool IsLightDamaged(uint8_t lightId) = 0;
@@ -89,9 +87,9 @@ namespace alt
 		virtual float GetArmoredWindowHealth(uint8_t windowId) = 0;
 		virtual uint8_t GetArmoredWindowShootCount(uint8_t windowId) = 0;
 		virtual uint8_t GetBumperDamageLevel(uint8_t bumperId) = 0;
-		virtual String GetDamageDataBase64() = 0;
+		virtual std::string GetDamageDataBase64() = 0;
 		virtual bool IsManualEngineControl() const = 0;
-		virtual String GetScriptDataBase64() = 0;
+		virtual std::string GetScriptDataBase64() = 0;
 		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 		virtual Vector3f GetVelocity() const = 0;
 
@@ -113,14 +111,14 @@ namespace alt
 		virtual void SetCustomTires(bool state) = 0;
 		virtual void SetSpecialDarkness(uint8_t value) = 0;
 		virtual void SetNumberplateIndex(uint32_t index) = 0;
-		virtual void SetNumberplateText(StringView text) = 0;
+		virtual void SetNumberplateText(const std::string& text) = 0;
 		virtual void SetWindowTint(uint8_t tint) = 0;
 		virtual void SetDirtLevel(uint8_t level) = 0;
 		virtual void SetNeonActive(bool left, bool right, bool front, bool back) = 0;
 		virtual void SetNeonColor(RGBA color) = 0;
 		virtual void SetLivery(uint8_t livery) = 0;
 		virtual void SetRoofLivery(uint8_t roofLivery) = 0;
-		virtual void LoadAppearanceDataFromBase64(StringView base64) = 0;
+		virtual void LoadAppearanceDataFromBase64(const std::string& base64) = 0;
 		virtual void SetEngineOn(bool state) = 0;
 		virtual void SetHeadlightColor(uint8_t color) = 0;
 		virtual void SetRadioStationIndex(uint32_t stationIndex) = 0;
@@ -149,10 +147,10 @@ namespace alt
 		virtual void SetArmoredWindowShootCount(uint8_t windowId, uint8_t count) = 0;
 		virtual void SetBumperDamageLevel(uint8_t bumperId, uint8_t damageLevel) = 0;
 		virtual void SetManualEngineControl(bool state) = 0;
-		virtual void LoadDamageDataFromBase64(StringView base64) = 0;
-		virtual void LoadScriptDataFromBase64(StringView base64) = 0;
-		virtual void LoadGameStateFromBase64(StringView base64) = 0;
-		virtual void LoadHealthDataFromBase64(StringView base64) = 0;
+		virtual void LoadDamageDataFromBase64(const std::string& base64) = 0;
+		virtual void LoadScriptDataFromBase64(const std::string& base64) = 0;
+		virtual void LoadGameStateFromBase64(const std::string& base64) = 0;
+		virtual void LoadHealthDataFromBase64(const std::string& base64) = 0;
 		virtual Ref<IVehicle> GetAttached() const = 0;
 		virtual Ref<IVehicle> GetAttachedTo() const = 0;
 		virtual bool IsDriftMode() const = 0;

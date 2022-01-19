@@ -278,7 +278,7 @@ namespace alt
 		virtual Ref<IColShape> CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
 		virtual Ref<IColShape> CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
 
-		virtual Array<Ref<IPlayer>> GetPlayersByName(StringView name) const = 0;
+		virtual Array<Ref<IPlayer>> GetPlayersByName(const std::string& name) const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
 
