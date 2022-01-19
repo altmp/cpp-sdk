@@ -14,13 +14,13 @@ namespace alt
 	class CPlayerBeforeConnectEvent : public CEvent
 	{
 	public:
-		CPlayerBeforeConnectEvent(ConnectionInfo _connectionInfo) :
+		CPlayerBeforeConnectEvent(Ref<ConnectionInfo> _connectionInfo) :
 			CEvent(Type::PLAYER_BEFORE_CONNECT),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		ConnectionInfo GetConnectionInfo() const { return connectionInfo; }
+		Ref<ConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
 		std::string GetReason() const { return reason; }
 
 		void Cancel(std::string _reason)
@@ -30,7 +30,7 @@ namespace alt
 		}
 
 	private:
-		ConnectionInfo connectionInfo;
+		Ref<ConnectionInfo> connectionInfo;
 		std::string reason;
 	};
 }

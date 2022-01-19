@@ -14,15 +14,15 @@ namespace alt
 	class CConnectionQueueAddEvent : public CEvent
 	{
 	public:
-		CConnectionQueueAddEvent(ConnectionInfo* _connectionInfo) :
+		CConnectionQueueAddEvent(Ref<ConnectionInfo> _connectionInfo) :
 			CEvent(Type::CONNECTION_QUEUE_ADD),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		ConnectionInfo* GetConnectionInfo() const { return connectionInfo; }
+		Ref<ConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
 
 	private:
-		ConnectionInfo* connectionInfo;
+		Ref<ConnectionInfo> connectionInfo;
 	};
 }

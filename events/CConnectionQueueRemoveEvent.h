@@ -14,15 +14,15 @@ namespace alt
 	class CConnectionQueueRemoveEvent : public CEvent
 	{
 	public:
-		CConnectionQueueRemoveEvent(ConnectionInfo* _connectionInfo) :
+		CConnectionQueueRemoveEvent(Ref<ConnectionInfo> _connectionInfo) :
 			CEvent(Type::CONNECTION_QUEUE_REMOVE),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		ConnectionInfo* GetConnectionInfo() const { return connectionInfo; }
+		Ref<ConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
 
 	private:
-		ConnectionInfo* connectionInfo;
+		Ref<ConnectionInfo> connectionInfo;
 	};
 }

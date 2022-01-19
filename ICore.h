@@ -289,8 +289,8 @@ namespace alt
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
 
-		virtual void AcceptConnectionFromQueue(ConnectionInfo* connectionInfo) = 0;
-		virtual void DeclineConnectionFromQueue(ConnectionInfo* connectionInfo, const std::string& reason) = 0;
+		virtual void AcceptConnectionFromQueue(Ref<ConnectionInfo> connectionInfo) = 0;
+		virtual void DeclineConnectionFromQueue(Ref<ConnectionInfo> connectionInfo, const std::string& reason) = 0;
 #endif
 
 		static ICore &Instance()
