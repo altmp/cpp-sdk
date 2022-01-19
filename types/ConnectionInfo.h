@@ -63,7 +63,7 @@ namespace alt
 			return build;
 		}
 
-		std::string GetUrl() const
+		std::string GetCdnUrl() const
 		{
 			return cdnUrl;
 		}
