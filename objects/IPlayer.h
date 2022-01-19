@@ -63,7 +63,7 @@ namespace alt
 #ifdef ALT_SERVER_API
 		virtual bool IsConnected() const = 0;
 		virtual uint32_t GetPing() const = 0;
-		virtual StringView GetIP() const = 0;
+		virtual std::string GetIP() const = 0;
 		virtual uint64_t GetSocialID() const = 0;
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
