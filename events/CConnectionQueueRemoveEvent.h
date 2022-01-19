@@ -3,7 +3,7 @@
 #include "../types/StringView.h"
 #include "../types/String.h"
 #include "../Ref.h"
-#include "../types/ConnectionInfo.h"
+#include "../types/IConnectionInfo.h"
 
 #include "CEvent.h"
 
@@ -14,15 +14,15 @@ namespace alt
 	class CConnectionQueueRemoveEvent : public CEvent
 	{
 	public:
-		CConnectionQueueRemoveEvent(Ref<ConnectionInfo> _connectionInfo) :
+		CConnectionQueueRemoveEvent(Ref<IConnectionInfo> _connectionInfo) :
 			CEvent(Type::CONNECTION_QUEUE_REMOVE),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		Ref<ConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
+		Ref<IConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
 
 	private:
-		Ref<ConnectionInfo> connectionInfo;
+		Ref<IConnectionInfo> connectionInfo;
 	};
 }

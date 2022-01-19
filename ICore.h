@@ -31,7 +31,6 @@
 #include "types/KeyState.h"
 #include "types/Permissions.h"
 #include "types/VehicleModelInfo.h"
-#include "types/ConnectionInfo.h"
 
 namespace alt
 {
@@ -288,9 +287,6 @@ namespace alt
 		virtual void StopServer() = 0;
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
-
-		virtual void AcceptConnectionFromQueue(Ref<ConnectionInfo> connectionInfo) = 0;
-		virtual void DeclineConnectionFromQueue(Ref<ConnectionInfo> connectionInfo, const std::string& reason) = 0;
 #endif
 
 		static ICore &Instance()

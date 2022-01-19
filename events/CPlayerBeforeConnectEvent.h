@@ -3,7 +3,7 @@
 #include "../types/StringView.h"
 #include "../types/String.h"
 #include "../Ref.h"
-#include "../types/ConnectionInfo.h"
+#include "../types/IConnectionInfo.h"
 
 #include "CEvent.h"
 
@@ -14,13 +14,13 @@ namespace alt
 	class CPlayerBeforeConnectEvent : public CEvent
 	{
 	public:
-		CPlayerBeforeConnectEvent(Ref<ConnectionInfo> _connectionInfo) :
+		CPlayerBeforeConnectEvent(Ref<IConnectionInfo> _connectionInfo) :
 			CEvent(Type::PLAYER_BEFORE_CONNECT),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		Ref<ConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
+		Ref<IConnectionInfo> GetConnectionInfo() const { return connectionInfo; }
 		std::string GetReason() const { return reason; }
 
 		void Cancel(std::string _reason)
@@ -30,7 +30,7 @@ namespace alt
 		}
 
 	private:
-		Ref<ConnectionInfo> connectionInfo;
+		Ref<IConnectionInfo> connectionInfo;
 		std::string reason;
 	};
 }
