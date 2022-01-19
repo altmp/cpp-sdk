@@ -54,8 +54,8 @@ namespace alt
 		static constexpr uint32_t SDK_VERSION = 61;
 
 		// Shared methods
-		virtual String GetVersion() const = 0;
-		virtual String GetBranch() const = 0;
+		virtual std::string GetVersion() const = 0;
+		virtual std::string GetBranch() const = 0;
 
 		virtual void LogInfo(StringView str) = 0;
 		virtual void LogDebug(StringView str) = 0;
