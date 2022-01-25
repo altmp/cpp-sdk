@@ -19,6 +19,7 @@
 #endif // _WIN32
 
 #include "deps/alt-math/alt-math.h"
+#include "deps/alt-config/alt-config.h"
 
 #include "types/Types.h"
 #include "types/String.h"
