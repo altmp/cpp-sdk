@@ -10,6 +10,7 @@
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
+#include "deps/alt-config/alt-config.h"
 #include <vector>
 #include <set>
 
@@ -84,10 +85,7 @@ namespace alt
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
 		virtual const std::vector<std::string>& GetClientFiles() const = 0;
-		virtual std::string GetConfigString(const std::string& key, const std::string& defaultVal) = 0;
-		virtual double GetConfigNumber(const std::string& key, double defaultVal) = 0;
-		virtual bool GetConfigBool(const std::string& key, bool defaultVal) = 0;
-		virtual std::vector<std::string> GetConfigStringList(const std::string& key) = 0;
+		virtual alt::config::Node GetConfig() const = 0;
 		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
 #endif
 
