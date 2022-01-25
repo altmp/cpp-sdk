@@ -3,6 +3,7 @@
 #include <climits>
 
 #include "deps/alt-math/alt-math.h"
+#include "deps/alt-config/alt-config.h"
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
@@ -287,6 +288,8 @@ namespace alt
 		virtual void StopServer() = 0;
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
+
+		virtual alt::config::Node GetServerConfig() const = 0;
 #endif
 
 		static ICore &Instance()
