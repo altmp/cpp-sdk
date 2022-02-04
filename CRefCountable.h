@@ -20,6 +20,23 @@ namespace alt
 
 		virtual void AddRef() const { ++refCount; }
 
+		virtual bool AddRefIfExists() const 
+		{
+			for (;;) 
+			{
+				uint_fast64_t cur = refCount;
+				if (cur == 0) 
+				{
+					return false;
+				}
+				if (refCount.compare_exchange_strong(cur, cur + 1))
+				{
+					break;
+				}
+			}
+			return true;
+		}
+
 		virtual void RemoveRef() const
 		{
 			if (--refCount == 0)
