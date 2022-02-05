@@ -74,6 +74,7 @@ namespace alt
 			TASK_CHANGE,
 			SPAWNED,
 			RMLUI_EVENT,
+			WINDOW_FOCUS_CHANGE,
 
 			ALL,
 			SIZE
