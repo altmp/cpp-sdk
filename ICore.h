@@ -179,20 +179,20 @@ namespace alt
 
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
 
-		using TakeScreenshotCallback = void (*)(StringView base64, const void *userData);
+		using TakeScreenshotCallback = std::function<void(StringView base64)>;
 		/**
 		 * This is an async operation.
 		 * @param callback will be called when the screenshot has been taken.
 		 * The screenshot is taken exactly after the webviews has rendered.
 		 */
-		virtual PermissionState TakeScreenshot(TakeScreenshotCallback callback, const void *userData) const = 0;
+		virtual PermissionState TakeScreenshot(TakeScreenshotCallback callback) const = 0;
 
 		/**
 		 * This is an async operation.
 		 * @param callback will be called when the screenshot has been taken.
 		 * The screenshot is taken exactly after GTA:V has rendered it's stuff and before alt:V renders anything custom.
 		 */
-		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback, const void *userData) const = 0;
+		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
 		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
