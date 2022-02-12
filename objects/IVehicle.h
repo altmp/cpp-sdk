@@ -18,8 +18,8 @@ namespace alt
 	public:
 		virtual Ref<IPlayer> GetDriver() const = 0;
 		virtual bool IsDestroyed() const = 0;
-		virtual uint8_t GetMod(uint8_t category) = 0;
-		virtual uint8_t GetModsCount(uint8_t category) = 0;
+		virtual uint8_t GetMod(uint8_t category) const = 0;
+		virtual uint8_t GetModsCount(uint8_t category) const = 0;
 		virtual uint8_t GetModKitsCount() const = 0;
 		virtual uint8_t GetModKit() const = 0;
 		virtual bool IsPrimaryColorRGB() const = 0;
