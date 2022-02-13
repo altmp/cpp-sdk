@@ -2,15 +2,6 @@
 
 Welcome to the alt:V C++ Module SDK guide! This guide will teach you the basics on how to write your own alt:V scripting module and will explain important concepts and other good-to-know things for the SDK.
 
-
-## Table of Contents
-
-1. [Requirements](#requirements)
-2. [What is the Module SDK](#what-is-the-module-sdk)
-3. [How to use the Module SDK](#how-to-use-the-module-sdk)
-4. [How to use the Module SDK from C or languages that support C code](#how-to-use-the-module-sdk-from-c-or-languages-that-support-c-code)
-5. [The next steps](#the-next-steps)
-
 ## Requirements
 
 There are several requirements for this guide, and if you do not fulfill all of them, the guide will be hard to understand and impossible to follow.

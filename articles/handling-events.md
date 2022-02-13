@@ -2,16 +2,6 @@
 
 In this article you will learn how to handle and emit events with the module SDK.
 
-## Table of Contents
-
-1. [What is an event](#what-is-an-event)
-2. [How to handle events](#how-to-handle-events)
-    1. [Handling events globally](#handling-events-globally)
-    2. [Handling events per resource](#handling-events-per-resource)
-    3. [Canceling events](#canceling-events)
-3. [How to emit events](#how-to-emit-events)
-4. [What are MValues](#what-are-mvalues)
-
 ## What is an event
 
 An event is an action that has happened on the client/server and is not caused by the developer directly.

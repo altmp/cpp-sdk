@@ -2,13 +2,6 @@
 
 It is now time to start using the SDK to create your own module, this article will teach you the first steps to creating and running your module.
 
-## Table of Contents
-
-1. [Setup](#setup)
-2. [Creating the entry file](#creating-the-entry-file)
-3. [Needed module exports](#needed-module-exports)
-4. [Creating your own runtime](#creating-your-own-runtime)
-
 ## Setup
 
 Firstly, you should create your C++ project. What compiler, IDE, etc. you use is completely up to you, as long as it outputs a 64-bit DLL it's good to go.

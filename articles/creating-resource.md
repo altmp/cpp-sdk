@@ -4,12 +4,6 @@ This article will explain how to create your own resource class.
 
 The custom resource class will be created for every resource that uses your module type.
 
-## Table of Conents
-
-1. [What is a resource](#what-is-a-resource)
-2. [How to create your own resource class](#how-to-create-your-own-resource-class)
-3. [Event handling](#event-handling)
-
 ## What is a resource
 
 A resource is created for every resource loaded by the alt:V core. Every resource has some data attached to it like

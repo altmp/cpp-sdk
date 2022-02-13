@@ -2,11 +2,6 @@
 
 This article will explain what Refs are and how to use them.
 
-## Table of Contents
-
-1. [What are Refs](#what-are-refs)
-2. [How to use Refs](#how-to-use-refs)
-
 ## What are Refs
 
 If you are familiar with modern C++ you probably know what **smart pointers** are, and how to use them.

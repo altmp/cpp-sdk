@@ -2,13 +2,6 @@
 
 This article will explain what MValues are and how to use them in your module.
 
-## Table of Contents
-
-1. [What are MValues](#what-are-mvalues)
-2. [The different MValue types](#the-different-mvalue-types)
-3. [How to create MValues](#how-to-create-mvalues)
-4. [Refs](#refs)
-
 ## What are MValues
 
 MValues are containers that store a value of some specific data type.
