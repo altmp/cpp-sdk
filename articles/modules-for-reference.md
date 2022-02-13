@@ -12,9 +12,9 @@ Make sure to provide credit where credit is due.
 
 | Name / Repo                                                     | Description                                                                                                              | 
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [JS module](https://github.com/altmp/altv-js-module)            | The official alt:V serverisde module providing support for the JS language, using NodeJS                                 |
-| [Client JS module](https://github.com/altmp/altv-client-js)     | The official alt:V clientside module providing support for the JS language, using the V8 runtime                         |
+| [JS module](https://github.com/altmp/altv-js-module)            | The official alt:V module providing support for the JS language, using NodeJS and V8                                     |
+| [JS bytecode module](https://github.com/altmp/altv-js-bytecode) | The official alt:V module that transforms clientside JS files into bytecode                                              |
 | [C# module](https://github.com/FabianTerhorst/coreclr-module)   | An alt:V module providing support for the C# language, has a C++ part for the module itself, and a runtime part in C#    |
 | [AngelScript module](https://github.com/LeonMrBonnie/altv-angelscript-module) | An alt:V module providing support for the AngelScript language, fully written in C++                       |
 | [Python module](https://github.com/Marvisak/altv-python-module) | An alt:V module providing support for the Python language, fully written in C++ using pybind11 (**UNFINISHED**)          |
-| [Go module](https://github.com/shockdev04/altv-go-module)       | An alt:V module providing support for Golang, written in C(++) and Go (**UNFINISHED**)                                  |
+| [Go module](https://github.com/shockdev04/altv-go-module)       | An alt:V module providing support for Golang, written in C(++) and Go (**UNFINISHED**)                                   |
