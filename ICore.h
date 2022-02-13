@@ -247,6 +247,7 @@ namespace alt
 		virtual Vector3f GetCamPos() = 0;
 
 		virtual void SetMinimapComponentPosition(const std::string& name, char alignX, char alignY, Vector2f pos, Vector2f size) = 0;
+		virtual void SetMinimapIsRectangle(bool state) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
