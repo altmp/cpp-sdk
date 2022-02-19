@@ -11,6 +11,9 @@ namespace alt
 		{
 			NONE,
 
+			// Server
+			SERVER_STARTED,
+
 			// Shared
 			PLAYER_CONNECT,
 			PLAYER_BEFORE_CONNECT,
