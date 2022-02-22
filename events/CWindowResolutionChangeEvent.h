@@ -15,8 +15,8 @@ namespace alt
 		{
 		}
 
-		Vector2i GetOldResolution() { return oldResolution; }
-		Vector2i GetNewResolution() { return newResolution; }
+		Vector2i GetOldResolution() const { return oldResolution; }
+		Vector2i GetNewResolution() const { return newResolution; }
 
 	private:
 		Vector2i oldResolution;
