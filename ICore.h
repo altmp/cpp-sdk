@@ -245,6 +245,7 @@ namespace alt
 		virtual Vector3f WorldToScreen(Vector3f pos) = 0;
 		virtual Vector3f ScreenToWorld(Vector2f pos) = 0;
 		virtual Vector3f GetCamPos() = 0;
+		virtual Vector2i GetScreenResolution() const = 0;
 
 		virtual void SetMinimapComponentPosition(const std::string& name, char alignX, char alignY, Vector2f pos, Vector2f size) = 0;
 		virtual void SetMinimapIsRectangle(bool state) = 0;
