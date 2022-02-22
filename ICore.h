@@ -132,7 +132,7 @@ namespace alt
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
 		virtual Vector2f GetCursorPosition(bool normalized = false) const = 0;
-		virtual void SetCursorPosition(Vector2i pos) = 0;
+		virtual void SetCursorPosition(Vector2i pos, bool normalized = false) = 0;
 
 		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
 		virtual bool GetConfigFlag(StringView flag) const = 0;
