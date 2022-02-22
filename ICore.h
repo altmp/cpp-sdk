@@ -131,7 +131,7 @@ namespace alt
 		virtual bool IsSandbox() const = 0;
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
-		virtual Vector2i GetCursorPosition() const = 0;
+		virtual Vector2f GetCursorPosition(bool normalized = false) const = 0;
 		virtual void SetCursorPosition(Vector2i pos) = 0;
 
 		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
