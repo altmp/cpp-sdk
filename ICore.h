@@ -51,8 +51,6 @@ namespace alt
 	class ICore
 	{
 	public:
-		static constexpr uint32_t SDK_VERSION = 61;
-
 		// Shared methods
 		virtual std::string GetVersion() const = 0;
 		virtual std::string GetBranch() const = 0;
