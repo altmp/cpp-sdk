@@ -193,6 +193,9 @@ namespace alt
 		virtual void SetTrainUnk3(bool unk3) = 0;
 		virtual bool GetTrainUnk3() const = 0;
 
+		virtual bool IsBoatAnchorActive() const = 0;
+		virtual void SetBoatAnchorActive(bool state) = 0;
+
 		virtual bool SetSearchLight(bool state, Ref<IEntity> spottedEntity) = 0;
 #endif // ALT_SERVER_API
 
