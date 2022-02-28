@@ -88,6 +88,8 @@ This is needed so the alt:V core can check if the used module SDK version is com
 You just need to return the `ALT_SDK_VERSION` define from this function.
 The function should look like this:
 ```c++
+#include "cpp-sdk/version/version.h"
+
 EXPORT const char* GetSDKHash()
 {
     return ALT_SDK_VERSION;
