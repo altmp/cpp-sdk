@@ -5,7 +5,7 @@ if (WIN32)
   )
 else()
   add_custom_target(alt-sdk
-    ./get-version.sh
+    bash get-version.sh
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/version
   )
 endif()

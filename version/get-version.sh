@@ -10,9 +10,14 @@ cat <<EOM >> version.h.tmp
 #define ALT_SDK_VERSION "$COMMIT_HASH"
 EOM
 
-if cmp -s version.h.tmp version.h; then
-  rm version.h.tmp
+if [ -f version.h ]; then
+  if cmp -s version.h.tmp version.h; then
+    rm version.h.tmp
+  else
+    rm version.h
+    mv version.h.tmp version.h
+  fi
 else
-  rm version.h
   mv version.h.tmp version.h
 fi
+
