@@ -83,16 +83,29 @@ The `alt::ICore` is the main interface for interacting with the server or client
 ## Needed module exports
 
 The module doesn't only need the entrypoint function as an export, on both sides there is also another export needed.
-You need to export the `GetSDKVersion` function, which returns the version of the SDK the module was compiled with.
+You need to export the `GetSDKHash` function, which returns the git commit hash of the SDK the module was compiled with.
 This is needed so the alt:V core can check if the used module SDK version is compatible with the alt:V core SDK version.
-You just need to return `alt::ICore::SDK_VERSION` from this function.
+You just need to return the `ALT_SDK_VERSION` define from this function.
 The function should look like this:
 ```c++
-EXPORT uint32_t GetSDKVersion()
+EXPORT const char* GetSDKHash()
 {
-    return alt::ICore::SDK_VERSION;
+    return ALT_SDK_VERSION;
 }
 ```
+
+This define is created by the SDK version script (found in the `version` subdirectory), which you can easily add to your workflow
+if you are using CMake by adding these lines to your CMake project:
+```cmake
+# Top of your CMake file
+include(cpp-sdk/CMakeLists.txt)
+# After `add_executable` or `add_library`
+add_dependencies(${PROJECT_NAME} alt-sdk)
+```
+The path here of course needs to be changed, so that it matches your path to the SDK.
+
+This will make sure that the script is run every time the project is compiled, when this script is ran, the `version/version.h` will be created
+in the SDK directory, which you should then include because it contains the needed `ALT_SDK_VERSION` define.
 
 > Remember that your module always needs to be on the same SDK version as the SDK version used by the alt:V core. Otherwise, your module will not load.
 
