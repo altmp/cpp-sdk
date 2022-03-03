@@ -15,11 +15,11 @@ if not exist version.h goto rename
 fc version.h version.h.tmp > nul
 if errorlevel 1 goto remove
 
-rm version.h.tmp
+del version.h.tmp
 goto end
 
 :remove
-rm version.h
+del version.h
 :rename
 mv version.h.tmp version.h
 
