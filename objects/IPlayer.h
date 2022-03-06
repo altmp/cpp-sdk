@@ -88,13 +88,13 @@ namespace alt
 		virtual void SetWeather(uint32_t weather) = 0;
 		virtual void Kick(const std::string& reason = "Kicked") = 0;
 		virtual alt::Cloth GetClothes(uint8_t component) const = 0;
-		virtual void SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
+		virtual bool SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
 		virtual alt::DlcCloth GetDlcClothes(uint8_t component) const = 0;
-		virtual void SetDlcClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
+		virtual bool SetDlcClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
 		virtual alt::Prop GetProps(uint8_t component) const = 0;
-		virtual void SetProps(uint8_t component, uint16_t drawable, uint8_t texture) = 0;
+		virtual bool SetProps(uint8_t component, uint16_t drawable, uint8_t texture) = 0;
 		virtual alt::DlcProp GetDlcProps(uint8_t component) const = 0;
-		virtual void SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
+		virtual bool SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(uint8_t component) = 0;
 		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
 		virtual bool IsEntityInStreamingRange(uint16_t entityId) = 0;
