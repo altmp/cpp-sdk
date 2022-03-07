@@ -21,6 +21,6 @@ goto end
 :remove
 rm version.h
 :rename
-mv version.h.tmp version.h
+move version.h.tmp version.h
 
 :end
