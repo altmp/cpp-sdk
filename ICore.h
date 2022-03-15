@@ -117,6 +117,8 @@ namespace alt
 
 		virtual const std::vector<IResource*> GetAllResources() const = 0;
 
+		virtual std::string StringToSHA256(const std::string& str) const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(StringView statname) const = 0;
