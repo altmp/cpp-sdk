@@ -44,6 +44,12 @@ namespace alt
 
 		virtual void SetStreamed(bool toggle) = 0;
 		virtual bool GetStreamed() const = 0;
+
+		virtual bool IsFrozen() const = 0;
+		virtual void SetFrozen(bool state) = 0;
+
+		virtual bool HasCollision() const = 0;
+		virtual void SetCollision(bool state) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
