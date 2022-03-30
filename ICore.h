@@ -153,6 +153,9 @@ namespace alt
 		virtual const Array<INative *> GetAllNatives() const = 0;
 		virtual Ref<INative::Context> CreateNativesContext() const = 0;
 
+		virtual INative* GetNativeByName(const std::string& name) const = 0;
+		virtual INative* GetNativeByHash(uint64_t hash) const = 0;
+
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
 		virtual void *GetTextureFromDrawable(uint32_t modelHash, StringView targetTextureName) const = 0;
