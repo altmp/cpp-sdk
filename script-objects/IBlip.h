@@ -72,8 +72,8 @@ namespace alt
 		virtual bool GetShrinked() const = 0;
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetScriptID() const = 0;
-		// Returns whether the blip was created on clientside (false for serverside blips)
-		virtual bool IsLocal() const = 0;
+		// Returns whether the blip was created on serverside (false for clientside blips)
+		virtual bool IsRemote() const = 0;
 #endif
 
 		virtual void SetSprite(int sprite) = 0;
