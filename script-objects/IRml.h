@@ -92,7 +92,7 @@ namespace alt
         virtual void RemoveChild(Ref<IRmlElement> element) = 0;
         virtual bool HasChildren() const = 0;
 
-        virtual const std::string& GetInnerRML() const = 0;
+        virtual std::string GetInnerRML() const = 0;
         virtual void SetInnerRML(const std::string& value) = 0;
 
         virtual bool Focus() = 0;
