@@ -1,6 +1,5 @@
 #pragma once
 
-#include "types/StringView.h"
 #include "IResource.h"
 
 namespace alt

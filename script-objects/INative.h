@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "../types/String.h"
 #include "../IResource.h"
 #include "../CRefCountable.h"
 
@@ -71,7 +70,7 @@ namespace alt
             const std::type_info& GetTypeInfo() const override { return typeid(this); }
         };
 
-        virtual String GetName() const = 0;
+        virtual std::string GetName() const = 0;
         virtual Type GetRetnType() const = 0;
         virtual Array<Type> GetArgTypes() const = 0;
         virtual bool IsValid() const = 0;

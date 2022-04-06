@@ -9,18 +9,18 @@ namespace alt
     {
     public:
         virtual ~IWebView() = default;
-        virtual void Trigger(alt::StringView eventname, const alt::MValueArgs &args) = 0;
+        virtual void Trigger(const std::string& eventname, const alt::MValueArgs &args) = 0;
         virtual void Focus() = 0;
         virtual void Unfocus() = 0;
         virtual bool IsFocused() const = 0;
-        virtual alt::StringView GetUrl() const = 0;
-        virtual void SetUrl(alt::StringView url) = 0;
+        virtual const std::string& GetUrl() const = 0;
+        virtual void SetUrl(const std::string& url) = 0;
         virtual bool IsVisible() const = 0;
         virtual void SetVisible(bool visible) = 0;
         virtual bool IsOverlay() const = 0;
         virtual bool IsLoaded() const = 0;
         virtual bool IsReady() const = 0;
-        virtual void SetExtraHeader(alt::StringView name, alt::StringView value) = 0;
+        virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
         virtual void SetZoomLevel(double value) = 0;
         virtual Vector2i GetSize() const = 0;
         virtual void SetSize(Vector2i size) = 0;

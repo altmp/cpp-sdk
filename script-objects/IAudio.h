@@ -10,8 +10,8 @@ namespace alt
     public:
         virtual ~IAudio() = default;
 
-        virtual void SetSource(StringView source) = 0; //data/file/url
-        virtual StringView GetSource() const = 0;
+        virtual void SetSource(const std::string& source) = 0; //data/file/url
+        virtual const std::string& GetSource() const = 0;
 
         virtual void SetLoop(bool toggle) = 0;
         virtual void SetVolume(float volume) = 0;  //0.0 - 1.0 range

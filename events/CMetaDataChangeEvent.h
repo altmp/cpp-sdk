@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 #include "../Ref.h"
 
@@ -13,7 +12,7 @@ namespace alt
 	class CMetaChangeEvent : public CEvent
 	{
 	public:
-		CMetaChangeEvent(Ref<IEntity> _target, const std::string _key, MValueConst _val, MValueConst _oldVal) :
+		CMetaChangeEvent(Ref<IEntity> _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::META_CHANGE),
 			target(_target),
 			key(_key),

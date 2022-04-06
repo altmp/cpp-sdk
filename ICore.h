@@ -7,7 +7,6 @@
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
-#include "types/StringView.h"
 #include "Ref.h"
 
 #include "events/CEvent.h"
@@ -55,11 +54,11 @@ namespace alt
 		virtual std::string GetVersion() const = 0;
 		virtual std::string GetBranch() const = 0;
 
-		virtual void LogInfo(StringView str) = 0;
-		virtual void LogDebug(StringView str) = 0;
-		virtual void LogWarning(StringView str) = 0;
-		virtual void LogError(StringView str) = 0;
-		virtual void LogColored(StringView str) = 0;
+		virtual void LogInfo(const std::string& str) = 0;
+		virtual void LogDebug(const std::string& str) = 0;
+		virtual void LogWarning(const std::string& str) = 0;
+		virtual void LogError(const std::string& str) = 0;
+		virtual void LogColored(const std::string& str) = 0;
 
 		virtual MValueNone CreateMValueNone() = 0;
 		virtual MValueNil CreateMValueNil() = 0;
@@ -67,7 +66,7 @@ namespace alt
 		virtual MValueInt CreateMValueInt(int64_t val) = 0;
 		virtual MValueUInt CreateMValueUInt(uint64_t val) = 0;
 		virtual MValueDouble CreateMValueDouble(double val) = 0;
-		virtual MValueString CreateMValueString(String val) = 0;
+		virtual MValueString CreateMValueString(const std::string& val) = 0;
 		virtual MValueList CreateMValueList(Size size = 0) = 0;
 		virtual MValueDict CreateMValueDict() = 0;
 		virtual MValueBaseObject CreateMValueBaseObject(Ref<IBaseObject> val) = 0;
@@ -80,16 +79,16 @@ namespace alt
 
 		virtual bool IsDebug() const = 0;
 
-		virtual uint32_t Hash(StringView str) const = 0;
+		virtual uint32_t Hash(const std::string& str) const = 0;
 
-		virtual bool RegisterScriptRuntime(StringView resourceType, IScriptRuntime *runtime) = 0;
+		virtual bool RegisterScriptRuntime(const std::string& resourceType, IScriptRuntime *runtime) = 0;
 
 		virtual bool SubscribeCommand(const std::string& cmd, CommandCallback cb) = 0;
 
-		virtual bool FileExists(StringView path) = 0;
-		virtual String FileRead(StringView path) = 0;
+		virtual bool FileExists(const std::string& path) = 0;
+		virtual std::string FileRead(const std::string& path) = 0;
 
-		virtual IResource *GetResource(StringView name) = 0;
+		virtual IResource *GetResource(const std::string& name) = 0;
 
 		virtual Ref<IEntity> GetEntityByID(uint16_t id) const = 0;
 
@@ -98,7 +97,7 @@ namespace alt
 		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
 		virtual Array<Ref<IBlip>> GetBlips() const = 0;
 
-		virtual void TriggerLocalEvent(StringView ev, MValueArgs args) = 0;
+		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 
 		virtual bool HasMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetMetaData(const std::string& key) const = 0;
@@ -111,7 +110,7 @@ namespace alt
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
-        virtual alt::IPackage::PathInfo Resolve(IResource *resource, StringView path, StringView currentModulePath) const = 0;
+        virtual alt::IPackage::PathInfo Resolve(IResource *resource, const std::string& path, const std::string& currentModulePath) const = 0;
 
 		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
 
@@ -121,10 +120,10 @@ namespace alt
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
-		virtual IStatData *GetStatData(StringView statname) const = 0;
+		virtual IStatData *GetStatData(const std::string& statname) const = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
 
-		virtual void TriggerServerEvent(StringView ev, MValueArgs args) = 0;
+		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 
 		virtual Ref<ILocalPlayer> GetLocalPlayer() const = 0;
 
@@ -134,9 +133,9 @@ namespace alt
 		virtual Vector2f GetCursorPosition(bool normalized = false) const = 0;
 		virtual void SetCursorPosition(Vector2f pos, bool normalized = false) = 0;
 
-		virtual bool SetConfigFlag(StringView flag, bool state) = 0;
-		virtual bool GetConfigFlag(StringView flag) const = 0;
-		virtual bool DoesConfigFlagExist(StringView flag) const = 0;
+		virtual bool SetConfigFlag(const std::string& flag, bool state) = 0;
+		virtual bool GetConfigFlag(const std::string& flag) const = 0;
+		virtual bool DoesConfigFlagExist(const std::string& flag) const = 0;
 
 		virtual void SetVoiceInputMuted(bool state) = 0;
 		virtual bool IsVoiceInputMuted() const = 0;
@@ -144,8 +143,8 @@ namespace alt
 		virtual void ToggleVoiceControls(bool state) = 0;
 		virtual uint32_t GetVoiceActivationKey() = 0;
 
-		virtual String GetLicenseHash() const = 0;
-		virtual String GetLocale() const = 0;
+		virtual std::string GetLicenseHash() const = 0;
+		virtual std::string GetLocale() const = 0;
 		virtual bool IsInStreamerMode() const = 0;
 		virtual bool IsMenuOpen() const = 0;
 		virtual bool IsConsoleOpen() const = 0;
@@ -158,12 +157,12 @@ namespace alt
 
 		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
-		virtual void *GetTextureFromDrawable(uint32_t modelHash, StringView targetTextureName) const = 0;
+		virtual void *GetTextureFromDrawable(uint32_t modelHash, const std::string& targetTextureName) const = 0;
 
-		virtual void RequestIPL(StringView ipl) = 0;
-		virtual void RemoveIPL(StringView ipl) = 0;
+		virtual void RequestIPL(const std::string& ipl) = 0;
+		virtual void RemoveIPL(const std::string& ipl) = 0;
 
-		virtual bool BeginScaleformMovieMethodMinimap(StringView methodName) = 0;
+		virtual bool BeginScaleformMovieMethodMinimap(const std::string& methodName) = 0;
 
 		virtual int32_t GetMsPerGameMinute() const = 0;
 		virtual void SetMsPerGameMinute(int32_t val) = 0;
@@ -174,15 +173,15 @@ namespace alt
 		virtual bool IsCamFrozen() = 0;
 
 		virtual alt::Ref<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
-		virtual alt::Ref<alt::IMapData> GetMapData(StringView alias) = 0;
-		virtual uint8_t GetMapDataIDFromAlias(StringView alias) = 0;
+		virtual alt::Ref<alt::IMapData> GetMapData(const std::string& alias) = 0;
+		virtual uint8_t GetMapDataIDFromAlias(const std::string& alias) = 0;
 		virtual void ResetMapData(uint8_t zoomDataId) = 0;
-		virtual void ResetMapData(StringView alias) = 0;
+		virtual void ResetMapData(const std::string& alias) = 0;
 		virtual void ResetAllMapData() = 0;
 
 		virtual PermissionState GetPermissionState(Permission permission) const = 0;
 
-		using TakeScreenshotCallback = std::function<void(StringView base64)>;
+		using TakeScreenshotCallback = std::function<void(const std::string& base64)>;
 		/**
 		 * This is an async operation.
 		 * @param callback will be called when the screenshot has been taken.
@@ -198,16 +197,16 @@ namespace alt
 		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
-		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, uint32_t drawableHash, StringView targetTexture) = 0;
-		virtual Ref<IWebView> CreateWebView(IResource* res, StringView url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
-		virtual Ref<IWebSocketClient> CreateWebSocketClient(StringView url, IResource* res) = 0;
+		virtual Ref<IWebView> CreateWebView(IResource* res, const std::string& url, uint32_t drawableHash, const std::string& targetTexture) = 0;
+		virtual Ref<IWebView> CreateWebView(IResource* res, const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
+		virtual Ref<IWebSocketClient> CreateWebSocketClient(const std::string& url, IResource* res) = 0;
 		virtual Ref<IHttpClient> CreateHttpClient(IResource* res) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
 		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
 		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
 		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
-		virtual Ref<IAudio> CreateAudio(StringView source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
+		virtual Ref<IAudio> CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
 		virtual Ref<IRmlDocument> CreateDocument(const std::string& url, const std::string& currentPath, IResource* res) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
@@ -220,7 +219,7 @@ namespace alt
 		virtual bool LoadYtyp(const std::string& path) = 0;
 		virtual bool UnloadYtyp(const std::string& path) = 0;
 
-		virtual alt::String HeadshotToBase64(uint8_t id) = 0;
+		virtual std::string HeadshotToBase64(uint8_t id) = 0;
 
 		virtual void SetDlcClothes(int32_t scriptID, uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
 		virtual void SetDlcProps(int32_t scriptID, uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
@@ -232,9 +231,9 @@ namespace alt
 		virtual uint16_t GetPing() const = 0;
 		virtual uint64_t GetTotalPacketsSent() const = 0;
 		virtual uint32_t GetTotalPacketsLost() const = 0;
-		virtual alt::String GetServerIp() const = 0;
+		virtual std::string GetServerIp() const = 0;
 		virtual uint16_t GetServerPort() const = 0;
-		virtual alt::String GetClientPath() const = 0;
+		virtual std::string GetClientPath() const = 0;
 
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
@@ -257,15 +256,15 @@ namespace alt
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
-		virtual StringView GetRootDirectory() = 0;
+		virtual const std::string& GetRootDirectory() = 0;
 
-		virtual IResource *StartResource(StringView name) = 0;
-		virtual void StopResource(StringView name) = 0;
-		virtual void RestartResource(StringView name) = 0;
+		virtual IResource *StartResource(const std::string& name) = 0;
+		virtual void StopResource(const std::string& name) = 0;
+		virtual void RestartResource(const std::string& name) = 0;
 
-		virtual void TriggerClientEvent(Ref<IPlayer> target, StringView ev, MValueArgs args) = 0;
-		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, StringView ev, MValueArgs args) = 0;
-		virtual void TriggerClientEventForAll(StringView ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(Ref<IPlayer> target, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
@@ -291,8 +290,8 @@ namespace alt
 
 		virtual uint32_t GetNetTime() const = 0;
 
-		virtual void SetPassword(StringView password) const = 0;
-		virtual uint64_t HashServerPassword(StringView password) const = 0;
+		virtual void SetPassword(const std::string& password) const = 0;
+		virtual uint64_t HashServerPassword(const std::string& password) const = 0;
 
 		virtual void StopServer() = 0;
 

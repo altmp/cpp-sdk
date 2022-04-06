@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
-#include "../types/String.h"
 #include "../Ref.h"
 
 #include "CEvent.h"
@@ -20,9 +18,9 @@ namespace alt
 		}
 
 		Ref<IPlayer> GetTarget() const { return target; }
-		StringView GetReason() { return reason; }
+		const std::string& GetReason() { return reason; }
 
-		void Cancel(StringView _reason)
+		void Cancel(const std::string& _reason)
 		{
 			reason = _reason;
 			CEvent::Cancel();
@@ -30,6 +28,6 @@ namespace alt
 
 	private:
 		Ref<IPlayer> target;
-		String reason;
+		std::string reason;
 	};
 }

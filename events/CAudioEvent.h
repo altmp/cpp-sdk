@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 #include "../Ref.h"
 
@@ -13,7 +12,7 @@ namespace alt
 	class CAudioEvent : public CEvent
 	{
 	public:
-		CAudioEvent(Ref<IAudio> _target, StringView _name, const MValueArgs& _args) : CEvent(Type::AUDIO_EVENT),
+		CAudioEvent(Ref<IAudio> _target, const std::string& _name, const MValueArgs& _args) : CEvent(Type::AUDIO_EVENT),
 			target(_target),
 			name(_name),
 			args(_args)
@@ -21,12 +20,12 @@ namespace alt
 		}
 
 		Ref<IAudio> GetTarget() const { return target; }
-		StringView GetName() const { return name; }
+		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
 		Ref<IAudio> target;
-		String name;
+		std::string name;
 		MValueArgs args;
 	};
 } // namespace alt

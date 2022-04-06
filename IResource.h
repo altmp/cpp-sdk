@@ -1,7 +1,5 @@
 #pragma once
 
-#include "types/StringView.h"
-#include "types/String.h"
 #include "types/MValue.h"
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
@@ -28,9 +26,9 @@ namespace alt
 	public:
 		struct CreationInfo
 		{
-			String type;
-			String name;
-			String main;
+			std::string type;
+			std::string name;
+			std::string main;
 			IPackage *pkg;
 		};
 
@@ -38,7 +36,7 @@ namespace alt
 		{
 		public:
 #ifdef ALT_SERVER_API
-			virtual bool MakeClient(CreationInfo *info, Array<String> files)
+			virtual bool MakeClient(CreationInfo *info, Array<std::string> files)
 			{
 				return true;
 			};
@@ -68,14 +66,14 @@ namespace alt
 
 		virtual bool IsStarted() const = 0;
 
-		virtual StringView GetType() const = 0;
-		virtual StringView GetName() const = 0;
-		virtual StringView GetPath() const = 0;
-		virtual StringView GetMain() const = 0;
+		virtual const std::string& GetType() const = 0;
+		virtual const std::string& GetName() const = 0;
+		virtual const std::string& GetPath() const = 0;
+		virtual const std::string& GetMain() const = 0;
 		virtual IPackage *GetPackage() const = 0;
 		virtual MValueDict GetExports() const = 0;
-		virtual const Array<StringView> GetDependencies() const = 0;
-		virtual const Array<StringView> GetDependants() const = 0;
+		virtual const Array<std::string> GetDependencies() const = 0;
+		virtual const Array<std::string> GetDependants() const = 0;
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
 
