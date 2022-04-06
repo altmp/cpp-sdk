@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "String.h"
 #include "../Ref.h"
 #include "Array.h"
 #include "../types/RGBA.h"

@@ -1,5 +1,7 @@
 #pragma once
-#include "types/String.h"
+
+#include <cstdint>
+#include <string>
 
 namespace alt
 {
