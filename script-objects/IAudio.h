@@ -37,8 +37,8 @@ namespace alt
         virtual void Seek(double time) = 0; //seconds
         virtual bool IsPlaying() const = 0;
 
-        virtual void SetPosition(alt::Vector3f pos) = 0;
-        virtual alt::Vector3f GetPosition() = 0;
+        virtual void SetPosition(alt::Position pos) = 0;
+        virtual alt::Position GetPosition() = 0;
         virtual void ResetPosition() = 0;
 
         const std::type_info& GetTypeInfo() const override { return typeid(this); }
