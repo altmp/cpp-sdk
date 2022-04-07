@@ -1,7 +1,5 @@
 #pragma once
-
-#include "types/StringView.h"
-#include "types/String.h"
+#include <string>
 
 namespace alt
 {
@@ -11,8 +9,8 @@ namespace alt
 		struct PathInfo
 		{
 			alt::IPackage *pkg = nullptr;
-			alt::String fileName;
-			alt::String prefix;
+			std::string fileName;
+			std::string prefix;
 		};
 
 		enum class Mode
@@ -38,9 +36,9 @@ namespace alt
 
 		virtual Mode GetMode() const = 0;
 
-		virtual bool FileExists(StringView path) = 0;
+		virtual bool FileExists(const std::string& path) = 0;
 
-		virtual File *OpenFile(StringView path) = 0;
+		virtual File *OpenFile(const std::string& path) = 0;
 		virtual void CloseFile(File *file) = 0;
 
 		virtual uint64_t GetFileSize(File *file) = 0;

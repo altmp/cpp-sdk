@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../deps/alt-math/alt-math.h"
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 #include "IWorldObject.h"
 

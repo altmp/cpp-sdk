@@ -1,5 +1,7 @@
 #pragma once
-#include "types/String.h"
+
+#include <cstdint>
+#include <string>
 
 namespace alt
 {
@@ -37,7 +39,7 @@ namespace alt
 
         static size_t hash(const char* str)
         {
-            return std::hash<alt::String>{}(str);
+            return std::hash<std::string>{}(str);
         }
     };
 }

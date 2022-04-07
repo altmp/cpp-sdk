@@ -9,13 +9,13 @@ namespace alt
     public:
         virtual ~IWebSocketClient() = default;
 
-        virtual StringView GetUrl() const = 0;
-        virtual void SetUrl(StringView _url) = 0;
+        virtual const std::string& GetUrl() const = 0;
+        virtual void SetUrl(const std::string& _url) = 0;
 
-        virtual void AddSubProtocol(StringView protocol) = 0;
-        virtual alt::Array<StringView> GetSubProtocols() const = 0;
+        virtual void AddSubProtocol(const std::string& protocol) = 0;
+        virtual alt::Array<std::string> GetSubProtocols() const = 0;
 
-        virtual void SetExtraHeader(StringView name, StringView value) = 0;
+        virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
         virtual alt::MValueDict GetExtraHeaders() const = 0;
 
         virtual uint8_t GetReadyState() const = 0;
@@ -28,8 +28,8 @@ namespace alt
 
         virtual void Start() = 0;
         virtual void Stop() = 0;
-        virtual bool Send(StringView message) = 0;
-        virtual bool SendBinary(StringView message) = 0;
+        virtual bool Send(const std::string& message) = 0;
+        virtual bool SendBinary(const std::string& message) = 0;
 
         virtual void SetPingInterval(uint16_t seconds) = 0;
         virtual uint16_t GetPingInterval() const = 0;

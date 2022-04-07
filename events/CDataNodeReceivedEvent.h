@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 
 #include "CEvent.h"
@@ -12,7 +11,7 @@ namespace alt
 	class CDataNodeReceivedEvent : public CEvent
 	{
 	public:
-		CDataNodeReceivedEvent(StringView _name, StringView _logJson) :
+		CDataNodeReceivedEvent(const std::string& _name, const std::string& _logJson) :
 			CEvent(Type::DATA_NODE_RECEIVED_EVENT),
 			name(_name),
 			json(_logJson)
@@ -20,11 +19,11 @@ namespace alt
 
 		}
 
-		StringView GetName() const { return name; }
-		StringView GetJson() const { return json; }
+		const std::string& GetName() const { return name; }
+		const std::string& GetJson() const { return json; }
 
 	private:
-		String name;
-		String json;
+		std::string name;
+		std::string json;
 	};
 }

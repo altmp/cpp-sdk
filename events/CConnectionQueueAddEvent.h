@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
-#include "../types/String.h"
 #include "../Ref.h"
 #include "../types/IConnectionInfo.h"
 

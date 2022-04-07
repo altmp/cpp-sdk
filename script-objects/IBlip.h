@@ -57,8 +57,8 @@ namespace alt
 		virtual bool GetAsShortRange() const = 0;
 		virtual int GetPriority() const = 0;
 		virtual float GetRotation() const = 0;
-		virtual String GetGxtName() const = 0;
-		virtual String GetName() const = 0;
+		virtual std::string GetGxtName() const = 0;
+		virtual std::string GetName() const = 0;
 		virtual alt::RGBA GetRouteColor() const = 0;
 		virtual bool GetPulse() const = 0;
 		virtual bool GetAsMissionCreator() const = 0;
@@ -93,8 +93,8 @@ namespace alt
 		virtual void SetAsShortRange(bool state) = 0;
 		virtual void SetPriority(int state) = 0;
 		virtual void SetRotation(float rot) = 0;
-		virtual void SetGxtName(String name) = 0;
-		virtual void SetName(String name) = 0;
+		virtual void SetGxtName(const std::string& name) = 0;
+		virtual void SetName(const std::string& name) = 0;
 		virtual void SetPulse(bool val) = 0;
 		virtual void SetAsMissionCreator(bool val) = 0;
 		virtual void SetTickVisible(bool val) = 0;

@@ -11,7 +11,7 @@ namespace alt
 	class CServerScriptEvent : public CEvent
 	{
 	public:
-		CServerScriptEvent(StringView _name, const MValueArgs& _args) :
+		CServerScriptEvent(const std::string& _name, const MValueArgs& _args) :
 			CEvent(Type::SERVER_SCRIPT_EVENT),
 			name(_name),
 			args(_args)
@@ -19,11 +19,11 @@ namespace alt
 
 		}
 
-		StringView GetName() const { return name; }
+		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
-		String name;
+		std::string name;
 		MValueArgs args;
 	};
 }

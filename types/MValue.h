@@ -1,8 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "String.h"
-#include "StringView.h"
 #include "../Ref.h"
 #include "Array.h"
 #include "../types/RGBA.h"
@@ -90,7 +88,7 @@ namespace alt
 		virtual ~IMValue() = default;
 
 		virtual Type GetType() const = 0;
-		virtual String ToString() const = 0;
+		virtual std::string ToString() const = 0;
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
 		
@@ -130,7 +128,7 @@ namespace alt
 	class IMValueString : public virtual IMValue
 	{
 	public:
-		virtual StringView Value() const = 0;
+		virtual const std::string& Value() const = 0;
 	};
 
 	class IMValueList : public virtual IMValue
@@ -155,21 +153,21 @@ namespace alt
 		class Iterator
 		{
 		public:
-			virtual String GetKey() = 0;
+			virtual std::string GetKey() = 0;
 			virtual MValueConst GetValue() = 0;
 		};
 
 		virtual Size GetSize() const = 0;
-		virtual MValue Get(String key) = 0;
-		virtual MValueConst Get(String key) const = 0;
+		virtual MValue Get(const std::string& key) = 0;
+		virtual MValueConst Get(const std::string& key) const = 0;
 
 		// Transfers ownership of MValue (You should not have any more refs to this copy)
-		virtual void Set(String key, MValue val) = 0;
+		virtual void Set(const std::string& key, MValue val) = 0;
 
 		// Will clone an MValueConst
-		virtual void SetConst(String key, MValueConst val) = 0;
+		virtual void SetConst(const std::string& key, MValueConst val) = 0;
 
-		virtual void Delete(String key) = 0;
+		virtual void Delete(const std::string& key) = 0;
 
 		virtual Iterator* Begin() const = 0;
 		virtual Iterator* Next() const = 0;

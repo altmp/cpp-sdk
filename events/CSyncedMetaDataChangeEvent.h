@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../types/StringView.h"
 #include "../types/MValue.h"
 #include "../Ref.h"
 
@@ -13,7 +12,7 @@ namespace alt
 	class CSyncedMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CSyncedMetaDataChangeEvent(Ref<IEntity> _target, const std::string _key, MValueConst _val, MValueConst _oldVal) :
+		CSyncedMetaDataChangeEvent(Ref<IEntity> _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::SYNCED_META_CHANGE),
 			target(_target),
 			key(_key),

@@ -26,14 +26,14 @@ namespace alt
 		ClipboardAccess,
 		All
 	};
-	static Permission GetPermissionFromString(StringView val)
+	static Permission GetPermissionFromString(const std::string& val)
 	{
 		if(val == "Screen Capture") return Permission::ScreenCapture;
 		if(val == "WebRTC") return Permission::WebRTC;
 		if(val == "Clipboard Access") return Permission::ClipboardAccess;
 		return Permission::None;
 	}
-	static String GetStringFromPermission(Permission val)
+	static std::string GetStringFromPermission(Permission val)
 	{
 		if(val == Permission::ScreenCapture) return "Screen Capture";
 		if(val == Permission::WebRTC) return "WebRTC";
