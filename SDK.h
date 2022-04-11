@@ -60,6 +60,7 @@
 #include "events/CStreamSyncedMetaDataChangeEvent.h"
 #include "events/CGlobalMetaDataChangeEvent.h"
 #include "events/CGlobalSyncedMetaDataChangeEvent.h"
+#include "events/CLocalMetaDataChangeEvent.h"
 #include "events/CVehicleDestroyEvent.h"
 #include "events/CCreateBaseObjectEvent.h"
 #include "events/CRemoveBaseObjectEvent.h"
