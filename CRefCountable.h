@@ -7,6 +7,8 @@
 
 namespace alt
 {
+	template<class T> class WeakRefStore;
+
 	class IWeakRef
 	{
 	public:
@@ -51,6 +53,11 @@ namespace alt
 			}
 		}
 
+		virtual const std::type_info& GetTypeInfo() const = 0;
+
+	protected:
+		virtual ~CRefCountable() = default;
+
 		virtual void AddWeakRef(IWeakRef* ref) const
 		{
 			std::unique_lock lock{ weakRefsMutex };
@@ -63,14 +70,11 @@ namespace alt
 			weakRefs.erase(ref);
 		}
 
-		virtual const std::type_info& GetTypeInfo() const = 0;
-
-	protected:
-		virtual ~CRefCountable() = default;
-
 	private:
 		mutable std::atomic_uint64_t refCount{ 0 };
 		mutable std::mutex weakRefsMutex;
 		mutable std::unordered_set<IWeakRef*> weakRefs;
+
+		template<class T> friend class WeakRefStore;
 	};
 }
