@@ -40,6 +40,7 @@ namespace alt
 		uint16_t modkits[2];
 		uint16_t extras;
 		uint16_t defaultExtras;
+		bool hasAutoAttachTrailer; 
 
 		bool DoesExtraExist(uint8_t extraId) const
 		{
