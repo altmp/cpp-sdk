@@ -254,9 +254,8 @@ namespace alt
 
 		virtual alt::config::Node GetClientConfig() const = 0;
 
-		virtual bool DiscordRequestOAuth2Token(const std::string& appid) = 0;
-		virtual std::string DiscordGetOAuth2Token() const = 0;
-		virtual bool DiscordIsOAuth2Finished() const = 0;
+		using RequestOAuth2TokenCallback = std::function<void(bool success, const std::string& token)>;
+		virtual bool DiscordRequestOAuth2Token(const std::string& appid, RequestOAuth2TokenCallback callback) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
