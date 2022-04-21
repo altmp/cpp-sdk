@@ -253,6 +253,10 @@ namespace alt
 		virtual void SetMinimapIsRectangle(bool state) = 0;
 
 		virtual alt::config::Node GetClientConfig() const = 0;
+
+		virtual bool DiscordRequestOAuth2Token(const std::string& appid) = 0;
+		virtual std::string DiscordGetOAuth2Token() const = 0;
+		virtual bool DiscordIsOAuth2Finished() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
