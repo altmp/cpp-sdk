@@ -75,6 +75,7 @@
 #include "events/CPlayerBeforeConnectEvent.h"
 #include "events/CConnectionQueueAddEvent.h"
 #include "events/CConnectionQueueRemoveEvent.h"
+#include "events/CPlayerRequestControlEvent.h"
 
 #ifdef ALT_CLIENT_API
 
