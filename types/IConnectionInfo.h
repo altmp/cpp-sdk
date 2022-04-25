@@ -27,6 +27,7 @@ namespace alt
 
 		virtual void Accept() = 0;
 		virtual void Decline(const std::string& reason) = 0;
+		virtual bool IsAccepted() const = 0;
 
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
