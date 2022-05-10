@@ -63,6 +63,8 @@ namespace alt
 		virtual uint32_t GetCurrentAnimationDict() const = 0;
 		virtual uint32_t GetCurrentAnimationName() const = 0;
 
+		virtual bool IsSpawned() const = 0;
+
 #ifdef ALT_SERVER_API
 		virtual bool IsConnected() const = 0;
 		virtual uint32_t GetPing() const = 0;
