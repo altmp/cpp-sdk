@@ -60,6 +60,8 @@ namespace alt
 		virtual bool IsCrouching() const = 0;
 		virtual bool IsStealthy() const = 0;
 
+		virtual bool IsSpawned() const = 0;
+
 #ifdef ALT_SERVER_API
 		virtual bool IsConnected() const = 0;
 		virtual uint32_t GetPing() const = 0;
