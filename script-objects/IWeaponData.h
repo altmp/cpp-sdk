@@ -35,5 +35,7 @@ namespace alt
 		virtual void SetRange(float val) = 0;
 		virtual void SetDamage(float val) = 0;
 		virtual void SetClipSize(uint32_t val) = 0;
+
+		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }
