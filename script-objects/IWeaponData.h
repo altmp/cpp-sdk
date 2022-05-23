@@ -14,7 +14,7 @@ namespace alt
 		virtual uint32_t GetModelHash() const = 0;
 		virtual float GetRecoilShakeAmplitude() const = 0;
 		virtual float GetRecoilAccuracyMax() const = 0;
-		virtual float GetRecoilAccuraryToAllowHeadshotPlayer() const = 0;
+		virtual float GetRecoilAccuracyToAllowHeadshotPlayer() const = 0;
 		virtual float GetRecoilRecoveryRate() const = 0;
 		virtual float GetAnimReloadRate() const = 0;
 		virtual float GetVehicleReloadTime() const = 0;
@@ -26,7 +26,7 @@ namespace alt
 
 		virtual void SetRecoilShakeAmplitude(float val) = 0;
 		virtual void SetRecoilAccuracyMax(float val) = 0;
-		virtual void SetRecoilAccuraryToAllowHeadshotPlayer(float val) = 0;
+		virtual void SetRecoilAccuracyToAllowHeadshotPlayer(float val) = 0;
 		virtual void SetRecoilRecoveryRate(float val) = 0;
 		virtual void SetAnimReloadRate(float val) = 0;
 		virtual void SetVehicleReloadTime(float val) = 0;
