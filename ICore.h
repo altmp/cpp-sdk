@@ -27,6 +27,7 @@
 #include "script-objects/IHttpClient.h"
 #include "script-objects/IAudio.h"
 #include "script-objects/IRml.h"
+#include "script-objects/IWeaponData.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -122,6 +123,7 @@ namespace alt
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
 		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
+		virtual alt::Ref<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 
