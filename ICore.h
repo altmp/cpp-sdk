@@ -118,7 +118,7 @@ namespace alt
 
 		virtual std::string StringToSHA256(const std::string& str) const = 0;
 
-		virtual bool IsEventDisabled(alt::CEvent::Type type) const = 0;
+		virtual bool IsEventEnabled(alt::CEvent::Type type) const = 0;
 		virtual void ToggleEvent(alt::CEvent::Type type, bool state) = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
