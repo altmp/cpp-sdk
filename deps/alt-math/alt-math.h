@@ -162,7 +162,7 @@ namespace alt
     using Vector3f = Vector3<float>;
     using Vector3i = Vector3<int>;
 
-    template<class T> using Vector4 = Vector<T, VectorLayoutAligned<T, 4>>;
+    template<class T> using Vector4 = Vector<T, 4, VectorLayoutAligned<T, 4>>;
     using Vector4f = Vector4<float>;
     using Vector4i = Vector4<int>;
 
