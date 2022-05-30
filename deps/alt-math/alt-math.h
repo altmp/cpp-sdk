@@ -59,6 +59,52 @@ namespace alt
         Element elements[Width];
     };
 
+    template<class T, std::size_t W>
+    class alignas(sizeof(T) * W) VectorLayoutAligned
+    {
+        public:
+        using Element = T;
+
+        static const std::size_t Width = W;
+
+        VectorLayout() : elements{ 0 } { };
+        VectorLayout(const Element (&_elements)[Width]) {
+            for(size_t i = 0; i < Width; i++)
+            {
+                elements[i] = _elements[i];
+            }
+        };
+        VectorLayout(const Element& el) { };
+
+        template <typename... Args, typename = typename std::enable_if<sizeof...(Args) == Width>::type>
+        VectorLayout(const Args&... args) : elements{ Element(args)... } { }
+
+        template<class ULayout, typename = typename std::enable_if<ULayout::Width >= Width>::type>
+        VectorLayout(const ULayout& _layout)
+        {
+            std::copy(&_layout[0], &_layout[Width], elements);
+        }
+
+        Element& operator[](std::size_t key) { return elements[key]; };
+        const Element& operator[](std::size_t key) const { return elements[key]; };
+
+        friend std::ostream& operator<<(std::ostream& stream, const VectorLayout& layout)
+        {
+            stream << "Vector<" << typeid(Element).name() << ", " << Width << ">{ ";
+
+            for (std::size_t i = 0; i < Width; ++i)
+            {
+                if (i != 0) stream << ", ";
+                stream << layout.elements[i];
+            }
+
+            return stream << " }";
+        }
+
+        private:
+        Element elements[Width];
+    };
+
     template<class T, std::size_t W, class _Layout = VectorLayout<T, W>>
     class Vector : public _Layout
     {
@@ -116,7 +162,7 @@ namespace alt
     using Vector3f = Vector3<float>;
     using Vector3i = Vector3<int>;
 
-    template<class T> using Vector4 = Vector<T, 4>;
+    template<class T> using Vector4 = Vector<T, VectorLayoutAligned<T, 4>>;
     using Vector4f = Vector4<float>;
     using Vector4i = Vector4<int>;
 
