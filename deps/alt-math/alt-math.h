@@ -67,20 +67,20 @@ namespace alt
 
         static const std::size_t Width = W;
 
-        VectorLayout() : elements{ 0 } { };
-        VectorLayout(const Element (&_elements)[Width]) {
+        VectorLayoutAligned() : elements{ 0 } { };
+        VectorLayoutAligned(const Element (&_elements)[Width]) {
             for(size_t i = 0; i < Width; i++)
             {
                 elements[i] = _elements[i];
             }
         };
-        VectorLayout(const Element& el) { };
+        VectorLayoutAligned(const Element& el) { };
 
         template <typename... Args, typename = typename std::enable_if<sizeof...(Args) == Width>::type>
-        VectorLayout(const Args&... args) : elements{ Element(args)... } { }
+        VectorLayoutAligned(const Args&... args) : elements{ Element(args)... } { }
 
         template<class ULayout, typename = typename std::enable_if<ULayout::Width >= Width>::type>
-        VectorLayout(const ULayout& _layout)
+        VectorLayoutAligned(const ULayout& _layout)
         {
             std::copy(&_layout[0], &_layout[Width], elements);
         }
@@ -88,7 +88,7 @@ namespace alt
         Element& operator[](std::size_t key) { return elements[key]; };
         const Element& operator[](std::size_t key) const { return elements[key]; };
 
-        friend std::ostream& operator<<(std::ostream& stream, const VectorLayout& layout)
+        friend std::ostream& operator<<(std::ostream& stream, const VectorLayoutAligned& layout)
         {
             stream << "Vector<" << typeid(Element).name() << ", " << Width << ">{ ";
 
