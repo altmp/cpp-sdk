@@ -261,6 +261,14 @@ namespace alt
 
 		using RequestOAuth2TokenCallback = std::function<void(bool success, const std::string& token)>;
 		virtual bool DiscordRequestOAuth2Token(const std::string& appid, RequestOAuth2TokenCallback callback) = 0;
+
+		virtual bool IsFocusOverriden() const = 0;
+		virtual Vector3f GetFocusOverridePos() const = 0;
+		virtual Vector3f GetFocusOverrideOffset() const = 0;
+		virtual Ref<IEntity> GetFocusOverrideEntity() const = 0;
+		virtual void OverrideFocusPosition(Vector3f pos, Vector3f offset = Vector3f{ 0, 0, 0 }) = 0;
+		virtual void OverrideFocusEntity(Ref<IEntity> entity) = 0;
+		virtual void ClearFocusOverride() = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
