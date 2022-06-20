@@ -229,6 +229,12 @@ namespace alt
 		virtual void SetWheelTrackWidth(uint8_t wheel, float value) = 0;
 		virtual float GetWheelHeight(uint8_t wheel) const = 0;
 		virtual void SetWheelHeight(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTyreRadius(uint8_t wheel) const = 0;
+		virtual void SetWheelTyreRadius(uint8_t wheel, float value) = 0;
+		virtual float GetWheelRimRadius(uint8_t wheel) const = 0;
+		virtual void SetWheelRimRadius(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTyreWidth(uint8_t wheel) const = 0;
+		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
 #endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
