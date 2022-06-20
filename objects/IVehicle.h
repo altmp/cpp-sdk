@@ -222,6 +222,13 @@ namespace alt
 
 		virtual void ToggleTaxiLight(bool state) = 0;
 		virtual bool IsTaxiLightOn() const = 0;
+
+		virtual float GetWheelCamber(uint8_t wheel) const = 0;
+		virtual void SetWheelCamber(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTrackWidth(uint8_t wheel) const = 0;
+		virtual void SetWheelTrackWidth(uint8_t wheel, float value) = 0;
+		virtual float GetWheelHeight(uint8_t wheel) const = 0;
+		virtual void SetWheelHeight(uint8_t wheel, float value) = 0;
 #endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
