@@ -269,6 +269,7 @@ namespace alt
 		virtual void OverrideFocusPosition(Vector3f pos, Vector3f offset = Vector3f{ 0, 0, 0 }) = 0;
 		virtual void OverrideFocusEntity(Ref<IEntity> entity) = 0;
 		virtual void ClearFocusOverride() = 0;
+		virtual void LoadDefaultIpls() = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
