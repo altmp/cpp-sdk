@@ -65,6 +65,9 @@ namespace alt
 
 		virtual bool IsSpawned() const = 0;
 
+		virtual float GetForwardSpeed() const = 0;
+		virtual float GetStrafeSpeed() const = 0;
+
 #ifdef ALT_SERVER_API
 		virtual bool IsConnected() const = 0;
 		virtual uint32_t GetPing() const = 0;
