@@ -197,6 +197,14 @@ namespace alt
 		virtual void SetBoatAnchorActive(bool state) = 0;
 
 		virtual bool SetSearchLight(bool state, Ref<IEntity> spottedEntity) = 0;
+
+		virtual uint8_t GetLightState() const = 0;
+		virtual void SetLightState(uint8_t state) = 0;
+
+		virtual bool HasTimedExplosion() const = 0;
+		virtual Ref<IPlayer> GetTimedExplosionCulprit() const = 0;
+		virtual uint32_t GetTimedExplosionTime() const = 0;
+		virtual void SetTimedExplosion(bool state, Ref<IPlayer> culprit, uint32_t time) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
