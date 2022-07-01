@@ -248,7 +248,8 @@ namespace alt
 
 		virtual void ToggleRmlDebugger(bool state) = 0;
 		virtual bool LoadRmlFontFace(IResource* resource, const std::string& path, const std::string& currentPath, const std::string& name, bool italic = false, bool bold = false) const = 0;
-		virtual void ToggleRmlControl(bool state) = 0;
+		virtual void ToggleRmlControls(bool state) = 0;
+		virtual bool AreRmlControlsEnabled() const = 0;
 
 		virtual Vector3f WorldToScreen(Vector3f pos) = 0;
 		virtual Vector3f ScreenToWorld(Vector2f pos) = 0;
