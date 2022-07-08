@@ -25,6 +25,7 @@ namespace alt
 		virtual uint32_t GetClipSize() const = 0;
 		virtual float GetTimeBetweenShots() const = 0;
 		virtual float GetHeadshotDamageModifier() const = 0;
+		virtual float GetPlayerDamageModifier() const = 0;
 
 		virtual void SetRecoilShakeAmplitude(float val) = 0;
 		virtual void SetRecoilAccuracyMax(float val) = 0;
@@ -37,6 +38,7 @@ namespace alt
 		virtual void SetRange(float val) = 0;
 		virtual void SetDamage(float val) = 0;
 		virtual void SetHeadshotDamageModifier(float val) = 0;
+		virtual void SetPlayerDamageModifier(float val) = 0;
 
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
