@@ -205,6 +205,39 @@ namespace alt
 		virtual Ref<IPlayer> GetTimedExplosionCulprit() const = 0;
 		virtual uint32_t GetTimedExplosionTime() const = 0;
 		virtual void SetTimedExplosion(bool state, Ref<IPlayer> culprit, uint32_t time) = 0;
+		
+		virtual bool IsTowingDisabled() const = 0;
+		virtual void SetDisableTowing(bool state) = 0;
+		
+		virtual float GetRocketRefuelSpeed() const = 0;
+		virtual void SetRocketRefuelSpeed(float rocketRefuleSpeed) = 0;
+		
+		virtual uint32_t GetBombCount() const = 0;
+		virtual void SetBombCount(uint32_t bombCount) = 0;
+		
+		virtual uint32_t GetCounterMeasureCount() const = 0;
+		virtual void SetCounterMeasureCount(uint32_t counterMeasureCount) = 0;
+		
+		virtual float GetScriptMaxSpeed() const = 0;
+		virtual void SetScriptMaxSpeed(float scriptMaxSpeed) = 0;
+		
+		virtual bool GetWeaponsDisabled() const = 0;
+		virtual void SetWeaponsDisabled(bool state) = 0;
+		
+		virtual int32_t GetWeaponCapacity(uint8_t index) const = 0;
+		virtual void SetWeaponCapacity(uint8_t index, int32_t state) = 0;
+		
+		virtual bool GetHybridExtraActive() const = 0;
+		virtual void SetHybridExtraActive(bool state) = 0;
+		
+		virtual uint8_t GetHybridExtraState() const = 0;
+		virtual void SetHybridExtraState(uint8_t state) = 0;
+		
+		virtual float GetDamageModifier() const = 0;
+		virtual void SetDamageModifier(float state) = 0;
+		
+		virtual float GetDamageMultiplier() const = 0;
+		virtual void SetDamageMultiplier(float state) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
