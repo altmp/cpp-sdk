@@ -140,7 +140,7 @@ namespace alt
 		virtual uint32_t GetInteriorLocation() const = 0;
 
 		virtual uint32_t GetLastDamagedBodyPart() const = 0;
-        virtual void SetLastDamagedBodyPart(uint32_t bodyPart) = 0;
+		virtual void SetLastDamagedBodyPart(uint32_t bodyPart) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
