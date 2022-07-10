@@ -272,6 +272,8 @@ namespace alt
 		virtual void OverrideFocusEntity(Ref<IEntity> entity) = 0;
 		virtual void ClearFocusOverride() = 0;
 		virtual void LoadDefaultIpls() = 0;
+
+		virtual bool IsPointOnScreen(Vector3f point) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
