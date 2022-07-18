@@ -23,10 +23,9 @@ namespace alt
             };
         };
 
-    protected:
+    public:
         virtual ~IAudioFilter() = default;
 
-    public:
         virtual void SetParam(const size_t& key, int32_t value) {}
         virtual void SetParam(const size_t& key, float value) {}
         virtual void SetParam(const size_t& key, bool value) {}
