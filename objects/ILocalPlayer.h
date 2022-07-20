@@ -13,6 +13,8 @@ namespace alt
     public:
         virtual uint16_t GetCurrentAmmo() const = 0;
 
+        virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
+
         virtual alt::Ref<IWeaponData> GetCurrentWeaponData() const = 0;
 
         const std::type_info& GetTypeInfo() const override { return typeid(this); }

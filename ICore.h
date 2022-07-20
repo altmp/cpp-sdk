@@ -273,8 +273,6 @@ namespace alt
 		virtual void LoadDefaultIpls() = 0;
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
-
-		virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
