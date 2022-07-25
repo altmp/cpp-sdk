@@ -25,7 +25,8 @@ namespace alt
 			AUDIO,
 			RML_ELEMENT,
 			RML_DOCUMENT,
-			LOCAL_PLAYER
+			LOCAL_PLAYER,
+			OBJECT
 		};
 
 		virtual Type GetType() const = 0;

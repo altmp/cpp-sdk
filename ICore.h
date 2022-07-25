@@ -26,6 +26,7 @@
 #include "script-objects/IMapData.h"
 #include "script-objects/IHttpClient.h"
 #include "script-objects/IAudio.h"
+#include "script-objects/IObject.h"
 #include "script-objects/IRml.h"
 #include "script-objects/IWeaponData.h"
 
@@ -273,6 +274,9 @@ namespace alt
 		virtual void LoadDefaultIpls() = 0;
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
+
+		virtual Ref<IObject> CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
+		virtual const std::vector<Ref<IObject>> GetObjects() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
