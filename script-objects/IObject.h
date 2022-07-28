@@ -9,6 +9,10 @@ namespace alt
 	public:
 		virtual void SlideTo(alt::Position pos, alt::Vector3f speed) = 0;
 
+		virtual uint8_t GetAlpha() const = 0;
+		virtual void SetAlpha(uint8_t alpha) = 0;
+		virtual void ResetAlpha() = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
