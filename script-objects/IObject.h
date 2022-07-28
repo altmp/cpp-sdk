@@ -13,6 +13,8 @@ namespace alt
 		virtual void SetAlpha(uint8_t alpha) = 0;
 		virtual void ResetAlpha() = 0;
 
+		virtual void SetDynamic(bool dynamic) = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
