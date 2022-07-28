@@ -15,6 +15,9 @@ namespace alt
 
 		virtual void SetDynamic(bool dynamic) = 0;
 
+		virtual uint16_t GetLodDistance() const = 0;
+		virtual void SetLodDistance(uint16_t distance) = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
