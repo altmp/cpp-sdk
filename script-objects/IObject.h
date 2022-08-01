@@ -11,6 +11,7 @@ namespace alt
 		virtual void SetAlpha(uint8_t alpha) = 0;
 		virtual void ResetAlpha() = 0;
 
+		virtual bool IsDynamic() const = 0;
 		virtual void SetDynamic(bool dynamic) = 0;
 
 		virtual uint16_t GetLodDistance() const = 0;
