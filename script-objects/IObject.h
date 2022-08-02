@@ -19,10 +19,6 @@ namespace alt
 		virtual bool HasGravity() const = 0;
 		virtual void ToggleGravity(bool toggle) = 0;
 
-		virtual bool IsOnFire() const = 0;
-		virtual uint32_t StartFire() = 0;
-		virtual void StopFire() = 0;
-
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
