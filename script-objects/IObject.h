@@ -19,7 +19,7 @@ namespace alt
 		virtual bool HasGravity() const = 0;
 		virtual void ToggleGravity(bool toggle) = 0;
 
-		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBone, int16_t myBone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
+		virtual void AttachToEntity(Ref<IEntity> entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
 		virtual void Detach() = 0;
 
 #ifdef ALT_CLIENT_API
