@@ -82,8 +82,6 @@ namespace alt
 
 		virtual uint32_t Hash(const std::string& str) const = 0;
 
-		virtual bool RegisterScriptRuntime(const std::string& resourceType, IScriptRuntime *runtime) = 0;
-
 		virtual bool SubscribeCommand(const std::string& cmd, CommandCallback cb) = 0;
 
 		virtual bool FileExists(const std::string& path) = 0;
@@ -277,6 +275,8 @@ namespace alt
 
 #ifdef ALT_SERVER_API // Server methods
 		virtual const std::string& GetRootDirectory() = 0;
+		
+		virtual bool RegisterScriptRuntime(const std::string& resourceType, IScriptRuntime *runtime) = 0;
 
 		virtual IResource *StartResource(const std::string& name) = 0;
 		virtual void StopResource(const std::string& name) = 0;
