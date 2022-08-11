@@ -22,6 +22,9 @@ namespace alt
 		virtual void AttachToEntity(Ref<IEntity> entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
 		virtual void Detach() = 0;
 
+		virtual bool IsCollisionEnabled() const = 0;
+		virtual void ToggleCollision(bool toggle, bool keepPhysics) = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
