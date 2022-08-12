@@ -25,6 +25,8 @@ namespace alt
 		virtual bool IsCollisionEnabled() const = 0;
 		virtual void ToggleCollision(bool toggle, bool keepPhysics) = 0;
 
+		virtual void PlaceOnGroundProperly() = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
