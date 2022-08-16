@@ -23,7 +23,7 @@ namespace alt
 		virtual std::string GetCdnUrl() const = 0;
 		virtual uint64_t GetPasswordHash() const = 0;
 		virtual std::string GetIp() const = 0;
-		virtual std::string GetDiscordUserID() const = 0;
+		virtual int64_t GetDiscordUserID() const = 0;
 
 		virtual void Accept() = 0;
 		virtual void Decline(const std::string& reason) = 0;

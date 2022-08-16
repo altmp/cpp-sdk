@@ -76,7 +76,7 @@ namespace alt
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
 		virtual std::string GetAuthToken() const = 0;
-		virtual std::string GetDiscordId() const = 0;
+		virtual int64_t GetDiscordId() const = 0;
 
 		virtual void Spawn(Position pos, uint32_t delayMs) = 0;
 		virtual void Despawn() = 0;
