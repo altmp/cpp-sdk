@@ -33,6 +33,7 @@
 #include "types/KeyState.h"
 #include "types/Permissions.h"
 #include "types/VehicleModelInfo.h"
+#include "types/PedModelInfo.h"
 
 namespace alt
 {
@@ -320,6 +321,7 @@ namespace alt
 		virtual void StopServer() = 0;
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
+		virtual const PedModelInfo& GetPedModelByHash(uint32_t hash) const = 0;
 
 		virtual alt::config::Node GetServerConfig() const = 0;
 #endif

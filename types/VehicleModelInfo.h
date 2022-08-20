@@ -1,5 +1,9 @@
 #pragma once
 
+#include <string>
+
+#include "BoneInfo.h"
+
 namespace alt
 {
 	struct VehicleModelInfo
@@ -40,7 +44,9 @@ namespace alt
 		uint16_t modkits[2];
 		uint16_t extras;
 		uint16_t defaultExtras;
-		bool hasAutoAttachTrailer; 
+		bool hasAutoAttachTrailer;
+		
+		std::vector<BoneInfo> bones;
 
 		bool DoesExtraExist(uint8_t extraId) const
 		{
