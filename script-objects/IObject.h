@@ -29,6 +29,8 @@ namespace alt
 
 		virtual void SetPositionFrozen(bool toggle) = 0;
 
+		virtual void ActivatePhysics() = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
