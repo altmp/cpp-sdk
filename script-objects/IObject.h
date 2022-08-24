@@ -20,7 +20,7 @@ namespace alt
 		virtual void ToggleGravity(bool toggle) = 0;
 
 		virtual void AttachToEntity(Ref<IEntity> entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
-		virtual void Detach() = 0;
+		virtual void Detach(bool dynamic) = 0;
 
 		virtual bool IsCollisionEnabled() const = 0;
 		virtual void ToggleCollision(bool toggle, bool keepPhysics) = 0;
