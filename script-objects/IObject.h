@@ -31,6 +31,9 @@ namespace alt
 
 		virtual void ActivatePhysics() = 0;
 
+		virtual uint8_t GetTextureVariation() const = 0;
+		virtual void SetTextureVariation(uint8_t variation) = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
