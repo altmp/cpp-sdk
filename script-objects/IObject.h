@@ -34,6 +34,9 @@ namespace alt
 		virtual uint8_t GetTextureVariation() const = 0;
 		virtual void SetTextureVariation(uint8_t variation) = 0;
 
+		// True = Created by GTA, False = Created by API
+		virtual bool IsGameObject() const = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
