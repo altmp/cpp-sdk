@@ -210,7 +210,7 @@ namespace alt
 		virtual void SetDisableTowing(bool state) = 0;
 		
 		virtual float GetRocketRefuelSpeed() const = 0;
-		virtual void SetRocketRefuelSpeed(float rocketRefuleSpeed) = 0;
+		virtual void SetRocketRefuelSpeed(float rocketRefuelSpeed) = 0;
 		
 		virtual uint32_t GetBombCount() const = 0;
 		virtual void SetBombCount(uint32_t bombCount) = 0;
