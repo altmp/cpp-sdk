@@ -278,6 +278,7 @@ namespace alt
 
 		virtual Ref<IObject> CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
 		virtual const std::vector<Ref<IObject>> GetObjects() const = 0;
+		virtual const std::vector<Ref<IObject>> GetWorldObjects() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
