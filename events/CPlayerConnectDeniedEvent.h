@@ -4,7 +4,7 @@
 
 namespace alt
 {
-	class CPlayerDeniedEvent : public CEvent
+	class CPlayerConnectDeniedEvent : public CEvent
 	{
 	public:
 		enum Reason: uint8_t
@@ -16,8 +16,8 @@ namespace alt
 			WRONG_CDN_URL
 		};
 		
-		CPlayerDeniedEvent(Reason _reason, const std::string& _name, const std::string& _ip, uint64_t _passwordHash, bool _isDebug, const std::string& _branch, uint32_t _majorVersion, const std::string& _cdnUrl, int64_t _discordId) :
-			CEvent(Type::PLAYER_DENIED), reason(_reason), name(_name), ip(_ip), passwordHash(_passwordHash), isDebug(_isDebug), branch(_branch), majorVersion(_majorVersion), cdnUrl(_cdnUrl), discordId(_discordId)
+		CPlayerConnectDeniedEvent(Reason _reason, const std::string& _name, const std::string& _ip, uint64_t _passwordHash, bool _isDebug, const std::string& _branch, uint32_t _majorVersion, const std::string& _cdnUrl, int64_t _discordId) :
+			CEvent(Type::PLAYER_CONNECT_DENIED), reason(_reason), name(_name), ip(_ip), passwordHash(_passwordHash), isDebug(_isDebug), branch(_branch), majorVersion(_majorVersion), cdnUrl(_cdnUrl), discordId(_discordId)
 		{
 		}
 

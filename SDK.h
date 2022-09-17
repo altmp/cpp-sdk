@@ -78,7 +78,7 @@
 #include "events/CPlayerRequestControlEvent.h"
 #include "events/CPlayerChangeAnimationEvent.h"
 #include "events/CPlayerChangeInteriorEvent.h"
-#include "events/CPlayerDeniedEvent.h"
+#include "events/CPlayerConnectDeniedEvent.h"
 
 #ifdef ALT_CLIENT_API
 
