@@ -325,6 +325,8 @@ namespace alt
 		virtual const PedModelInfo& GetPedModelByHash(uint32_t hash) const = 0;
 
 		virtual alt::config::Node GetServerConfig() const = 0;
+		
+		virtual void SetWorldProfiler(bool state) = 0;
 #endif
 
 		static ICore &Instance()
