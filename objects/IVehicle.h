@@ -276,6 +276,7 @@ namespace alt
 		virtual void SetWheelRimRadius(uint8_t wheel, float value) = 0;
 		virtual float GetWheelTyreWidth(uint8_t wheel) const = 0;
 		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
+		virtual uint32_t GetWheelSurfaceMaterial(uint8_t wheel) const = 0;
 
 		virtual float GetEngineTemperature() const = 0;
 		virtual void SetEngineTemperature(float value) = 0;
