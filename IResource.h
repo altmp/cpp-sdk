@@ -12,6 +12,8 @@
 #include <vector>
 #include <set>
 
+#include "deps/ConfigBase.h"
+
 namespace alt
 {
 	class IScriptRuntime;
@@ -83,7 +85,7 @@ namespace alt
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
 		virtual const std::vector<std::string>& GetClientFiles() const = 0;
-		virtual alt::config::Node GetConfig() const = 0;
+		virtual Config::Value::ValuePtr GetConfig() const = 0;
 		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
 #endif
 
