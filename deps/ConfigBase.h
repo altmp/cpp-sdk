@@ -16,6 +16,7 @@ namespace Config
 		class ValueWrapper
 		{
 		public:
+			ValueWrapper() : value(nullptr) {}
 			ValueWrapper(std::shared_ptr<T> _value) : value(_value) {}
 
 			T* operator->()
@@ -45,6 +46,17 @@ namespace Config
 			{
 				if(!value->IsList()) return {};
 				return value->AsList().end();
+			}
+
+			operator bool()
+			{
+				return value && !value->IsNone();
+			}
+			ValueWrapper& operator=(const ValueWrapper& other)
+			{
+				if (&other == this) return *this;
+				value = other.value;
+				return *this;
 			}
 
 		private:
