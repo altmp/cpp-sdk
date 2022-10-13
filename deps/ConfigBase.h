@@ -55,18 +55,20 @@ namespace Config
 		{
 			try
 			{
-				if constexpr (std::is_same_v<T, String>) return std::get<String>(value);
-				if constexpr (std::is_same_v<T, Bool>) return std::get<Bool>(value);
 				if constexpr (std::is_integral_v<T> || std::is_floating_point_v<T>) return std::get<Number>(value);
-				if constexpr (std::is_same_v<T, List>) return std::get<List>(value);
-				if constexpr (std::is_same_v<T, Dict>) return std::get<Dict>(value);
-				return defaultValue;
+				return std::get<T>(value);
 			}
 			catch (...)
 			{
 				return defaultValue;
 			}
 		}
+		String AsString(const String& defaultValue = "") { return As<String>(defaultValue); }
+		Bool AsBool(Bool defaultValue = false) { return As<Bool>(defaultValue); }
+		template<typename T = double>
+		T AsNumber(T defaultValue = 0) { return (T)As<Number>(defaultValue); }
+		List AsList(const List& defaultValue = {}) { return As<List>(defaultValue); }
+		Dict AsDict(const Dict& defaultValue = {}) { return As<Dict>(defaultValue); }
 
 		ValuePtr Get(const std::string& key)
 		{
@@ -92,102 +94,9 @@ namespace Config
 			return 0;
 		}
 
-		ValuePtr operator[](const std::string& key)
+		operator bool()
 		{
-			return Get(key);
-		}
-		ValuePtr operator[](const char* key)
-		{
-			return Get(key);
-		}
-		ValuePtr operator[](size_t index)
-		{
-			return Get(index);
-		}
-
-		// Type conversions
-		operator String()
-		{
-			return As<String>();
-		}
-		operator Bool()
-		{
-			return As<Bool>();
-		}
-		operator Number()
-		{
-			return As<Number>();
-		}
-		operator List()
-		{
-			return As<List>();
-		}
-		operator Dict()
-		{
-			return As<Dict>();
-		}
-
-		// For debug
-		std::string ToString(uint32_t indentLevel = 0)
-		{
-			constexpr auto getIndent = [](uint32_t indentLevel) -> std::string {
-				return std::string(indentLevel * 2, ' ');
-			};
-
-			if (IsString())
-			{
-				std::string str;
-				str += "'";
-				str += As<String>();
-				str += "'";
-				return str;
-			}
-			if (IsBool())
-			{
-				bool val = As<Bool>();
-				return val ? "true" : "false";
-			}
-			if (IsNumber())
-			{
-				double val = As<Number>();
-				// Weird hack to check if the number has any decimal points
-				if (abs(val - int64_t(val)) == 0) return std::to_string((int64_t)val);
-				return std::to_string(val);
-			}
-			if (IsList())
-			{
-				std::stringstream stream;
-				stream << getIndent(indentLevel) << "[\n";
-				List list = As<List>();
-				for (size_t i = 0, size = list.size(); i < size; i++)
-				{
-					stream << getIndent(indentLevel + 1);
-					if (list[i]->IsDict() || list[i]->IsList()) stream << "\n";
-					stream << list[i]->ToString(indentLevel + 1);
-					if (i != size - 1) stream << ",";
-					stream << "\n";
-				}
-				stream << getIndent(indentLevel) << "]";
-				return stream.str();
-			}
-			if (IsDict())
-			{
-				std::stringstream stream;
-				stream << getIndent(indentLevel) << "{\n";
-				Dict dict = As<Dict>();
-				for (auto it = dict.begin(); it != dict.end(); it++)
-				{
-					stream << getIndent(indentLevel + 1) << it->first << ": ";
-					if (it->second->IsDict() || it->second->IsList()) stream << "\n";
-					stream << it->second->ToString(indentLevel + 1);
-					if (it != --dict.end()) stream << ",";
-					stream << "\n";
-
-				}
-				stream << getIndent(indentLevel) << "}";
-				return stream.str();
-			}
-			return "<none>";
+			return IsNone();
 		}
 
 	private:
@@ -208,4 +117,68 @@ namespace Config
 		}
 	};
 
+	namespace Util
+	{
+		static std::string ConvertValueToString(Value::ValuePtr& value, uint32_t indentLevel = 0)
+		{
+			constexpr auto getIndent = [](uint32_t indentLevel) -> std::string {
+				return std::string(indentLevel * 2, ' ');
+			};
+
+			if (value->IsString())
+			{
+				std::string str;
+				str += "'";
+				str += value->AsString();
+				str += "'";
+				return str;
+			}
+			if (value->IsBool())
+			{
+				bool val = value->AsBool();
+				return val ? "true" : "false";
+			}
+			if (value->IsNumber())
+			{
+				double val = value->AsNumber();
+				// Weird hack to check if the number has any decimal points
+				if (abs(val - int64_t(val)) == 0) return std::to_string((int64_t)val);
+				return std::to_string(val);
+			}
+			if (value->IsList())
+			{
+				std::stringstream stream;
+				stream << getIndent(indentLevel) << "[\n";
+				Value::List list = value->AsList();
+				for (size_t i = 0, size = list.size(); i < size; i++)
+				{
+					stream << getIndent(indentLevel + 1);
+					if (list[i]->IsDict() || list[i]->IsList()) stream << "\n";
+					stream << ConvertValueToString(list[i], indentLevel + 1);
+					if (i != size - 1) stream << ",";
+					stream << "\n";
+				}
+				stream << getIndent(indentLevel) << "]";
+				return stream.str();
+			}
+			if (value->IsDict())
+			{
+				std::stringstream stream;
+				stream << getIndent(indentLevel) << "{\n";
+				Value::Dict dict = value->AsDict();
+				for (auto it = dict.begin(); it != dict.end(); it++)
+				{
+					stream << getIndent(indentLevel + 1) << it->first << ": ";
+					if (it->second->IsDict() || it->second->IsList()) stream << "\n";
+					stream << ConvertValueToString(it->second, indentLevel + 1);
+					if (it != --dict.end()) stream << ",";
+					stream << "\n";
+
+				}
+				stream << getIndent(indentLevel) << "}";
+				return stream.str();
+			}
+			return "<none>";
+		}
+	}
 }
