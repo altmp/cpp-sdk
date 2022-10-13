@@ -1,3 +1,4 @@
+// clang-format off
 #pragma once
 
 #include <string>
@@ -9,10 +10,52 @@
 
 namespace Config
 {
+	namespace internal
+	{
+		template<class T>
+		class ValueWrapper
+		{
+		public:
+			ValueWrapper(std::shared_ptr<T> _value) : value(_value) {}
+
+			T* operator->()
+			{
+				return value.get();
+			}
+
+			ValueWrapper operator[](const char* key)
+			{
+				return value->Get(key);
+			}
+			ValueWrapper operator[](const std::string& key)
+			{
+				return value->Get(key);
+			}
+			ValueWrapper operator[](size_t index)
+			{
+				return value->Get(index);
+			}
+
+			T::List::iterator begin()
+			{
+				if(!value->IsList()) return {};
+				return value->AsList().begin();
+			}
+			T::List::iterator end()
+			{
+				if(!value->IsList()) return {};
+				return value->AsList().end();
+			}
+
+		private:
+			std::shared_ptr<T> value;
+		};
+	};
+
 	class Value
 	{
 	public:
-		using ValuePtr = std::shared_ptr<Value>;
+		using ValuePtr = internal::ValueWrapper<Value>;
 
 		enum class Type : uint8_t
 		{
@@ -51,24 +94,48 @@ namespace Config
 		constexpr bool IsDict() { return type == Type::DICT; }
 
 		template<typename T>
-		T As(T defaultValue = T())
+		T As(const T& defaultValue = T())
 		{
 			try
 			{
+				if constexpr (std::is_same_v<T, String>) return std::get<String>(value);
+				if constexpr (std::is_same_v<T, Bool>) return std::get<Bool>(value);
 				if constexpr (std::is_integral_v<T> || std::is_floating_point_v<T>) return std::get<Number>(value);
-				return std::get<T>(value);
+				if constexpr (std::is_same_v<T, List>) return std::get<List>(value);
+				if constexpr (std::is_same_v<T, Dict>) return std::get<Dict>(value);
+				return defaultValue;
 			}
 			catch (...)
 			{
 				return defaultValue;
 			}
 		}
-		String AsString(const String& defaultValue = "") { return As<String>(defaultValue); }
-		Bool AsBool(Bool defaultValue = false) { return As<Bool>(defaultValue); }
+		String AsString(const String& defaultValue = "")
+		{
+			if(!IsString()) return defaultValue;
+			return As<String>(defaultValue);
+		}
+		Bool AsBool(Bool defaultValue = false)
+		{
+			if(!IsBool()) return defaultValue;
+			return As<Bool>(defaultValue);
+		}
 		template<typename T = double>
-		T AsNumber(T defaultValue = 0) { return (T)As<Number>(defaultValue); }
-		List AsList(const List& defaultValue = {}) { return As<List>(defaultValue); }
-		Dict AsDict(const Dict& defaultValue = {}) { return As<Dict>(defaultValue); }
+		T AsNumber(T defaultValue = 0)
+		{
+			if(!IsNumber()) return defaultValue;
+			return (T)As<Number>(defaultValue);
+		}
+		List AsList(const List& defaultValue = {})
+		{
+			if(!IsList()) return defaultValue;
+			return As<List>(defaultValue);
+		}
+		Dict AsDict(const Dict& defaultValue = {})
+		{
+			if(!IsDict()) return defaultValue;
+			return As<Dict>(defaultValue);
+		}
 
 		ValuePtr Get(const std::string& key)
 		{
