@@ -39,6 +39,7 @@ namespace alt
 		virtual void SetVisible(bool toggle) = 0;
 
 		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(Ref<IEntity> entity, const std::string& otherBoneName, const std::string& myBoneName, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
 
 		virtual void SetStreamed(bool toggle) = 0;
