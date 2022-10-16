@@ -193,6 +193,10 @@ namespace Config
 		{
 			return Derived::Parse(input, error);
 		}
+		static std::string Format(ValuePtr config)
+		{
+			return Derived::Format(config);
+		}
 	};
 
 	namespace Util
