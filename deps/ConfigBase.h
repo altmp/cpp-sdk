@@ -17,6 +17,37 @@ namespace Config
 		public:
 			ValueWrapper() : value(nullptr) {}
 			ValueWrapper(std::shared_ptr<T> _value) : value(_value) {}
+			ValueWrapper(const typename T::String& val)
+			{
+				value = std::make_shared<T>(val);
+			}
+			ValueWrapper(const typename T::Bool& val)
+			{
+				value = std::make_shared<T>(val);
+			}
+			ValueWrapper(const typename T::Number& val)
+			{
+				value = std::make_shared<T>(val);
+			}
+			ValueWrapper(const typename T::List& val)
+			{
+				value = std::make_shared<T>(val);
+			}
+			ValueWrapper(const typename T::Dict& val)
+			{
+				value = std::make_shared<T>(val);
+			}
+			template<typename U>
+			ValueWrapper(const std::vector<U>& vector)
+			{
+				typename T::List list;
+				list.reserve(vector.size());
+				for(auto& val : vector)
+				{
+					list.push_back(val);
+				}
+				value = std::make_shared<T>(list);
+			}
 
 			T* operator->()
 			{
@@ -36,12 +67,12 @@ namespace Config
 				return value->Get(index);
 			}
 
-			T::List::iterator begin()
+			typename T::List::iterator begin()
 			{
 				if(!value->IsList()) return {};
 				return value->AsList().begin();
 			}
-			T::List::iterator end()
+			typename T::List::iterator end()
 			{
 				if(!value->IsList()) return {};
 				return value->AsList().end();
@@ -89,12 +120,12 @@ namespace Config
 		Value(const Value& _value) : type(_value.type), value(_value.value) {}
 		Value(Type _type, Any _value) : type(_type), value(_value) {}
 		Value() : type(Type::NONE), value(nullptr) {}
-		Value(String& _value) : type(Type::STRING), value(_value) {}
+		Value(const String& _value) : type(Type::STRING), value(_value) {}
 		Value(const char* _value) : type(Type::STRING), value(_value) {}
 		Value(Bool _value) : type(Type::BOOL), value(_value) {}
 		Value(Number _value) : type(Type::NUMBER), value(_value) {}
-		Value(List& _value) : type(Type::LIST), value(_value) {}
-		Value(Dict& _value) : type(Type::DICT), value(_value) {}
+		Value(const List& _value) : type(Type::LIST), value(_value) {}
+		Value(const Dict& _value) : type(Type::DICT), value(_value) {}
 
 		constexpr Type GetType() { return type; }
 		constexpr bool IsNone() { return type == Type::NONE; }
