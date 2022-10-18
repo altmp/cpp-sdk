@@ -49,7 +49,7 @@ namespace Config
 				value = std::make_shared<T>(list);
 			}
 
-			T* operator->()
+			T* operator->() const
 			{
 				return value.get();
 			}
@@ -194,6 +194,17 @@ namespace Config
 			List list = As<List>();
 			if (list.size() <= index) return std::make_shared<Value>(Type::NONE, nullptr);
 			return list.at(index);
+		}
+
+		void Set(const std::string& key, ValuePtr val)
+		{
+			if (!IsDict()) return;
+			std::get<Dict>(value)[key] = val;
+		}
+		void Set(size_t index, ValuePtr val)
+		{
+			if (!IsList()) return;
+			std::get<List>(value)[index] = val;
 		}
 
 		size_t GetSize()

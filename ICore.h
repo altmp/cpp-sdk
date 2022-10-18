@@ -261,7 +261,7 @@ namespace alt
 		virtual void SetMinimapComponentPosition(const std::string& name, char alignX, char alignY, Vector2f pos, Vector2f size) = 0;
 		virtual void SetMinimapIsRectangle(bool state) = 0;
 
-		virtual alt::config::Node GetClientConfig() const = 0;
+		virtual Config::Value::ValuePtr GetClientConfig() const = 0;
 
 		using RequestOAuth2TokenCallback = std::function<void(bool success, const std::string& token)>;
 		virtual bool DiscordRequestOAuth2Token(const std::string& appid, RequestOAuth2TokenCallback callback) = 0;
