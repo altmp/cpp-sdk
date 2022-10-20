@@ -67,17 +67,6 @@ namespace Config
 				return value->Get(index);
 			}
 
-			typename T::List::iterator begin()
-			{
-				if(!value->IsList()) return {};
-				return value->AsList().begin();
-			}
-			typename T::List::iterator end()
-			{
-				if(!value->IsList()) return {};
-				return value->AsList().end();
-			}
-
 			operator bool()
 			{
 				return value && !value->IsNone();
