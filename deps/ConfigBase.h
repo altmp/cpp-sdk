@@ -48,6 +48,16 @@ namespace Config
 				}
 				value = std::make_shared<T>(list);
 			}
+			template<typename U>
+			ValueWrapper(const std::map<std::string, U>& map)
+			{
+				typename T::Dict dict;
+				for (auto& pair : map)
+				{
+					dict.insert({ pair.first, pair.second });
+				}
+				value = std::make_shared<T>(map);
+			}
 
 			T* operator->() const
 			{
