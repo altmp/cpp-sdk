@@ -284,6 +284,17 @@ namespace alt
 		virtual void SetFuelLevel(float value) = 0;
 		virtual float GetOilLevel() const = 0;
 		virtual void SetOilLevel(float value) = 0;
+		virtual bool GetEngineLightState() const = 0;
+		virtual void SetEngineLightState(bool state) = 0;
+		virtual bool GetAbsLightState() const = 0;
+		virtual void SetAbsLightState(bool state) = 0;
+		virtual bool GetPetrolLightState() const = 0;
+		virtual void SetPetrolLightState(bool state) = 0;
+		virtual bool GetOilLightState() const = 0;
+		virtual void SetOilLightState(bool state) = 0;
+		virtual bool GetBatteryLightState() const = 0;
+		virtual void SetBatteryLightState(bool state) = 0;
+		virtual void ResetDashboardLights() = 0;
 #endif // ALT_CLIENT_API
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
