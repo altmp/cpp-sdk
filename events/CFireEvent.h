@@ -16,7 +16,7 @@ namespace alt
 			uint32_t weaponHash;
 		};
 
-		CFireEvent(Ref<IPlayer> _source, Array<FireInfo>&& _fires) :
+		CFireEvent(IPlayer* _source, Array<FireInfo>&& _fires) :
 			CEvent(Type::FIRE_EVENT),
 			source(_source),
 			fires(std::move(_fires))
@@ -24,11 +24,11 @@ namespace alt
 
 		}
 
-		Ref<IPlayer> GetSource() const { return source; }
+		IPlayer* GetSource() const { return source; }
 		const Array<FireInfo>& GetFires() const { return fires; }
 
 	private:
-		Ref<IPlayer> source;
+		IPlayer* source;
 		Array<FireInfo> fires;
 	};
 }

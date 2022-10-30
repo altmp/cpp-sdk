@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../Ref.h"
-
 #include "CEvent.h"
 
 namespace alt
@@ -11,13 +9,13 @@ namespace alt
 	class CPlayerConnectEvent : public CEvent
 	{
 	public:
-		CPlayerConnectEvent(Ref<IPlayer> _target) :
+		CPlayerConnectEvent(IPlayer* _target) :
 			CEvent(Type::PLAYER_CONNECT),
 			target(_target)
 		{
 		}
 
-		Ref<IPlayer> GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target; }
 		const std::string& GetReason() { return reason; }
 
 		void Cancel(const std::string& _reason)
@@ -27,7 +25,7 @@ namespace alt
 		}
 
 	private:
-		Ref<IPlayer> target;
+		IPlayer* target;
 		std::string reason;
 	};
 }

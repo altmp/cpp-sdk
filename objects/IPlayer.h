@@ -48,10 +48,10 @@ namespace alt
 		virtual Rotation GetHeadRotation() const = 0;
 
 		virtual bool IsInVehicle() const = 0;
-		virtual Ref<IVehicle> GetVehicle() const = 0;
+		virtual IVehicle* GetVehicle() const = 0;
 		virtual uint8_t GetSeat() const = 0;
 
-		virtual Ref<IEntity> GetEntityAimingAt() const = 0;
+		virtual IEntity* GetEntityAimingAt() const = 0;
 		virtual Position GetEntityAimOffset() const = 0;
 
 		virtual bool IsFlashlightActive() const = 0;
@@ -105,11 +105,11 @@ namespace alt
 		virtual alt::DlcProp GetDlcProps(uint8_t component) const = 0;
 		virtual bool SetDlcProps(uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(uint8_t component) = 0;
-		virtual bool IsEntityInStreamingRange(Ref<IEntity> entity) = 0;
+		virtual bool IsEntityInStreamingRange(IEntity* entity) = 0;
 		virtual bool IsEntityInStreamingRange(uint16_t entityId) = 0;
 		virtual void SetInvincible(bool toggle) = 0;
 		virtual bool GetInvincible() const = 0;
-		virtual void SetIntoVehicle(Ref<IVehicle> vehicle, uint8_t seat) = 0;
+		virtual void SetIntoVehicle(IVehicle* vehicle, uint8_t seat) = 0;
 		virtual void PlayAmbientSpeech(const std::string& speechName, const std::string& speechParam, uint32_t speechDictHash) = 0;
 		virtual bool SetHeadOverlay(uint8_t overlayID, uint8_t index, float opacity) = 0;
 		virtual bool RemoveHeadOverlay(uint8_t overlayID) = 0;

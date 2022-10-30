@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../deps/alt-math/alt-math.h"
-#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -40,7 +39,7 @@ namespace alt
 			UNKNOWN = -1
 		};
 
-		CWeaponDamageEvent(Ref<IPlayer> _source, Ref<IEntity> _target, uint32_t _weaponHash, uint16_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
+		CWeaponDamageEvent(IPlayer* _source, IEntity* _target, uint32_t _weaponHash, uint16_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
 			CEvent(Type::WEAPON_DAMAGE_EVENT),
 			source(_source),
 			target(_target),
@@ -52,16 +51,16 @@ namespace alt
 
 		}
 
-		Ref<IPlayer> GetSource() const { return source; }
-		Ref<IEntity> GetTarget() const { return target; }
+		IPlayer* GetSource() const { return source; }
+		IEntity* GetTarget() const { return target; }
 		uint32_t GetWeaponHash() const { return weaponHash; }
 		uint16_t GetDamageValue() const { return damageValue; }
 		Vector3f GetShotOffset() const { return shotOffset; }
 		BodyPart GetBodyPart() const { return bodyPart; }
 
 	private:
-		Ref<IPlayer> source;
-		Ref<IEntity> target;
+		IPlayer* source;
+		IEntity* target;
 		uint32_t weaponHash;
 		uint16_t damageValue;
 		Vector3f shotOffset;

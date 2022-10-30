@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CEvent.h"
-#include "../Ref.h"
 
 namespace alt
 {
@@ -10,7 +9,7 @@ namespace alt
 	class CVehicleDetachEvent : public CEvent
 	{
 	public:
-		CVehicleDetachEvent(Ref<IVehicle> _target, Ref<IVehicle> _detached) :
+		CVehicleDetachEvent(IVehicle* _target, IVehicle* _detached) :
 			CEvent(Type::VEHICLE_DETACH),
 			target(_target),
 			detached(_detached)
@@ -18,11 +17,11 @@ namespace alt
 
 		}
 
-		Ref<IVehicle> GetTarget() const { return target; }
-		Ref<IVehicle> GetDetached() const { return detached; }
+		IVehicle* GetTarget() const { return target; }
+		IVehicle* GetDetached() const { return detached; }
 
 	private:
-		Ref<IVehicle> target;
-		Ref<IVehicle> detached;
+		IVehicle* target;
+		IVehicle* detached;
 	};
 }

@@ -73,7 +73,7 @@ namespace alt
 		virtual MValueString CreateMValueString(const std::string& val) = 0;
 		virtual MValueList CreateMValueList(Size size = 0) = 0;
 		virtual MValueDict CreateMValueDict() = 0;
-		virtual MValueBaseObject CreateMValueBaseObject(Ref<IBaseObject> val) = 0;
+		virtual MValueBaseObject CreateMValueBaseObject(IBaseObject* val) = 0;
 		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl *impl) = 0;
 		virtual MValueVector2 CreateMValueVector2(Vector2f val) = 0;
 		virtual MValueVector3 CreateMValueVector3(Vector3f val) = 0;
@@ -94,12 +94,12 @@ namespace alt
 
 		virtual IResource *GetResource(const std::string& name) = 0;
 
-		virtual Ref<IEntity> GetEntityByID(uint16_t id) const = 0;
+		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
 
-		virtual Array<Ref<IEntity>> GetEntities() const = 0;
-		virtual Array<Ref<IPlayer>> GetPlayers() const = 0;
-		virtual Array<Ref<IVehicle>> GetVehicles() const = 0;
-		virtual Array<Ref<IBlip>> GetBlips() const = 0;
+		virtual Array<IEntity*> GetEntities() const = 0;
+		virtual Array<IPlayer*> GetPlayers() const = 0;
+		virtual Array<IVehicle*> GetVehicles() const = 0;
+		virtual Array<IBlip*> GetBlips() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 
@@ -116,7 +116,7 @@ namespace alt
 
         virtual alt::IPackage::PathInfo Resolve(IResource *resource, const std::string& path, const std::string& currentModulePath) const = 0;
 
-		virtual void DestroyBaseObject(Ref<IBaseObject> handle) = 0;
+		virtual void DestroyBaseObject(IBaseObject* handle) = 0;
 
 		virtual const std::vector<IResource*> GetAllResources() const = 0;
 
@@ -133,7 +133,7 @@ namespace alt
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 
-		virtual Ref<ILocalPlayer> GetLocalPlayer() const = 0;
+		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
 		virtual bool AreControlsEnabled() const = 0;
@@ -163,7 +163,7 @@ namespace alt
 		virtual INative* GetNativeByName(const std::string& name) const = 0;
 		virtual INative* GetNativeByHash(uint64_t hash) const = 0;
 
-		virtual Ref<IEntity> GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
+		virtual IEntity* GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
 
 		virtual void *GetTextureFromDrawable(uint32_t modelHash, const std::string& targetTextureName) const = 0;
 
@@ -205,17 +205,17 @@ namespace alt
 		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
-		virtual Ref<IWebView> CreateWebView(IResource* res, const std::string& url, uint32_t drawableHash, const std::string& targetTexture) = 0;
-		virtual Ref<IWebView> CreateWebView(IResource* res, const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
-		virtual Ref<IWebSocketClient> CreateWebSocketClient(const std::string& url, IResource* res) = 0;
-		virtual Ref<IHttpClient> CreateHttpClient(IResource* res) = 0;
-		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
-		virtual Ref<IBlip> CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
-		virtual Ref<IBlip> CreateBlip(Vector3f position, float radius) = 0;
-		virtual Ref<IBlip> CreateBlip(Vector3f position, float width, float height) = 0;
-		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
-		virtual Ref<IAudio> CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
-		virtual Ref<IRmlDocument> CreateDocument(const std::string& url, const std::string& currentPath, IResource* res) = 0;
+		virtual IWebView* CreateWebView(IResource* res, const std::string& url, uint32_t drawableHash, const std::string& targetTexture) = 0;
+		virtual IWebView* CreateWebView(IResource* res, const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
+		virtual IWebSocketClient* CreateWebSocketClient(const std::string& url, IResource* res) = 0;
+		virtual IHttpClient* CreateHttpClient(IResource* res) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
+		virtual IBlip* CreateBlip(Vector3f position, float radius) = 0;
+		virtual IBlip* CreateBlip(Vector3f position, float width, float height) = 0;
+		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
+		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
+		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
@@ -269,17 +269,17 @@ namespace alt
 		virtual bool IsFocusOverriden() const = 0;
 		virtual Vector3f GetFocusOverridePos() const = 0;
 		virtual Vector3f GetFocusOverrideOffset() const = 0;
-		virtual Ref<IEntity> GetFocusOverrideEntity() const = 0;
+		virtual IEntity* GetFocusOverrideEntity() const = 0;
 		virtual void OverrideFocusPosition(Vector3f pos, Vector3f offset = Vector3f{ 0, 0, 0 }) = 0;
-		virtual void OverrideFocusEntity(Ref<IEntity> entity) = 0;
+		virtual void OverrideFocusEntity(IEntity* entity) = 0;
 		virtual void ClearFocusOverride() = 0;
 		virtual void LoadDefaultIpls() = 0;
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
 
-		virtual Ref<IObject> CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
-		virtual const std::vector<Ref<IObject>> GetObjects() const = 0;
-		virtual const std::vector<Ref<IObject>> GetWorldObjects() const = 0;
+		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
+		virtual const std::vector<IObject*> GetObjects() const = 0;
+		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
@@ -289,31 +289,31 @@ namespace alt
 		virtual void StopResource(const std::string& name) = 0;
 		virtual void RestartResource(const std::string& name) = 0;
 
-		virtual void TriggerClientEvent(Ref<IPlayer> target, const std::string& ev, MValueArgs args) = 0;
-		virtual void TriggerClientEvent(Array<Ref<IPlayer>> targets, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(Array<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
 
-		virtual Ref<IVehicle> CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
+		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
 		// TODO make enum for types
-		virtual Ref<ICheckpoint> CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
+		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
 
-		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Position pos) = 0;
-		virtual Ref<IBlip> CreateBlip(Ref<IPlayer> target, IBlip::BlipType type, Ref<IEntity> attachTo) = 0;
+		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
+		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
 
-		virtual Ref<IVoiceChannel> CreateVoiceChannel(bool spatial, float maxDistance) = 0;
+		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
 
-		virtual Ref<IColShape> CreateColShapeCylinder(Position pos, float radius, float height) = 0;
-		virtual Ref<IColShape> CreateColShapeSphere(Position pos, float radius) = 0;
-		virtual Ref<IColShape> CreateColShapeCircle(Position pos, float radius) = 0;
-		virtual Ref<IColShape> CreateColShapeCube(Position pos, Position pos2) = 0;
-		virtual Ref<IColShape> CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
-		virtual Ref<IColShape> CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
+		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
+		virtual IColShape* CreateColShapeSphere(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCircle(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCube(Position pos, Position pos2) = 0;
+		virtual IColShape* CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
+		virtual IColShape* CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
 
-		virtual Array<Ref<IPlayer>> GetPlayersByName(const std::string& name) const = 0;
+		virtual Array<IPlayer*> GetPlayersByName(const std::string& name) const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
 

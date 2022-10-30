@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -13,7 +12,7 @@ namespace alt
 	class CVehicleDamageEvent : public CEvent
 	{
 	public:
-		CVehicleDamageEvent(Ref<IVehicle> _target, Ref<IEntity> _damager, 
+		CVehicleDamageEvent(IVehicle* _target, IEntity* _damager,
 			uint32_t _bodyHealthDamage, uint32_t _bodyAdditionalHealthDamage,
 			uint32_t _engineHealthDamage, uint32_t _petrolTankHealthDamage, uint32_t _damagedWith) :
 			CEvent(Type::VEHICLE_DAMAGE),
@@ -28,9 +27,9 @@ namespace alt
 
 		}
 
-		Ref<IVehicle> GetTarget() const { return target; }
+		IVehicle* GetTarget() const { return target; }
 
-		Ref<IEntity> GetDamager() const { return damager; }
+		IEntity* GetDamager() const { return damager; }
 
 		uint32_t GetBodyHealthDamage() const { return bodyHealthDamage; }
 
@@ -43,8 +42,8 @@ namespace alt
 		uint32_t GetDamagedWith() const { return damagedWith; }
 
 	private:
-		Ref<IVehicle> target;
-		Ref<IEntity> damager;
+		IVehicle* target;
+		IEntity* damager;
 		uint32_t bodyHealthDamage; 
 		uint32_t bodyAdditionalHealthDamage;
 		uint32_t engineHealthDamage; 

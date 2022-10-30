@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../types/MValue.h"
-#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -12,7 +11,7 @@ namespace alt
 	class CLocalMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CLocalMetaDataChangeEvent(Ref<IPlayer> _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
+		CLocalMetaDataChangeEvent(IPlayer* _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::LOCAL_SYNCED_META_CHANGE),
 			target(_target),
 			key(_key),
@@ -22,13 +21,13 @@ namespace alt
 
 		}
 
-		Ref<IPlayer> GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target; }
 		std::string GetKey() const { return key; }
 		MValueConst GetVal() const { return val; }
 		MValueConst GetOldVal() const { return oldVal; }
 
 	private:
-		Ref<IPlayer> target;
+		IPlayer* target;
 		std::string key;
 		MValueConst val;
 		MValueConst oldVal;

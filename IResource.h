@@ -57,8 +57,8 @@ namespace alt
 			 * */
 			virtual void OnTick(){};
 
-			virtual void OnCreateBaseObject(Ref<IBaseObject> object){};
-			virtual void OnRemoveBaseObject(Ref<IBaseObject> object){};
+			virtual void OnCreateBaseObject(IBaseObject* object){};
+			virtual void OnRemoveBaseObject(IBaseObject* object){};
 
 			virtual ~Impl() = default;
 		};
