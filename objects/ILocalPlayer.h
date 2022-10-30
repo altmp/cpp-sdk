@@ -21,7 +21,5 @@ namespace alt
 
         virtual alt::Ref<IWeaponData> GetCurrentWeaponData() const = 0;
 #endif
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

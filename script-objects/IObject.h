@@ -41,7 +41,5 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }

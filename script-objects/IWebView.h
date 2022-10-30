@@ -26,7 +26,5 @@ namespace alt
         virtual void SetSize(Vector2i size) = 0;
         virtual Vector2i GetPosition() const = 0;
         virtual void SetPosition(Vector2i pos) = 0;
-        
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

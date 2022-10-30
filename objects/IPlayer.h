@@ -152,7 +152,5 @@ namespace alt
 		virtual float GetNonSpatialVolume() const = 0;
 		virtual void SetNonSpatialVolume(float volume) = 0;
 #endif // ALT_CLIENT_API
-		
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "../Ref.h"
 
 #include "../types/RGBA.h"
 #include "IColShape.h"
@@ -26,7 +25,5 @@ namespace alt
 		virtual void SetRadius(float radius) = 0;
 		virtual void SetColor(RGBA color) = 0;
 		virtual void SetNextPosition(alt::Position pos) = 0;
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }

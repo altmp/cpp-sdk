@@ -30,7 +30,5 @@ namespace alt
         virtual void Options(HttpResponseCallback httpResponseCallback, const std::string& url, const std::string& body, void* userData) const = 0;
         virtual void Trace(HttpResponseCallback httpResponseCallback, const std::string& url, const std::string& body, void* userData) const = 0;
         virtual void Patch(HttpResponseCallback httpResponseCallback, const std::string& url, const std::string& body, void* userData) const = 0;
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

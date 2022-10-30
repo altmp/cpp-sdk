@@ -106,8 +106,6 @@ namespace alt
         virtual const std::vector<IRmlElement*> QuerySelectorAll(const std::string& selector) const = 0;
 
         virtual IRmlDocument* GetOwnerDocument() const = 0;
-        
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 
     class IRmlDocument : public virtual IRmlElement
@@ -130,7 +128,5 @@ namespace alt
         virtual IRmlElement* GetBody() const = 0;
 
         virtual void Update() = 0;
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 }

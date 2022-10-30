@@ -3,7 +3,6 @@
 #include <cstdint>
 #include <vector>
 #include "../objects/IBaseObject.h"
-#include "../Ref.h"
 
 namespace alt
 {
@@ -27,7 +26,5 @@ namespace alt
 
 		virtual const std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual size_t GetPlayerCount() const = 0;
-		
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

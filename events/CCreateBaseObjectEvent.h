@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CEvent.h"
-#include "../Ref.h"
 #include "../objects/IBaseObject.h"
 
 namespace alt

@@ -1,11 +1,10 @@
 #pragma once
 
 #include "../types/MValue.h"
-#include "../Ref.h"
 
 namespace alt
 {
-	class IBaseObject : public virtual CRefCountable
+	class IBaseObject
 	{
 	protected:
 		virtual ~IBaseObject() = default;

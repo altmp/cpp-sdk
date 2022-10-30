@@ -296,7 +296,5 @@ namespace alt
 		virtual void SetBatteryLightState(bool state) = 0;
 		virtual void ResetDashboardLights() = 0;
 #endif // ALT_CLIENT_API
-		
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

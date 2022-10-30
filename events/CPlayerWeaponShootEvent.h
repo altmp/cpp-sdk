@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CEvent.h"
-#include "../Ref.h"
 
 namespace alt
 {

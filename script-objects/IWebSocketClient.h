@@ -33,7 +33,5 @@ namespace alt
 
         virtual void SetPingInterval(uint16_t seconds) = 0;
         virtual uint16_t GetPingInterval() const = 0;
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

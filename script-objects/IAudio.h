@@ -23,9 +23,9 @@ namespace alt
 
         virtual bool IsFrontendPlay() const = 0;
 
-        virtual void AddOutput(alt::Ref<alt::IEntity> entity) = 0;
+        virtual void AddOutput(IEntity* entity) = 0;
         virtual void AddOutput(uint32_t scriptID) = 0;
-        virtual void RemoveOutput(alt::Ref<alt::IEntity> entity, bool removeRef = true) = 0;
+        virtual void RemoveOutput(IEntity* entity, bool removeRef = true) = 0;
         virtual void RemoveOutput(uint32_t scriptID) = 0;
         virtual MValueList GetOutputs() = 0;
 
@@ -36,7 +36,5 @@ namespace alt
         virtual double GetMaxTime() const = 0; //seconds
         virtual void Seek(double time) = 0; //seconds
         virtual bool IsPlaying() const = 0;
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 }
