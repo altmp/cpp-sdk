@@ -176,7 +176,8 @@ namespace alt
 	class IMValueBaseObject : public virtual IMValue
 	{
 	public:
-		virtual IBaseObject* Value() const = 0;
+		virtual IBaseObject* RawValue() const = 0;
+		virtual std::shared_ptr<IBaseObject> Value() const = 0;
 	};
 
 	class IMValueFunction : public virtual IMValue

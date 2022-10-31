@@ -40,5 +40,11 @@ namespace alt
 		{
 			return std::dynamic_pointer_cast<Derived>(shared_from_this());
 		}
+
+		template <typename Derived>
+		Derived* As()
+		{
+			return std::dynamic_pointer_cast<Derived>(this);
+		}
 	};
 } // namespace alt

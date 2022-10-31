@@ -99,7 +99,7 @@ namespace alt
 		virtual Array<IEntity*> GetEntities() const = 0;
 		virtual Array<IPlayer*> GetPlayers() const = 0;
 		virtual Array<IVehicle*> GetVehicles() const = 0;
-		virtual Array<IBlip*> GetBlips() const = 0;
+		virtual std::vector<IBlip*> GetBlips() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 
