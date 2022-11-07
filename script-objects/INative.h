@@ -1,8 +1,8 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include "../IResource.h"
-#include "../CRefCountable.h"
 
 namespace alt
 {
@@ -34,7 +34,7 @@ namespace alt
             float x, __padx, y, __pady, z, __padz;
         };
 
-        class Context : public CRefCountable
+        class Context
         {
         protected:
             virtual ~Context() = default;
@@ -60,20 +60,17 @@ namespace alt
             virtual float ResultFloat() = 0;
             virtual Vector3 ResultVector3() = 0;
             virtual const char *ResultString() = 0;
-
-            const std::type_info& GetTypeInfo() const override { return typeid(this); }
         };
 
-        class Scope : public CRefCountable {
+        class Scope {
         public:
             virtual ~Scope() = default;
-            const std::type_info& GetTypeInfo() const override { return typeid(this); }
         };
 
         virtual std::string GetName() const = 0;
         virtual Type GetRetnType() const = 0;
         virtual Array<Type> GetArgTypes() const = 0;
         virtual bool IsValid() const = 0;
-        virtual bool Invoke(alt::Ref<INative::Context> ctx) = 0;
+        virtual bool Invoke(const std::shared_ptr<INative::Context>& ctx) = 0;
     };
 } // namespace alt

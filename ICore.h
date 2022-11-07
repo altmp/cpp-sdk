@@ -1,6 +1,7 @@
 #pragma once
 
 #include <climits>
+#include <memory>
 
 #include "deps/alt-math/alt-math.h"
 #include "deps/alt-config/alt-config.h"
@@ -8,7 +9,6 @@
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
-#include "Ref.h"
 
 #include "events/CEvent.h"
 #include "IResource.h"
@@ -128,8 +128,8 @@ namespace alt
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
-		virtual alt::Ref<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
-		virtual alt::Ref<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
+		virtual alt::IHandlingData* GetHandlingData(uint32_t modelHash) const = 0;
+		virtual alt::IWeaponData* GetWeaponData(uint32_t weaponHash) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 
@@ -158,7 +158,7 @@ namespace alt
 		virtual bool IsConsoleOpen() const = 0;
 
 		virtual const Array<INative *> GetAllNatives() const = 0;
-		virtual Ref<INative::Context> CreateNativesContext() const = 0;
+		virtual std::shared_ptr<INative::Context> CreateNativesContext() const = 0;
 
 		virtual INative* GetNativeByName(const std::string& name) const = 0;
 		virtual INative* GetNativeByHash(uint64_t hash) const = 0;
@@ -180,8 +180,8 @@ namespace alt
 		virtual void SetCamFrozen(bool frozen) = 0;
 		virtual bool IsCamFrozen() = 0;
 
-		virtual alt::Ref<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
-		virtual alt::Ref<alt::IMapData> GetMapData(const std::string& alias) = 0;
+		virtual std::shared_ptr<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
+		virtual alt::shared_ptr<alt::IMapData> GetMapData(const std::string& alias) = 0;
 		virtual uint8_t GetMapDataIDFromAlias(const std::string& alias) = 0;
 		virtual void ResetMapData(uint8_t zoomDataId) = 0;
 		virtual void ResetMapData(const std::string& alias) = 0;

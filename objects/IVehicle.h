@@ -251,7 +251,7 @@ namespace alt
 		virtual void SetMaxGear(uint16_t gearMax) = 0;
 
 		virtual bool IsHandlingModified() const = 0;
-		virtual alt::Ref<alt::IHandlingData> GetHandling() const = 0;
+		virtual alt::IHandlingData* GetHandling() const = 0;
 		virtual void ResetHandling() = 0;
 		virtual void ReplaceHandling() = 0;
 

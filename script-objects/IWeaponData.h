@@ -1,10 +1,8 @@
 #pragma once
 
-#include "../CRefCountable.h"
-
 namespace alt
 {
-	class IWeaponData : public virtual CRefCountable
+	class IWeaponData
 	{
 	protected:
 		virtual ~IWeaponData() = default;
@@ -39,7 +37,5 @@ namespace alt
 		virtual void SetDamage(float val) = 0;
 		virtual void SetHeadshotDamageModifier(float val) = 0;
 		virtual void SetPlayerDamageModifier(float val) = 0;
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }

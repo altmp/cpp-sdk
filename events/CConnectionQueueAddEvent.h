@@ -11,7 +11,7 @@ namespace alt
 	class CConnectionQueueAddEvent : public CEvent
 	{
 	public:
-		CConnectionQueueAddEvent(IConnectionInfo* _connectionInfo) :
+		explicit CConnectionQueueAddEvent(IConnectionInfo* _connectionInfo) :
 			CEvent(Type::CONNECTION_QUEUE_ADD),
 			connectionInfo(_connectionInfo)
 		{
