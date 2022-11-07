@@ -181,7 +181,7 @@ namespace alt
 		virtual bool IsCamFrozen() = 0;
 
 		virtual std::shared_ptr<alt::IMapData> GetMapData(uint8_t zoomDataId) = 0;
-		virtual alt::shared_ptr<alt::IMapData> GetMapData(const std::string& alias) = 0;
+		virtual std::shared_ptr<alt::IMapData> GetMapData(const std::string& alias) = 0;
 		virtual uint8_t GetMapDataIDFromAlias(const std::string& alias) = 0;
 		virtual void ResetMapData(uint8_t zoomDataId) = 0;
 		virtual void ResetMapData(const std::string& alias) = 0;
