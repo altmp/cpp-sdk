@@ -23,5 +23,10 @@ namespace alt
 		virtual bool GetProcessClientType(std::string& clientType) { return false; }
 		virtual void ProcessClientFile(IResource* resource, IPackage* clientPackage) { };
 #endif
+
+#ifdef ALT_CLIENT_API
+		// Called every time when connecting to a server
+		virtual void Init() { };
+#endif
 	};
 }
