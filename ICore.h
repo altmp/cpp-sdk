@@ -74,6 +74,7 @@ namespace alt
 		virtual MValueList CreateMValueList(Size size = 0) = 0;
 		virtual MValueDict CreateMValueDict() = 0;
 		virtual MValueBaseObject CreateMValueBaseObject(IBaseObject* val) = 0;
+		virtual MValueBaseObject CreateMValueBaseObject(std::shared_ptr<IBaseObject> val) = 0;
 		virtual MValueFunction CreateMValueFunction(IMValueFunction::Impl *impl) = 0;
 		virtual MValueVector2 CreateMValueVector2(Vector2f val) = 0;
 		virtual MValueVector3 CreateMValueVector3(Vector3f val) = 0;
@@ -128,8 +129,8 @@ namespace alt
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
-		virtual alt::IHandlingData* GetHandlingData(uint32_t modelHash) const = 0;
-		virtual alt::IWeaponData* GetWeaponData(uint32_t weaponHash) const = 0;
+		virtual std::shared_ptr<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
+		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 
