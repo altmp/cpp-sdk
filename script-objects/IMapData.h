@@ -4,7 +4,7 @@
 
 namespace alt
 {
-    class IMapData : public virtual CRefCountable
+    class IMapData
     {
     public:
         virtual ~IMapData() = default;
@@ -20,7 +20,5 @@ namespace alt
         virtual void SetScrollSpeed(float scale) = 0;
         virtual void SetTilesCountX(float val) = 0;
         virtual void SetTilesCountY(float val) = 0;
-        
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

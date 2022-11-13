@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "../Ref.h"
 
 #include "CEvent.h"
 
@@ -13,16 +12,16 @@ namespace alt
 	class CVehicleDestroyEvent : public CEvent
 	{
 	public:
-		CVehicleDestroyEvent(Ref<IVehicle> _target) :
+		CVehicleDestroyEvent(IVehicle* _target) :
 			CEvent(Type::VEHICLE_DESTROY),
 			target(_target)
 		{
 
 		}
 
-		Ref<IVehicle> GetTarget() const { return target; }
+		IVehicle* GetTarget() const { return target; }
 
 	private:
-		Ref<IVehicle> target;
+		IVehicle* target;
 	};
 }

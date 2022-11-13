@@ -11,6 +11,7 @@
 #include "deps/alt-config/alt-config.h"
 #include <vector>
 #include <set>
+#include <memory>
 
 #include "deps/ConfigBase.h"
 
@@ -57,8 +58,8 @@ namespace alt
 			 * */
 			virtual void OnTick(){};
 
-			virtual void OnCreateBaseObject(Ref<IBaseObject> object){};
-			virtual void OnRemoveBaseObject(Ref<IBaseObject> object){};
+			virtual void OnCreateBaseObject(IBaseObject* object){};
+			virtual void OnRemoveBaseObject(IBaseObject* object){};
 
 			virtual ~Impl() = default;
 		};
@@ -92,9 +93,9 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual void EnableNatives() = 0;
 		[[nodiscard]]
-		virtual Ref<INative::Context> CreateNativesContext() const = 0;
+		virtual std::shared_ptr<INative::Context> CreateNativesContext() const = 0;
 		[[nodiscard]]
-		virtual Ref<INative::Scope> PushNativesScope() = 0;
+		virtual std::shared_ptr<INative::Scope> PushNativesScope() = 0;
 
 		virtual ILocalStorage *GetLocalStorage() = 0;
 

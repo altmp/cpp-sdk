@@ -16,7 +16,7 @@ namespace alt
 		virtual ~IVehicle() = default;
 
 	public:
-		virtual Ref<IPlayer> GetDriver() const = 0;
+		virtual IPlayer* GetDriver() const = 0;
 		virtual bool IsDestroyed() const = 0;
 		virtual uint8_t GetMod(uint8_t category) const = 0;
 		virtual uint8_t GetModsCount(uint8_t category) const = 0;
@@ -151,8 +151,8 @@ namespace alt
 		virtual void LoadScriptDataFromBase64(const std::string& base64) = 0;
 		virtual void LoadGameStateFromBase64(const std::string& base64) = 0;
 		virtual void LoadHealthDataFromBase64(const std::string& base64) = 0;
-		virtual Ref<IVehicle> GetAttached() const = 0;
-		virtual Ref<IVehicle> GetAttachedTo() const = 0;
+		virtual IVehicle* GetAttached() const = 0;
+		virtual IVehicle* GetAttachedTo() const = 0;
 		virtual bool IsDriftMode() const = 0;
 		virtual void SetDriftMode(bool state) = 0;
 
@@ -160,8 +160,8 @@ namespace alt
 		virtual void SetTrainMissionTrain(bool value) = 0;
 		virtual int8_t GetTrainTrackId() const = 0;
 		virtual void SetTrainTrackId(int8_t trackId) = 0;
-		virtual Ref<IVehicle> GetTrainEngineId() const = 0;
-		virtual void SetTrainEngineId(Ref<IVehicle> vehicle) = 0;
+		virtual IVehicle* GetTrainEngineId() const = 0;
+		virtual void SetTrainEngineId(IVehicle* vehicle) = 0;
 		virtual int8_t GetTrainConfigIndex() const = 0;
 		virtual void SetTrainConfigIndex(int8_t trainConfigIndex) = 0;
 		virtual float GetTrainDistanceFromEngine() const = 0;
@@ -182,10 +182,10 @@ namespace alt
 		virtual void SetTrainCruiseSpeed(float cruiseSpeed) = 0;
 		virtual int8_t GetTrainCarriageConfigIndex() const = 0;
 		virtual void SetTrainCarriageConfigIndex(int8_t carriageConfigIndex) = 0;
-		virtual Ref<IVehicle> GetTrainLinkedToBackwardId() const = 0;
-		virtual void SetTrainLinkedToBackwardId(Ref<IVehicle> vehicle) = 0;
-		virtual Ref<IVehicle> GetTrainLinkedToForwardId() const = 0;
-		virtual void SetTrainLinkedToForwardId(Ref<IVehicle> vehicle) = 0;
+		virtual IVehicle* GetTrainLinkedToBackwardId() const = 0;
+		virtual void SetTrainLinkedToBackwardId(IVehicle* vehicle) = 0;
+		virtual IVehicle* GetTrainLinkedToForwardId() const = 0;
+		virtual void SetTrainLinkedToForwardId(IVehicle* vehicle) = 0;
 		virtual void SetTrainUnk1(bool unk1) = 0;
 		virtual bool GetTrainUnk1() const = 0;
 		virtual void SetTrainUnk2(bool unk2) = 0;
@@ -196,15 +196,15 @@ namespace alt
 		virtual bool IsBoatAnchorActive() const = 0;
 		virtual void SetBoatAnchorActive(bool state) = 0;
 
-		virtual bool SetSearchLight(bool state, Ref<IEntity> spottedEntity) = 0;
+		virtual bool SetSearchLight(bool state, IEntity* spottedEntity) = 0;
 
 		virtual uint8_t GetLightState() const = 0;
 		virtual void SetLightState(uint8_t state) = 0;
 
 		virtual bool HasTimedExplosion() const = 0;
-		virtual Ref<IPlayer> GetTimedExplosionCulprit() const = 0;
+		virtual IPlayer* GetTimedExplosionCulprit() const = 0;
 		virtual uint32_t GetTimedExplosionTime() const = 0;
-		virtual void SetTimedExplosion(bool state, Ref<IPlayer> culprit, uint32_t time) = 0;
+		virtual void SetTimedExplosion(bool state, IPlayer* culprit, uint32_t time) = 0;
 		
 		virtual bool IsTowingDisabled() const = 0;
 		virtual void SetDisableTowing(bool state) = 0;
@@ -251,7 +251,7 @@ namespace alt
 		virtual void SetMaxGear(uint16_t gearMax) = 0;
 
 		virtual bool IsHandlingModified() const = 0;
-		virtual alt::Ref<alt::IHandlingData> GetHandling() const = 0;
+		virtual std::shared_ptr<alt::IHandlingData> GetHandling() const = 0;
 		virtual void ResetHandling() = 0;
 		virtual void ReplaceHandling() = 0;
 
@@ -296,7 +296,5 @@ namespace alt
 		virtual void SetBatteryLightState(bool state) = 0;
 		virtual void ResetDashboardLights() = 0;
 #endif // ALT_CLIENT_API
-		
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include "../Ref.h"
 #include "../objects/IWorldObject.h"
 
 namespace alt
@@ -31,10 +30,10 @@ namespace alt
 		virtual ~IBlip() = default;
 
 		virtual bool IsGlobal() const = 0;
-		virtual Ref<IPlayer> GetTarget() const = 0;
+		virtual IPlayer* GetTarget() const = 0;
 		virtual bool IsAttached() const = 0;
-		virtual Ref<IEntity> AttachedTo() const = 0;
-		virtual void AttachTo(Ref<IEntity> entity) = 0;
+		virtual IEntity* AttachedTo() const = 0;
+		virtual void AttachTo(IEntity* entity) = 0;
 		virtual BlipType GetBlipType() const = 0;
 
 		virtual Vector2f GetScaleXY() const = 0;
@@ -106,7 +105,5 @@ namespace alt
 		virtual void SetAsHighDetail(bool val) = 0;
 		virtual void SetShrinked(bool val) = 0;
 		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

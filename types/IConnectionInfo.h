@@ -1,12 +1,11 @@
 #pragma once
 
-#include "../CRefCountable.h"
-
 #include <string>
+#include <memory>
 
 namespace alt
 {
-	class IConnectionInfo : public virtual CRefCountable
+	class IConnectionInfo : public std::enable_shared_from_this<IConnectionInfo>
 	{
 	protected:
 		virtual ~IConnectionInfo() = default;
@@ -29,6 +28,16 @@ namespace alt
 		virtual void Decline(const std::string& reason) = 0;
 		virtual bool IsAccepted() const = 0;
 
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
+        template <typename Derived>
+        std::shared_ptr<Derived> SharedAs()
+        {
+            return std::dynamic_pointer_cast<Derived>(shared_from_this());
+        }
+
+        template <typename Derived>
+        Derived* As()
+        {
+            return dynamic_cast<Derived*>(this);
+        }
 	};
 }

@@ -16,7 +16,7 @@ namespace alt
 	public:
 		virtual uint16_t GetID() const = 0;
 
-		virtual Ref<IPlayer> GetNetworkOwner() const = 0;
+		virtual IPlayer* GetNetworkOwner() const = 0;
 
 		virtual uint32_t GetModel() const = 0;
 
@@ -30,7 +30,7 @@ namespace alt
 		virtual bool GetVisible() const = 0;
 
 #ifdef ALT_SERVER_API
-		virtual void SetNetworkOwner(Ref<IPlayer> player, bool disableMigration) = 0;
+		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
@@ -38,8 +38,8 @@ namespace alt
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 
-		virtual void AttachToEntity(Ref<IEntity> entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
-		virtual void AttachToEntity(Ref<IEntity> entity, const std::string& otherBoneName, const std::string& myBoneName, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(IEntity* entity, int16_t otherBoneIndex, int16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(IEntity* entity, const std::string& otherBoneName, const std::string& myBoneName, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
 
 		virtual void SetStreamed(bool toggle) = 0;

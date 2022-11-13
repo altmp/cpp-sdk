@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CEvent.h"
-#include "../Ref.h"
 
 namespace alt
 {
@@ -11,7 +10,7 @@ namespace alt
 	class CColShapeEvent : public CEvent
 	{
 	public:
-		CColShapeEvent(Ref<IColShape> _target, Ref<IEntity> _entity, bool _state) :
+		CColShapeEvent(IColShape* _target, IEntity* _entity, bool _state) :
 			CEvent(Type::COLSHAPE_EVENT),
 			target(_target),
 			entity(_entity),
@@ -20,13 +19,13 @@ namespace alt
 
 		}
 
-		Ref<IColShape> GetTarget() const { return target; }
-		Ref<IEntity> GetEntity() const { return entity; }
+		IColShape* GetTarget() const { return target; }
+		IEntity* GetEntity() const { return entity; }
 		bool GetState() const { return state; }
 
 	private:
-		Ref<IColShape> target;
-		Ref<IEntity> entity;
+		IColShape* target;
+		IEntity* entity;
 		bool state;
 	};
 }

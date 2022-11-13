@@ -5,7 +5,6 @@
 #include "../types/RGBA.h"
 #include "../objects/IWorldObject.h"
 #include "../objects/IEntity.h"
-#include "../Ref.h"
 
 namespace alt
 {
@@ -29,12 +28,10 @@ namespace alt
 
 		virtual ColShapeType GetColshapeType() const = 0;
 
-		virtual bool IsEntityIn(Ref<IEntity> ent) const = 0;
+		virtual bool IsEntityIn(IEntity* ent) const = 0;
 		virtual bool IsEntityIdIn(uint16_t id) const = 0;
 		virtual bool IsPointIn(Position p) const = 0;
 		virtual void SetPlayersOnly(bool state) = 0;
 		virtual bool IsPlayersOnly() const = 0;
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 } // namespace alt

@@ -19,7 +19,7 @@ namespace alt
 		virtual bool HasGravity() const = 0;
 		virtual void ToggleGravity(bool toggle) = 0;
 
-		virtual void AttachToEntity(Ref<IEntity> entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
+		virtual void AttachToEntity(IEntity* entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
 		virtual void AttachToEntity(uint32_t scriptId, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
 		virtual void Detach(bool dynamic) = 0;
 
@@ -41,7 +41,5 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 #endif
-
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 }

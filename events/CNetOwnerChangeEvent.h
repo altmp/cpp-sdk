@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CEvent.h"
-#include "../Ref.h"
 
 namespace alt
 {
@@ -11,7 +10,7 @@ namespace alt
 	class CNetOwnerChangeEvent : public CEvent
 	{
 	public:
-		CNetOwnerChangeEvent(Ref<IEntity> _target, Ref<IPlayer> _newowner, Ref<IPlayer> _oldowner) :
+		CNetOwnerChangeEvent(IEntity* _target, IPlayer* _newowner, IPlayer* _oldowner) :
 			CEvent(Type::NETOWNER_CHANGE),
 			target(_target),
 			newOwner(_newowner),
@@ -20,13 +19,13 @@ namespace alt
 
 		}
 
-		Ref<IEntity> GetTarget() const { return target; }
-		Ref<IPlayer> GetNewOwner() const { return newOwner; }
-		Ref<IPlayer> GetOldOwner() const { return oldOwner; }
+		IEntity* GetTarget() const { return target; }
+		IPlayer* GetNewOwner() const { return newOwner; }
+		IPlayer* GetOldOwner() const { return oldOwner; }
 
 	private:
-		Ref<IEntity> target;
-		Ref<IPlayer> newOwner;
-		Ref<IPlayer> oldOwner;
+		IEntity* target;
+		IPlayer* newOwner;
+		IPlayer* oldOwner;
 	};
 }

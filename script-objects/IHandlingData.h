@@ -4,7 +4,7 @@
 
 namespace alt
 {
-    class IHandlingData : public virtual CRefCountable
+    class IHandlingData
     {
     protected:
         virtual ~IHandlingData() = default;
@@ -142,7 +142,5 @@ namespace alt
         virtual void SetModelFlags(uint32_t val) = 0;
         virtual void SetHandlingFlags(uint32_t val) = 0;
         virtual void SetDamageFlags(uint32_t val) = 0;
-
-        const std::type_info& GetTypeInfo() const override { return typeid(this); }
     };
 } // namespace alt

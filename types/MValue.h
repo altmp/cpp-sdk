@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 #include "../Ref.h"
 #include "Array.h"
 #include "../types/RGBA.h"
@@ -176,7 +177,8 @@ namespace alt
 	class IMValueBaseObject : public virtual IMValue
 	{
 	public:
-		virtual Ref<IBaseObject> Value() const = 0;
+		virtual IBaseObject* RawValue() const = 0;
+		virtual std::shared_ptr<IBaseObject> Value() const = 0;
 	};
 
 	class IMValueFunction : public virtual IMValue
