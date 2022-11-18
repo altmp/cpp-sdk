@@ -135,6 +135,7 @@ namespace alt
 		virtual void SetLocalMetaData(const std::string& key, MValue val) = 0;
 		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
 		virtual void DeleteLocalMetaData(const std::string& key) = 0;
+		virtual std::vector<std::string> GetLocalMetaDataKeys() const = 0;
 
 		virtual uint32_t GetInteriorLocation() const = 0;
 

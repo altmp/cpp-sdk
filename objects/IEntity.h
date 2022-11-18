@@ -25,8 +25,10 @@ namespace alt
 
 		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
+		virtual std::vector<std::string> GetSyncedMetaDataKeys() const = 0;
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetStreamSyncedMetaData(const std::string& key) const = 0;
+		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
 		virtual bool GetVisible() const = 0;
 
 #ifdef ALT_SERVER_API
