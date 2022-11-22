@@ -39,7 +39,7 @@ namespace alt
 			UNKNOWN = -1
 		};
 
-		CWeaponDamageEvent(IPlayer* _source, IEntity* _target, uint32_t _weaponHash, uint16_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
+		CWeaponDamageEvent(IPlayer* _source, IEntity* _target, uint32_t _weaponHash, uint32_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
 			CEvent(Type::WEAPON_DAMAGE_EVENT),
 			source(_source),
 			target(_target),
@@ -54,9 +54,14 @@ namespace alt
 		IPlayer* GetSource() const { return source; }
 		IEntity* GetTarget() const { return target; }
 		uint32_t GetWeaponHash() const { return weaponHash; }
-		uint16_t GetDamageValue() const { return damageValue; }
+		uint32_t GetDamageValue() const { return damageValue; }
 		Vector3f GetShotOffset() const { return shotOffset; }
 		BodyPart GetBodyPart() const { return bodyPart; }
+
+		void SetDamageValue(uint32_t _damageValue)
+		{
+			damageValue = _damageValue;
+		}
 
 	private:
 		IPlayer* source;
