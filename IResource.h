@@ -50,7 +50,7 @@ namespace alt
 			};
 			virtual bool Stop() { return true; };
 
-			virtual bool OnEvent(const CEvent *ev) { return true; };
+			virtual void OnEvent(const CEvent *ev) { };
 			
 			/**
 			 * Clientside:
