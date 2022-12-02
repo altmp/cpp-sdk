@@ -67,7 +67,7 @@ namespace alt
 		IPlayer* source;
 		IEntity* target;
 		uint32_t weaponHash;
-		uint16_t damageValue;
+		uint32_t damageValue;
 		Vector3f shotOffset;
 		BodyPart bodyPart;
 	};
