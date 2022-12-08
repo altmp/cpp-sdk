@@ -8,12 +8,12 @@
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
+#include "deps/alt-config/alt-config.h"
 #include <vector>
 #include <set>
 #include <memory>
 
 #if __cplusplus >= 201703L
-	#include "deps/alt-config/alt-config.h"
 	#include "deps/ConfigBase.h"
 #endif
 
