@@ -10,7 +10,7 @@ namespace alt
 	{
 	public:
 #ifdef ALT_SERVER_API
-		CPlayerWeaponChangeEvent(IPlayer* _target, uint32_t _oldWeapon, uint32_t _newWeapon) :
+		CPlayerWeaponChangeEvent(const std::shared_ptr<IPlayer>& _target, uint32_t _oldWeapon, uint32_t _newWeapon) :
 			CEvent(Type::PLAYER_WEAPON_CHANGE),
 			target(_target),
 			oldWeapon(_oldWeapon),
@@ -26,14 +26,14 @@ namespace alt
 #endif
 
 #ifdef ALT_SERVER_API
-		IPlayer* GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target.get(); }
 #endif
 		uint32_t GetOldWeapon() const { return oldWeapon; }
 		uint32_t GetNewWeapon() const { return newWeapon; }
 
 	private:
 #ifdef ALT_SERVER_API
-		IPlayer* target;
+		std::shared_ptr<IPlayer> target;
 #endif
 		uint32_t oldWeapon;
 		uint32_t newWeapon;

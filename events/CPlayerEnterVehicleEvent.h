@@ -10,7 +10,7 @@ namespace alt
 	class CPlayerEnterVehicleEvent : public CEvent
 	{
 	public:
-		CPlayerEnterVehicleEvent(IVehicle* _target, IPlayer* _player, uint8_t _seat) :
+		CPlayerEnterVehicleEvent(const std::shared_ptr<IVehicle>& _target, const std::shared_ptr<IPlayer>& _player, uint8_t _seat) :
 			CEvent(Type::PLAYER_ENTER_VEHICLE),
 			target(_target),
 			player(_player),
@@ -19,13 +19,13 @@ namespace alt
 
 		}
 
-		IVehicle* GetTarget() const { return target; }
-		IPlayer* GetPlayer() const { return player; }
+		IVehicle* GetTarget() const { return target.get(); }
+		IPlayer* GetPlayer() const { return player.get(); }
 		uint8_t GetSeat() const { return seat; }
 
 	private:
-		IVehicle* target;
-		IPlayer* player;
+		std::shared_ptr<IVehicle> target;
+		std::shared_ptr<IPlayer> player;
 		uint8_t seat;
 	};
 }

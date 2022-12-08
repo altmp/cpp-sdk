@@ -9,13 +9,13 @@ namespace alt
 	class CPlayerConnectEvent : public CEvent
 	{
 	public:
-		CPlayerConnectEvent(IPlayer* _target) :
+		CPlayerConnectEvent(const std::shared_ptr<IPlayer>& _target) :
 			CEvent(Type::PLAYER_CONNECT),
 			target(_target)
 		{
 		}
 
-		IPlayer* GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target.get(); }
 		const std::string& GetReason() { return reason; }
 
 		void Cancel(const std::string& _reason)
@@ -25,7 +25,7 @@ namespace alt
 		}
 
 	private:
-		IPlayer* target;
+		std::shared_ptr<IPlayer> target;
 		std::string reason;
 	};
 }

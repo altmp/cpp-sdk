@@ -11,7 +11,7 @@ namespace alt
 	class CMetaChangeEvent : public CEvent
 	{
 	public:
-		CMetaChangeEvent(IEntity* _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
+		CMetaChangeEvent(const std::shared_ptr<IEntity>& _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::META_CHANGE),
 			target(_target),
 			key(_key),
@@ -21,13 +21,13 @@ namespace alt
 
 		}
 
-		IEntity* GetTarget() const { return target; }
+		IEntity* GetTarget() const { return target.get(); }
 		std::string GetKey() const { return key; }
 		MValueConst GetVal() const { return val; }
 		MValueConst GetOldVal() const { return oldVal; }
 
 	private:
-		IEntity* target;
+		std::shared_ptr<IEntity> target;
 		std::string key;
 		MValueConst val;
 		MValueConst oldVal;

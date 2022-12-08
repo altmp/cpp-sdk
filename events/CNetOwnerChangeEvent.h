@@ -10,7 +10,7 @@ namespace alt
 	class CNetOwnerChangeEvent : public CEvent
 	{
 	public:
-		CNetOwnerChangeEvent(IEntity* _target, IPlayer* _newowner, IPlayer* _oldowner) :
+		CNetOwnerChangeEvent(const std::shared_ptr<IEntity>& _target, const std::shared_ptr<IPlayer>& _newowner, const std::shared_ptr<IPlayer>& _oldowner) :
 			CEvent(Type::NETOWNER_CHANGE),
 			target(_target),
 			newOwner(_newowner),
@@ -19,13 +19,13 @@ namespace alt
 
 		}
 
-		IEntity* GetTarget() const { return target; }
-		IPlayer* GetNewOwner() const { return newOwner; }
-		IPlayer* GetOldOwner() const { return oldOwner; }
+		IEntity* GetTarget() const { return target.get(); }
+		IPlayer* GetNewOwner() const { return newOwner.get(); }
+		IPlayer* GetOldOwner() const { return oldOwner.get(); }
 
 	private:
-		IEntity* target;
-		IPlayer* newOwner;
-		IPlayer* oldOwner;
+		std::shared_ptr<IEntity> target;
+		std::shared_ptr<IPlayer> newOwner;
+		std::shared_ptr<IPlayer> oldOwner;
 	};
 }

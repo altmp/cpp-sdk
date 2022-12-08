@@ -9,7 +9,7 @@ namespace alt
 	class CRmlEvent : public CEvent
 	{
 	public:
-		CRmlEvent(IRmlElement* _element, const std::string& _name, const MValueDict& _args) :
+		CRmlEvent(const std::shared_ptr<IRmlElement>& _element, const std::string& _name, const MValueDict& _args) :
 			CEvent(Type::RMLUI_EVENT),
 			element(_element),
 			name(_name),
@@ -18,12 +18,12 @@ namespace alt
 
 		}
 
-		IRmlElement* GetElement() const { return element; }
+		IRmlElement* GetElement() const { return element.get(); }
 		std::string GetName() const { return name; }
 		const MValueDict& GetArgs() const { return args; }
 
 	private:
-		IRmlElement* element;
+		std::shared_ptr<IRmlElement> element;
 		std::string name;
 		MValueDict args;
 	};

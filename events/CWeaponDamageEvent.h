@@ -39,7 +39,7 @@ namespace alt
 			UNKNOWN = -1
 		};
 
-		CWeaponDamageEvent(IPlayer* _source, IEntity* _target, uint32_t _weaponHash, uint32_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
+		CWeaponDamageEvent(const std::shared_ptr<IPlayer>& _source, const std::shared_ptr<IEntity>& _target, uint32_t _weaponHash, uint32_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart) :
 			CEvent(Type::WEAPON_DAMAGE_EVENT),
 			source(_source),
 			target(_target),
@@ -51,8 +51,8 @@ namespace alt
 
 		}
 
-		IPlayer* GetSource() const { return source; }
-		IEntity* GetTarget() const { return target; }
+		IPlayer* GetSource() const { return source.get(); }
+		IEntity* GetTarget() const { return target.get(); }
 		uint32_t GetWeaponHash() const { return weaponHash; }
 		uint32_t GetDamageValue() const { return damageValue; }
 		Vector3f GetShotOffset() const { return shotOffset; }
@@ -64,8 +64,8 @@ namespace alt
 		}
 
 	private:
-		IPlayer* source;
-		IEntity* target;
+		std::shared_ptr<IPlayer> source;
+		std::shared_ptr<IEntity> target;
 		uint32_t weaponHash;
 		uint32_t damageValue;
 		Vector3f shotOffset;

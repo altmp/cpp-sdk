@@ -9,7 +9,7 @@ namespace alt
 	class CPlayerDimensionChangeEvent : public CEvent
 	{
 	public:
-		CPlayerDimensionChangeEvent(IPlayer* _target, int32_t _oldDimension, int32_t _newDimension) :
+		CPlayerDimensionChangeEvent(const std::shared_ptr<IPlayer>& _target, int32_t _oldDimension, int32_t _newDimension) :
 			CEvent(Type::PLAYER_DIMENSION_CHANGE),
 			target(_target),
 			oldDimension(_oldDimension),
@@ -17,12 +17,12 @@ namespace alt
 		{
 		}
 
-		IPlayer* GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target.get(); }
 		int32_t GetOldDimension() const { return oldDimension; }
 		int32_t GetNewDimension() const { return newDimension; }
 
 	private:
-		IPlayer* target;
+		std::shared_ptr<IPlayer> target;
 		int32_t oldDimension;
 		int32_t newDimension;
 	};

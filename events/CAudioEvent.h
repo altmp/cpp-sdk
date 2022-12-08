@@ -11,19 +11,19 @@ namespace alt
 	class CAudioEvent : public CEvent
 	{
 	public:
-		CAudioEvent(IAudio* _target, const std::string& _name, const MValueArgs& _args) : CEvent(Type::AUDIO_EVENT),
+		CAudioEvent(const std::shared_ptr<IAudio>& _target, const std::string& _name, const MValueArgs& _args) : CEvent(Type::AUDIO_EVENT),
 			target(_target),
 			name(_name),
 			args(_args)
 		{
 		}
 
-		IAudio* GetTarget() const { return target; }
+		IAudio* GetTarget() const { return target.get(); }
 		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
-		IAudio* target;
+		std::shared_ptr<IAudio> target;
 		std::string name;
 		MValueArgs args;
 	};

@@ -9,7 +9,7 @@ namespace alt
 	class CVehicleAttachEvent : public CEvent
 	{
 	public:
-		CVehicleAttachEvent(IVehicle* _target, IVehicle* _attached) :
+		CVehicleAttachEvent(const std::shared_ptr<IVehicle>& _target, const std::shared_ptr<IVehicle>& _attached) :
 			CEvent(Type::VEHICLE_ATTACH),
 			target(_target),
 			attached(_attached)
@@ -17,11 +17,11 @@ namespace alt
 
 		}
 
-		IVehicle* GetTarget() const { return target; }
-		IVehicle* GetAttached() const { return attached; }
+		IVehicle* GetTarget() const { return target.get(); }
+		IVehicle* GetAttached() const { return attached.get(); }
 
 	private:
-		IVehicle* target;
-		IVehicle* attached;
+		std::shared_ptr<IVehicle> target;
+		std::shared_ptr<IVehicle> attached;
 	};
 }

@@ -11,13 +11,13 @@ namespace alt
 	class CPlayerBeforeConnectEvent : public CEvent
 	{
 	public:
-		CPlayerBeforeConnectEvent(IConnectionInfo* _connectionInfo) :
+		CPlayerBeforeConnectEvent(const std::shared_ptr<IConnectionInfo>& _connectionInfo) :
 			CEvent(Type::PLAYER_BEFORE_CONNECT),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		IConnectionInfo* GetConnectionInfo() const { return connectionInfo; }
+		IConnectionInfo* GetConnectionInfo() const { return connectionInfo.get(); }
 		std::string GetReason() const { return reason; }
 
 		void Cancel(std::string _reason)
@@ -27,7 +27,7 @@ namespace alt
 		}
 
 	private:
-		IConnectionInfo* connectionInfo;
+		std::shared_ptr<IConnectionInfo> connectionInfo;
 		std::string reason;
 	};
 }

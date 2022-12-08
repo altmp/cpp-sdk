@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "CEvent.h"
 
 namespace alt
@@ -10,7 +11,7 @@ namespace alt
 	class CColShapeEvent : public CEvent
 	{
 	public:
-		CColShapeEvent(IColShape* _target, IEntity* _entity, bool _state) :
+		CColShapeEvent(const std::shared_ptr<IColShape>& _target, const std::shared_ptr<IEntity>& _entity, bool _state) :
 			CEvent(Type::COLSHAPE_EVENT),
 			target(_target),
 			entity(_entity),
@@ -19,13 +20,13 @@ namespace alt
 
 		}
 
-		IColShape* GetTarget() const { return target; }
-		IEntity* GetEntity() const { return entity; }
+		IColShape* GetTarget() const { return target.get(); }
+		IEntity* GetEntity() const { return entity.get(); }
 		bool GetState() const { return state; }
 
 	private:
-		IColShape* target;
-		IEntity* entity;
+		std::shared_ptr<IColShape> target;
+		std::shared_ptr<IEntity> entity;
 		bool state;
 	};
 }

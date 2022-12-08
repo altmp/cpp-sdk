@@ -12,7 +12,7 @@ namespace alt
 	class CPlayerDamageEvent : public CEvent
 	{
 	public:
-		CPlayerDamageEvent(IPlayer* _target, IEntity* _attacker, uint16_t _healthDamage, uint16_t _armourDamage, uint32_t _weapon) :
+		CPlayerDamageEvent(const std::shared_ptr<IPlayer>& _target, const std::shared_ptr<IEntity>& _attacker, uint16_t _healthDamage, uint16_t _armourDamage, uint32_t _weapon) :
 			CEvent(Type::PLAYER_DAMAGE),
 			target(_target),
 			attacker(_attacker),
@@ -23,15 +23,15 @@ namespace alt
 
 		}
 
-		IPlayer* GetTarget() const { return target; }
-		IEntity* GetAttacker() const { return attacker; }
+		IPlayer* GetTarget() const { return target.get(); }
+		IEntity* GetAttacker() const { return attacker.get(); }
 		uint16_t GetHealthDamage() const { return healthDamage; }
 		uint16_t GetArmourDamage() const { return armourDamage; }
 		uint32_t GetWeapon() const { return weapon; }
 
 	private:
-		IPlayer* target;
-		IEntity* attacker;
+		std::shared_ptr<IPlayer> target;
+		std::shared_ptr<IEntity> attacker;
 		uint16_t healthDamage;
 		uint16_t armourDamage;
 		uint32_t weapon;

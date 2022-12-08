@@ -12,16 +12,16 @@ namespace alt
 	class CVehicleDestroyEvent : public CEvent
 	{
 	public:
-		CVehicleDestroyEvent(IVehicle* _target) :
+		CVehicleDestroyEvent(const std::shared_ptr<IVehicle>& _target) :
 			CEvent(Type::VEHICLE_DESTROY),
 			target(_target)
 		{
 
 		}
 
-		IVehicle* GetTarget() const { return target; }
+		IVehicle* GetTarget() const { return target.get(); }
 
 	private:
-		IVehicle* target;
+		std::shared_ptr<IVehicle> target;
 	};
 }

@@ -11,19 +11,19 @@ namespace alt
 	class CWebSocketClientEvent : public CEvent
 	{
 	public:
-		CWebSocketClientEvent(IWebSocketClient* _target, const std::string& _name, const MValueArgs& _args) : CEvent(Type::WEB_SOCKET_CLIENT_EVENT),
+		CWebSocketClientEvent(const std::shared_ptr<IWebSocketClient>& _target, const std::string& _name, const MValueArgs& _args) : CEvent(Type::WEB_SOCKET_CLIENT_EVENT),
 			target(_target),
 			name(_name),
 			args(_args)
 		{
 		}
 
-		IWebSocketClient* GetTarget() const { return target; }
+		IWebSocketClient* GetTarget() const { return target.get(); }
 		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
-		IWebSocketClient* target;
+		std::shared_ptr<IWebSocketClient> target;
 		std::string name;
 		MValueArgs args;
 	};

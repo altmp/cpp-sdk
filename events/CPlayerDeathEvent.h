@@ -12,7 +12,7 @@ namespace alt
 	class CPlayerDeathEvent : public CEvent
 	{
 	public:
-		CPlayerDeathEvent(IPlayer* _target, IEntity* _killer, uint32_t _weapon) :
+		CPlayerDeathEvent(const std::shared_ptr<IPlayer>& _target, const std::shared_ptr<IEntity>& _killer, uint32_t _weapon) :
 			CEvent(Type::PLAYER_DEATH),
 			target(_target),
 			killer(_killer),
@@ -21,13 +21,13 @@ namespace alt
 
 		}
 
-		IPlayer* GetTarget() const { return target; }
-		IEntity* GetKiller() const { return killer; }
+		IPlayer* GetTarget() const { return target.get(); }
+		IEntity* GetKiller() const { return killer.get(); }
 		uint32_t GetWeapon() const { return weapon; }
 
 	private:
-		IPlayer* target;
-		IEntity* killer;
+		std::shared_ptr<IPlayer> target;
+		std::shared_ptr<IEntity> killer;
 		uint32_t weapon;
 	};
 }

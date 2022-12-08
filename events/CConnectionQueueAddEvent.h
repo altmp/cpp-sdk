@@ -11,15 +11,15 @@ namespace alt
 	class CConnectionQueueAddEvent : public CEvent
 	{
 	public:
-		explicit CConnectionQueueAddEvent(IConnectionInfo* _connectionInfo) :
+		explicit CConnectionQueueAddEvent(const std::shared_ptr<IConnectionInfo>& _connectionInfo) :
 			CEvent(Type::CONNECTION_QUEUE_ADD),
 			connectionInfo(_connectionInfo)
 		{
 		}
 
-		IConnectionInfo* GetConnectionInfo() const { return connectionInfo; }
+		IConnectionInfo* GetConnectionInfo() const { return connectionInfo.get(); }
 
 	private:
-		IConnectionInfo* connectionInfo;
+		std::shared_ptr<IConnectionInfo> connectionInfo;
 	};
 }

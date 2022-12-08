@@ -9,16 +9,16 @@ namespace alt
 	class CGameEntityDestroyEvent : public CEvent
 	{
 	public:
-		CGameEntityDestroyEvent(IEntity* _target) :
+		CGameEntityDestroyEvent(const std::shared_ptr<IEntity>& _target) :
 			CEvent(Type::GAME_ENTITY_DESTROY),
 			target(_target)
 		{
 
 		}
 
-		IEntity* GetTarget() const { return target; }
+		IEntity* GetTarget() const { return target.get(); }
 
 	private:
-		IEntity* target;
+		std::shared_ptr<IEntity> target;
 	};
 }

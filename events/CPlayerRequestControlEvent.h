@@ -10,7 +10,7 @@ namespace alt
 	class CPlayerRequestControlEvent : public CEvent
 	{
 	public:
-		CPlayerRequestControlEvent(IEntity* _target, IPlayer* _player) :
+		CPlayerRequestControlEvent(const std::shared_ptr<IEntity>& _target, const std::shared_ptr<IPlayer>& _player) :
 			CEvent(Type::PLAYER_REQUEST_CONTROL),
 			target(_target),
 			player(_player)
@@ -18,11 +18,11 @@ namespace alt
 
 		}
 
-		IEntity* GetTarget() const { return target; }
-		IPlayer* GetPlayer() const { return player; }
+		IEntity* GetTarget() const { return target.get(); }
+		IPlayer* GetPlayer() const { return player.get(); }
 
 	private:
-		IEntity* target;
-		IPlayer* player;
+		std::shared_ptr<IEntity> target;
+		std::shared_ptr<IPlayer> player;
 	};
 }

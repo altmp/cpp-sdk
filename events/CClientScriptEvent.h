@@ -12,7 +12,7 @@ namespace alt
 	class CClientScriptEvent : public CEvent
 	{
 	public:
-		CClientScriptEvent(IPlayer* _target, const std::string& _name, const MValueArgs&_args) :
+		CClientScriptEvent(const std::shared_ptr<IPlayer>& _target, const std::string& _name, const MValueArgs&_args) :
 			CEvent(Type::CLIENT_SCRIPT_EVENT),
 			target(_target),
 			name(_name),
@@ -21,12 +21,12 @@ namespace alt
 
 		}
 
-		IPlayer* GetTarget() const { return target; }
+		IPlayer* GetTarget() const { return target.get(); }
 		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 
 	private:
-		IPlayer* target;
+		std::shared_ptr<IPlayer> target;
 		std::string name;
 		MValueArgs args;
 	};

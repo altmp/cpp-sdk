@@ -9,16 +9,16 @@ namespace alt
 	class CGameEntityCreateEvent : public CEvent
 	{
 	public:
-		CGameEntityCreateEvent(IEntity* _target) :
+		CGameEntityCreateEvent(const std::shared_ptr<IEntity>& _target) :
 			CEvent(Type::GAME_ENTITY_CREATE),
 			target(_target)
 		{
 
 		}
 
-		IEntity* GetTarget() const { return target; }
+		IEntity* GetTarget() const { return target.get(); }
 
 	private:
-		IEntity* target;
+		std::shared_ptr<IEntity> target;
 	};
 }
