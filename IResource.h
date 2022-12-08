@@ -13,7 +13,9 @@
 #include <set>
 #include <memory>
 
-#include "deps/ConfigBase.h"
+#if __cplusplus >= 201703L
+	#include "deps/ConfigBase.h"
+#endif
 
 namespace alt
 {
@@ -86,7 +88,11 @@ namespace alt
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
 		virtual const std::vector<std::string>& GetClientFiles() const = 0;
+#if __cplusplus >= 201703L
 		virtual Config::Value::ValuePtr GetConfig() const = 0;
+#else
+		virtual std::shared_ptr<void> GetConfig() const = 0;
+#endif
 		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
 #endif
 
