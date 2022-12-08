@@ -5,7 +5,9 @@
 
 #include "deps/alt-math/alt-math.h"
 #include "deps/alt-config/alt-config.h"
-#include "deps/ConfigBase.h"
+#if __cplusplus >= 201703L
+	#include "deps/ConfigBase.h"
+#endif
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
