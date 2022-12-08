@@ -19,9 +19,7 @@
 #endif // _WIN32
 
 #include "deps/alt-math/alt-math.h"
-#if __cplusplus >= 201703L
-  #include "deps/alt-config/alt-config.h"
-#endif
+#include "deps/alt-config/alt-config.h"
 
 #include "types/Types.h"
 #include "types/RGBA.h"
