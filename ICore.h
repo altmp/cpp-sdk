@@ -4,8 +4,8 @@
 #include <memory>
 
 #include "deps/alt-math/alt-math.h"
-#include "deps/alt-config/alt-config.h"
 #if __cplusplus >= 201703L
+	#include "deps/alt-config/alt-config.h"
 	#include "deps/ConfigBase.h"
 #endif
 #include "types/RGBA.h"
@@ -327,8 +327,11 @@ namespace alt
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
 		virtual const PedModelInfo& GetPedModelByHash(uint32_t hash) const = 0;
-
+#if __cplusplus >= 201703L
 		virtual Config::Value::ValuePtr GetServerConfig() const = 0;
+#else
+		virtual std::shared_ptr<void> GetServerConfig() const = 0;
+#endif
 		
 		virtual void SetWorldProfiler(bool state) = 0;
 #endif
