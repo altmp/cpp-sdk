@@ -37,6 +37,8 @@ namespace alt
 		virtual void DeleteMetaData(const std::string& key) = 0;
 		virtual std::vector<std::string> GetMetaDataKeys() const = 0;
 
+		virtual bool IsRemoved() const = 0;
+
 		template <typename Derived>
 		std::shared_ptr<Derived> SharedAs()
 		{
