@@ -2,6 +2,7 @@
 
 #include <climits>
 #include <memory>
+#include <vector>
 
 #include "deps/alt-math/alt-math.h"
 #include "deps/alt-config/alt-config.h"
@@ -97,9 +98,9 @@ namespace alt
 
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
 
-		virtual Array<IEntity*> GetEntities() const = 0;
-		virtual Array<IPlayer*> GetPlayers() const = 0;
-		virtual Array<IVehicle*> GetVehicles() const = 0;
+		virtual std::vector<IEntity*> GetEntities() const = 0;
+		virtual std::vector<IPlayer*> GetPlayers() const = 0;
+		virtual std::vector<IVehicle*> GetVehicles() const = 0;
 		virtual std::vector<IBlip*> GetBlips() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
@@ -291,7 +292,7 @@ namespace alt
 		virtual void RestartResource(const std::string& name) = 0;
 
 		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
-		virtual void TriggerClientEvent(Array<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEvent(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
@@ -314,7 +315,7 @@ namespace alt
 		virtual IColShape* CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
 		virtual IColShape* CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
 
-		virtual Array<IPlayer*> GetPlayersByName(const std::string& name) const = 0;
+		virtual std::vector<IPlayer*> GetPlayersByName(const std::string& name) const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
 
