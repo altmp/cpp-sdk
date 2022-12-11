@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "IEntity.h"
 #include "IVehicle.h"
 #include "../types/Cloth.h"
@@ -24,7 +26,7 @@ namespace alt
 		virtual uint16_t GetMaxHealth() const = 0;
 
 		virtual bool HasWeaponComponent(uint32_t weapon, uint32_t component) const = 0;
-		virtual Array<uint32_t> GetCurrentWeaponComponents() const = 0;
+		virtual std::vector<uint32_t> GetCurrentWeaponComponents() const = 0;
 
 		virtual uint8_t GetWeaponTintIndex(uint32_t weapon) const = 0;
 		virtual uint8_t GetCurrentWeaponTintIndex() const = 0;
@@ -129,7 +131,7 @@ namespace alt
 		virtual uint8_t GetHairColor() const  = 0;
 		virtual void SetHairHighlightColor(uint8_t hairHighlightColor) = 0;
 		virtual uint8_t GetHairHighlightColor() const = 0;
-		virtual Array<Weapon> GetWeapons() const = 0;
+		virtual std::vector<Weapon> GetWeapons() const = 0;
 
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual void SetLocalMetaData(const std::string& key, MValue val) = 0;
