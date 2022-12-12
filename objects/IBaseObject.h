@@ -50,7 +50,8 @@ namespace alt
 					static std::shared_ptr<Derived> empty;
 					return empty;
 				}
-				return derived->shared_from_this();
+				std::shared_ptr<IBaseObject> shared = derived->shared_from_this();
+				return std::dynamic_pointer_cast<Derived>(shared);
 			}
 			catch (std::bad_weak_ptr&)
 			{
