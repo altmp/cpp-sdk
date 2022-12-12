@@ -42,7 +42,21 @@ namespace alt
 		template <typename Derived>
 		std::shared_ptr<Derived> SharedAs()
 		{
-			return std::dynamic_pointer_cast<Derived>(shared_from_this());
+			try
+			{
+				Derived* derived = dynamic_cast<Derived*>(this);
+				if (!derived)
+				{
+					static std::shared_ptr<Derived> empty;
+					return empty;
+				}
+				return derived->shared_from_this();
+			}
+			catch (std::bad_weak_ptr&)
+			{
+				static std::shared_ptr<Derived> empty;
+				return empty;
+			}
 		}
 
         template <typename Derived>
