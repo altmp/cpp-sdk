@@ -104,6 +104,7 @@ namespace alt
 		virtual std::vector<IBlip*> GetBlips() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
 
 		virtual bool HasMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetMetaData(const std::string& key) const = 0;
