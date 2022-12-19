@@ -20,6 +20,9 @@ namespace alt
         virtual std::vector<uint32_t> GetWeaponComponents(uint32_t weaponHash) const = 0;
 
         virtual std::shared_ptr<alt::IWeaponData> GetCurrentWeaponData() const = 0;
+
+        virtual float GetStamina() const = 0;
+        virtual void SetStamina(float value) = 0;
 #endif
     };
 } // namespace alt
