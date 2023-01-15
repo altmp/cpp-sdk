@@ -12,7 +12,7 @@
     "globalMetadata": {
       "_disableSideFilter": true,
       "_gitContribute": {
-        "branch": "master",
+        "branch": "docs",
         "apiSpecFolder": "docs/apidoc"
       },
       "_gitUrlPattern": "github"
