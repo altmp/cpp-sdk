@@ -23,6 +23,8 @@ namespace alt
 
         virtual float GetStamina() const = 0;
         virtual void SetStamina(float value) = 0;
+        virtual float GetMaxStamina() const = 0;
+        virtual void SetMaxStamina(float value) = 0;
 #endif
     };
 } // namespace alt
