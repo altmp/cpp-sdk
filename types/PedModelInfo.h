@@ -10,6 +10,10 @@ namespace alt
 	{
 		uint32_t hash;
 		std::string name;
+		std::string type;
+		std::string dlcName;
+		std::string defaultUnarmedWeapon;
+		std::string movementClipSet;
 		std::vector<BoneInfo> bones;
 	};
 }
