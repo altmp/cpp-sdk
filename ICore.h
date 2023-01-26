@@ -283,6 +283,8 @@ namespace alt
 		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
 		virtual const std::vector<IObject*> GetObjects() const = 0;
 		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
+
+		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
