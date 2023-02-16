@@ -26,7 +26,8 @@ namespace alt
 			RML_ELEMENT,
 			RML_DOCUMENT,
 			LOCAL_PLAYER,
-			OBJECT
+			OBJECT,
+			PED
 		};
 
 		virtual Type GetType() const = 0;
