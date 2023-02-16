@@ -17,6 +17,7 @@
 #include "IDiscordManager.h"
 
 #include "objects/ILocalPlayer.h"
+#include "objects/IPed.h"
 
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
@@ -333,6 +334,8 @@ namespace alt
 		virtual Config::Value::ValuePtr GetServerConfig() const = 0;
 		
 		virtual void SetWorldProfiler(bool state) = 0;
+
+		virtual IPed* CreatePed(uint32_t model, Position pos, Rotation rot) = 0;
 #endif
 
 		static ICore &Instance()
