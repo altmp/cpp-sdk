@@ -15,6 +15,7 @@ namespace alt
 		{
 			PLAYER,
 			VEHICLE,
+			PED,
 			BLIP,
 			WEBVIEW,
 			VOICE_CHANNEL,
@@ -26,8 +27,7 @@ namespace alt
 			RML_ELEMENT,
 			RML_DOCUMENT,
 			LOCAL_PLAYER,
-			OBJECT,
-			PED
+			OBJECT
 		};
 
 		virtual Type GetType() const = 0;
