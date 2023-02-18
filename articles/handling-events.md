@@ -88,7 +88,7 @@ bool MyResource::OnEvent(const alt::CEvent* ev)
 
 It is recommended to not handle every event in this method directly for clarity.
 There should be some sort of wrapper for events in your module.
-An example for this can be found in the [JS module](https://github.com/altmp/v8-helpers/blob/89972fcdfd8f2f80c40cb910a9da61dcc8148ccd/V8Helpers.h#L110) 
+An example for this can be found in the [JS module](https://github.com/altmp/altv-js-module/blob/10c39827fea32d6092d69364b3d6ec3b46540ba2/shared/V8Helpers.h#L108) 
 or the [AngelScript module](https://github.com/LeonMrBonnie/altv-angelscript-module/blob/dev/src/helpers/events.h).
 
 > A list of event types can be found [here](https://github.com/altmp/cpp-sdk/blob/master/events/CEvent.h#L10).
@@ -105,9 +105,9 @@ The first way can be achieved by calling the `Cancel` method on the received eve
 
 It is possible to emit custom events (`alt::CEvent::Type::SERVER_SCRIPT_EVENT` or `alt::CEvent::Type::CLIENT_SCRIPT_EVENT`) from the module.
 These events can be emitted by using 
-[`alt::ICore::TriggerLocalEvent`](https://github.com/altmp/cpp-sdk/blob/master/ICore.h#L100), 
-[`alt::ICore::TriggerServerEvent`](https://github.com/altmp/cpp-sdk/blob/master/ICore.h#L123) and 
-[`alt::ICore::TriggerClientEvent`](https://github.com/altmp/cpp-sdk/blob/master/ICore.h#L215) respectively.
+[`alt::ICore::TriggerLocalEvent`](https://github.com/altmp/cpp-sdk/blob/14d63e7b7bf1135c43664144aed07a061eac26ca/ICore.h#L106s),
+[`alt::ICore::TriggerLocalEventOnMain`](https://github.com/altmp/cpp-sdk/blob/14d63e7b7bf1135c43664144aed07a061eac26ca/ICore.h#L107) and 
+[`alt::ICore::TriggerClientEvent`](https://github.com/altmp/cpp-sdk/blob/14d63e7b7bf1135c43664144aed07a061eac26ca/ICore.h#L297) respectively.
 
 These methods take the custom event name and the event arguments as parameters. The event arguments have to be in the form
 of [MValues](#what-are-mvalues).
@@ -130,7 +130,7 @@ args.Push(arg2);
 alt::ICore::Instance().TriggerLocalEvent("MyCustomEvent", args);
 ```
 
-> All methods to create MValues can be found [here](https://github.com/altmp/cpp-sdk/blob/master/ICore.h#L63).
+> All methods to create MValues can be found [here](https://github.com/altmp/cpp-sdk/blob/14d63e7b7bf1135c43664144aed07a061eac26ca/ICore.h#L68-L84).
 
 ## What are MValues
 
