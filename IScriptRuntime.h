@@ -26,7 +26,10 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		// Called every time when connecting to a server
-		virtual void Init() { };
+		virtual void Init(void (* next)(bool success, std::string error), void (* setProgress)(InitState state, float progress, float total))
+		{
+			next(true, "");
+		}
 #endif
 	};
 }
