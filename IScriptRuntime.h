@@ -2,8 +2,20 @@
 
 #include "IResource.h"
 
+#include <cstdint>
+#include <functional>
+
 namespace alt
 {
+	enum InitState: uint8_t
+	{
+		DownloadingResources = 0,
+		ValidatingResources,
+		DownloadingRuntime,
+		ValidatingRuntime,
+		DownloadingAdditionalResources
+	};
+
 	class IPackage;
 
 	class IScriptRuntime
@@ -26,7 +38,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		// Called every time when connecting to a server
-		virtual void Init(void (* next)(bool success, std::string error), void (* setProgress)(InitState state, float progress, float total))
+		virtual void Init(std::function<void(bool success, std::string error)> next, std::function<void(InitState state, float progress, float total)> setProgress)
 		{
 			next(true, "");
 		}
