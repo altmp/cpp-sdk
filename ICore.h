@@ -135,6 +135,7 @@ namespace alt
 		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
 
 		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
@@ -297,6 +298,10 @@ namespace alt
 		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
+
+		virtual void TriggerClientEventUnreliable(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventUnreliable(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventUnreliableForAll(const std::string& ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
