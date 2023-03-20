@@ -80,6 +80,7 @@
 #include "events/CPlayerConnectDeniedEvent.h"
 #include "events/CPlayerDimensionChangeEvent.h"
 #include "events/CVehicleHornEvent.h"
+#include "events/CVehicleSirenEvent.h"
 
 #ifdef ALT_CLIENT_API
 
