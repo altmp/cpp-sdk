@@ -13,7 +13,7 @@ namespace alt
 	public:
 		CPlayerSpawnEvent(const std::shared_ptr<IPlayer>& _player) :
 			CEvent(Type::PLAYER_SPAWN),
-			player(_player),
+			player(_player)
 		{
 
 		}
