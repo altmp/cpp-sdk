@@ -103,6 +103,7 @@ namespace alt
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual std::vector<IVehicle*> GetVehicles() const = 0;
 		virtual std::vector<IBlip*> GetBlips() const = 0;
+		virtual std::vector<IPed*> GetPeds() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
