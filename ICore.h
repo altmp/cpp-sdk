@@ -338,8 +338,11 @@ namespace alt
 		virtual Config::Value::ValuePtr GetServerConfig() const = 0;
 		
 		virtual void SetWorldProfiler(bool state) = 0;
-#endif
 
+		virtual std::vector<IBaseObject*> GetEntitiesInDimension(int32_t dimension, uint64_t allowedTypes) const = 0;
+		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
+		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
+#endif
 		static ICore &Instance()
 		{
 			return *_instance();
