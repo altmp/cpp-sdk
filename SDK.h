@@ -79,6 +79,9 @@
 #include "events/CPlayerChangeInteriorEvent.h"
 #include "events/CPlayerConnectDeniedEvent.h"
 #include "events/CPlayerDimensionChangeEvent.h"
+#include "events/CVehicleHornEvent.h"
+#include "events/CVehicleSirenEvent.h"
+#include "events/CPlayerSpawnEvent.h"
 
 #ifdef ALT_CLIENT_API
 

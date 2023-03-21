@@ -136,6 +136,7 @@ namespace alt
 		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
 
 		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
@@ -209,17 +210,17 @@ namespace alt
 		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
-		virtual IWebView* CreateWebView(IResource* res, const std::string& url, uint32_t drawableHash, const std::string& targetTexture) = 0;
-		virtual IWebView* CreateWebView(IResource* res, const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay) = 0;
-		virtual IWebSocketClient* CreateWebSocketClient(const std::string& url, IResource* res) = 0;
-		virtual IHttpClient* CreateHttpClient(IResource* res) = 0;
-		virtual IBlip* CreateBlip(IBlip::BlipType type, Vector3f position) = 0;
-		virtual IBlip* CreateBlip(IBlip::BlipType type, uint32_t entityID) = 0;
-		virtual IBlip* CreateBlip(Vector3f position, float radius) = 0;
-		virtual IBlip* CreateBlip(Vector3f position, float width, float height) = 0;
-		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color) = 0;
-		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res) = 0;
-		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay, IResource* res = nullptr) = 0;
+		virtual IWebSocketClient* CreateWebSocketClient(const std::string& url, IResource* res = nullptr) = 0;
+		virtual IHttpClient* CreateHttpClient(IResource* res = nullptr) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, Vector3f position, IResource* res = nullptr) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, uint32_t entityID, IResource* res = nullptr) = 0;
+		virtual IBlip* CreateBlip(Vector3f position, float radius, IResource* res = nullptr) = 0;
+		virtual IBlip* CreateBlip(Vector3f position, float width, float height, IResource* res = nullptr) = 0;
+		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color, IResource* res = nullptr) = 0;
+		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res = nullptr) = 0;
+		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
@@ -281,7 +282,7 @@ namespace alt
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
 
-		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false) = 0;
+		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, IResource* res = nullptr) = 0;
 		virtual const std::vector<IObject*> GetObjects() const = 0;
 		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
 
@@ -298,6 +299,10 @@ namespace alt
 		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
+
+		virtual void TriggerClientEventUnreliable(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventUnreliable(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
+		virtual void TriggerClientEventUnreliableForAll(const std::string& ev, MValueArgs args) = 0;
 
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
@@ -336,7 +341,10 @@ namespace alt
 		virtual void SetWorldProfiler(bool state) = 0;
 
 		virtual IPed* CreatePed(uint32_t model, Position pos, Rotation rot) = 0;
-#endif
+
+		virtual std::vector<IBaseObject*> GetEntitiesInDimension(int32_t dimension, uint64_t allowedTypes) const = 0;
+		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
+		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
 
 		static ICore &Instance()
 		{
