@@ -32,6 +32,7 @@
 #include "script-objects/IObject.h"
 #include "script-objects/IRml.h"
 #include "script-objects/IWeaponData.h"
+#include "script-objects/IVirtualEntity.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -313,6 +314,7 @@ namespace alt
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
 
+		virtual IVirtualEntity* CreateVirtualEntity(Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
 
