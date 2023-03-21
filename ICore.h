@@ -17,6 +17,7 @@
 #include "IDiscordManager.h"
 
 #include "objects/ILocalPlayer.h"
+#include "objects/IPed.h"
 
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
@@ -339,10 +340,12 @@ namespace alt
 		
 		virtual void SetWorldProfiler(bool state) = 0;
 
+		virtual IPed* CreatePed(uint32_t model, Position pos, Rotation rot) = 0;
+
 		virtual std::vector<IBaseObject*> GetEntitiesInDimension(int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
-#endif
+
 		static ICore &Instance()
 		{
 			return *_instance();

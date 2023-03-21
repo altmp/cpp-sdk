@@ -15,6 +15,7 @@ namespace alt
 		{
 			PLAYER,
 			VEHICLE,
+			PED,
 			BLIP,
 			WEBVIEW,
 			VOICE_CHANNEL,
