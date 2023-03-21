@@ -28,7 +28,6 @@ namespace alt
 			RML_DOCUMENT,
 			LOCAL_PLAYER,
 			OBJECT,
-			PED,
 			VIRTUAL_ENTITY,
 			MARKER,
 			TEXT_LABEL,
