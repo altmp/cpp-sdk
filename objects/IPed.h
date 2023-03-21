@@ -14,7 +14,6 @@ namespace alt
         virtual uint16_t GetMaxHealth() const = 0;
 
         virtual uint16_t GetArmour() const = 0;
-        virtual uint16_t GetMaxArmour() const = 0;
 
         virtual uint32_t GetCurrentWeapon() const = 0;
         
