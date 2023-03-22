@@ -10,5 +10,7 @@ namespace alt
 	{
 	public:
 		virtual ~IVirtualEntity() = default;
+
+		virtual uint32_t GetStreamingDistance() const = 0;
 	};
 } // namespace alt

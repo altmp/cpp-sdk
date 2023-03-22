@@ -314,7 +314,7 @@ namespace alt
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
 
-		virtual IVirtualEntity* CreateVirtualEntity(Position pos) = 0;
+		virtual IVirtualEntity* CreateVirtualEntity(Position pos, uint32_t streamingDistance) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
 
