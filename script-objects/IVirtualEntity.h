@@ -12,6 +12,8 @@ namespace alt
 	public:
 		virtual ~IVirtualEntity() = default;
 
+		virtual uint32_t GetID() const = 0;
+
 		virtual uint32_t GetStreamingDistance() const = 0;
 
 		virtual IVirtualEntityGroup* GetGroup() const = 0;

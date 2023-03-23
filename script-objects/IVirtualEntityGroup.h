@@ -11,6 +11,8 @@ namespace alt
 	public:
 		virtual ~IVirtualEntityGroup() = default;
 
+		virtual uint32_t GetID() const = 0;
+
 		virtual uint32_t GetStreamingRangeLimit() const = 0;
 	};
 } // namespace alt
