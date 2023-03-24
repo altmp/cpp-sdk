@@ -33,6 +33,7 @@ namespace alt
 			MARKER,
 			TEXT_LABEL,
 			PICKUP,
+			SIZE
 		};
 
 		virtual Type GetType() const = 0;
