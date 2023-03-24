@@ -18,14 +18,15 @@ namespace alt
 
 		virtual uint32_t GetID() const = 0;
 
-		virtual uint32_t GetRemoteID() const = 0;
-
 		virtual IVirtualEntityGroup* GetGroup() const = 0;
 
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
 
+#ifdef ALT_CLIENT_API
+		virtual uint32_t GetRemoteID() const = 0;
+#endif
 #ifdef ALT_SERVER_API
 		virtual uint32_t GetStreamingDistance() const = 0;
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
