@@ -18,6 +18,8 @@ namespace alt
 
 		virtual uint32_t GetID() const = 0;
 
+		virtual uint32_t GetRemoteID() const = 0;
+
 		virtual IVirtualEntityGroup* GetGroup() const = 0;
 
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;
