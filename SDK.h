@@ -82,6 +82,7 @@
 #include "events/CVehicleHornEvent.h"
 #include "events/CVehicleSirenEvent.h"
 #include "events/CPlayerSpawnEvent.h"
+#include "events/CWorldObjectPositonChangeEvent.h"
 
 #ifdef ALT_CLIENT_API
 
