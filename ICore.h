@@ -353,7 +353,7 @@ namespace alt
 		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
 
-		virtual INetworkObject* CreateObject(uint32_t model, Position pos, Rotation rot) = 0;
+		virtual INetworkObject* CreateNetworkObject(uint32_t model, Position pos, Rotation rot) = 0;
 #endif
 
 		static ICore &Instance()
