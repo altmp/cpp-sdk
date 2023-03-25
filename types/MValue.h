@@ -92,6 +92,7 @@ namespace alt
 		virtual std::string ToString() const = 0;
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
+		virtual bool Equals(MValueConst other) const = 0;
 		
 		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
