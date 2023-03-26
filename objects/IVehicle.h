@@ -226,6 +226,9 @@ namespace alt
 		
 		virtual uint8_t GetHybridExtraState() const = 0;
 		virtual void SetHybridExtraState(uint8_t state) = 0;
+
+		virtual Quaternion GetQuaternion() const = 0;
+		virtual void SetQuaternion(Quaternion quaternion) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API

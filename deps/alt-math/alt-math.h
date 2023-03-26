@@ -445,6 +445,18 @@ namespace alt
     using Rotation = Vector<float, 3, RotationLayout>;
     using RotationPadded = Vector<float, 3, RotationPaddedLayout>;
 
+    class Quaternion
+    {
+    public:
+        float x = 0.f;
+        float y = 0.f;
+        float z = 0.f;
+        float w = 0.f;
+
+        Quaternion() = default;
+        Quaternion(float _x, float _y, float _z, float _w): x(_x),y(_y),z(_z),w(_w) {}
+    };
+
     class ViewMatrixLayout
     {
     public:
