@@ -15,8 +15,8 @@ namespace alt
 		virtual uint16_t GetLodDistance() const = 0;
 
 #ifdef ALT_SERVER_API
-		virtual void ActivatePhysics() const = 0;
-		virtual void PlaceOnGroundProperly() const = 0;
+		virtual void ActivatePhysics() = 0;
+		virtual void PlaceOnGroundProperly() = 0;
 		virtual void SetAlpha(uint8_t alpha) = 0;
 		virtual void SetTextureVariation(uint8_t textureVariation) = 0;
 		virtual void SetLodDistance(uint16_t lodDistance) = 0;
