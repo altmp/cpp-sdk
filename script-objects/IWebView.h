@@ -9,6 +9,7 @@ namespace alt
     {
     public:
         virtual ~IWebView() = default;
+        virtual uint32_t GetID() const = 0;
         virtual void Trigger(const std::string& eventname, const alt::MValueArgs &args) = 0;
         virtual void Focus() = 0;
         virtual void Unfocus() = 0;
