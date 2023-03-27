@@ -119,9 +119,11 @@ namespace alt
 		virtual MValueConst GetMetaData(const std::string& key) const = 0;
 		virtual void SetMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteMetaData(const std::string& key) = 0;
+		virtual std::vector<std::string> GetMetaDataKeys() const = 0;
 
 		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
+		virtual std::vector<std::string> GetSyncedMetaDataKeys() const = 0;
 
 		virtual const Array<Permission> GetRequiredPermissions() const = 0;
 		virtual const Array<Permission> GetOptionalPermissions() const = 0;
