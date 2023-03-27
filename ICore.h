@@ -296,6 +296,7 @@ namespace alt
 		virtual const std::vector<IObject*> GetObjects() const = 0;
 		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
+		virtual std::vector<IAudio*> GetAudios() const = 0;
 
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 #endif
