@@ -109,6 +109,7 @@ namespace alt
 		virtual std::vector<IPed*> GetPeds() const = 0;
 		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
 		virtual std::vector<IVirtualEntityGroup*> GetVirtualEntityGroups() const = 0;
+		virtual std::vector<INetworkObject*> GetNetworkObjects() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
