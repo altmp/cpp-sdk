@@ -13,6 +13,8 @@ namespace alt
 	public:
 		virtual ~IVoiceChannel() = default;
 
+		virtual uint32_t GetID() const = 0;
+
 		virtual bool IsSpatial() const = 0;
 		virtual float GetMaxDistance() const = 0;
 

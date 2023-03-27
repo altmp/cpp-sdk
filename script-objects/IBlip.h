@@ -29,6 +29,8 @@ namespace alt
 
 		virtual ~IBlip() = default;
 
+		virtual uint32_t GetID() const = 0;
+
 		virtual bool IsGlobal() const = 0;
 		virtual IPlayer* GetTarget() const = 0;
 		virtual bool IsAttached() const = 0;
@@ -73,6 +75,7 @@ namespace alt
 		virtual uint32_t GetScriptID() const = 0;
 		// Returns whether the blip was created on serverside (false for clientside blips)
 		virtual bool IsRemote() const = 0;
+		virtual uint32_t GetRemoteID() const = 0;
 #endif
 
 		virtual void SetSprite(int sprite) = 0;

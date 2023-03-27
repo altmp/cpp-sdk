@@ -106,6 +106,7 @@ namespace alt
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual std::vector<IVehicle*> GetVehicles() const = 0;
 		virtual std::vector<IBlip*> GetBlips() const = 0;
+		virtual std::vector<ICheckpoint*> GetCheckpoints() const = 0;
 		virtual std::vector<IPed*> GetPeds() const = 0;
 		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
 		virtual std::vector<IVirtualEntityGroup*> GetVirtualEntityGroups() const = 0;
