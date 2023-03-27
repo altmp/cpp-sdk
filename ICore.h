@@ -360,6 +360,8 @@ namespace alt
 		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
 
 		virtual INetworkObject* CreateNetworkObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100) = 0;
+
+		virtual std::vector<IColShape*> GetColShapes() const = 0;
 #endif
 
 		static ICore &Instance()
