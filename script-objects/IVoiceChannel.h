@@ -28,5 +28,11 @@ namespace alt
 
 		virtual const std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual size_t GetPlayerCount() const = 0;
+
+		virtual uint32_t GetFilter() const = 0;
+		virtual void SetFilter(uint32_t filter) = 0;
+
+		virtual int32_t GetPriority() const = 0;
+		virtual void SetPriority(int32_t priority) = 0;
 	};
 } // namespace alt

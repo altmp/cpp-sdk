@@ -50,6 +50,7 @@ namespace alt
 	class IScriptRuntime;
 	class IVoiceChannel;
 	class ILocalPlayer;
+	class IAudioFilter;
 
 	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
@@ -230,6 +231,7 @@ namespace alt
 		virtual IBlip* CreateBlip(Vector3f position, float width, float height, IResource* res = nullptr) = 0;
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color, IResource* res = nullptr) = 0;
 		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res = nullptr) = 0;
+		virtual IAudioFilter* CreateAudioFilter(uint32_t hash, IResource* res = nullptr) = 0;
 		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;

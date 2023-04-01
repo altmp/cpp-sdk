@@ -34,6 +34,7 @@ namespace alt
 			MARKER,
 			TEXT_LABEL,
 			PICKUP,
+			AUDIO_FILTER,
 			SIZE
 		};
 
