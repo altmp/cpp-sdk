@@ -26,6 +26,8 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetRemoteID() const = 0;
+		virtual bool IsRemote() const = 0;
+		virtual bool IsStreamedIn() const = 0;
 #endif
 #ifdef ALT_SERVER_API
 		virtual uint32_t GetStreamingDistance() const = 0;

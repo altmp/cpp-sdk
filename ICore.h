@@ -102,6 +102,7 @@ namespace alt
 		virtual IResource *GetResource(const std::string& name) = 0;
 
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
+		virtual IBaseObject* GetBaseObjectByID(alt::IBaseObject::Type type, uint16_t id) const = 0;
 
 		virtual std::vector<IEntity*> GetEntities() const = 0;
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
