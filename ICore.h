@@ -102,7 +102,7 @@ namespace alt
 		virtual IResource *GetResource(const std::string& name) = 0;
 
 		virtual IEntity* GetEntityByID(uint16_t id) const = 0;
-		virtual IBaseObject* GetBaseObjectByID(alt::IBaseObject::Type type, uint16_t id) const = 0;
+		virtual IBaseObject* GetBaseObjectByID(alt::IBaseObject::Type type, uint32_t id) const = 0;
 
 		virtual std::vector<IEntity*> GetEntities() const = 0;
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
@@ -302,6 +302,8 @@ namespace alt
 		virtual std::vector<IAudio*> GetAudios() const = 0;
 
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
+
+		virtual IBaseObject* GetBaseObjectByRemoteID(alt::IBaseObject::Type type, uint32_t id) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
