@@ -113,6 +113,8 @@ namespace alt
     public:
         virtual ~IRmlDocument() = default;
 
+        virtual uint32_t GetEntityID() const = 0;
+
         virtual void SetTitle(const std::string& title) = 0;
         virtual const std::string& GetTitle() const = 0;
         virtual const std::string& GetSourceUrl() const = 0;
