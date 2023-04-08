@@ -35,6 +35,7 @@
 #include "script-objects/IWeaponData.h"
 #include "script-objects/IVirtualEntity.h"
 #include "script-objects/IVirtualEntityGroup.h"
+#include "script-objects/IMarker.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -111,6 +112,7 @@ namespace alt
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual std::vector<IVehicle*> GetVehicles() const = 0;
 		virtual std::vector<IBlip*> GetBlips() const = 0;
+		virtual std::vector<IMarker*> GetMarkers() const = 0;
 		virtual std::vector<ICheckpoint*> GetCheckpoints() const = 0;
 		virtual std::vector<IPed*> GetPeds() const = 0;
 		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
@@ -237,6 +239,7 @@ namespace alt
 		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res = nullptr) = 0;
 		virtual IAudioFilter* CreateAudioFilter(uint32_t hash, IResource* res = nullptr) = 0;
 		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
+		virtual IMarker* CreateMarker(IMarker::MarkerType type, Vector3f position, alt::RGBA color, IResource* res = nullptr) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
