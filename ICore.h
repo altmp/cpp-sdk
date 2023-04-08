@@ -112,7 +112,6 @@ namespace alt
 		virtual std::vector<IPlayer*> GetPlayers() const = 0;
 		virtual std::vector<IVehicle*> GetVehicles() const = 0;
 		virtual std::vector<IBlip*> GetBlips() const = 0;
-		virtual std::vector<IMarker*> GetMarkers() const = 0;
 		virtual std::vector<ICheckpoint*> GetCheckpoints() const = 0;
 		virtual std::vector<IPed*> GetPeds() const = 0;
 		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
@@ -306,6 +305,7 @@ namespace alt
 		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
 		virtual std::vector<IAudio*> GetAudios() const = 0;
+		virtual std::vector<IMarker*> GetMarkers() const = 0;
 
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 
