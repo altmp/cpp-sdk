@@ -72,5 +72,11 @@ namespace alt
 
 		virtual Position GetScale() const = 0;
 		virtual void SetScale(Position scale) = 0;
+
+		virtual Rotation GetRotation() const = 0;
+		virtual void SetRotation(Rotation _rot) = 0;
+
+		virtual Vector4f GetDirection() const = 0;
+		virtual void SetDirection(Vector4f dir) = 0;
 	};
 } // namespace alt
