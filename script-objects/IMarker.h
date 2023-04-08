@@ -76,7 +76,7 @@ namespace alt
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation _rot) = 0;
 
-		virtual Vector4f GetDirection() const = 0;
-		virtual void SetDirection(Vector4f dir) = 0;
+		virtual Position GetDirection() const = 0;
+		virtual void SetDirection(Position dir) = 0;
 	};
 } // namespace alt
