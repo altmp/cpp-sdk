@@ -69,5 +69,8 @@ namespace alt
 
 		virtual MarkerType GetMarkerType() const = 0;
 		virtual void SetMarkerType(MarkerType type) = 0;
+
+		virtual Position GetScale() const = 0;
+		virtual void SetScale(Position scale) = 0;
 	};
 } // namespace alt
