@@ -24,15 +24,14 @@ namespace alt
 		virtual MValueConst GetStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
 
+		virtual uint32_t GetStreamingDistance() const = 0;
+		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
+
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetRemoteID() const = 0;
 		virtual bool IsRemote() const = 0;
 		virtual bool IsStreamedIn() const = 0;
-#endif
-#ifdef ALT_SERVER_API
-		virtual uint32_t GetStreamingDistance() const = 0;
-		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
-		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 #endif
 	};
 } // namespace alt

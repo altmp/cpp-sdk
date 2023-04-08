@@ -88,6 +88,9 @@ namespace alt
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t *data, Size size) = 0;
 		virtual MValueByteArray CreateMValueByteArray(Size size) = 0;
 
+		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance) = 0;
+		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(uint32_t streamingRangeLimit) = 0;
+
 		virtual bool IsDebug() const = 0;
 
 		virtual uint32_t Hash(const std::string& str) const = 0;
@@ -328,10 +331,7 @@ namespace alt
 
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
-
-		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance) = 0;
-
-		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(uint32_t streamingRangeLimit) = 0;
+		
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
 
