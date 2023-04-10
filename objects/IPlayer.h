@@ -40,6 +40,11 @@ namespace alt
 		virtual bool IsAiming() const = 0;
 		virtual bool IsShooting() const = 0;
 		virtual bool IsReloading() const = 0;
+		virtual bool IsEnteringVehicle() const = 0;
+		virtual bool IsLeavingVehicle() const = 0;
+		virtual bool IsOnLadder() const = 0;
+		virtual bool IsInMelee() const = 0;
+		virtual bool IsInCover() const = 0;
 
 		virtual uint16_t GetArmour() const = 0;
 		virtual uint16_t GetMaxArmour() const = 0;
