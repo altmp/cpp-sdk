@@ -55,6 +55,7 @@
 #include "events/CResourceStartEvent.h"
 #include "events/CResourceStopEvent.h"
 #include "events/CResourceErrorEvent.h"
+#include "events/CMetaDataChangeEvent.h"
 #include "events/CSyncedMetaDataChangeEvent.h"
 #include "events/CStreamSyncedMetaDataChangeEvent.h"
 #include "events/CGlobalMetaDataChangeEvent.h"
