@@ -92,6 +92,13 @@ namespace alt
 		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance) = 0;
 		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(uint32_t streamingRangeLimit) = 0;
 
+		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
+		virtual IColShape* CreateColShapeSphere(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCircle(Position pos, float radius) = 0;
+		virtual IColShape* CreateColShapeCube(Position pos, Position pos2) = 0;
+		virtual IColShape* CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
+		virtual IColShape* CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
+
 		virtual bool IsDebug() const = 0;
 
 		virtual uint32_t Hash(const std::string& str) const = 0;
@@ -118,6 +125,7 @@ namespace alt
 		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
 		virtual std::vector<IVirtualEntityGroup*> GetVirtualEntityGroups() const = 0;
 		virtual std::vector<INetworkObject*> GetNetworkObjects() const = 0;
+		virtual std::vector<IColShape*> GetColShapes() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
@@ -340,13 +348,6 @@ namespace alt
 		virtual IMarker* CreateMarker(IPlayer* target, IMarker::MarkerType type, Vector3f position, alt::RGBA color, IResource* res = nullptr) = 0;
 
 		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
-
-		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
-		virtual IColShape* CreateColShapeSphere(Position pos, float radius) = 0;
-		virtual IColShape* CreateColShapeCircle(Position pos, float radius) = 0;
-		virtual IColShape* CreateColShapeCube(Position pos, Position pos2) = 0;
-		virtual IColShape* CreateColShapeRectangle(float x1, float y1, float x2, float y2, float z) = 0;
-		virtual IColShape* CreateColShapePolygon(float minZ, float maxZ, std::vector<Vector2f> points) = 0;
 
 		virtual std::vector<IPlayer*> GetPlayersByName(const std::string& name) const = 0;
 
