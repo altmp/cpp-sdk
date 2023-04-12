@@ -140,7 +140,7 @@ namespace alt
 
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual void SetLocalMetaData(const std::string& key, MValue val) = 0;
-		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetLocalMetaData(const std::string& key) const = 0;
 		virtual void DeleteLocalMetaData(const std::string& key) = 0;
 		virtual std::vector<std::string> GetLocalMetaDataKeys() const = 0;
 
