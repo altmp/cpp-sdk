@@ -86,6 +86,7 @@
 #include "events/CWorldObjectPositonChangeEvent.h"
 #include "events/CWorldObjectStreamInEvent.h"
 #include "events/CWorldObjectStreamOutEvent.h"
+#include "events/CPlayerWeaponShootEvent.h"
 
 #ifdef ALT_CLIENT_API
 
