@@ -36,6 +36,7 @@
 #include "script-objects/IVirtualEntity.h"
 #include "script-objects/IVirtualEntityGroup.h"
 #include "script-objects/IMarker.h"
+#include "script-objects/ITextLabel.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -248,6 +249,7 @@ namespace alt
 		virtual IAudioFilter* CreateAudioFilter(uint32_t hash, IResource* res = nullptr) = 0;
 		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
 		virtual IMarker* CreateMarker(IMarker::MarkerType type, Vector3f position, alt::RGBA color, IResource* res = nullptr) = 0;
+		virtual ITextLabel* CreateTextLabel(const std::string& text, const std::string& fontName, float fontSize, float scale, Vector3f position, Vector3f rot, alt::RGBA color, float outlineWidth, alt::RGBA outlineColor, IResource* res = nullptr) = 0;
 
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
