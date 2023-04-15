@@ -42,24 +42,25 @@ namespace alt
 			virtual bool MakeClient(CreationInfo *info, Array<std::string> files)
 			{
 				return true;
-			};
+			}
 #endif
 			virtual bool Start()
 			{
 				return true;
-			};
-			virtual bool Stop() { return true; };
+			}
+			virtual bool Stop() { return true; }
+			virtual bool Mount() { return true; }
 
-			virtual void OnEvent(const CEvent *ev) { };
+			virtual void OnEvent(const CEvent *ev) { }
 			
 			/**
 			 * Clientside:
 			 * If natives are enabled, it is not necessary to call PushNatives() to make natives invokable.
 			 * */
-			virtual void OnTick(){};
+			virtual void OnTick(){}
 
-			virtual void OnCreateBaseObject(IBaseObject* object){};
-			virtual void OnRemoveBaseObject(IBaseObject* object){};
+			virtual void OnCreateBaseObject(IBaseObject* object){}
+			virtual void OnRemoveBaseObject(IBaseObject* object){}
 
 			virtual ~Impl() = default;
 		};
