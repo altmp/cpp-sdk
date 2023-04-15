@@ -320,6 +320,8 @@ namespace alt
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 
 		virtual IBaseObject* GetBaseObjectByRemoteID(alt::IBaseObject::Type type, uint32_t id) const = 0;
+
+		virtual std::vector<IVirtualEntity*> GetVirtualEntitiesStreamedIn() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
