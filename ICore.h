@@ -322,6 +322,8 @@ namespace alt
 		virtual IBaseObject* GetBaseObjectByRemoteID(alt::IBaseObject::Type type, uint32_t id) const = 0;
 
 		virtual std::vector<IVirtualEntity*> GetVirtualEntitiesStreamedIn() const = 0;
+		
+		virtual const char* GetGxtEntry(uint32_t hash) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
