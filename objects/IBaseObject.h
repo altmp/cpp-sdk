@@ -46,6 +46,15 @@ namespace alt
 		virtual void DeleteMetaData(const std::string& key) = 0;
 		virtual std::vector<std::string> GetMetaDataKeys() const = 0;
 
+		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
+		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
+		virtual std::vector<std::string> GetSyncedMetaDataKeys() const = 0;
+
+#ifdef ALT_SERVER_API
+		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
+#endif
+
 		virtual bool IsRemoved() const = 0;
 
 		template <typename Derived>

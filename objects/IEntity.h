@@ -23,9 +23,6 @@ namespace alt
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation rot) = 0;
 
-		virtual bool HasSyncedMetaData(const std::string& key) const = 0;
-		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
-		virtual std::vector<std::string> GetSyncedMetaDataKeys() const = 0;
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetStreamSyncedMetaData(const std::string& key) const = 0;
 		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
@@ -34,8 +31,6 @@ namespace alt
 #ifdef ALT_SERVER_API
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
-		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
-		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
