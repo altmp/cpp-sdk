@@ -6,12 +6,12 @@
 
 namespace alt
 {
-	class IEntity;
+	class IBaseObject;
 
 	class CSyncedMetaDataChangeEvent : public CEvent
 	{
 	public:
-		CSyncedMetaDataChangeEvent(const std::shared_ptr<IEntity>& _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
+		CSyncedMetaDataChangeEvent(const std::shared_ptr<IBaseObject>& _target, const std::string& _key, MValueConst _val, MValueConst _oldVal) :
 			CEvent(Type::SYNCED_META_CHANGE),
 			target(_target),
 			key(_key),
@@ -21,13 +21,13 @@ namespace alt
 
 		}
 
-		IEntity* GetTarget() const { return target.get(); }
+		IBaseObject* GetTarget() const { return target.get(); }
 		std::string GetKey() const { return key; }
 		MValueConst GetVal() const { return val; }
 		MValueConst GetOldVal() const { return oldVal; }
 
 	private:
-		std::shared_ptr<IEntity> target;
+		std::shared_ptr<IBaseObject> target;
 		std::string key;
 		MValueConst val;
 		MValueConst oldVal;
