@@ -49,7 +49,7 @@ namespace alt
 		virtual RGBA GetNeonColor() const = 0;
 		virtual uint8_t GetLivery() const = 0;
 		virtual uint8_t GetRoofLivery() const = 0;
-		virtual std::string GetAppearanceDataBase64() = 0;
+		virtual std::string GetAppearanceDataBase64() const = 0;
 		virtual bool IsEngineOn() const = 0;
 		virtual bool IsHandbrakeActive() const = 0;
 		virtual uint8_t GetHeadlightColor() const = 0;
@@ -77,7 +77,7 @@ namespace alt
 		virtual uint8_t GetRepairsCount() const = 0;
 		virtual uint32_t GetBodyHealth() const = 0;
 		virtual uint32_t GetBodyAdditionalHealth() const = 0;
-		virtual std::string GetHealthDataBase64() = 0;
+		virtual std::string GetHealthDataBase64() const = 0;
 		virtual uint8_t GetPartDamageLevel(uint8_t partId) = 0;
 		virtual uint8_t GetPartBulletHoles(uint8_t partId) = 0;
 		virtual bool IsLightDamaged(uint8_t lightId) = 0;
@@ -87,9 +87,9 @@ namespace alt
 		virtual float GetArmoredWindowHealth(uint8_t windowId) = 0;
 		virtual uint8_t GetArmoredWindowShootCount(uint8_t windowId) = 0;
 		virtual uint8_t GetBumperDamageLevel(uint8_t bumperId) = 0;
-		virtual std::string GetDamageDataBase64() = 0;
+		virtual std::string GetDamageDataBase64() const = 0;
 		virtual bool IsManualEngineControl() const = 0;
-		virtual std::string GetScriptDataBase64() = 0;
+		virtual std::string GetScriptDataBase64() const = 0;
 		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 		virtual Vector3f GetVelocity() const = 0;
 
