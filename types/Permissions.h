@@ -8,36 +8,36 @@ namespace alt
 	enum class PermissionState : uint8_t
 	{
 		// Permission is allowed by the user
-		Allowed,
+		ALLOWED,
 		// Permission is denied by the user
-		Denied,
+		DENIED,
 		// When a permission has not been specified by any of the resources
-		Unspecified,
+		UNSPECIFIED,
 		// When an action requiring permission fails
-		Failed
+		FAILED
 	};
 
 	// DO NOT CHANGE ORDER, ADD IN DECSENDING FASHION (before All)
 	enum class Permission : uint8_t
 	{
-		None,
-		ScreenCapture,
-		WebRTC,
-		ClipboardAccess,
+		NONE,
+		SCREEN_CAPTURE,
+		WEBRTC,
+		CLIPBOARD_ACCESS,
 		All
 	};
 	static Permission GetPermissionFromString(const std::string& val)
 	{
-		if(val == "Screen Capture") return Permission::ScreenCapture;
-		if(val == "WebRTC") return Permission::WebRTC;
-		if(val == "Clipboard Access") return Permission::ClipboardAccess;
-		return Permission::None;
+		if(val == "Screen Capture") return Permission::SCREEN_CAPTURE;
+		if(val == "WebRTC") return Permission::WEBRTC;
+		if(val == "Clipboard Access") return Permission::CLIPBOARD_ACCESS;
+		return Permission::NONE;
 	}
 	static std::string GetStringFromPermission(Permission val)
 	{
-		if(val == Permission::ScreenCapture) return "Screen Capture";
-		if(val == Permission::WebRTC) return "WebRTC";
-		if(val == Permission::ClipboardAccess) return "Clipboard Access";
+		if(val == Permission::SCREEN_CAPTURE) return "Screen Capture";
+		if(val == Permission::WEBRTC) return "WebRTC";
+		if(val == Permission::CLIPBOARD_ACCESS) return "Clipboard Access";
 		return "None";
 	}
 }
