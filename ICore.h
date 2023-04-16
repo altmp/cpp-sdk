@@ -325,6 +325,8 @@ namespace alt
 		virtual std::vector<IVirtualEntity*> GetVirtualEntitiesStreamedIn() const = 0;
 		
 		virtual const char* GetGxtEntry(uint32_t hash) const = 0;
+
+		virtual void InternalAddCefBootstrap(const std::string& bootstrap) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
