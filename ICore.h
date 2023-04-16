@@ -37,6 +37,7 @@
 #include "script-objects/IVirtualEntityGroup.h"
 #include "script-objects/IMarker.h"
 #include "script-objects/ITextLabel.h"
+#include "script-objects/IAudioFilter.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
