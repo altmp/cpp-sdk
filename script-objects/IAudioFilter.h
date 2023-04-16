@@ -7,6 +7,8 @@ namespace alt
 	class IAudioFilter : public virtual IBaseObject
 	{
 	public:
+		virtual ~IAudioFilter() = default;
+		
 		virtual uint32_t GetHash() const = 0;
 
 		virtual uint32_t AddRotateEffect(float fRate, int priority) const = 0;
