@@ -16,7 +16,7 @@ namespace alt
 		}
 
 		IPlayer* GetTarget() const { return target.get(); }
-		const std::string& GetReason() { return reason; }
+		const std::string& GetReason() const { return reason; }
 
 		void Cancel(const std::string& _reason)
 		{
