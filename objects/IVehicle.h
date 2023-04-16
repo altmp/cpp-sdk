@@ -65,7 +65,7 @@ namespace alt
 		virtual uint8_t GetRoofState() const = 0;
 		virtual bool IsFlamethrowerActive() const = 0;
 		virtual float GetLightsMultiplier() const = 0;
-		virtual std::string GetGameStateBase64() = 0;
+		virtual std::string GetGameStateBase64() const = 0;
 		virtual int32_t GetEngineHealth() const = 0;
 		virtual int32_t GetPetrolTankHealth() const = 0;
 		virtual uint8_t GetWheelsCount() const = 0;
