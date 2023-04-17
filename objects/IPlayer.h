@@ -80,6 +80,7 @@ namespace alt
 		virtual uint32_t GetPing() const = 0;
 		virtual std::string GetIP() const = 0;
 		virtual uint64_t GetSocialID() const = 0;
+		virtual std::string GetSocialClubName() const = 0;
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
 		virtual std::string GetAuthToken() const = 0;
