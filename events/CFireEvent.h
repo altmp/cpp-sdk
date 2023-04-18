@@ -17,6 +17,8 @@ namespace alt
 			uint32_t weaponHash;
 
 			FireInfo(const Position& _position, uint32_t _weaponHash): position(_position), weaponHash(_weaponHash) {}
+
+			FireInfo() = default;
 		};
 
 		CFireEvent(const std::shared_ptr<IPlayer>& _source, std::vector<FireInfo>&& _fires) :
