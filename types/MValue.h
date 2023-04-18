@@ -2,8 +2,10 @@
 
 #include <cstdint>
 #include <memory>
+#include <vector>
+
+#include "../types/Types.h"
 #include "../Ref.h"
-#include "Array.h"
 #include "../types/RGBA.h"
 #include "../deps/alt-math/alt-math.h"
 
@@ -62,7 +64,7 @@ namespace alt
 	using MValueRGBAConst = ConstRef<IMValueRGBA>;
 	using MValueByteArrayConst = ConstRef<IMValueByteArray>;
 
-	using MValueArgs = Array<MValueConst>;
+	using MValueArgs = std::vector<MValueConst>;
 
 	class IMValue : public virtual CRefCountable
 	{

@@ -39,7 +39,7 @@ namespace alt
 		{
 		public:
 #ifdef ALT_SERVER_API
-			virtual bool MakeClient(CreationInfo *info, Array<std::string> files)
+			virtual bool MakeClient(CreationInfo *info, std::vector<std::string> files)
 			{
 				return true;
 			}
@@ -76,10 +76,10 @@ namespace alt
 		virtual const std::string& GetMain() const = 0;
 		virtual IPackage *GetPackage() const = 0;
 		virtual MValueDict GetExports() const = 0;
-		virtual const Array<std::string> GetDependencies() const = 0;
-		virtual const Array<std::string> GetDependants() const = 0;
-		virtual const Array<Permission> GetRequiredPermissions() const = 0;
-		virtual const Array<Permission> GetOptionalPermissions() const = 0;
+		virtual const std::vector<std::string> GetDependencies() const = 0;
+		virtual const std::vector<std::string> GetDependants() const = 0;
+		virtual const std::vector<Permission> GetRequiredPermissions() const = 0;
+		virtual const std::vector<Permission> GetOptionalPermissions() const = 0;
 
 		virtual void SetExports(MValueDict exports) = 0;
 

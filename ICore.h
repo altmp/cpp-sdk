@@ -142,8 +142,8 @@ namespace alt
 		virtual MValueConst GetSyncedMetaData(const std::string& key) const = 0;
 		virtual std::vector<std::string> GetSyncedMetaDataKeys() const = 0;
 
-		virtual const Array<Permission> GetRequiredPermissions() const = 0;
-		virtual const Array<Permission> GetOptionalPermissions() const = 0;
+		virtual const std::vector<Permission> GetRequiredPermissions() const = 0;
+		virtual const std::vector<Permission> GetOptionalPermissions() const = 0;
 
         virtual alt::IPackage::PathInfo Resolve(IResource *resource, const std::string& path, const std::string& currentModulePath) const = 0;
 
@@ -206,7 +206,7 @@ namespace alt
 
 		virtual int32_t GetMsPerGameMinute() const = 0;
 		virtual void SetMsPerGameMinute(int32_t val) = 0;
-		virtual void SetWeatherCycle(alt::Array<uint8_t> weathers, alt::Array<uint8_t> multipliers) = 0;
+		virtual void SetWeatherCycle(std::vector<uint8_t> weathers, std::vector<uint8_t> multipliers) = 0;
 		virtual void SetWeatherSyncActive(bool active) = 0;
 
 		virtual void SetCamFrozen(bool frozen) = 0;

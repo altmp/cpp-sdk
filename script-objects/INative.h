@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <memory>
+#include "../types/Array.h"
 #include "../IResource.h"
 
 namespace alt

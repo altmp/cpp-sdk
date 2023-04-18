@@ -15,7 +15,7 @@ namespace alt
         virtual void SetUrl(const std::string& _url) = 0;
 
         virtual void AddSubProtocol(const std::string& protocol) = 0;
-        virtual alt::Array<std::string> GetSubProtocols() const = 0;
+        virtual std::vector<std::string> GetSubProtocols() const = 0;
 
         virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
         virtual alt::MValueDict GetExtraHeaders() const = 0;

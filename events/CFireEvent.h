@@ -1,7 +1,8 @@
 #pragma once
 
+#include <vector>
+
 #include "../deps/alt-math/alt-math.h"
-#include "../types/Array.h"
 
 #include "CEvent.h"
 
@@ -14,9 +15,11 @@ namespace alt
 		{
 			Position position;
 			uint32_t weaponHash;
+
+			FireInfo(const Position& _position, uint32_t _weaponHash): position(_position), weaponHash(_weaponHash) {}
 		};
 
-		CFireEvent(const std::shared_ptr<IPlayer>& _source, Array<FireInfo>&& _fires) :
+		CFireEvent(const std::shared_ptr<IPlayer>& _source, std::vector<FireInfo>&& _fires) :
 			CEvent(Type::FIRE_EVENT),
 			source(_source),
 			fires(std::move(_fires))
@@ -25,10 +28,10 @@ namespace alt
 		}
 
 		IPlayer* GetSource() const { return source.get(); }
-		const Array<FireInfo>& GetFires() const { return fires; }
+		const std::vector<FireInfo>& GetFires() const { return fires; }
 
 	private:
 		std::shared_ptr<IPlayer> source;
-		Array<FireInfo> fires;
+		std::vector<FireInfo> fires;
 	};
 }
