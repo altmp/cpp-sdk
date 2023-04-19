@@ -87,7 +87,11 @@ namespace alt
 		virtual std::string GetClientType() const = 0;
 		virtual std::string GetClientMain() const = 0;
 		virtual const std::vector<std::string>& GetClientFiles() const = 0;
+#endif
+
 		virtual Config::Value::ValuePtr GetConfig() const = 0;
+
+#ifdef ALT_SERVER_API
 		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
 #endif
 
