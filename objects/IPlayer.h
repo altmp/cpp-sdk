@@ -154,6 +154,8 @@ namespace alt
 
 		virtual void PlayAnimation(const std::string& animDict, const std::string& animName, float blendInSpeed, float blendOutSpeed, int duration, int flags, float playbackRate, bool lockX, bool lockY, bool lockZ) = 0;
 		virtual void ClearTasks() = 0;
+
+		virtual std::string GetCloudAuthHash() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
