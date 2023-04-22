@@ -29,6 +29,7 @@ namespace alt
 		virtual void PlaceOnGroundProperly() = 0;
 
 		virtual void SetPositionFrozen(bool toggle) = 0;
+		virtual bool IsPositionFrozen() const = 0;
 
 		virtual void ActivatePhysics() = 0;
 

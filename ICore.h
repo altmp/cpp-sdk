@@ -312,7 +312,7 @@ namespace alt
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
 
-		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, IResource* res = nullptr) = 0;
+		virtual IObject* CreateObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
 		virtual const std::vector<IObject*> GetObjects() const = 0;
 		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
