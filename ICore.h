@@ -245,7 +245,7 @@ namespace alt
 		virtual IBlip* CreateBlip(IBlip::BlipType type, uint32_t entityID, IResource* res = nullptr) = 0;
 		virtual IBlip* CreateBlip(Vector3f position, float radius, IResource* res = nullptr) = 0;
 		virtual IBlip* CreateBlip(Vector3f position, float width, float height, IResource* res = nullptr) = 0;
-		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color, IResource* res = nullptr) = 0;
+		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res = nullptr) = 0;
 		virtual IAudioFilter* CreateAudioFilter(uint32_t hash, IResource* res = nullptr) = 0;
 		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
@@ -350,7 +350,7 @@ namespace alt
 		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot) = 0;
 
 		// TODO make enum for types
-		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color) = 0;
+		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color, uint32_t streamingDistance) = 0;
 		
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
 		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
