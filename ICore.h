@@ -91,7 +91,7 @@ namespace alt
 		virtual MValueByteArray CreateMValueByteArray(const uint8_t *data, Size size) = 0;
 		virtual MValueByteArray CreateMValueByteArray(Size size) = 0;
 
-		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance) = 0;
+		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance, std::unordered_map<std::string, MValue> data) = 0;
 		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(uint32_t streamingRangeLimit) = 0;
 
 		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
