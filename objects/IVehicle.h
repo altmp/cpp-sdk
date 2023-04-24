@@ -240,6 +240,7 @@ namespace alt
 
 		virtual void SetCurrentGear(uint16_t currentGear) = 0;
 		virtual void SetMaxGear(uint16_t gearMax) = 0;
+		virtual void SetCurrentRPM(float rpm) = 0;
 
 		virtual bool IsHandlingModified() const = 0;
 		virtual std::shared_ptr<alt::IHandlingData> GetHandling() const = 0;
