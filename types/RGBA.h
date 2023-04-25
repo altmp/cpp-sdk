@@ -24,17 +24,17 @@ namespace alt
 		}
 
 		//also works as fromBGRA
-		RGBA toBGRA()
+		RGBA toBGRA() const
 		{
 			return RGBA(b, g, r, a);
 		}
 
-		RGBA toARGB()
+		RGBA toARGB() const
 		{
 			return RGBA(a ,r, g, b);
 		}
 
-		uint32_t toInt()
+		uint32_t toInt() const
 		{
 			uint32_t RGB = (r << 24);
 			RGB = RGB | (g << 16);
