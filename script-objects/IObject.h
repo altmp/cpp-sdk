@@ -41,6 +41,8 @@ namespace alt
 
 		virtual uint32_t GetStreamingDistance() const = 0;
 
+		virtual void SetVisible(bool toggle) = 0;
+		virtual bool IsVisible() const = 0;
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetRemoteID() const = 0;
 		virtual bool IsRemote() const = 0;
