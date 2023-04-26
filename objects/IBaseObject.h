@@ -33,7 +33,8 @@ namespace alt
 			VIRTUAL_ENTITY_GROUP,
 			MARKER,
 			TEXT_LABEL,
-			PICKUP,
+			LOCAL_PED,
+			LOCAL_VEHICLE,
 			AUDIO_FILTER,
 			SIZE
 		};
