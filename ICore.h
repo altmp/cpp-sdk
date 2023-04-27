@@ -55,6 +55,7 @@ namespace alt
 	class ILocalPlayer;
 	class IAudioFilter;
 	class ILocalVehicle;
+	class ILocalPed;
 
 	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
@@ -253,6 +254,7 @@ namespace alt
 		virtual IMarker* CreateMarker(IMarker::MarkerType type, Vector3f position, alt::RGBA color, IResource* res = nullptr) = 0;
 		virtual ITextLabel* CreateTextLabel(const std::string& text, const std::string& fontName, float fontSize, float scale, Vector3f position, Vector3f rot, alt::RGBA color, float outlineWidth, alt::RGBA outlineColor, IResource* res = nullptr) = 0;
 		virtual ILocalVehicle* CreateLocalVehicle(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
+		virtual ILocalPed* CreateLocalPed(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 

@@ -37,6 +37,7 @@
 #include "script-objects/IVoiceChannel.h"
 #include "script-objects/IHttpClient.h"
 #include "script-objects/ILocalVehicle.h"
+#include "script-objects/ILocalPed.h"
 
 #include "events/CEvent.h"
 #include "events/CServerScriptEvent.h"
