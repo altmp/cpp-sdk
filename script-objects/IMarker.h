@@ -88,6 +88,9 @@ namespace alt
 		virtual Position GetDirection() const = 0;
 		virtual void SetDirection(Position dir) = 0;
 
+		virtual bool IsFaceCamera() const = 0;
+		virtual void SetFaceCamera(bool faceCamera) = 0;
+		
 		virtual uint32_t GetStreamingDistance() const = 0;
 	};
 } // namespace alt
