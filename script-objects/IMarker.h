@@ -64,6 +64,7 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 		virtual uint32_t GetRemoteID() const = 0;
+		virtual bool IsStreamedIn() const = 0;
 #endif
 
 		virtual bool IsGlobal() const = 0;
@@ -72,7 +73,7 @@ namespace alt
 		virtual alt::RGBA GetColor() const = 0;
 		virtual void SetColor(alt::RGBA color) = 0;
 
-		virtual bool GetVisible() const = 0;
+		virtual bool IsVisible() const = 0;
 		virtual void SetVisible(bool visible) = 0;
 
 		virtual MarkerType GetMarkerType() const = 0;
@@ -86,5 +87,7 @@ namespace alt
 
 		virtual Position GetDirection() const = 0;
 		virtual void SetDirection(Position dir) = 0;
+
+		virtual uint32_t GetStreamingDistance() const = 0;
 	};
 } // namespace alt
