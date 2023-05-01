@@ -24,6 +24,7 @@ namespace alt
 		SCREEN_CAPTURE,
 		WEBRTC,
 		CLIPBOARD_ACCESS,
+		EXTENDED_VOICE_API,
 		All
 	};
 	static Permission GetPermissionFromString(const std::string& val)
@@ -31,6 +32,7 @@ namespace alt
 		if(val == "Screen Capture") return Permission::SCREEN_CAPTURE;
 		if(val == "WebRTC") return Permission::WEBRTC;
 		if(val == "Clipboard Access") return Permission::CLIPBOARD_ACCESS;
+		if(val == "Extended Voice API") return Permission::EXTENDED_VOICE_API;
 		return Permission::NONE;
 	}
 	static std::string GetStringFromPermission(Permission val)
@@ -38,6 +40,7 @@ namespace alt
 		if(val == Permission::SCREEN_CAPTURE) return "Screen Capture";
 		if(val == Permission::WEBRTC) return "WebRTC";
 		if(val == Permission::CLIPBOARD_ACCESS) return "Clipboard Access";
+		if(val == Permission::EXTENDED_VOICE_API) return "Extended Voice API";
 		return "None";
 	}
 }
