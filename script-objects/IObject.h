@@ -47,6 +47,7 @@ namespace alt
 		virtual uint32_t GetRemoteID() const = 0;
 		virtual bool IsRemote() const = 0;
 		virtual bool IsStreamedIn() const = 0;
+		virtual bool UsesStreaming() const = 0;
 #endif
 	};
 }
