@@ -184,6 +184,12 @@ namespace alt
 		virtual void ToggleVoiceControls(bool state) = 0;
 		virtual bool AreVoiceControlsEnabled() const = 0;
 		virtual uint32_t GetVoiceActivationKey() = 0;
+		virtual PermissionState ToggleVoiceInput(bool state) = 0;
+		virtual PermissionState ToggleVoiceActivation(bool state) = 0;
+		virtual PermissionState SetVoiceActivationLevel(float level) = 0;
+		virtual float GetVoiceActivationLevel() const = 0;
+		virtual PermissionState ToggleNoiseSuppression(bool state) = 0;
+		virtual bool IsNoiseSuppressionEnabled() const = 0;
 
 		virtual std::string GetLicenseHash() const = 0;
 		virtual std::string GetLocale() const = 0;
