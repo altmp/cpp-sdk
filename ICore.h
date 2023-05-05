@@ -43,6 +43,7 @@
 #include "types/Permissions.h"
 #include "types/VehicleModelInfo.h"
 #include "types/PedModelInfo.h"
+#include "types/VoiceChat.h"
 
 namespace alt
 {
@@ -190,6 +191,9 @@ namespace alt
 		virtual float GetVoiceActivationLevel() const = 0;
 		virtual PermissionState ToggleNoiseSuppression(bool state) = 0;
 		virtual bool IsNoiseSuppressionEnabled() const = 0;
+		virtual PermissionState GetActiveVoiceInputDevice(std::optional<std::string>& uid) const = 0;
+		virtual PermissionState SetActiveVoiceInputDevice(const std::optional<std::string>& uid) = 0;
+		virtual PermissionState GetVoiceInputDeviceList(std::vector<SoundDeviceInfo>& devices) const = 0;
 
 		virtual std::string GetLicenseHash() const = 0;
 		virtual std::string GetLocale() const = 0;
