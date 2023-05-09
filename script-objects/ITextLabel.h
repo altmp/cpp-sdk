@@ -33,6 +33,9 @@ namespace alt
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation _rot) = 0;
 
+		virtual void SetFaceCamera(bool state) = 0;
+		virtual bool IsFacingCamera() const = 0;
+
 		virtual uint32_t GetStreamingDistance() const = 0;
 	};
 } // namespace alt
