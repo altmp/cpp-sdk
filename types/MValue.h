@@ -30,43 +30,43 @@ namespace alt
 	class IMValueRGBA;
 	class IMValueByteArray;
 
-	using MValue = Ref<IMValue>;
-	using MValueNone = Ref<IMValueNone>;
-	using MValueNil = Ref<IMValueNil>;
-	using MValueBool = Ref<IMValueBool>;
-	using MValueInt = Ref<IMValueInt>;
-	using MValueUInt = Ref<IMValueUInt>;
-	using MValueDouble = Ref<IMValueDouble>;
-	using MValueString = Ref<IMValueString>;
-	using MValueList = Ref<IMValueList>;
-	using MValueDict = Ref<IMValueDict>;
-	using MValueBaseObject = Ref<IMValueBaseObject>;
-	using MValueFunction = Ref<IMValueFunction>;
-	using MValueVector2 = Ref<IMValueVector2>;
-	using MValueVector3 = Ref<IMValueVector3>;
-	using MValueRGBA = Ref<IMValueRGBA>;
-	using MValueByteArray = Ref<IMValueByteArray>;
+	using MValue = std::shared_ptr<IMValue>;
+	using MValueNone = std::shared_ptr<IMValueNone>;
+	using MValueNil = std::shared_ptr<IMValueNil>;
+	using MValueBool = std::shared_ptr<IMValueBool>;
+	using MValueInt = std::shared_ptr<IMValueInt>;
+	using MValueUInt = std::shared_ptr<IMValueUInt>;
+	using MValueDouble = std::shared_ptr<IMValueDouble>;
+	using MValueString = std::shared_ptr<IMValueString>;
+	using MValueList = std::shared_ptr<IMValueList>;
+	using MValueDict = std::shared_ptr<IMValueDict>;
+	using MValueBaseObject = std::shared_ptr<IMValueBaseObject>;
+	using MValueFunction = std::shared_ptr<IMValueFunction>;
+	using MValueVector2 = std::shared_ptr<IMValueVector2>;
+	using MValueVector3 = std::shared_ptr<IMValueVector3>;
+	using MValueRGBA = std::shared_ptr<IMValueRGBA>;
+	using MValueByteArray = std::shared_ptr<IMValueByteArray>;
 
-	using MValueConst = ConstRef<IMValue>;
-	using MValueNoneConst = ConstRef<IMValueNone>;
-	using MValueNilConst = ConstRef<IMValueNil>;
-	using MValueBoolConst = ConstRef<IMValueBool>;
-	using MValueIntConst = ConstRef<IMValueInt>;
-	using MValueUIntConst = ConstRef<IMValueUInt>;
-	using MValueDoubleConst = ConstRef<IMValueDouble>;
-	using MValueStringConst = ConstRef<IMValueString>;
-	using MValueListConst = ConstRef<IMValueList>;
-	using MValueDictConst = ConstRef<IMValueDict>;
-	using MValueBaseObjectConst = ConstRef<IMValueBaseObject>;
-	using MValueFunctionConst = ConstRef<IMValueFunction>;
-	using MValueVector2Const = ConstRef<IMValueVector2>;
-	using MValueVector3Const = ConstRef<IMValueVector3>;
-	using MValueRGBAConst = ConstRef<IMValueRGBA>;
-	using MValueByteArrayConst = ConstRef<IMValueByteArray>;
+	using MValueConst = std::shared_ptr<const IMValue>;
+	using MValueNoneConst = std::shared_ptr<const IMValueNone>;
+	using MValueNilConst = std::shared_ptr<const IMValueNil>;
+	using MValueBoolConst = std::shared_ptr<const IMValueBool>;
+	using MValueIntConst = std::shared_ptr<const IMValueInt>;
+	using MValueUIntConst = std::shared_ptr<const IMValueUInt>;
+	using MValueDoubleConst = std::shared_ptr<const IMValueDouble>;
+	using MValueStringConst = std::shared_ptr<const IMValueString>;
+	using MValueListConst = std::shared_ptr<const IMValueList>;
+	using MValueDictConst = std::shared_ptr<const IMValueDict>;
+	using MValueBaseObjectConst = std::shared_ptr<const IMValueBaseObject>;
+	using MValueFunctionConst = std::shared_ptr<const IMValueFunction>;
+	using MValueVector2Const = std::shared_ptr<const IMValueVector2>;
+	using MValueVector3Const = std::shared_ptr<const IMValueVector3>;
+	using MValueRGBAConst = std::shared_ptr<const IMValueRGBA>;
+	using MValueByteArrayConst = std::shared_ptr<const IMValueByteArray>;
 
 	using MValueArgs = std::vector<MValueConst>;
 
-	class IMValue : public virtual CRefCountable
+	class IMValue : public std::enable_shared_from_this<IMValue>
 	{
 	public:
 		enum class Type : uint8_t
@@ -95,8 +95,6 @@ namespace alt
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
 		virtual bool Equals(MValueConst other) const = 0;
-		
-		const std::type_info& GetTypeInfo() const override { return typeid(this); }
 	};
 
 	// Represents lack of value
