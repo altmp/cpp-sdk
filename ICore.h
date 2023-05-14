@@ -185,15 +185,15 @@ namespace alt
 		virtual void ToggleVoiceControls(bool state) = 0;
 		virtual bool AreVoiceControlsEnabled() const = 0;
 		virtual uint32_t GetVoiceActivationKey() = 0;
-		virtual PermissionState ToggleVoiceInput(bool state) = 0;
-		virtual PermissionState ToggleVoiceActivation(bool state) = 0;
-		virtual PermissionState SetVoiceActivationLevel(float level) = 0;
+		virtual bool ToggleVoiceInput(bool state) = 0;
+		virtual bool ToggleVoiceActivation(bool state) = 0;
+		virtual bool SetVoiceActivationLevel(float level) = 0;
 		virtual float GetVoiceActivationLevel() const = 0;
-		virtual PermissionState ToggleNoiseSuppression(bool state) = 0;
+		virtual bool ToggleNoiseSuppression(bool state) = 0;
 		virtual bool IsNoiseSuppressionEnabled() const = 0;
-		virtual PermissionState GetActiveVoiceInputDevice(std::optional<std::string>& uid) const = 0;
-		virtual PermissionState SetActiveVoiceInputDevice(const std::optional<std::string>& uid) = 0;
-		virtual PermissionState GetVoiceInputDeviceList(std::vector<SoundDeviceInfo>& devices) const = 0;
+		virtual bool GetActiveVoiceInputDevice(std::optional<std::string>& uid) const = 0;
+		virtual bool SetActiveVoiceInputDevice(const std::optional<std::string>& uid) = 0;
+		virtual bool GetVoiceInputDeviceList(std::vector<SoundDeviceInfo>& devices) const = 0;
 
 		virtual std::string GetLicenseHash() const = 0;
 		virtual std::string GetLocale() const = 0;
@@ -231,7 +231,7 @@ namespace alt
 		virtual void ResetMapData(const std::string& alias) = 0;
 		virtual void ResetAllMapData() = 0;
 
-		virtual PermissionState GetPermissionState(Permission permission) const = 0;
+		virtual bool GetPermissionState(Permission permission) const = 0;
 
 		using TakeScreenshotCallback = std::function<void(const std::string& base64)>;
 		/**
@@ -239,14 +239,14 @@ namespace alt
 		 * @param callback will be called when the screenshot has been taken.
 		 * The screenshot is taken exactly after the webviews has rendered.
 		 */
-		virtual PermissionState TakeScreenshot(TakeScreenshotCallback callback) const = 0;
+		virtual bool TakeScreenshot(TakeScreenshotCallback callback) const = 0;
 
 		/**
 		 * This is an async operation.
 		 * @param callback will be called when the screenshot has been taken.
 		 * The screenshot is taken exactly after GTA:V has rendered it's stuff and before alt:V renders anything custom.
 		 */
-		virtual PermissionState TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
+		virtual bool TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
 		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr) = 0;
@@ -295,7 +295,7 @@ namespace alt
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual MValue GetLocalMetaData(const std::string& key) const = 0;
 		
-		virtual PermissionState CopyToClipboard(const std::string& value) = 0;
+		virtual bool CopyToClipboard(const std::string& value) = 0;
 
 		virtual void ToggleRmlDebugger(bool state) = 0;
 		virtual bool LoadRmlFontFace(IResource* resource, const std::string& path, const std::string& currentPath, const std::string& name, bool italic = false, bool bold = false) const = 0;

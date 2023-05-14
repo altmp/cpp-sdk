@@ -4,19 +4,6 @@
 
 namespace alt
 {
-	// DO NOT CHANGE ORDER, ADD IN DECSENDING FASHION
-	enum class PermissionState : uint8_t
-	{
-		// Permission is allowed by the user
-		ALLOWED,
-		// Permission is denied by the user
-		DENIED,
-		// When a permission has not been specified by any of the resources
-		UNSPECIFIED,
-		// When an action requiring permission fails
-		FAILED
-	};
-
 	// DO NOT CHANGE ORDER, ADD IN DECSENDING FASHION (before All)
 	enum class Permission : uint8_t
 	{
