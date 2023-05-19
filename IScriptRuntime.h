@@ -38,7 +38,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		// Called every time when connecting to a server
-		virtual void Init(std::function<void(bool success, std::string error)> next, std::function<void(InitState state, float progress, float total)> setProgress)
+		virtual void Init(std::function<void(bool success, std::string error)> next, std::function<void(InitState state, float progress, float total, int)> setProgress)
 		{
 			next(true, "");
 		}
