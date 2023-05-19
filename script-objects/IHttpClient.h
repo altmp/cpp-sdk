@@ -15,6 +15,7 @@ namespace alt
         };
 
         using HttpResponseCallback = void (*)(HttpResponse httpResponse, const void* userData);
+        using HttpProgressCallback = bool (*)(int current, int total);
 
         virtual ~IHttpClient() = default;
 
@@ -23,7 +24,7 @@ namespace alt
         virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
         virtual alt::MValueDict GetExtraHeaders() const = 0;
 
-        virtual void Get(HttpResponseCallback httpResponseCallback, const std::string& url, void* userData) const = 0;
+        virtual void Get(HttpResponseCallback httpResponseCallback, const std::string& url, void* userData, HttpProgressCallback httpProgressCallback = nullptr) const = 0;
         virtual void Head(HttpResponseCallback httpResponseCallback, const std::string& url, void* userData) const = 0;
         virtual void Post(HttpResponseCallback httpResponseCallback, const std::string& url, const std::string& body, void* userData) const = 0;
         virtual void Put(HttpResponseCallback httpResponseCallback, const std::string& url, const std::string& body, void* userData) const = 0;
