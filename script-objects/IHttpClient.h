@@ -15,7 +15,7 @@ namespace alt
         };
 
         using HttpResponseCallback = void (*)(HttpResponse httpResponse, const void* userData);
-        using HttpProgressCallback = bool (*)(int current, int total);
+        using HttpProgressCallback = bool (*)(int current, int total, const void* userData);
 
         virtual ~IHttpClient() = default;
 
