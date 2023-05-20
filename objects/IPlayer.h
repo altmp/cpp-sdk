@@ -156,6 +156,8 @@ namespace alt
 		virtual void ClearTasks() = 0;
 
 		virtual std::string GetCloudAuthHash() const = 0;
+
+		virtual std::vector<std::pair<IEntity*, int32_t>> GetStreamedEntities() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
