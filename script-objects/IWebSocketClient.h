@@ -9,8 +9,6 @@ namespace alt
     public:
         virtual ~IWebSocketClient() = default;
 
-        virtual uint32_t GetID() const = 0;
-
         virtual const std::string& GetUrl() const = 0;
         virtual void SetUrl(const std::string& _url) = 0;
 

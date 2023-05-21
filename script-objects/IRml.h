@@ -45,8 +45,8 @@ namespace alt
         virtual IRmlElement* GetFocusedElement() const = 0;
 
         virtual const std::string& GetTagName() const = 0;
-        virtual const std::string& GetID() const = 0;
-        virtual void SetID(const std::string& id) = 0;
+        virtual const std::string& GetRmlID() const = 0;
+        virtual void SetRmlID(const std::string& id) = 0;
 
         virtual bool IsOwned() const = 0;
 
@@ -112,8 +112,6 @@ namespace alt
     {
     public:
         virtual ~IRmlDocument() = default;
-
-        virtual uint32_t GetEntityID() const = 0;
 
         virtual void SetTitle(const std::string& title) = 0;
         virtual const std::string& GetTitle() const = 0;

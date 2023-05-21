@@ -10,8 +10,6 @@ namespace alt
 	public:
 		virtual ~ITextLabel() = default;
 
-		virtual uint32_t GetID() const = 0;
-
 #ifdef ALT_CLIENT_API
 		virtual bool IsRemote() const = 0;
 		virtual uint32_t GetRemoteID() const = 0;

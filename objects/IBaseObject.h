@@ -42,6 +42,8 @@ namespace alt
 
 		virtual Type GetType() const = 0;
 
+		virtual uint32_t GetID() const = 0;
+
 		virtual bool HasMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetMetaData(const std::string& key) const = 0;
 		virtual void SetMetaData(const std::string& key, MValue val) = 0;

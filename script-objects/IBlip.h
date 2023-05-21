@@ -29,8 +29,6 @@ namespace alt
 
 		virtual ~IBlip() = default;
 
-		virtual uint32_t GetID() const = 0;
-
 		virtual bool IsGlobal() const = 0;
 		virtual IPlayer* GetTarget() const = 0;
 		virtual bool IsAttached() const = 0;

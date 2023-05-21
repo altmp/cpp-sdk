@@ -16,8 +16,6 @@ namespace alt
 	public:
 		virtual ~IVirtualEntity() = default;
 
-		virtual uint32_t GetID() const = 0;
-
 		virtual IVirtualEntityGroup* GetGroup() const = 0;
 
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;

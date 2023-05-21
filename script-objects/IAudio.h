@@ -10,8 +10,6 @@ namespace alt
     public:
         virtual ~IAudio() = default;
 
-    	virtual uint32_t GetID() const = 0;
-
         virtual void SetSource(const std::string& source) = 0; //data/file/url
         virtual const std::string& GetSource() const = 0;
 

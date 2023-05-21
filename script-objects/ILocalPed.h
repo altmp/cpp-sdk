@@ -11,7 +11,6 @@ namespace alt
 	protected:
 		virtual ~ILocalPed() = default;
 	public:
-		virtual uint32_t GetID() const = 0;
 		virtual uint32_t GetModel() const = 0;
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation rot) = 0;

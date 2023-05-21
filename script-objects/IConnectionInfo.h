@@ -12,7 +12,6 @@ namespace alt
 		virtual ~IConnectionInfo() = default;
 
 	public:
-		virtual uint32_t GetID() const = 0;
 		virtual std::string GetName() const = 0;
 		virtual uint64_t GetSocialId() const = 0;
 		virtual std::string GetSocialName() const = 0;

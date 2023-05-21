@@ -14,7 +14,6 @@ namespace alt
 		virtual ~IEntity() = default;
 
 	public:
-		virtual uint32_t GetID() const = 0;
 		virtual uint16_t GetSyncID() const = 0;
 
 		virtual IPlayer* GetNetworkOwner() const = 0;

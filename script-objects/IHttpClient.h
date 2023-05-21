@@ -19,8 +19,6 @@ namespace alt
 
         virtual ~IHttpClient() = default;
 
-        virtual uint32_t GetID() const = 0;
-
         virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
         virtual alt::MValueDict GetExtraHeaders() const = 0;
 
