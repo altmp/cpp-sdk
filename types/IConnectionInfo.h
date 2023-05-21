@@ -1,11 +1,12 @@
 #pragma once
 
 #include <string>
-#include <memory>
+
+#include "objects/IBaseObject.h"
 
 namespace alt
 {
-	class IConnectionInfo : public std::enable_shared_from_this<IConnectionInfo>
+	class IConnectionInfo : public virtual IBaseObject
 	{
 	protected:
 		virtual ~IConnectionInfo() = default;
@@ -30,32 +31,5 @@ namespace alt
 		virtual void Accept(bool sendNames) = 0;
 		virtual void Decline(const std::string& reason) = 0;
 		virtual bool IsAccepted() const = 0;
-
-        template <typename Derived>
-        std::shared_ptr<Derived> SharedAs()
-        {
-			try
-			{
-				Derived* derived = dynamic_cast<Derived*>(this);
-				if (!derived)
-				{
-					static std::shared_ptr<Derived> empty;
-					return empty;
-				}
-				std::shared_ptr<IConnectionInfo> shared = derived->shared_from_this();
-				return std::dynamic_pointer_cast<Derived>(shared);
-			}
-			catch (std::bad_weak_ptr&)
-			{
-				static std::shared_ptr<Derived> empty;
-				return empty;
-			}
-        }
-
-        template <typename Derived>
-        Derived* As()
-        {
-            return dynamic_cast<Derived*>(this);
-        }
 	};
 }

@@ -36,6 +36,7 @@ namespace alt
 			LOCAL_PED,
 			LOCAL_VEHICLE,
 			AUDIO_FILTER,
+			CONNECTION_INFO,
 			SIZE
 		};
 

@@ -57,6 +57,7 @@ namespace alt
 	class IAudioFilter;
 	class ILocalVehicle;
 	class ILocalPed;
+	class IConnectionInfo;
 
 	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
@@ -131,6 +132,7 @@ namespace alt
 		virtual std::vector<IVirtualEntityGroup*> GetVirtualEntityGroups() const = 0;
 		virtual std::vector<INetworkObject*> GetNetworkObjects() const = 0;
 		virtual std::vector<IColShape*> GetColShapes() const = 0;
+		virtual std::vector<IConnectionInfo*> GetConnectionInfos() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
