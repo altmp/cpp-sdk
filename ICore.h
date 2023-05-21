@@ -202,7 +202,7 @@ namespace alt
 		virtual bool IsMenuOpen() const = 0;
 		virtual bool IsConsoleOpen() const = 0;
 
-		virtual const Array<INative *> GetAllNatives() const = 0;
+		virtual std::vector<alt::INative *> GetAllNatives() const = 0;
 		virtual std::shared_ptr<INative::Context> CreateNativesContext() const = 0;
 
 		virtual INative* GetNativeByName(const std::string& name) const = 0;

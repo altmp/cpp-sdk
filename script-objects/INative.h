@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <memory>
+#include <vector>
 #include "../types/Array.h"
 #include "../IResource.h"
 
@@ -70,7 +71,7 @@ namespace alt
 
         virtual std::string GetName() const = 0;
         virtual Type GetRetnType() const = 0;
-        virtual Array<Type> GetArgTypes() const = 0;
+        virtual std::vector<Type> GetArgTypes() const = 0;
         virtual bool IsValid() const = 0;
         virtual bool Invoke(const std::shared_ptr<INative::Context>& ctx) = 0;
     };
