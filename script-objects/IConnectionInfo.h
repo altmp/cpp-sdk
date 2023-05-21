@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "objects/IBaseObject.h"
+#include "../objects/IBaseObject.h"
 
 namespace alt
 {

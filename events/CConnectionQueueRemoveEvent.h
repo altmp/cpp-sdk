@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../types/IConnectionInfo.h"
+#include "../script-objects/IConnectionInfo.h"
 
 #include "CEvent.h"
 
