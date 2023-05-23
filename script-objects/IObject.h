@@ -7,6 +7,7 @@ namespace alt
 	class IObject : public virtual IEntity
 	{
 	public:
+		virtual void SetModel(uint32_t model) = 0;
 		virtual uint8_t GetAlpha() const = 0;
 		virtual void SetAlpha(uint8_t alpha) = 0;
 		virtual void ResetAlpha() = 0;
