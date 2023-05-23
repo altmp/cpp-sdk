@@ -14,6 +14,7 @@ namespace alt
 		virtual ~ILocalVehicle() = default;
 	public:
 		virtual uint32_t GetModel() const = 0;
+		virtual void SetModel(uint32_t model) = 0;
 		virtual Rotation GetRotation() const = 0;
 		virtual void SetRotation(Rotation rot) = 0;
 
