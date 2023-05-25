@@ -88,7 +88,13 @@ namespace alt
 
 		virtual bool IsFaceCamera() const = 0;
 		virtual void SetFaceCamera(bool faceCamera) = 0;
-		
+
+		virtual bool IsRotating() const = 0;
+		virtual void SetRotating(bool rotating) = 0;
+
+		virtual bool IsBobUpDown() const = 0;
+		virtual void SetBobUpDown(bool bobUpDown) = 0;
+
 		virtual uint32_t GetStreamingDistance() const = 0;
 	};
 } // namespace alt
