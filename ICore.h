@@ -404,6 +404,8 @@ namespace alt
 		virtual std::vector<IConnectionInfo*> GetConnectionInfos() const = 0;
 
 		virtual Metric* RegisterMetric(const std::string& metricName, Metric::Type metricType = Metric::Type::METRIC_TYPE_GAUGE, const std::unordered_map<std::string, std::string>& attributes = {}) = 0;
+
+		virtual void UnregisterMetric(alt::Metric* metric) = 0;
 #endif
 
 		static ICore &Instance()
