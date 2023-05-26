@@ -93,11 +93,16 @@
 
 #include "events/CConnectionComplete.h"
 #include "events/CDisconnectEvent.h"
+#include "events/CWebViewEvent.h"
+#include "events/CKeyboardEvent.h"
 #include "events/CGameEntityCreateEvent.h"
 #include "events/CGameEntityDestroyEvent.h"
-#include "events/CKeyboardEvent.h"
-#include "events/CWebViewEvent.h"
+#include "events/CWebSocketClientEvent.h"
 #include "events/CTaskChangeEvent.h"
+#include "events/CSpawnedEvent.h"
+#include "events/CRmlEvent.h"
+#include "events/CWindowFocusChangeEvent.h"
+#include "events/CWindowResolutionChangeEvent.h"
 
 #endif
 
