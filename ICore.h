@@ -10,6 +10,7 @@
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
+#include "types/Metric.h"
 
 #include "events/CEvent.h"
 #include "IResource.h"
@@ -400,6 +401,8 @@ namespace alt
 		virtual INetworkObject* CreateNetworkObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100) = 0;
 
 		virtual std::vector<IConnectionInfo*> GetConnectionInfos() const = 0;
+
+		virtual Metric* RegisterMetric(const std::string& metricName, Metric::Type metricType = Metric::Type::METRIC_TYPE_GAUGE, const std::unordered_map<std::string, std::string>& attributes = {});
 #endif
 
 		static ICore &Instance()
