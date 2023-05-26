@@ -16,6 +16,7 @@ namespace alt
 
 		std::string name {};
 		uint64_t value = 0;
+		bool exists = false;
 
 		void SetValue(uint64_t _value)
 		{
@@ -32,8 +33,13 @@ namespace alt
 			value = Time() - lastBegin;
 		}
 
+		void Destroy()
+		{
+			exists = false;
+		}
+
 		Metric() = default;
-		explicit Metric(std::string_view _name): name(_name), value(0) {}
+		explicit Metric(std::string_view _name): name(_name), value(0), exists(false) {}
 
 	private:
 		uint64_t lastBegin = 0;
