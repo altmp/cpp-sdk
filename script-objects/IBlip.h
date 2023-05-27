@@ -74,6 +74,8 @@ namespace alt
 		// Returns whether the blip was created on serverside (false for clientside blips)
 		virtual bool IsRemote() const = 0;
 		virtual uint32_t GetRemoteID() const = 0;
+		virtual void SetVisible(bool toggle) = 0;
+		virtual bool IsVisible() const = 0;
 #endif
 
 		virtual void SetSprite(int sprite) = 0;
