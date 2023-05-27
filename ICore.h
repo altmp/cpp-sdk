@@ -346,6 +346,8 @@ namespace alt
 		virtual void InternalAddCefBootstrap(const std::string& bootstrap) = 0;
 
 		virtual bool IsFullScreen() const = 0;
+
+		virtual IBlip* GetBlipByGameID(uint32_t gameID) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
