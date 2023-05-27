@@ -32,6 +32,7 @@ namespace alt
 		virtual bool IsVisible() const = 0;
 #ifdef ALT_CLIENT_API
 		virtual bool IsStreamedIn() const = 0;
+		virtual uint32_t GetGameID() const = 0;
 #endif
 #ifdef ALT_SERVER_API
 		virtual bool HasStreamSyncedMetaData(const std::string& key) const = 0;

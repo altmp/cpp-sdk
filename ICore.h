@@ -210,7 +210,7 @@ namespace alt
 		virtual INative* GetNativeByName(const std::string& name) const = 0;
 		virtual INative* GetNativeByHash(uint64_t hash) const = 0;
 
-		virtual IEntity* GetEntityByScriptGuid(int32_t scriptGuid) const = 0;
+		virtual IWorldObject* GetWorldObjectByScriptID(uint32_t scriptID) const = 0;
 
 		virtual void *GetTextureFromDrawable(uint32_t modelHash, const std::string& targetTextureName) const = 0;
 
@@ -348,6 +348,7 @@ namespace alt
 		virtual bool IsFullScreen() const = 0;
 
 		virtual IBlip* GetBlipByGameID(uint32_t gameID) const = 0;
+		virtual ICheckpoint* GetCheckpointByGameID(uint32_t gameID) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
