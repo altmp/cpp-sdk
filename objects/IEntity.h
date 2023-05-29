@@ -52,6 +52,7 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetScriptGuid() const = 0;
 		virtual uint32_t GetRemoteID() const = 0;
+		virtual bool IsRemote() const = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
