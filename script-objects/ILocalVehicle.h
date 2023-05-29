@@ -21,8 +21,7 @@ namespace alt
 		virtual bool IsVisible() const = 0;
 
 		virtual uint32_t GetScriptID() const = 0;
-
-		virtual uint32_t GetRemoteID() const = 0;
+		
 		virtual bool IsRemote() const = 0;
 		virtual bool IsStreamedIn() const = 0;
 	};

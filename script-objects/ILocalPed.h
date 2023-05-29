@@ -4,19 +4,16 @@
 
 #include <cstdint>
 
-#include "../objects/IWorldObject.h"
+#include "../objects/IPed.h"
 
 namespace alt
 {
-	class ILocalPed : public virtual IWorldObject
+	class ILocalPed : public virtual IPed
 	{
 	protected:
 		virtual ~ILocalPed() = default;
 	public:
-		virtual uint32_t GetModel() const = 0;
 		virtual void SetModel(uint32_t model) = 0;
-		virtual Rotation GetRotation() const = 0;
-		virtual void SetRotation(Rotation rot) = 0;
 
 		virtual uint32_t GetStreamingDistance() const = 0;
 
@@ -24,8 +21,7 @@ namespace alt
 		virtual bool IsVisible() const = 0;
 
 		virtual uint32_t GetScriptID() const = 0;
-
-		virtual uint32_t GetRemoteID() const = 0;
+		
 		virtual bool IsRemote() const = 0;
 		virtual bool IsStreamedIn() const = 0;
 	};
