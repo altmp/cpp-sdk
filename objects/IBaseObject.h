@@ -37,6 +37,8 @@ namespace alt
 			LOCAL_VEHICLE,
 			AUDIO_FILTER,
 			CONNECTION_INFO,
+			CUSTOM_TEXTURE,
+			FONT,
 			SIZE
 		};
 

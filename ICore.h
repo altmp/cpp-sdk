@@ -40,6 +40,7 @@
 #include "script-objects/IMarker.h"
 #include "script-objects/ITextLabel.h"
 #include "script-objects/IAudioFilter.h"
+#include "script-objects/IFont.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -60,6 +61,7 @@ namespace alt
 	class ILocalVehicle;
 	class ILocalPed;
 	class IConnectionInfo;
+	class ICustomTexture;
 
 	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 
@@ -268,6 +270,8 @@ namespace alt
 		virtual ITextLabel* CreateTextLabel(const std::string& text, const std::string& fontName, float fontSize, float scale, Vector3f position, Vector3f rot, alt::RGBA color, float outlineWidth, alt::RGBA outlineColor, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		virtual ILocalVehicle* CreateLocalVehicle(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		virtual ILocalPed* CreateLocalPed(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
+
+		virtual std::shared_ptr<IFont> RegisterFont(IResource* resource, const std::string& path, const std::string& currentPath) = 0;
 		
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
