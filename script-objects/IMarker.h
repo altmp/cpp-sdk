@@ -60,8 +60,6 @@ namespace alt
 		virtual ~IMarker() = default;
 
 #ifdef ALT_CLIENT_API
-		virtual bool IsRemote() const = 0;
-		virtual uint32_t GetRemoteID() const = 0;
 		virtual bool IsStreamedIn() const = 0;
 #endif
 

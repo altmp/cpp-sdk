@@ -36,9 +36,5 @@ namespace alt
         virtual double GetMaxTime() const = 0; //seconds
         virtual void Seek(double time) = 0; //seconds
         virtual bool IsPlaying() const = 0;
-
-#ifdef ALT_CLIENT_API
-        virtual uint32_t GetRemoteID() const = 0;
-#endif
     };
 }

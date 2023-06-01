@@ -60,6 +60,10 @@ namespace alt
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
 #endif
+#ifdef ALT_CLIENT_API
+		virtual uint32_t GetRemoteID() const = 0;
+		virtual bool IsRemote() const = 0;
+#endif // ALT_CLIENT_API
 
 		virtual bool IsRemoved() const = 0;
 

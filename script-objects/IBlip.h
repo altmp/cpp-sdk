@@ -72,8 +72,6 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetGameID() const = 0;
 		// Returns whether the blip was created on serverside (false for clientside blips)
-		virtual bool IsRemote() const = 0;
-		virtual uint32_t GetRemoteID() const = 0;
 		virtual void SetVisible(bool toggle) = 0;
 		virtual bool IsVisible() const = 0;
 #endif

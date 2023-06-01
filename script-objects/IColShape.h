@@ -26,11 +26,6 @@ namespace alt
 
 		virtual ~IColShape() = default;
 
-#ifdef ALT_CLIENT_API
-		virtual uint32_t GetRemoteID() const = 0;
-		virtual bool IsRemote() const = 0;
-#endif
-
 		virtual ColShapeType GetColshapeType() const = 0;
 
 		virtual bool IsEntityIn(IEntity* ent) const = 0;
