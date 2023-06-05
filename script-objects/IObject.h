@@ -47,6 +47,18 @@ namespace alt
 #ifdef ALT_CLIENT_API
 		virtual bool IsStreamedIn() const = 0;
 		virtual bool UsesStreaming() const = 0;
+
+		virtual bool IsWeaponObject() const = 0;
+
+		//weapon object only
+		virtual void SetTintIndex(int tintIndex) = 0;
+		virtual int GetTintIndex() const = 0;
+
+		virtual void GiveComponent(int componentType) = 0;
+		virtual void RemoveComponent(int componentType) = 0;
+
+		virtual void SetComponentTintIndex(int componentType, int tintIndex) = 0;
+		virtual int GetComponentTintIndex(int componentType) = 0;
 #endif
 	};
 }
