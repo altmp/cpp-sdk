@@ -271,7 +271,7 @@ namespace alt
 		virtual ILocalVehicle* CreateLocalVehicle(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		virtual ILocalPed* CreateLocalPed(uint32_t modelHash, int32_t dimension, alt::Position pos, alt::Rotation rot, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 
-		virtual std::shared_ptr<IFont> RegisterFont(IResource* resource, const std::string& path, const std::string& currentPath) = 0;
+		virtual IFont* RegisterFont(IResource* resource, const std::string& path, const std::string& currentPath) = 0;
 		
 		virtual void SetAngularVelocity(uint32_t entityId, alt::Vector4f velocity) = 0;
 
