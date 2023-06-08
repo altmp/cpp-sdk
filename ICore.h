@@ -41,7 +41,6 @@
 #include "script-objects/ITextLabel.h"
 #include "script-objects/IAudioFilter.h"
 #include "script-objects/IFont.h"
-#include "script-objects/ICustomTexture.h"
 
 #include "types/KeyState.h"
 #include "types/Permissions.h"
@@ -62,6 +61,7 @@ namespace alt
 	class ILocalVehicle;
 	class ILocalPed;
 	class IConnectionInfo;
+	class ICustomTexture;
 
 	using CommandCallback = std::function<void(const std::vector<std::string>& args)>;
 

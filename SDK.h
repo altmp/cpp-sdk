@@ -38,6 +38,7 @@
 #include "script-objects/IHttpClient.h"
 #include "script-objects/ILocalVehicle.h"
 #include "script-objects/ILocalPed.h"
+#include "script-objects/ICustomTexture.h"
 
 #include "events/CEvent.h"
 #include "events/CServerScriptEvent.h"
