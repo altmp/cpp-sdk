@@ -28,6 +28,8 @@ namespace alt
 		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
 		virtual bool GetVisible() const = 0;
 
+		virtual bool IsFrozen() const = 0;
+		virtual void SetFrozen(bool state) = 0;
 #ifdef ALT_SERVER_API
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
@@ -42,8 +44,6 @@ namespace alt
 		virtual void SetStreamed(bool toggle) = 0;
 		virtual bool GetStreamed() const = 0;
 
-		virtual bool IsFrozen() const = 0;
-		virtual void SetFrozen(bool state) = 0;
 
 		virtual bool HasCollision() const = 0;
 		virtual void SetCollision(bool state) = 0;
