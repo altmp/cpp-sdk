@@ -58,6 +58,7 @@ namespace alt
 		uint32_t GetDamageValue() const { return damageValue; }
 		Vector3f GetShotOffset() const { return shotOffset; }
 		BodyPart GetBodyPart() const { return bodyPart; }
+		IEntity* GetSourceEntity() const { return sourceEntity.get(); }
 
 		void SetDamageValue(uint32_t _damageValue)
 		{
