@@ -158,6 +158,9 @@ namespace alt
 		virtual std::string GetCloudAuthHash() const = 0;
 
 		virtual std::vector<std::pair<IEntity*, int32_t>> GetStreamedEntities() const = 0;
+
+		virtual uint16_t GetAmmo(uint32_t ammoHash) const = 0;
+		virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
