@@ -26,7 +26,7 @@
 #include "types/Array.h"
 #include "types/MValue.h"
 #include "types/VehicleModelInfo.h"
-#include "types/WeaponModelInfo.h.h"
+#include "types/WeaponModelInfo.h"
 
 #include "objects/IBaseObject.h"
 #include "objects/IWorldObject.h"
