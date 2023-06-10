@@ -25,6 +25,8 @@
 #include "types/RGBA.h"
 #include "types/Array.h"
 #include "types/MValue.h"
+#include "types/VehicleModelInfo.h"
+#include "types/WeaponModelInfo.h.h"
 
 #include "objects/IBaseObject.h"
 #include "objects/IWorldObject.h"

@@ -45,6 +45,7 @@
 #include "types/KeyState.h"
 #include "types/Permissions.h"
 #include "types/VehicleModelInfo.h"
+#include "types/WeaponModelInfo.h"
 #include "types/PedModelInfo.h"
 #include "types/VoiceChat.h"
 
@@ -397,6 +398,7 @@ namespace alt
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
 		virtual const PedModelInfo& GetPedModelByHash(uint32_t hash) const = 0;
+		virtual const WeaponModelInfo& GetWeaponModelByHash(uint32_t hash) const = 0;
 
 		virtual Config::Value::ValuePtr GetServerConfig() const = 0;
 		
