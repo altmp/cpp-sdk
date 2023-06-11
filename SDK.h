@@ -91,6 +91,9 @@
 #include "events/CWorldObjectStreamInEvent.h"
 #include "events/CWorldObjectStreamOutEvent.h"
 #include "events/CPlayerWeaponShootEvent.h"
+#include "events/CEntityHitEntityEvent.h"
+#include "events/CPlayerStartEnterVehicleEvent.h"
+#include "events/CPlayerStartLeaveVehicleEvent.h"
 
 #ifdef ALT_CLIENT_API
 
