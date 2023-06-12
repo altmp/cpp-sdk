@@ -159,7 +159,9 @@ namespace alt
 
 		virtual std::vector<std::pair<IEntity*, int32_t>> GetStreamedEntities() const = 0;
 
+		virtual void SetAmmo(uint32_t ammoHash, uint16_t ammo) = 0;
 		virtual uint16_t GetAmmo(uint32_t ammoHash) const = 0;
+		virtual void SetWeaponAmmo(uint32_t weaponHash, uint16_t ammo) = 0;
 		virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
 #endif // ALT_SERVER_API
 
