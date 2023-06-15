@@ -48,6 +48,8 @@ namespace alt
 		
 		std::vector<BoneInfo> bones;
 
+		bool canAttachCars;
+
 		bool DoesExtraExist(uint8_t extraId) const
 		{
 			return ((!!((extras) & (1ULL << (extraId)))));
