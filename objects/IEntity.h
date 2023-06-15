@@ -31,6 +31,7 @@ namespace alt
 		virtual bool IsFrozen() const = 0;
 		virtual void SetFrozen(bool state) = 0;
 #ifdef ALT_SERVER_API
+		virtual uint32_t GetTimestamp() const = 0;
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
