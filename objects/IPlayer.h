@@ -100,7 +100,7 @@ namespace alt
 		virtual void SetMaxHealth(uint16_t health) = 0;
 		virtual void GiveWeapon(uint32_t weapon, int32_t ammo, bool selectWeapon) = 0;
 		virtual bool RemoveWeapon(uint32_t weapon) = 0;
-		virtual void RemoveAllWeapons() = 0;
+		virtual void RemoveAllWeapons(bool removeAllAmmo) = 0;
 		virtual void SetDateTime(int day, int month, int year, int hour, int minute, int second) = 0;
 		virtual void SetWeather(uint32_t weather) = 0;
 		virtual void Kick(const std::string& reason = "Kicked") = 0;
@@ -138,6 +138,7 @@ namespace alt
 		virtual void SetHairHighlightColor(uint8_t hairHighlightColor) = 0;
 		virtual uint8_t GetHairHighlightColor() const = 0;
 		virtual std::vector<Weapon> GetWeapons() const = 0;
+		virtual bool HasWeapon(uint32_t weapon) const = 0;
 
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual void SetLocalMetaData(const std::string& key, MValue val) = 0;
