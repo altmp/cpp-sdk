@@ -16,7 +16,7 @@ namespace alt
 
         virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
         virtual bool HasWeapon(uint32_t weaponHash) const = 0;
-        virtual std::vector<uint32_t> GetWeapons() const = 0;
+        virtual std::vector<alt::Weapon> GetWeapons() const = 0;
         virtual std::vector<uint32_t> GetWeaponComponents(uint32_t weaponHash) const = 0;
 
         virtual std::shared_ptr<alt::IWeaponData> GetCurrentWeaponData() const = 0;
