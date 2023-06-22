@@ -38,12 +38,12 @@ namespace alt
 
 		virtual Vector2f GetScaleXY() const = 0;
 		virtual void SetScaleXY(Vector2f scale) = 0;
-		virtual int GetDisplay() const = 0;
+		virtual uint32_t GetDisplay() const = 0;
 		virtual void SetDisplay(uint32_t display) = 0;
-		virtual int GetSprite() const = 0;
-		virtual int GetColor() const = 0;
+		virtual uint32_t GetSprite() const = 0;
+		virtual uint32_t GetColor() const = 0;
 		virtual alt::RGBA GetSecondaryColor() const = 0;
-		virtual int GetAlpha() const = 0;
+		virtual uint32_t GetAlpha() const = 0;
 		virtual int GetFlashTimer() const = 0;
 		virtual int GetFlashInterval() const = 0;
 		virtual bool GetAsFriendly() const = 0;
@@ -54,7 +54,7 @@ namespace alt
 		virtual bool GetFlashes() const = 0;
 		virtual bool GetFlashesAlternate() const = 0;
 		virtual bool GetAsShortRange() const = 0;
-		virtual int GetPriority() const = 0;
+		virtual uint32_t GetPriority() const = 0;
 		virtual float GetRotation() const = 0;
 		virtual std::string GetGxtName() const = 0;
 		virtual std::string GetName() const = 0;
@@ -66,7 +66,7 @@ namespace alt
 		virtual bool GetOutlineIndicatorVisible() const = 0;
 		virtual bool GetFriendIndicatorVisible() const = 0;
 		virtual bool GetCrewIndicatorVisible() const = 0;
-		virtual int GetCategory() const = 0;
+		virtual uint32_t GetCategory() const = 0;
 		virtual bool GetAsHighDetail() const = 0;
 		virtual bool GetShrinked() const = 0;
 #ifdef ALT_CLIENT_API
