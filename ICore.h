@@ -356,6 +356,8 @@ namespace alt
 
 		virtual IBlip* GetBlipByGameID(uint32_t gameID) const = 0;
 		virtual ICheckpoint* GetCheckpointByGameID(uint32_t gameID) const = 0;
+
+		virtual bool IsWebViewGpuAccelerationActive() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
