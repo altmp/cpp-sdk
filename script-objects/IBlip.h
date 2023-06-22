@@ -39,7 +39,7 @@ namespace alt
 		virtual Vector2f GetScaleXY() const = 0;
 		virtual void SetScaleXY(Vector2f scale) = 0;
 		virtual int GetDisplay() const = 0;
-		virtual void SetDisplay(int display) = 0;
+		virtual void SetDisplay(uint32_t display) = 0;
 		virtual int GetSprite() const = 0;
 		virtual int GetColor() const = 0;
 		virtual alt::RGBA GetSecondaryColor() const = 0;
@@ -76,12 +76,12 @@ namespace alt
 		virtual bool IsVisible() const = 0;
 #endif
 
-		virtual void SetSprite(int sprite) = 0;
-		virtual void SetColor(int color) = 0;
+		virtual void SetSprite(uint32_t sprite) = 0;
+		virtual void SetColor(uint32_t color) = 0;
 		virtual void SetRoute(bool state) = 0;
 		virtual void SetRouteColor(alt::RGBA color) = 0;
 		virtual void SetSecondaryColor(alt::RGBA color) = 0;
-		virtual void SetAlpha(int alpha) = 0;
+		virtual void SetAlpha(uint32_t alpha) = 0;
 		virtual void SetFlashTimer(int timer) = 0;
 		virtual void SetFlashInterval(int interval) = 0;
 		virtual void SetAsFriendly(bool friendly) = 0;
@@ -91,7 +91,7 @@ namespace alt
 		virtual void SetFlashes(bool state) = 0;
 		virtual void SetFlashesAlternate(bool state) = 0;
 		virtual void SetAsShortRange(bool state) = 0;
-		virtual void SetPriority(int state) = 0;
+		virtual void SetPriority(uint32_t state) = 0;
 		virtual void SetRotation(float rot) = 0;
 		virtual void SetGxtName(const std::string& name) = 0;
 		virtual void SetName(const std::string& name) = 0;
@@ -102,7 +102,7 @@ namespace alt
 		virtual void SetOutlineIndicatorVisible(bool val) = 0;
 		virtual void SetFriendIndicatorVisible(bool val) = 0;
 		virtual void SetCrewIndicatorVisible(bool val) = 0;
-		virtual void SetCategory(int val) = 0;
+		virtual void SetCategory(uint32_t val) = 0;
 		virtual void SetAsHighDetail(bool val) = 0;
 		virtual void SetShrinked(bool val) = 0;
 		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
