@@ -30,7 +30,6 @@ namespace alt
 		virtual ~IBlip() = default;
 
 		virtual bool IsGlobal() const = 0;
-		virtual IPlayer* GetTarget() const = 0;
 		virtual bool IsAttached() const = 0;
 		virtual IEntity* AttachedTo() const = 0;
 		virtual void AttachTo(IEntity* entity) = 0;
@@ -74,6 +73,12 @@ namespace alt
 		// Returns whether the blip was created on serverside (false for clientside blips)
 		virtual void SetVisible(bool toggle) = 0;
 		virtual bool IsVisible() const = 0;
+#endif
+
+#ifdef ALT_SERVER_API
+		virtual void AddTargetPlayer(IPlayer* player) = 0;
+		virtual void RemoveTargetPlayer(IPlayer* player) = 0;
+		virtual std::vector<IPlayer*> GetTargets() const = 0;
 #endif
 
 		virtual void SetSprite(uint32_t sprite) = 0;

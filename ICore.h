@@ -383,8 +383,8 @@ namespace alt
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color, uint32_t streamingDistance) = 0;
 		
-		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, Position pos) = 0;
-		virtual IBlip* CreateBlip(IPlayer* target, IBlip::BlipType type, IEntity* attachTo) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, Position pos) = 0;
+		virtual IBlip* CreateBlip(IBlip::BlipType type, IEntity* attachTo) = 0;
 		virtual IMarker* CreateMarker(IPlayer* target, IMarker::MarkerType type, Vector3f position, alt::RGBA color, IResource* res = nullptr) = 0;
 
 		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
