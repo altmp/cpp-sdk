@@ -30,7 +30,6 @@ namespace alt
 		virtual ~IBlip() = default;
 
 		virtual bool IsGlobal() const = 0;
-		virtual void SetGlobal(bool state) = 0;
 		virtual bool IsAttached() const = 0;
 		virtual IEntity* AttachedTo() const = 0;
 		virtual void AttachTo(IEntity* entity) = 0;
@@ -77,6 +76,7 @@ namespace alt
 #endif
 
 #ifdef ALT_SERVER_API
+		virtual void SetGlobal(bool state) = 0;
 		virtual void AddTargetPlayer(IPlayer* player) = 0;
 		virtual void RemoveTargetPlayer(IPlayer* player) = 0;
 		virtual std::vector<IPlayer*> GetTargets() const = 0;
