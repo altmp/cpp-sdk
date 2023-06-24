@@ -30,6 +30,7 @@ namespace alt
 		virtual ~IBlip() = default;
 
 		virtual bool IsGlobal() const = 0;
+		virtual void SetGlobal(bool state) = 0;
 		virtual bool IsAttached() const = 0;
 		virtual IEntity* AttachedTo() const = 0;
 		virtual void AttachTo(IEntity* entity) = 0;
