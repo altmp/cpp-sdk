@@ -29,6 +29,9 @@ namespace alt
 
 		virtual ~IBlip() = default;
 
+		virtual void SetVisible(bool toggle) = 0;
+		virtual bool IsVisible() const = 0;
+		
 		virtual bool IsGlobal() const = 0;
 		virtual bool IsAttached() const = 0;
 		virtual IEntity* AttachedTo() const = 0;
@@ -70,9 +73,6 @@ namespace alt
 		virtual bool GetShrinked() const = 0;
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetGameID() const = 0;
-		// Returns whether the blip was created on serverside (false for clientside blips)
-		virtual void SetVisible(bool toggle) = 0;
-		virtual bool IsVisible() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API
