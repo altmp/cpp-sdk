@@ -73,6 +73,7 @@ namespace alt
 		virtual bool GetShrinked() const = 0;
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetGameID() const = 0;
+		virtual bool IsStreamedIn() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API
