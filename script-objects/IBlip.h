@@ -37,6 +37,7 @@ namespace alt
 		virtual IEntity* AttachedTo() const = 0;
 		virtual void AttachTo(IEntity* entity) = 0;
 		virtual BlipType GetBlipType() const = 0;
+		virtual void SetBlipType(BlipType blipType) = 0;
 
 		virtual Vector2f GetScaleXY() const = 0;
 		virtual void SetScaleXY(Vector2f scale) = 0;
