@@ -94,6 +94,7 @@
 #include "events/CEntityHitEntityEvent.h"
 #include "events/CPlayerStartEnterVehicleEvent.h"
 #include "events/CPlayerStartLeaveVehicleEvent.h"
+#include "events/CPlayerBulletHitEvent.h"
 
 #ifdef ALT_CLIENT_API
 
