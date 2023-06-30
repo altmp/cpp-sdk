@@ -11,6 +11,9 @@ namespace alt
 		
 		virtual uint32_t GetHash() const = 0;
 
+		virtual uint32_t GetAudCategory() const = 0;
+		virtual void SetAudCategory(uint32_t category) = 0;
+
 		virtual uint32_t AddRotateEffect(float fRate, int priority) const = 0;
 		virtual uint32_t AddVolumeEffect(float fVolume, int priority) const = 0;
 		virtual uint32_t AddPeakeqEffect(int lBand, float fBandwidth, float fQ, float fCenter, float fGain, int priority) const = 0;
