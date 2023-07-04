@@ -7,8 +7,6 @@ namespace alt
 	class IAudioOutput : public virtual IBaseObject
 	{
 	public:
-		virtual ~IAudioOutput() = default;
-
 		virtual void SetVolume(float vol) = 0;
 		virtual float GetVolume() const = 0;
 

@@ -6,6 +6,7 @@ namespace alt
 {
 	class IAudioFrontendOutput : public virtual IAudioOutput
 	{
+	public:
 		
 	};
 }

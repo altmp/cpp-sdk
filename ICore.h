@@ -33,7 +33,9 @@
 #include "script-objects/IHttpClient.h"
 #include "script-objects/IAudio.h"
 #include "script-objects/IAudioOutput.h"
-#include "script-objects/IAudioOutputFrontend.h"
+#include "script-objects/IAudioFrontendOutput.h"
+#include "script-objects/IAudioWorldOutput.h"
+#include "script-objects/IAudioAttachedOutput.h"
 #include "script-objects/IObject.h"
 #include "script-objects/IRml.h"
 #include "script-objects/IWeaponData.h"
@@ -266,9 +268,11 @@ namespace alt
 		virtual IBlip* CreateBlip(Vector3f position, float radius, IResource* res = nullptr) = 0;
 		virtual IBlip* CreateBlip(Vector3f position, float width, float height, IResource* res = nullptr) = 0;
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Vector3f pos, Vector3f next, float radius, float height, alt::RGBA color, uint32_t streamingDistance, IResource* res = nullptr) = 0;
-		virtual IAudio* CreateAudio(const std::string& source, float volume, uint32_t category, bool frontend, IResource* res = nullptr) = 0;
+		virtual IAudio* CreateAudio(const std::string& source, float volume, IResource* res = nullptr) = 0;
 		virtual IAudioFilter* CreateAudioFilter(uint32_t hash, IResource* res = nullptr) = 0;
 		virtual IAudioFrontendOutput* CreateFrontendOutput(uint32_t categoryHash, IResource* res = nullptr) = 0;
+		virtual IAudioWorldOutput* CreateWorldOutput(uint32_t categoryHash, alt::Position pos, IResource* res = nullptr) = 0;
+		virtual IAudioAttachedOutput* CreateAttachedOutput(uint32_t categoryHash, IWorldObject* entity, IResource* res = nullptr) = 0;
 		virtual IRmlDocument* CreateDocument(const std::string& url, const std::string& currentPath, IResource* res = nullptr) = 0;
 		virtual IMarker* CreateMarker(IMarker::MarkerType type, Vector3f position, alt::RGBA color, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
 		virtual ITextLabel* CreateTextLabel(const std::string& text, const std::string& fontName, float fontSize, float scale, Vector3f position, Vector3f rot, alt::RGBA color, float outlineWidth, alt::RGBA outlineColor, bool useStreaming, uint32_t streamingDistance, IResource* res = nullptr) = 0;
