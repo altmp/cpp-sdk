@@ -18,12 +18,14 @@ namespace alt
 		virtual float GetHeight() const = 0;
 		virtual float GetRadius() const = 0;
 		virtual RGBA GetColor() const = 0;
+		virtual RGBA GetIconColor() const = 0;
 		virtual alt::Position GetNextPosition() const = 0;
 
 		virtual void SetCheckpointType(uint8_t type) = 0;
 		virtual void SetHeight(float height) = 0;
 		virtual void SetRadius(float radius) = 0;
 		virtual void SetColor(RGBA color) = 0;
+		virtual void SetIconColor(RGBA color) = 0;
 		virtual void SetNextPosition(alt::Position pos) = 0;
 		
 		virtual uint32_t GetStreamingDistance() const = 0;
