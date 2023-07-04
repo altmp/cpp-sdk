@@ -348,6 +348,7 @@ namespace alt
 		virtual const std::vector<IObject*> GetWeaponObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
 		virtual std::vector<IAudio*> GetAudios() const = 0;
+		virtual std::vector<IAudioOutput*> GetAudioOutputs() const = 0;
 
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 

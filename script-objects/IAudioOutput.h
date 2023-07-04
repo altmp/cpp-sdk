@@ -4,6 +4,7 @@
 
 namespace alt
 {
+	class IAudio;
 	class IAudioOutput : public virtual IBaseObject
 	{
 	public:
@@ -15,5 +16,7 @@ namespace alt
 
 		virtual void SetCategory(uint32_t cat) = 0;
 		virtual uint32_t GetCategory() const = 0;
+
+		virtual IAudio* GetOwner() const = 0;
 	};
 }
