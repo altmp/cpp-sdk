@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../objects/IBaseObject.h"
-#include "../objects/IEntity.h"
+#include "IAudioOutput.h"
 
 namespace alt
 {
@@ -15,18 +15,12 @@ namespace alt
 
         virtual void SetLoop(bool toggle) = 0;
         virtual void SetVolume(float volume) = 0;  //0.0 - 1.0 range
-        virtual void SetCategory(uint32_t category) = 0; //default: radio
 
         virtual bool IsLoop() const = 0;
         virtual float GetVolume() const = 0;
-        virtual uint32_t GetCategory() const = 0;
-
-        virtual bool IsFrontendPlay() const = 0;
-
-        virtual void AddOutput(IEntity* entity) = 0;
-        virtual void AddOutput(uint32_t scriptID) = 0;
-        virtual void RemoveOutput(IEntity* entity, bool removeRef = true) = 0;
-        virtual void RemoveOutput(uint32_t scriptID) = 0;
+        
+        virtual void AddOutput(IAudioOutput* output) = 0;
+        virtual void RemoveOutput(IAudioOutput* output) = 0;
         virtual MValueList GetOutputs() = 0;
 
         virtual void Play() = 0;
