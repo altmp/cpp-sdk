@@ -11,6 +11,8 @@
 #include "../types/HeadBlendData.h"
 #include "../types/HeadOverlay.h"
 #include "../types/Weapon.h"
+#include "../types/AmmoSpecialType.h"
+#include "../types/AmmoFlags.h"
 
 namespace alt
 {
@@ -164,6 +166,16 @@ namespace alt
 		virtual uint16_t GetAmmo(uint32_t ammoHash) const = 0;
 		virtual void SetWeaponAmmo(uint32_t weaponHash, uint16_t ammo) = 0;
 		virtual uint16_t GetWeaponAmmo(uint32_t weaponHash) const = 0;
+		virtual void SetAmmoSpecialType(uint32_t ammoHash, AmmoSpecialType ammoSpecialType) = 0;
+		virtual AmmoSpecialType GetAmmoSpecialType(uint32_t ammoHash) const = 0;
+		virtual void SetAmmoFlags(uint32_t ammoHash, AmmoFlags ammoFlags) = 0;
+		virtual AmmoFlags GetAmmoFlags(uint32_t ammoHash) const = 0;
+		virtual void SetAmmoMax(uint32_t ammoHash, int32_t ammoMax) = 0;
+		virtual int32_t GetAmmoMax(uint32_t ammoHash) const = 0;
+		virtual void SetAmmoMax50(uint32_t ammoHash, int32_t ammoMax50) = 0;
+		virtual int32_t GetAmmoMax50(uint32_t ammoHash) const = 0;
+		virtual void SetAmmoMax100(uint32_t ammoHash, int32_t ammoMax100) = 0;
+		virtual int32_t GetAmmoMax100(uint32_t ammoHash) const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
