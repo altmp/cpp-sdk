@@ -178,6 +178,7 @@ namespace alt
 		virtual int32_t GetAmmoMax100(uint32_t ammoHash) const = 0;
 
 		virtual void AddDecoration(uint32_t collection, uint32_t overlay) = 0;
+		virtual void RemoveDecoration(uint32_t collection, uint32_t overlay) = 0;
 		virtual void ClearDecorations() = 0;
 #endif // ALT_SERVER_API
 
