@@ -13,6 +13,7 @@
 #include "../types/Weapon.h"
 #include "../types/AmmoSpecialType.h"
 #include "../types/AmmoFlags.h"
+#include "../types/Decoration.h"
 
 namespace alt
 {
@@ -180,6 +181,7 @@ namespace alt
 		virtual void AddDecoration(uint32_t collection, uint32_t overlay) = 0;
 		virtual void RemoveDecoration(uint32_t collection, uint32_t overlay) = 0;
 		virtual void ClearDecorations() = 0;
+		virtual std::vector<CDecoration> GetDecorations() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
