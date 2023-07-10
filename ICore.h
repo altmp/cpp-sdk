@@ -28,6 +28,7 @@
 #include "script-objects/IWebView.h"
 #include "script-objects/IStatData.h"
 #include "script-objects/IHandlingData.h"
+#include "script-objects/IAudioCategory.h"
 #include "script-objects/INative.h"
 #include "script-objects/IMapData.h"
 #include "script-objects/IHttpClient.h"
@@ -174,6 +175,7 @@ namespace alt
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
 		virtual std::shared_ptr<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
 		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
+		virtual std::shared_ptr<alt::IAudioCategory> GetAudioCategory(const std::string& name) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
