@@ -158,6 +158,7 @@ namespace alt
 
 		virtual void PlayAnimation(const std::string& animDict, const std::string& animName, float blendInSpeed, float blendOutSpeed, int duration, int flags, float playbackRate, bool lockX, bool lockY, bool lockZ) = 0;
 		virtual void ClearTasks() = 0;
+		virtual void PlayScenario(const std::string& name) = 0;
 
 		virtual std::string GetCloudAuthHash() const = 0;
 
