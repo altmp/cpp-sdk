@@ -175,6 +175,7 @@ namespace alt
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
 		virtual std::shared_ptr<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
 		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
+		virtual std::vector<std::shared_ptr<alt::IWeaponData>> GetAllWeaponData() const = 0;
 		virtual std::shared_ptr<alt::IAudioCategory> GetAudioCategory(const std::string& name) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
