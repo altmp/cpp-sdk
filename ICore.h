@@ -434,6 +434,7 @@ namespace alt
 		virtual uint32_t GetAmmoHashForWeaponHash(uint32_t weaponHash) const = 0;
 
 		virtual void SetVoiceExternalPublic(const std::string& host, uint16_t port) = 0;
+		virtual void SetVoiceExternal(const std::string& host, uint16_t port) = 0;
 #endif
 
 		static ICore &Instance()

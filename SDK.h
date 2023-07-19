@@ -95,6 +95,7 @@
 #include "events/CPlayerStartEnterVehicleEvent.h"
 #include "events/CPlayerStartLeaveVehicleEvent.h"
 #include "events/CPlayerBulletHitEvent.h"
+#include "events/CVoiceConnectionEvent.h"
 
 #ifdef ALT_CLIENT_API
 
@@ -110,7 +111,6 @@
 #include "events/CRmlEvent.h"
 #include "events/CWindowFocusChangeEvent.h"
 #include "events/CWindowResolutionChangeEvent.h"
-#include "events/CVoiceConnectionEvent.h"
 
 #endif
 

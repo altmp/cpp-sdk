@@ -1,6 +1,5 @@
 #pragma once
 
-#ifdef ALT_CLIENT_API
 #include "CEvent.h"
 
 #include <cstdint>
@@ -30,4 +29,3 @@ namespace alt
 		State state;
 	};
 }
-#endif
