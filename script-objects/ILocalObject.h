@@ -4,7 +4,7 @@
 
 namespace alt
 {
-	class IObject : public virtual IEntity
+	class ILocalObject : public virtual IEntity
 	{
 	public:
 		virtual void SetModel(uint32_t model) = 0;

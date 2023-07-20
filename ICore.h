@@ -37,7 +37,7 @@
 #include "script-objects/IAudioFrontendOutput.h"
 #include "script-objects/IAudioWorldOutput.h"
 #include "script-objects/IAudioAttachedOutput.h"
-#include "script-objects/IObject.h"
+#include "script-objects/ILocalObject.h"
 #include "script-objects/IRml.h"
 #include "script-objects/IWeaponData.h"
 #include "script-objects/IVirtualEntity.h"
@@ -344,11 +344,11 @@ namespace alt
 
 		virtual bool IsPointOnScreen(Vector3f point) const = 0;
 
-		virtual IObject* CreateLocalObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
-		virtual IObject* CreateWeaponObject(Position pos, Rotation rot, uint32_t weaponHash, uint32_t modelHash = 0, int numAmmo = 100, bool createDefaultComponents = true, float scale = 1.f, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
-		virtual const std::vector<IObject*> GetLocalObjects() const = 0;
-		virtual const std::vector<IObject*> GetWorldObjects() const = 0;
-		virtual const std::vector<IObject*> GetWeaponObjects() const = 0;
+		virtual ILocalObject* CreateLocalObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
+		virtual ILocalObject* CreateWeaponObject(Position pos, Rotation rot, uint32_t weaponHash, uint32_t modelHash = 0, int numAmmo = 100, bool createDefaultComponents = true, float scale = 1.f, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
+		virtual const std::vector<ILocalObject*> GetLocalObjects() const = 0;
+		virtual const std::vector<ILocalObject*> GetWorldObjects() const = 0;
+		virtual const std::vector<ILocalObject*> GetWeaponObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
 		virtual std::vector<IAudio*> GetAudios() const = 0;
 		virtual std::vector<IAudioOutput*> GetAudioOutputs() const = 0;
