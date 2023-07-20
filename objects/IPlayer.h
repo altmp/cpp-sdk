@@ -183,6 +183,9 @@ namespace alt
 		virtual void RemoveDecoration(uint32_t collection, uint32_t overlay) = 0;
 		virtual void ClearDecorations() = 0;
 		virtual std::vector<CDecoration> GetDecorations() const = 0;
+
+		virtual bool IsNetworkOwnershipDisabled() const = 0;
+		virtual void SetNetworkOwnershipDisabled(bool disabled) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
