@@ -38,7 +38,7 @@ namespace alt
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 
-		virtual void AttachToEntity(IEntity* entity, uint16_t otherBoneIndex, uint16_t myBoneIndex, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
+		virtual void AttachToEntity(IEntity* entity, uint16_t otherBoneId, uint16_t myBoneId, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void AttachToEntity(IEntity* entity, const std::string& otherBoneName, const std::string& myBoneName, Position position, Rotation rotation, bool collision, bool noFixedRotation) = 0;
 		virtual void Detach() = 0;
 
