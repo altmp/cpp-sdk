@@ -339,9 +339,6 @@ namespace alt
 		virtual ILocalObject* CreateWeaponObject(Position pos, Rotation rot, uint32_t weaponHash, uint32_t modelHash = 0, int numAmmo = 100, bool createDefaultComponents = true, float scale = 1.f, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
 		virtual const std::vector<ILocalObject*> GetWorldObjects() const = 0;
 		virtual const std::vector<ILocalObject*> GetWeaponObjects() const = 0;
-		virtual std::vector<IWebView*> GetWebViews() const = 0;
-		virtual std::vector<IAudio*> GetAudios() const = 0;
-		virtual std::vector<IAudioOutput*> GetAudioOutputs() const = 0;
 
 		virtual Vector3f GetPedBonePos(int32_t scriptId, uint16_t boneId) const = 0;
 
