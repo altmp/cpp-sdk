@@ -4,10 +4,10 @@
 
 namespace alt
 {
-    class INetworkObject : public virtual IEntity
+    class IObject : public virtual IEntity
     {
     protected:
-        virtual ~INetworkObject() = default;
+        virtual ~IObject() = default;
 
     public:
 		virtual uint8_t GetAlpha() const = 0;

@@ -20,7 +20,7 @@
 
 #include "objects/ILocalPlayer.h"
 #include "objects/IPed.h"
-#include "objects/INetworkObject.h"
+#include "objects/IObject.h"
 
 #include "script-objects/IBlip.h"
 #include "script-objects/ICheckpoint.h"
@@ -410,7 +410,7 @@ namespace alt
 		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
 
-		virtual INetworkObject* CreateNetworkObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100) = 0;
+		virtual IObject* CreateObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100) = 0;
 
 		virtual Metric* RegisterMetric(const std::string& metricName, Metric::Type metricType = Metric::Type::METRIC_TYPE_GAUGE, const std::unordered_map<std::string, std::string>& attributes = {}) = 0;
 

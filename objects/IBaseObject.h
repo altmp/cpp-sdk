@@ -16,7 +16,7 @@ namespace alt
 			PLAYER,
 			VEHICLE,
 			PED,
-			NETWORK_OBJECT,
+			OBJECT,
 			BLIP,
 			WEBVIEW,
 			VOICE_CHANNEL,
