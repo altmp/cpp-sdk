@@ -131,17 +131,8 @@ namespace alt
 		virtual IEntity* GetEntityBySyncID(uint16_t id) const = 0;
 		virtual IBaseObject* GetBaseObjectByID(alt::IBaseObject::Type type, uint32_t id) const = 0;
 
+		virtual std::vector<IBaseObject*> GetBaseObjects(alt::IBaseObject::Type type) const = 0;
 		virtual std::vector<IEntity*> GetEntities() const = 0;
-		virtual std::vector<IPlayer*> GetPlayers() const = 0;
-		virtual std::vector<IVehicle*> GetVehicles() const = 0;
-		virtual std::vector<IBlip*> GetBlips() const = 0;
-		virtual std::vector<IMarker*> GetMarkers() const = 0;
-		virtual std::vector<ICheckpoint*> GetCheckpoints() const = 0;
-		virtual std::vector<IPed*> GetPeds() const = 0;
-		virtual std::vector<IVirtualEntity*> GetVirtualEntities() const = 0;
-		virtual std::vector<IVirtualEntityGroup*> GetVirtualEntityGroups() const = 0;
-		virtual std::vector<INetworkObject*> GetNetworkObjects() const = 0;
-		virtual std::vector<IColShape*> GetColShapes() const = 0;
 
 		virtual void TriggerLocalEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerLocalEventOnMain(const std::string& ev, MValueArgs args) = 0;
@@ -346,7 +337,6 @@ namespace alt
 
 		virtual ILocalObject* CreateLocalObject(uint32_t modelHash, Vector3f position, Vector3f rot, bool noOffset = false, bool dynamic = false, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
 		virtual ILocalObject* CreateWeaponObject(Position pos, Rotation rot, uint32_t weaponHash, uint32_t modelHash = 0, int numAmmo = 100, bool createDefaultComponents = true, float scale = 1.f, bool useStreaming = false, uint32_t streamingDistance = 0, IResource* res = nullptr) = 0;
-		virtual const std::vector<ILocalObject*> GetLocalObjects() const = 0;
 		virtual const std::vector<ILocalObject*> GetWorldObjects() const = 0;
 		virtual const std::vector<ILocalObject*> GetWeaponObjects() const = 0;
 		virtual std::vector<IWebView*> GetWebViews() const = 0;
@@ -424,8 +414,6 @@ namespace alt
 		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
 
 		virtual INetworkObject* CreateNetworkObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100) = 0;
-
-		virtual std::vector<IConnectionInfo*> GetConnectionInfos() const = 0;
 
 		virtual Metric* RegisterMetric(const std::string& metricName, Metric::Type metricType = Metric::Type::METRIC_TYPE_GAUGE, const std::unordered_map<std::string, std::string>& attributes = {}) = 0;
 
