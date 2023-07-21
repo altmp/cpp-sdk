@@ -1,27 +1,25 @@
 #pragma once
 
-#include "../objects/IEntity.h"
+#include "../objects/IObject.h"
 
 namespace alt
 {
-	class ILocalObject : public virtual IEntity
+	class ILocalObject : public virtual IObject
 	{
 	public:
 		virtual void SetModel(uint32_t model) = 0;
-		virtual uint8_t GetAlpha() const = 0;
 		virtual void SetAlpha(uint8_t alpha) = 0;
 		virtual void ResetAlpha() = 0;
 
 		virtual bool IsDynamic() const = 0;
 
-		virtual uint16_t GetLodDistance() const = 0;
 		virtual void SetLodDistance(uint16_t distance) = 0;
 
 		virtual bool HasGravity() const = 0;
 		virtual void ToggleGravity(bool toggle) = 0;
 
-		virtual void AttachToEntity(IEntity* entity, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
-		virtual void AttachToEntity(uint32_t scriptId, int16_t bone, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
+		virtual void AttachToEntity(IEntity* entity, int16_t boneIndex, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
+		virtual void AttachToEntity(uint32_t scriptId, int16_t boneIndex, alt::Position pos, alt::Rotation rot, bool useSoftPinning, bool collision, bool fixedRot) = 0;
 		virtual void Detach(bool dynamic) = 0;
 
 		virtual bool IsCollisionEnabled() const = 0;
@@ -34,7 +32,6 @@ namespace alt
 
 		virtual void ActivatePhysics() = 0;
 
-		virtual uint8_t GetTextureVariation() const = 0;
 		virtual void SetTextureVariation(uint8_t variation) = 0;
 
 		// True = Created by GTA, False = Created by API
