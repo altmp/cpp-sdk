@@ -317,6 +317,7 @@ namespace alt
 		virtual Vector2i GetScreenResolution() const = 0;
 
 		virtual void SetMinimapComponentPosition(const std::string& name, char alignX, char alignY, Vector2f pos, Vector2f size) = 0;
+		virtual void ResetMinimapComponentPosition(const std::string& name) = 0;
 		virtual void SetMinimapIsRectangle(bool state) = 0;
 
 		virtual Config::Value::ValuePtr GetClientConfig() const = 0;
