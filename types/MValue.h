@@ -162,6 +162,7 @@ namespace alt
 		virtual Size GetSize() const = 0;
 		virtual MValue Get(const std::string& key) = 0;
 		virtual MValueConst Get(const std::string& key) const = 0;
+		virtual bool Has(const std::string& key) const = 0;
 
 		// Transfers ownership of MValue (You should not have any more refs to this copy)
 		virtual void Set(const std::string& key, MValue val) = 0;
