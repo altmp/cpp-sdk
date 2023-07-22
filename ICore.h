@@ -17,6 +17,7 @@
 #include "IResource.h"
 #include "IPackage.h"
 #include "IDiscordManager.h"
+#include "events/CVoiceConnectionEvent.h"
 
 #include "objects/ILocalPlayer.h"
 #include "objects/IPed.h"
@@ -198,6 +199,7 @@ namespace alt
 		virtual bool GetActiveVoiceInputDevice(std::optional<std::string>& uid) const = 0;
 		virtual bool SetActiveVoiceInputDevice(const std::optional<std::string>& uid) = 0;
 		virtual bool GetVoiceInputDeviceList(std::vector<SoundDeviceInfo>& devices) const = 0;
+		virtual CVoiceConnectionEvent::State GetVoiceConnectionState() const = 0;
 
 		virtual std::string GetLicenseHash() const = 0;
 		virtual std::string GetLocale() const = 0;
