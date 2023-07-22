@@ -161,6 +161,8 @@ namespace alt
 
 		virtual bool IsEventEnabled(alt::CEvent::Type type) const = 0;
 		virtual void ToggleEvent(alt::CEvent::Type type, bool state) = 0;
+		
+		virtual CVoiceConnectionEvent::State GetVoiceConnectionState() const = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
@@ -199,7 +201,6 @@ namespace alt
 		virtual bool GetActiveVoiceInputDevice(std::optional<std::string>& uid) const = 0;
 		virtual bool SetActiveVoiceInputDevice(const std::optional<std::string>& uid) = 0;
 		virtual bool GetVoiceInputDeviceList(std::vector<SoundDeviceInfo>& devices) const = 0;
-		virtual CVoiceConnectionEvent::State GetVoiceConnectionState() const = 0;
 
 		virtual std::string GetLicenseHash() const = 0;
 		virtual std::string GetLocale() const = 0;
