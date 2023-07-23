@@ -114,5 +114,17 @@ namespace alt
 		virtual void SetAsHighDetail(bool val) = 0;
 		virtual void SetShrinked(bool val) = 0;
 		virtual void Fade(uint32_t opacity, uint32_t duration) = 0;
+
+		virtual bool IsHiddenOnLegend() const = 0;
+		virtual void SetHiddenOnLegend(bool state) = 0;
+
+		virtual bool IsMinimalOnEdge() const = 0;
+		virtual void SetMinimalOnEdge(bool state) = 0;
+
+		virtual bool IsUseHeightIndicatorOnEdge() const = 0;
+		virtual void SetUseHeightIndicatorOnEdge(bool state) = 0;
+
+		virtual bool IsShortHeightThreshold() const = 0;
+		virtual void SetShortHeightThreshold(bool state) = 0;
 	};
 } // namespace alt
