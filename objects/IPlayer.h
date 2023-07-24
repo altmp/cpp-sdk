@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 
 #include "IEntity.h"
 #include "IVehicle.h"
