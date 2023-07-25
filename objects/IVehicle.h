@@ -92,6 +92,7 @@ namespace alt
 		virtual std::string GetScriptDataBase64() const = 0;
 		virtual void ToggleExtra(uint8_t extraID, bool state) = 0;
 		virtual Vector3f GetVelocity() const = 0;
+		virtual float GetSteeringAngle() const = 0;
 
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
@@ -155,6 +156,7 @@ namespace alt
 		virtual IVehicle* GetAttachedTo() const = 0;
 		virtual bool IsDriftMode() const = 0;
 		virtual void SetDriftMode(bool state) = 0;
+		virtual bool IsHornActive() const = 0;
 
 		virtual bool IsTrainMissionTrain() const = 0;
 		virtual void SetTrainMissionTrain(bool value) = 0;
@@ -229,6 +231,9 @@ namespace alt
 
 		virtual Quaternion GetQuaternion() const = 0;
 		virtual void SetQuaternion(Quaternion quaternion) = 0;
+
+		virtual float GetAccelerationLevel() const = 0;
+		virtual float GetBrakeLevel() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
@@ -287,6 +292,8 @@ namespace alt
 		virtual bool GetBatteryLightState() const = 0;
 		virtual void SetBatteryLightState(bool state) = 0;
 		virtual void ResetDashboardLights() = 0;
+		virtual float GetSuspensionHeight() const = 0;
+		virtual void SetSuspensionHeight(float value) = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
