@@ -96,6 +96,10 @@
 #include "events/CPlayerStartLeaveVehicleEvent.h"
 #include "events/CPlayerBulletHitEvent.h"
 #include "events/CVoiceConnectionEvent.h"
+#include "events/CRequestSyncedSceneEvent.h"
+#include "events/CStartSyncedSceneEvent.h"
+#include "events/CStopSyncedSceneEvent.h"
+#include "events/CUpdateSyncedSceneEvent.h"
 
 #ifdef ALT_CLIENT_API
 
