@@ -32,6 +32,8 @@ namespace alt
 		
 		uint32_t GetAnimDictHash() const { return animDictHash; }
 
+		std::unordered_map<std::shared_ptr<IEntity>, uint32_t> GetEntityAndAnimHashPairs() const { return entityAndAnimHashPairs; }
+
 	private:
 		std::shared_ptr<IPlayer> source;
 		int32_t sceneID;
