@@ -5,6 +5,8 @@
 
 namespace alt
 {
+    class IAudioOutput;
+
     class IWebView : public virtual IBaseObject
     {
     public:
@@ -27,5 +29,9 @@ namespace alt
         virtual Vector2i GetPosition() const = 0;
         virtual void SetPosition(Vector2i pos) = 0;
         virtual void Reload(bool ignoreCache) = 0;
+
+        virtual void AddOutput(IAudioOutput* output) = 0;
+        virtual void RemoveOutput(IAudioOutput* output) = 0;
+        virtual MValueList GetOutputs() = 0;
     };
 } // namespace alt
