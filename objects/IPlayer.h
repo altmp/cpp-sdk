@@ -18,6 +18,8 @@
 
 namespace alt
 {
+	class IAudioFilter;
+
 	class IPlayer : public virtual IEntity
 	{
 	protected:
@@ -204,6 +206,10 @@ namespace alt
 		virtual void SetSpatialVolume(float volume) = 0;
 		virtual float GetNonSpatialVolume() const = 0;
 		virtual void SetNonSpatialVolume(float volume) = 0;
+
+		virtual void AddFilter(IAudioFilter* filter) = 0;
+		virtual void RemoveFilter() = 0;
+		virtual IAudioFilter* GetFilter() const = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
