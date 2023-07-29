@@ -17,7 +17,7 @@ namespace alt
 		
 		virtual uint32_t GetCategory() const = 0;
 
-		virtual IAudio* GetOwner() const = 0;
+		virtual IBaseObject* GetOwner() const = 0;
 
 		virtual void AddFilter(IAudioFilter* filter) = 0;
 		virtual void RemoveFilter() = 0;
