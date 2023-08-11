@@ -101,6 +101,11 @@
 #include "events/CStopSyncedSceneEvent.h"
 #include "events/CUpdateSyncedSceneEvent.h"
 
+#ifdef ALT_SERVER_API
+#include "events/CClientRequestObjectEvent.h"
+#include "events/CClientDeleteObjectEvent.h"
+#endif
+
 #ifdef ALT_CLIENT_API
 
 #include "events/CConnectionComplete.h"

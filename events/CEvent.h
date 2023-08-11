@@ -13,6 +13,8 @@ namespace alt
 
 			// Server
 			SERVER_STARTED,
+			CLIENT_REQUEST_OBJECT_EVENT,
+			CLIENT_DELETE_OBJECT_EVENT,
 
 			// Shared
 			PLAYER_CONNECT,
