@@ -24,8 +24,8 @@ namespace alt
 		}
 
 		IPlayer* GetTarget() const { return target.get(); }
-		const uint32_t& GetName() const { return model; }
-		const alt::Position& GetArgs() const { return position; }
+		const uint32_t& GetModel() const { return model; }
+		const alt::Position& GetPosition() const { return position; }
 
 	private:
 		std::shared_ptr<IPlayer> target;
