@@ -26,9 +26,11 @@ namespace alt
 		virtual std::string GetIp() const = 0;
 		virtual int64_t GetDiscordUserID() const = 0;
 		virtual std::string GetCloudAuthHash() const = 0;
+		virtual std::string GetText() const = 0;
 
 		virtual void Accept(bool sendNames) = 0;
 		virtual void Decline(const std::string& reason) = 0;
 		virtual bool IsAccepted() const = 0;
+		virtual void SetText(const std::string& text) = 0;
 	};
 }
