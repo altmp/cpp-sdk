@@ -51,6 +51,7 @@ namespace alt
 		virtual bool IsOnLadder() const = 0;
 		virtual bool IsInMelee() const = 0;
 		virtual bool IsInCover() const = 0;
+		virtual bool IsParachuting() const = 0;
 
 		virtual uint16_t GetArmour() const = 0;
 		virtual uint16_t GetMaxArmour() const = 0;
