@@ -152,13 +152,6 @@ namespace alt
 	class IMValueDict : public virtual IMValue
 	{
 	public:
-		class Iterator
-		{
-		public:
-			virtual std::string GetKey() = 0;
-			virtual MValueConst GetValue() = 0;
-		};
-
 		virtual Size GetSize() const = 0;
 		virtual MValue Get(const std::string& key) = 0;
 		virtual MValueConst Get(const std::string& key) const = 0;
@@ -172,8 +165,8 @@ namespace alt
 
 		virtual void Delete(const std::string& key) = 0;
 
-		virtual Iterator* Begin() const = 0;
-		virtual Iterator* Next() const = 0;
+		virtual std::unordered_map<std::string, MValue>::const_iterator Begin() const = 0;
+		virtual std::unordered_map<std::string, MValue>::const_iterator End() const = 0;
 	};
 
 	class IMValueBaseObject : public virtual IMValue
