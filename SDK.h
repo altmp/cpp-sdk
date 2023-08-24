@@ -120,6 +120,7 @@
 #include "events/CRmlEvent.h"
 #include "events/CWindowFocusChangeEvent.h"
 #include "events/CWindowResolutionChangeEvent.h"
+#include "events/CAudioEvent.h"
 
 #endif
 
