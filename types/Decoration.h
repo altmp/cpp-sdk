@@ -10,7 +10,7 @@ namespace alt
         uint32_t collection;
         uint32_t overlay;
 
-        bool operator==(const CDecoration &other) const
+        bool operator==(CDecoration other) const
         {
             return collection == other.collection && overlay == other.overlay;
         }

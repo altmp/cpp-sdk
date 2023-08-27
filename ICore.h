@@ -9,7 +9,6 @@
 #include "deps/alt-config/alt-config.h"
 #include "deps/ConfigBase.h"
 #include "types/RGBA.h"
-#include "types/Array.h"
 #include "types/MValue.h"
 #include "types/Metric.h"
 

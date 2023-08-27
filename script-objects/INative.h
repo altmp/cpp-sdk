@@ -3,7 +3,6 @@
 #include <cstdint>
 #include <memory>
 #include <vector>
-#include "../types/Array.h"
 #include "../IResource.h"
 
 namespace alt

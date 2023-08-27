@@ -23,7 +23,6 @@
 
 #include "types/Types.h"
 #include "types/RGBA.h"
-#include "types/Array.h"
 #include "types/MValue.h"
 #include "types/VehicleModelInfo.h"
 #include "types/WeaponModelInfo.h"

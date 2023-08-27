@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../types/Array.h"
+#include <vector>
 
 #include "CEvent.h"
 
