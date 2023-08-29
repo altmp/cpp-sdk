@@ -48,6 +48,7 @@
 #include "events/CPlayerDisconnectEvent.h"
 #include "events/CPlayerDamageEvent.h"
 #include "events/CPlayerDeathEvent.h"
+#include "events/CPlayerHealEvent.h"
 #include "events/CColShapeEvent.h"
 #include "events/CPlayerEnterVehicleEvent.h"
 #include "events/CPlayerLeaveVehicleEvent.h"

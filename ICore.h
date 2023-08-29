@@ -423,6 +423,14 @@ namespace alt
 
 		virtual void SetVoiceExternalPublic(const std::string& host, uint16_t port) = 0;
 		virtual void SetVoiceExternal(const std::string& host, uint16_t port) = 0;
+
+		virtual uint16_t GetMaxStreamingPeds() const = 0;
+		virtual uint16_t GetMaxStreamingObjects() const = 0;
+		virtual uint16_t GetMaxStreamingVehicles() const = 0;
+
+		virtual void SetMaxStreamingPeds(uint16_t _limit) = 0;
+		virtual void SetMaxStreamingObjects(uint16_t _limit) = 0;
+		virtual void SetMaxStreamingVehicles(uint16_t _limit) = 0;
 #endif
 
 		static ICore &Instance()
