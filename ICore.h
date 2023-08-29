@@ -431,6 +431,10 @@ namespace alt
 		virtual void SetMaxStreamingPeds(uint16_t _limit) = 0;
 		virtual void SetMaxStreamingObjects(uint16_t _limit) = 0;
 		virtual void SetMaxStreamingVehicles(uint16_t _limit) = 0;
+
+		virtual uint8_t GetStreamerThreadCount() const = 0;
+
+		virtual void SetStreamerThreadCount(uint8_t _count) = 0;
 #endif
 
 		static ICore &Instance()
