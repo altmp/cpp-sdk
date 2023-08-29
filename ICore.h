@@ -439,6 +439,10 @@ namespace alt
 		virtual uint32_t GetStreamingTickRate() const = 0;
 
 		virtual void SetStreamingTickRate(uint32_t _tickRate) = 0;
+
+		virtual uint32_t GetStreamingDistance() const = 0;
+
+		virtual void SetStreamingDistance(uint32_t _distance) = 0;
 #endif
 
 		static ICore &Instance()
