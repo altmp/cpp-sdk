@@ -435,6 +435,10 @@ namespace alt
 		virtual uint8_t GetStreamerThreadCount() const = 0;
 
 		virtual void SetStreamerThreadCount(uint8_t _count) = 0;
+
+		virtual uint32_t GetStreamingTickRate() const = 0;
+
+		virtual void SetStreamingTickRate(uint32_t _tickRate) = 0;
 #endif
 
 		static ICore &Instance()
