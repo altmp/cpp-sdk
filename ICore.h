@@ -433,16 +433,28 @@ namespace alt
 		virtual void SetMaxStreamingVehicles(uint16_t _limit) = 0;
 
 		virtual uint8_t GetStreamerThreadCount() const = 0;
+		virtual uint8_t GetMigrationThreadCount() const = 0;
+		virtual uint8_t GetSyncSendThreadCount() const = 0;
+		virtual uint8_t GetSyncReceiveThreadCount() const = 0;
 
 		virtual void SetStreamerThreadCount(uint8_t _count) = 0;
+		virtual void SetMigrationThreadCount(uint8_t _count) = 0;
+		virtual void SetSyncSendThreadCount(uint8_t _count) = 0;
+		virtual void SetSyncReceiveThreadCount(uint8_t _count) = 0;
 
 		virtual uint32_t GetStreamingTickRate() const = 0;
+		virtual uint32_t GetMigrationTickRate() const = 0;
+		virtual uint32_t GetColShapeTickRate() const = 0;
 
 		virtual void SetStreamingTickRate(uint32_t _tickRate) = 0;
+		virtual void SetMigrationTickRate(uint32_t _tickRate) = 0;
+		virtual void SetColShapeTickRate(uint32_t _tickRate) = 0;
 
 		virtual uint32_t GetStreamingDistance() const = 0;
+		virtual uint32_t GetMigrationDistance() const = 0;
 
 		virtual void SetStreamingDistance(uint32_t _distance) = 0;
+		virtual void SetMigrationDistance(uint32_t _distance) = 0;
 #endif
 
 		static ICore &Instance()
