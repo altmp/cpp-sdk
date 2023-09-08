@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 #include "../types/MValue.h"
 
@@ -32,6 +33,7 @@ namespace alt
 
 #ifdef ALT_SERVER_API
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void SetMultipleStreamSyncedMetaData(const std::unordered_map<std::string, alt::MValue>& values) = 0;
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 #endif
 	};

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <unordered_map>
 
 #include "../types/RGBA.h"
 #include "IColShape.h"
@@ -42,6 +43,7 @@ namespace alt
 		virtual std::vector<std::string> GetStreamSyncedMetaDataKeys() const = 0;
 		
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void SetMultipleStreamSyncedMetaData(const std::unordered_map<std::string, alt::MValue>& values) = 0;
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 #endif
 	};

@@ -4,6 +4,8 @@
 #include "../types/MValue.h"
 #include "IWorldObject.h"
 
+#include <unordered_map>
+
 namespace alt
 {
 	class IPlayer;
@@ -35,6 +37,7 @@ namespace alt
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
 		virtual void SetStreamSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void SetMultipleStreamSyncedMetaData(const std::unordered_map<std::string, MValue>& values) = 0;
 		virtual void DeleteStreamSyncedMetaData(const std::string& key) = 0;
 		virtual void SetVisible(bool toggle) = 0;
 

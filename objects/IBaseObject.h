@@ -2,6 +2,7 @@
 
 #include "../types/MValue.h"
 #include <vector>
+#include <unordered_map>
 
 namespace alt
 {
@@ -53,6 +54,7 @@ namespace alt
 		virtual bool HasMetaData(const std::string& key) const = 0;
 		virtual MValueConst GetMetaData(const std::string& key) const = 0;
 		virtual void SetMetaData(const std::string& key, MValue val) = 0;
+		virtual void SetMultipleMetaData(const std::unordered_map<std::string, MValue>& values) = 0;
 		virtual void DeleteMetaData(const std::string& key) = 0;
 		virtual std::vector<std::string> GetMetaDataKeys() const = 0;
 
@@ -62,6 +64,7 @@ namespace alt
 
 #ifdef ALT_SERVER_API
 		virtual void SetSyncedMetaData(const std::string& key, MValue val) = 0;
+		virtual void SetMultipleSyncedMetaData(const std::unordered_map<std::string, MValue>& values) = 0;
 		virtual void DeleteSyncedMetaData(const std::string& key) = 0;
 #endif
 #ifdef ALT_CLIENT_API
