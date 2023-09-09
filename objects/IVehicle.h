@@ -242,6 +242,7 @@ namespace alt
 		virtual float GetCurrentRPM() const = 0;
 		virtual Vector3f GetSpeedVector() const = 0;
 		virtual uint16_t GetMaxGear() const = 0;
+		virtual void SetSteeringAngle(float value) = 0;
 
 		virtual void SetCurrentGear(uint16_t currentGear) = 0;
 		virtual void SetMaxGear(uint16_t gearMax) = 0;
