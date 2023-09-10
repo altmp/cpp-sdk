@@ -9,11 +9,11 @@ namespace alt
 	class IEntity;
 	class IPlayer;
 
-	class CStopSyncedSceneEvent : public CEvent
+	class CStopSyncedSceneEvent : public CCancellableEvent
 	{
 	public:
 		CStopSyncedSceneEvent(const std::shared_ptr<IPlayer> _source, int32_t _sceneID) :
-			CEvent(Type::STOP_SYNCED_SCENE),
+			CCancellableEvent(Type::STOP_SYNCED_SCENE),
 			source(_source),
 			sceneID(_sceneID)
 		{

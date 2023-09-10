@@ -6,11 +6,11 @@ namespace alt
 {
 	class IPlayer;
 
-	class CPlayerConnectEvent : public CEvent
+	class CPlayerConnectEvent : public CCancellableEvent
 	{
 	public:
 		CPlayerConnectEvent(const std::shared_ptr<IPlayer>& _target) :
-			CEvent(Type::PLAYER_CONNECT),
+			CCancellableEvent(Type::PLAYER_CONNECT),
 			target(_target)
 		{
 		}
@@ -21,7 +21,7 @@ namespace alt
 		void Cancel(const std::string& _reason)
 		{
 			reason = _reason;
-			CEvent::Cancel();
+			CCancellableEvent::Cancel();
 		}
 
 	private:

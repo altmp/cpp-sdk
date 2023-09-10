@@ -6,11 +6,11 @@
 
 namespace alt
 {
-	class CConsoleCommandEvent : public CEvent
+	class CConsoleCommandEvent : public CCancellableEvent
 	{
 	public:
 		CConsoleCommandEvent(const std::string& _name, const std::vector<std::string>& _args) :
-			CEvent(Type::CONSOLE_COMMAND_EVENT),
+			CCancellableEvent(Type::CONSOLE_COMMAND_EVENT),
 			name(_name),
 			args(_args)
 		{

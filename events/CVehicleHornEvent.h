@@ -8,11 +8,11 @@
 
 namespace alt
 {
-	class CVehicleHornEvent : public CEvent
+	class CVehicleHornEvent : public CCancellableEvent
 	{
 	public:
 		CVehicleHornEvent(const std::shared_ptr<IVehicle>& _target, const std::shared_ptr<IPlayer>& _reporter, bool _toggle) :
-			CEvent(Type::VEHICLE_HORN),
+			CCancellableEvent(Type::VEHICLE_HORN),
 			target(_target),
 			reporter(_reporter),
 			toggle(_toggle)

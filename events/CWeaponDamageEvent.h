@@ -9,7 +9,7 @@ namespace alt
 	class IPlayer;
 	class IEntity;
 
-	class CWeaponDamageEvent : public CEvent
+	class CWeaponDamageEvent : public CCancellableEvent
 	{
 	public:
 		enum class BodyPart : int8_t
@@ -40,7 +40,7 @@ namespace alt
 		};
 
 		CWeaponDamageEvent(const std::shared_ptr<IPlayer>& _source, const std::shared_ptr<IEntity>& _target, uint32_t _weaponHash, uint32_t _damageValue, Vector3f _shotOffset, BodyPart _bodyPart, const std::shared_ptr<IEntity>& _sourceEntity = nullptr) :
-			CEvent(Type::WEAPON_DAMAGE_EVENT),
+			CCancellableEvent(Type::WEAPON_DAMAGE_EVENT),
 			source(_source),
 			target(_target),
 			weaponHash(_weaponHash),

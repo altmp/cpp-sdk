@@ -9,7 +9,7 @@ namespace alt
 	class IEntity;
 	class IPlayer;
 
-	class CExplosionEvent : public CEvent
+	class CExplosionEvent : public CCancellableEvent
 	{
 	public:
 		enum class ExplosionType : int8_t
@@ -58,7 +58,7 @@ namespace alt
 		};
 
 		CExplosionEvent(const std::shared_ptr<IPlayer>& _source, ExplosionType _explosionType, Position _position, uint32_t _explosionFX, const std::shared_ptr<IEntity>& _target) :
-			CEvent(Type::EXPLOSION_EVENT),
+			CCancellableEvent(Type::EXPLOSION_EVENT),
 			source(_source),
 			explosionType(_explosionType),
 			position(_position),

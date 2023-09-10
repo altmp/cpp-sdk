@@ -6,11 +6,11 @@
 
 namespace alt
 {
-	class CRmlEvent : public CEvent
+	class CRmlEvent : public CCancellableEvent
 	{
 	public:
 		CRmlEvent(const std::shared_ptr<IRmlElement>& _element, const std::string& _name, const MValueDict& _args) :
-			CEvent(Type::RMLUI_EVENT),
+			CCancellableEvent(Type::RMLUI_EVENT),
 			element(_element),
 			name(_name),
 			args(_args)

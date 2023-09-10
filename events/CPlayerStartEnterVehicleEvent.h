@@ -7,11 +7,11 @@ namespace alt
 	class IVehicle;
 	class IPlayer;
 
-	class CPlayerStartEnterVehicleEvent : public CEvent
+	class CPlayerStartEnterVehicleEvent : public CCancellableEvent
 	{
 	public:
 		CPlayerStartEnterVehicleEvent(const std::shared_ptr<IVehicle>& _target, const std::shared_ptr<IPlayer>& _player, uint8_t _seat) :
-			CEvent(Type::PLAYER_START_ENTER_VEHICLE),
+			CCancellableEvent(Type::PLAYER_START_ENTER_VEHICLE),
 			target(_target),
 			player(_player),
 			seat(_seat)

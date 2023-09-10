@@ -9,11 +9,11 @@ namespace alt
 	class IEntity;
 	class IPlayer;
 
-	class CStartProjectileEvent : public CEvent
+	class CStartProjectileEvent : public CCancellableEvent
 	{
 	public:
 		CStartProjectileEvent(const std::shared_ptr<IPlayer> _source, Position _startPosition, Vector3f _direction, uint32_t _ammoHash, uint32_t _weaponHash) :
-			CEvent(Type::START_PROJECTILE_EVENT),
+			CCancellableEvent(Type::START_PROJECTILE_EVENT),
 			source(_source),
 			startPosition(_startPosition),
 			direction(_direction),

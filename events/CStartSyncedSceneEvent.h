@@ -9,11 +9,11 @@ namespace alt
 	class IEntity;
 	class IPlayer;
 
-	class CStartSyncedSceneEvent : public CEvent
+	class CStartSyncedSceneEvent : public CCancellableEvent
 	{
 	public:
 		CStartSyncedSceneEvent(const std::shared_ptr<IPlayer> _source, int32_t _sceneID, Position _startPosition, Rotation _startRotation, uint32_t _animDictHash, std::unordered_map<std::shared_ptr<IEntity>, uint32_t>& _entityAndAnimHashPairs) :
-			CEvent(Type::START_SYNCED_SCENE),
+			CCancellableEvent(Type::START_SYNCED_SCENE),
 			source(_source),
 			sceneID(_sceneID),
 			startPosition(_startPosition),

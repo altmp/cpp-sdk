@@ -116,12 +116,25 @@ namespace alt
 		CEvent(Type _type) :type(_type) { }
 		virtual ~CEvent() = default;
 
+		virtual bool IsCancellable() const { return false; }
+
 		Type GetType() const { return type; };
+
+	private:
+		Type type;
+	};
+
+	class CCancellableEvent : public CEvent
+	{
+	public:
+		CCancellableEvent(Type _type) : CEvent(_type) {}
+
+		bool IsCancellable() const override { return true; }
+
 		bool WasCancelled() const { return cancelled; }
 		void Cancel() const { cancelled = true; }
 
 	private:
-		Type type;
 		mutable bool cancelled = false;
 	};
 }

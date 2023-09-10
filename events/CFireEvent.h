@@ -8,7 +8,7 @@
 
 namespace alt
 {
-	class CFireEvent : public CEvent
+	class CFireEvent : public CCancellableEvent
 	{
 	public:
 		struct FireInfo
@@ -22,7 +22,7 @@ namespace alt
 		};
 
 		CFireEvent(const std::shared_ptr<IPlayer>& _source, std::vector<FireInfo>&& _fires) :
-			CEvent(Type::FIRE_EVENT),
+			CCancellableEvent(Type::FIRE_EVENT),
 			source(_source),
 			fires(std::move(_fires))
 		{

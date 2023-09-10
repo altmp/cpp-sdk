@@ -9,11 +9,11 @@ namespace alt
 	class IPlayer;
 
 	// cancellable
-	class CClientDeleteObjectEvent : public CEvent
+	class CClientDeleteObjectEvent : public CCancellableEvent
 	{
 	public:
 		CClientDeleteObjectEvent(std::shared_ptr<IPlayer> _target) :
-			CEvent(Type::CLIENT_DELETE_OBJECT_EVENT),
+			CCancellableEvent(Type::CLIENT_DELETE_OBJECT_EVENT),
 			target(std::move(_target))
 		{
 

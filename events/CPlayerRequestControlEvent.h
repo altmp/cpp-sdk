@@ -7,11 +7,11 @@ namespace alt
 	class IEntity;
 	class IPlayer;
 
-	class CPlayerRequestControlEvent : public CEvent
+	class CPlayerRequestControlEvent : public CCancellableEvent
 	{
 	public:
 		CPlayerRequestControlEvent(const std::shared_ptr<IEntity>& _target, const std::shared_ptr<IPlayer>& _player) :
-			CEvent(Type::PLAYER_REQUEST_CONTROL),
+			CCancellableEvent(Type::PLAYER_REQUEST_CONTROL),
 			target(_target),
 			player(_player)
 		{

@@ -6,11 +6,11 @@ namespace alt
 {
 	class IPlayer;
 
-	class CTaskChangeEvent : public CEvent
+	class CTaskChangeEvent : public CCancellableEvent
 	{
 	public:
 		CTaskChangeEvent(const std::shared_ptr<IPlayer> _target, uint32_t _oldTask, uint32_t _newTask) :
-			CEvent(Type::TASK_CHANGE),
+			CCancellableEvent(Type::TASK_CHANGE),
 			target(_target),
 			oldTask(_oldTask),
 			newTask(_newTask)
