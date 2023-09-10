@@ -37,34 +37,40 @@ namespace alt
 
 	class IColShapeSphere : public virtual IColShape
 	{
+	public:
 		virtual float GetRadius() const = 0;
 	};
 
 	class IColShapeCylinder : public virtual IColShape
 	{
+	public:
 		virtual float GetRadius() const = 0;
 		virtual float GetHeight() const = 0;
 	};
 
 	class IColShapeCircle : public virtual IColShape
 	{
+	public:
 		virtual float GetRadius() const = 0;
 	};
 
 	class IColShapeCuboid : public virtual IColShape
 	{
+	public:
 		virtual Position GetMin() const = 0;
 		virtual Position GetMax() const = 0;
 	};
 
 	class IColShapeRect : public virtual IColShape
 	{
+	public:
 		virtual Vector2f GetMin() const = 0;
 		virtual Vector2f GetMax() const = 0;
 	};
 
 	class IColShapePoly : public virtual IColShape
 	{
+	public:
 		virtual float GetMinZ() const = 0;
 		virtual float GetMaxZ() const = 0;
 
