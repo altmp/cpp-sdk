@@ -164,8 +164,6 @@ namespace alt
 		virtual void ClearTasks() = 0;
 		virtual void PlayScenario(const std::string& name) = 0;
 
-		virtual std::string GetCloudAuthHash() const = 0;
-
 		virtual std::vector<std::pair<IEntity*, int32_t>> GetStreamedEntities() const = 0;
 
 		virtual void SetAmmo(uint32_t ammoHash, uint16_t ammo) = 0;
