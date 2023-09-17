@@ -104,6 +104,7 @@
 #ifdef ALT_SERVER_API
 #include "events/CClientRequestObjectEvent.h"
 #include "events/CClientDeleteObjectEvent.h"
+#include "events/CGivePedScriptedTaskEvent.h"
 #endif
 
 #ifdef ALT_CLIENT_API
