@@ -17,7 +17,7 @@ namespace alt
 			CCancellableEvent(Type::GIVE_PED_SCRIPTED_TASK),
 			source(_source),
 			target(_target),
-			taskType(_taskType),
+			taskType(_taskType)
 		{
 
 		}
