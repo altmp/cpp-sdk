@@ -49,6 +49,7 @@ namespace alt
 		std::vector<BoneInfo> bones;
 
 		bool canAttachCars;
+		uint32_t handlingNameHash;
 
 		bool DoesExtraExist(uint8_t extraId) const
 		{
