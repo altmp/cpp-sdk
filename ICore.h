@@ -163,6 +163,8 @@ namespace alt
 		
 		virtual CVoiceConnectionEvent::State GetVoiceConnectionState() const = 0;
 
+		virtual uint32_t GetNetTime() const = 0;
+
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
@@ -391,8 +393,6 @@ namespace alt
 		virtual IVoiceChannel* CreateVoiceChannel(bool spatial, float maxDistance) = 0;
 
 		virtual std::vector<IPlayer*> GetPlayersByName(const std::string& name) const = 0;
-
-		virtual uint32_t GetNetTime() const = 0;
 
 		virtual void SetPassword(const std::string& password) const = 0;
 		virtual uint64_t HashServerPassword(const std::string& password) const = 0;
