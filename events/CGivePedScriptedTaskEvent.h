@@ -13,7 +13,7 @@ namespace alt
 	class CGivePedScriptedTaskEvent : public CCancellableEvent
 	{
 	public:
-        CGivePedScriptedTaskEvent(const std::shared_ptr<IPlayer> _source, const std::shared_ptr<IPed> _target, int32_t _taskType) :
+        CGivePedScriptedTaskEvent(const std::shared_ptr<IPlayer> _source, const std::shared_ptr<IPed> _target, uint32_t _taskType) :
 			CCancellableEvent(Type::GIVE_PED_SCRIPTED_TASK),
 			source(_source),
 			target(_target),
@@ -24,12 +24,12 @@ namespace alt
 
 		IPlayer* GetSource() const { return source.get(); }
 		IPed* GetTarget() const { return target.get(); }
-		int32_t GetTaskType() const { return taskType; }
+		uint32_t GetTaskType() const { return taskType; }
 
 	private:
 		std::shared_ptr<IPlayer> source;
 		std::shared_ptr<IPed> target;
-		int32_t taskType;
+		uint32_t taskType;
 	};
 }
 #endif
