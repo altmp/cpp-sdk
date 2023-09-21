@@ -209,6 +209,7 @@ namespace alt
 		virtual void AddFilter(IAudioFilter* filter) = 0;
 		virtual void RemoveFilter() = 0;
 		virtual IAudioFilter* GetFilter() const = 0;
+		virtual std::string GetTaskData() const = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
