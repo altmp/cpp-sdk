@@ -99,6 +99,9 @@
 #include "events/CStartSyncedSceneEvent.h"
 #include "events/CStopSyncedSceneEvent.h"
 #include "events/CUpdateSyncedSceneEvent.h"
+#include "events/CPedDeathEvent.h"
+#include "events/CPedDamageEvent.h"
+#include "events/CPedHealEvent.h"
 
 #ifdef ALT_SERVER_API
 #include "events/CClientRequestObjectEvent.h"

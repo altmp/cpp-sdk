@@ -108,6 +108,10 @@ namespace alt
 
 			VOICE_CONNECTION_EVENT,
 
+			PED_DAMAGE,
+			PED_DEATH,
+			PED_HEAL,
+
 			ALL,
 			SIZE
 		};
