@@ -109,10 +109,10 @@
 #include "events/CClientRequestObjectEvent.h"
 #include "events/CClientDeleteObjectEvent.h"
 #include "events/CGivePedScriptedTaskEvent.h"
+#include "events/CClientScriptRPCEvent.h"
 #endif
 
 #ifdef ALT_CLIENT_API
-
 #include "events/CConnectionComplete.h"
 #include "events/CDisconnectEvent.h"
 #include "events/CWebViewEvent.h"
@@ -126,7 +126,7 @@
 #include "events/CWindowFocusChangeEvent.h"
 #include "events/CWindowResolutionChangeEvent.h"
 #include "events/CAudioEvent.h"
-
+#include "events/CServerScriptRPCAnswerEvent.h"
 #endif
 
 #include "IPackage.h"

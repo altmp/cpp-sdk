@@ -371,6 +371,18 @@ namespace alt
 		virtual void RestartResource(const std::string& name) = 0;
 
 		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
+		/**
+		 * Triggers client rpc answer
+		 *
+		 * This is only needed to be called when rpc event is answered with WillAnswer()
+		 * The rpc is answered automatically when its Answer() method is called
+		 *
+		 * @param target player to receive the answer
+		 * @param answerID answerID from the event
+		 * @param args answer args
+		 * @param error error string
+		 */
+		virtual void TriggerClientRPCAnswer(IPlayer* target, uint16_t answerID, MValueArgs args, const std::string& error) = 0;
 		virtual void TriggerClientEvent(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
 
