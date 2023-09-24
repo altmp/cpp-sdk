@@ -43,7 +43,7 @@ namespace alt
 			return true;
 		}
 
-		bool Answer(MValueArgs _answer)
+		bool Answer(MValue _answer)
 		{
 			if (state == State::ANSWERED)
 			{
@@ -67,7 +67,7 @@ namespace alt
 
 		State GetState() const { return state; }
 
-		MValueArgs GetAnswer() const { return answer; }
+		MValue GetAnswer() const { return answer; }
 
 		std::string GetAnswerError() const { return answerError; }
 
@@ -77,7 +77,7 @@ namespace alt
 		std::string name;
 		MValueArgs args;
 		uint16_t answerID;
-		MValueArgs answer;
+		MValue answer;
 		std::string answerError;
 	};
 #endif
