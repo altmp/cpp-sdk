@@ -45,7 +45,7 @@ namespace alt
 
 		bool Answer(MValueArgs _answer)
 		{
-			if (state != State::ANSWERED)
+			if (state == State::ANSWERED)
 			{
 				return false;
 			}
@@ -56,7 +56,7 @@ namespace alt
 
 		bool AnswerWithError(const std::string& _error)
 		{
-			if (state != State::ANSWERED)
+			if (state == State::ANSWERED)
 			{
 				return false;
 			}
