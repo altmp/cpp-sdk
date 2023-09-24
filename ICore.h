@@ -175,7 +175,7 @@ namespace alt
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
-        virtual uint16_t TriggerServerRPCEvent(const std::string& ev, MValueArgs args) override;
+        virtual uint16_t TriggerServerRPCEvent(const std::string& ev, MValueArgs args) = 0;
 
 		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
