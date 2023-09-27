@@ -10,8 +10,6 @@
   href: handling-events.md
 - name: MValues
   href: mvalues.md
-- name: Refs
-  href: refs.md
 - name: Modules for reference
   href: modules-for-reference.md
 - name: Client

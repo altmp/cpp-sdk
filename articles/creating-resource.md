@@ -77,12 +77,12 @@ public:
         // Also useful for handling timers
     }
 
-    void OnCreateBaseObject(alt::Ref<alt::IBaseObject> object) override
+    void OnCreateBaseObject(alt::IBaseObject* object) override
     {
         // Here you can e.g. add the base object to some list for validating if a base object still exists
     }
 
-    void OnRemoveBaseObject(alt::Ref<alt::IBaseObject> object) override
+    void OnRemoveBaseObject(alt::IBaseObject* object) override
     {
         // Here you can e.g. remove the base object from some aforementioned list
     }

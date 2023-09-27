@@ -31,7 +31,7 @@ alt::ICore::Instance().SubscribeEvent(alt::CEvent::Type::PLAYER_CONNECT, [](cons
     auto event = static_cast<const alt::CPlayerConnectEvent*>(ev);
 
     // Gets the player that connected to the server
-    alt::Ref<alt::IPlayer*> player = event->GetTarget();
+    alt::IPlayer* player = event->GetTarget();
     // Gets the connect reason
     alt::StringView reason = event->GetReason();
 
@@ -71,7 +71,7 @@ bool MyResource::OnEvent(const alt::CEvent* ev)
         auto event = static_cast<const alt::CPlayerConnectEvent*>(ev);
 
         // Gets the player that connected to the server
-        alt::Ref<alt::IPlayer*> player = event->GetTarget();
+        alt::IPlayer* player = event->GetTarget();
         // Gets the connect reason
         alt::StringView reason = event->GetReason();
 
