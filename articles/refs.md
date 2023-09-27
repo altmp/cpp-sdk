@@ -1,5 +1,8 @@
 # Refs
 
+> [!WARNING]
+> This part of SDK is not used anymore, but Leon spent too much time writing it, so it's still here.
+
 This article will explain what Refs are and how to use them.
 
 ## What are Refs
