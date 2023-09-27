@@ -65,8 +65,3 @@ if(type == alt::IMValue::Type::INT)
 Another example can be found in the [article about event handling](handling-events.md#how-to-emit-events).
 
 > All the methods to create MValues can be found [here](https://github.com/altmp/cpp-sdk/blob/dev/ICore.h#L61).
-
-## Refs
-
-Now you also know what an MValue is and how to use it.
-The next article will explain [what a Ref is and how to use it](refs.md).
