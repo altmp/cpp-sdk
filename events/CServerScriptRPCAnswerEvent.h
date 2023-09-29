@@ -14,6 +14,7 @@ namespace alt
 	public:
         CServerScriptRPCAnswerEvent(uint16_t _answerID, const MValue& _answer, const std::string& _error) :
 			CEvent(Type::SERVER_SCRIPT_RPC_ANSWER_EVENT),
+			answerID(_answerID),
 			answer(_answer),
 			answerError(_error)
 		{
