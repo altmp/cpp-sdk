@@ -53,6 +53,7 @@ namespace alt
 		virtual void SetCollision(bool state) = 0;
 
 		virtual uint32_t GetStreamingDistance() const = 0;
+		virtual void SetStreamingDistance(uint32_t streamingDistance) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
