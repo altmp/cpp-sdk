@@ -175,7 +175,18 @@ namespace alt
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
-        virtual uint16_t TriggerServerRPCEvent(const std::string& ev, MValueArgs args) = 0;
+        /**
+		 * Triggers server rpc answer
+		 *
+		 * This is only needed to be called when rpc event is answered with WillAnswer()
+		 * The rpc is answered automatically when its Answer() method is called
+		 *
+		 * @param answerID answerID from the event
+		 * @param args answer args
+		 * @param error error string
+		 */
+		virtual void TriggerServerRPCAnswer(uint16_t answerID, MValue args, const std::string& error) = 0;
+		virtual uint16_t TriggerServerRPCEvent(const std::string& ev, MValueArgs args) = 0;
 
 		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
@@ -384,6 +395,7 @@ namespace alt
 		 * @param error error string
 		 */
 		virtual void TriggerClientRPCAnswer(IPlayer* target, uint16_t answerID, MValue args, const std::string& error) = 0;
+		virtual uint16_t TriggerClientRPCEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEvent(std::vector<IPlayer*> targets, const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerClientEventForAll(const std::string& ev, MValueArgs args) = 0;
 

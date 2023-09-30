@@ -6,10 +6,9 @@
 
 namespace alt
 {
-#ifdef ALT_SERVER_API
 	class IPlayer;
 
-	class CClientScriptRPCEvent : public CEvent
+	class CScriptRPCEvent : public CEvent
 	{
 	public:
         enum class State {
@@ -18,8 +17,9 @@ namespace alt
 			ANSWERED
         };
 
-        CClientScriptRPCEvent(const std::shared_ptr<IPlayer>& _target, const std::string& _name, const MValueArgs&_args, uint16_t _answerID) :
-			CEvent(Type::CLIENT_SCRIPT_RPC_EVENT),
+#ifdef ALT_SERVER_API
+        CScriptRPCEvent(const std::shared_ptr<IPlayer>& _target, const std::string& _name, const MValueArgs&_args, uint16_t _answerID) :
+			CEvent(Type::SCRIPT_RPC_EVENT),
 			target(_target),
 			name(_name),
 			args(_args),
@@ -27,8 +27,20 @@ namespace alt
 		{
 
 		}
+#else
+        CScriptRPCEvent(const std::string& _name, const MValueArgs&_args, uint16_t _answerID) :
+			CEvent(Type::SCRIPT_RPC_EVENT),
+			name(_name),
+			args(_args),
+            answerID(_answerID)
+		{
 
+		}
+#endif
+
+#ifdef ALT_SERVER_API
 		IPlayer* GetTarget() const { return target.get(); }
+#endif
 		const std::string& GetName() const { return name; }
 		const MValueArgs& GetArgs() const { return args; }
 		uint16_t GetAnswerID() const { return answerID; }
@@ -73,12 +85,13 @@ namespace alt
 
 	private:
 		State state = State::NOT_ANSWERED;
+#ifdef ALT_SERVER_API
 		std::shared_ptr<IPlayer> target;
+#endif
 		std::string name;
 		MValueArgs args;
 		uint16_t answerID;
 		MValue answer;
 		std::string answerError;
 	};
-#endif
 }

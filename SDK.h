@@ -104,12 +104,13 @@
 #include "events/CPedDeathEvent.h"
 #include "events/CPedDamageEvent.h"
 #include "events/CPedHealEvent.h"
+#include "events/CScriptRPCEvent.h"
+#include "events/CScriptRPCAnswerEvent.h"
 
 #ifdef ALT_SERVER_API
 #include "events/CClientRequestObjectEvent.h"
 #include "events/CClientDeleteObjectEvent.h"
 #include "events/CGivePedScriptedTaskEvent.h"
-#include "events/CClientScriptRPCEvent.h"
 #endif
 
 #ifdef ALT_CLIENT_API
@@ -126,7 +127,6 @@
 #include "events/CWindowFocusChangeEvent.h"
 #include "events/CWindowResolutionChangeEvent.h"
 #include "events/CAudioEvent.h"
-#include "events/CServerScriptRPCAnswerEvent.h"
 #endif
 
 #include "IPackage.h"
