@@ -27,13 +27,7 @@ namespace alt
 		virtual std::string GetIp() const = 0;
 		virtual int64_t GetDiscordUserID() const = 0;
 		virtual std::string GetText() const = 0;
-
-		using RequestAuthCallback = std::function<void(bool ok, const std::string& result)>;
-		/**
-		 * This is an async operation.
-		 * @param callback will be called when the request is done.
-		 */
-		virtual void RequestCloudID(RequestAuthCallback callback) const = 0;
+		virtual std::string GetCloudID() const = 0;
 
 		virtual void Accept(bool sendNames) = 0;
 		virtual void Decline(const std::string& reason) = 0;

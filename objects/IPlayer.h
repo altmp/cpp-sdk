@@ -189,12 +189,7 @@ namespace alt
 		virtual bool IsNetworkOwnershipDisabled() const = 0;
 		virtual void SetNetworkOwnershipDisabled(bool disabled) = 0;
 
-		using RequestAuthCallback = std::function<void(bool ok, const std::string& result)>;
-		/**
-		 * This is an async operation.
-		 * @param callback will be called when the request is done.
-		 */
-		virtual void RequestCloudID(RequestAuthCallback callback) const = 0;
+		virtual std::string GetCloudID() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
