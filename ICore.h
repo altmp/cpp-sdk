@@ -433,6 +433,7 @@ namespace alt
 		virtual void StopServer() = 0;
 
 		virtual const VehicleModelInfo& GetVehicleModelByHash(uint32_t hash) const = 0;
+		virtual const std::vector<uint32_t>& GetLoadedVehicleModels() const = 0;
 		virtual const PedModelInfo& GetPedModelByHash(uint32_t hash) const = 0;
 		virtual const WeaponModelInfo& GetWeaponModelByHash(uint32_t hash) const = 0;
 
