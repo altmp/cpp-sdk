@@ -10,8 +10,6 @@ A guide for the usage of the [alt:V C++ Module SDK](https://github.com/altmp/cpp
 4. [Creating your own resource class](creating-resource.md)
 5. [Handling events](handling-events.md) 
 6. [MValues](mvalues.md)
-7. [Refs](refs.md)
-8. [Final steps](final-steps.md)
 
 ## Contribution
 
