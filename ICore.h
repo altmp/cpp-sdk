@@ -53,6 +53,7 @@
 #include "types/WeaponModelInfo.h"
 #include "types/PedModelInfo.h"
 #include "types/VoiceChat.h"
+#include "types/Benefit.h"
 
 namespace alt
 {
@@ -164,6 +165,8 @@ namespace alt
 		virtual CVoiceConnectionEvent::State GetVoiceConnectionState() const = 0;
 
 		virtual uint32_t GetNetTime() const = 0;
+
+		virtual bool HasBenefit(Benefit benefit) const = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
