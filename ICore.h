@@ -382,6 +382,11 @@ namespace alt
 		virtual void StopResource(const std::string& name) = 0;
 		virtual void RestartResource(const std::string& name) = 0;
 
+		/*
+		 * Adds an extra config key that will be passed from resource.toml to client
+		 */
+		virtual void AddClientConfigKey(const std::string& key) = 0;
+
 		virtual void TriggerClientEvent(IPlayer* target, const std::string& ev, MValueArgs args) = 0;
 		/**
 		 * Triggers client rpc answer
