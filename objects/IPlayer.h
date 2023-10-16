@@ -15,6 +15,7 @@
 #include "../types/AmmoSpecialType.h"
 #include "../types/AmmoFlags.h"
 #include "../types/Decoration.h"
+#include "../types/CloudAuthResult.h"
 
 namespace alt
 {
@@ -190,6 +191,7 @@ namespace alt
 		virtual void SetNetworkOwnershipDisabled(bool disabled) = 0;
 
 		virtual std::string GetCloudID() const = 0;
+		virtual CloudAuthResult GetCloudAuthResult() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API

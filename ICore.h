@@ -166,8 +166,6 @@ namespace alt
 
 		virtual uint32_t GetNetTime() const = 0;
 
-		virtual bool HasBenefit(Benefit benefit) const = 0;
-
 #ifdef ALT_CLIENT_API // Client methods
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
@@ -516,6 +514,8 @@ namespace alt
 
 		virtual void SetStreamingDistance(uint32_t _distance) = 0;
 		virtual void SetMigrationDistance(uint32_t _distance) = 0;
+
+		virtual bool HasBenefit(Benefit benefit) const = 0;
 #endif
 
 		static ICore &Instance()

@@ -3,6 +3,8 @@
 #include <string>
 #include <functional>
 
+#include "../types/CloudAuthResult.h"
+
 #include "../objects/IBaseObject.h"
 
 namespace alt
@@ -28,6 +30,7 @@ namespace alt
 		virtual int64_t GetDiscordUserID() const = 0;
 		virtual std::string GetText() const = 0;
 		virtual std::string GetCloudID() const = 0;
+		virtual CloudAuthResult GetCloudAuthResult() const = 0;
 
 		virtual void Accept(bool sendNames) = 0;
 		virtual void Decline(const std::string& reason) = 0;
