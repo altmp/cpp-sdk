@@ -138,6 +138,7 @@ namespace alt
 		virtual void SetHeadBlendData(uint32_t shapeFirstID, uint32_t shapeSecondID, uint32_t shapeThirdID,
 			uint32_t skinFirstID, uint32_t skinSecondID, uint32_t skinThirdID,
 			float shapeMix, float skinMix, float thirdMix) = 0;
+		virtual void RemoveHeadBlendData() = 0;
 		virtual HeadBlendData GetHeadBlendData() const  = 0;
 		virtual bool SetEyeColor(int16_t eyeColor) = 0;
 		virtual int16_t GetEyeColor() const  = 0;
