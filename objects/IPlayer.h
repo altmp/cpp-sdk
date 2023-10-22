@@ -116,6 +116,7 @@ namespace alt
 		virtual bool SetClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette) = 0;
 		virtual alt::DlcCloth GetDlcClothes(uint8_t component) const = 0;
 		virtual bool SetDlcClothes(uint8_t component, uint16_t drawable, uint8_t texture, uint8_t palette, uint32_t dlc) = 0;
+		virtual bool ClearClothes(uint8_t component) = 0;
 		virtual alt::Prop GetProps(uint8_t component) const = 0;
 		virtual bool SetProps(uint8_t component, uint16_t drawable, uint8_t texture) = 0;
 		virtual alt::DlcProp GetDlcProps(uint8_t component) const = 0;
