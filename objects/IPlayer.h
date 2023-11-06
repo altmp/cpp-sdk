@@ -135,6 +135,7 @@ namespace alt
 		virtual float GetFaceFeatureScale(uint8_t index) const  = 0;
 		virtual bool RemoveFaceFeature(uint8_t index) = 0;
 		virtual bool SetHeadBlendPaletteColor(uint8_t id, uint8_t red, uint8_t green, uint8_t blue) = 0;
+		virtual void RemoveHeadBlendPaletteColor() = 0;
 		virtual RGBA GetHeadBlendPaletteColor(uint8_t id) const = 0;
 		virtual void SetHeadBlendData(uint32_t shapeFirstID, uint32_t shapeSecondID, uint32_t shapeThirdID,
 			uint32_t skinFirstID, uint32_t skinSecondID, uint32_t skinThirdID,
