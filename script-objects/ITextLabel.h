@@ -8,6 +8,13 @@ namespace alt
 	class ITextLabel : public virtual IWorldObject
 	{
 	public:
+		enum Alignment {
+			ALIGN_LEFT,
+			ALIGN_RIGHT,
+			ALIGN_CENTER,
+			ALIGN_JUSTIFY
+		};
+		
 		virtual ~ITextLabel() = default;
 
 #ifdef ALT_CLIENT_API
@@ -19,6 +26,24 @@ namespace alt
 
 		virtual alt::RGBA GetColor() const = 0;
 		virtual void SetColor(alt::RGBA color) = 0;
+
+		virtual alt::RGBA GetOutlineColor() const = 0;
+		virtual void SetOutlineColor(alt::RGBA color) = 0;
+		
+		virtual float GetOutlineWidth() const = 0;
+		virtual void SetOutlineWidth(float width) = 0;
+
+		virtual float GetFontSize() const = 0;
+		virtual void SetFontSize(float size) = 0;
+		
+		virtual Alignment GetAlign() const = 0;
+		virtual void SetAlign(Alignment align) = 0;
+
+		virtual std::string GetText() const = 0;
+		virtual void SetText(const std::string& text) = 0;
+
+		virtual std::string GetFont() const = 0;
+		virtual void SetFont(const std::string& font) = 0;
 
 		virtual bool IsVisible() const = 0;
 		virtual void SetVisible(bool visible) = 0;
