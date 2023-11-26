@@ -15,7 +15,7 @@ namespace alt
 		virtual void SetAudCategory(uint32_t category) = 0;
 
 		virtual uint32_t AddRotateEffect(float fRate, int priority) const = 0;
-		virtual uint32_t AddVolumeEffect(float fVolume, int priority) const = 0;
+		virtual uint32_t AddVolumeEffect(float fVolume, int priority, int channel = -1) const = 0;
 		virtual uint32_t AddPeakeqEffect(int lBand, float fBandwidth, float fQ, float fCenter, float fGain, int priority) const = 0;
 		virtual uint32_t AddDampEffect(float fTarget, float fQuiet, float fRate, float fGain, float fDelay, int priority) const = 0;
 		virtual uint32_t AddAutowahEffect(float fDryMix, float fWetMix, float fFeedback, float fRate, float fRange, float fFreq, int priority) const = 0;
