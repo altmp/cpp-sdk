@@ -376,6 +376,10 @@ namespace alt
 		virtual ICheckpoint* GetCheckpointByGameID(uint32_t gameID) const = 0;
 
 		virtual bool IsWebViewGpuAccelerationActive() const = 0;
+
+		virtual uint32_t GetPoolSize(const std::string& pool) const = 0;
+		virtual uint32_t GetPoolCount(const std::string& pool) const = 0;
+		virtual std::vector<uint32_t> GetPoolEntities(const std::string& pool) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
