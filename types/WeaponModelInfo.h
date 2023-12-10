@@ -7,12 +7,17 @@ namespace alt
 {
 	struct WeaponModelInfo
 	{
+		bool invalid = false;
+
 		uint32_t hash;
-		std::string name;
-		std::string modelName;
 		uint32_t modelHash;
 		uint32_t ammoTypeHash;
+
+		std::string name;
+		std::string model;
 		std::string ammoType;
+		
+		// Above should be stored in a separate WeaponAmmoInfo, not parsed for custom weapons
 		std::string ammoModelName;
 		uint32_t ammoModelHash;
 		int32_t defaultMaxAmmoMp;

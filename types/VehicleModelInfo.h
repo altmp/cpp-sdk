@@ -30,6 +30,8 @@ namespace alt
 			OBJECT
 		};
 
+		bool invalid = false;
+
 		std::string title;
 		Type modelType;
 		uint8_t wheelsCount;
