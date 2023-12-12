@@ -152,6 +152,20 @@ namespace alt
             Vector result = lhs;
             return (result -= rhs);
         }
+
+        bool operator==(const Vector& other) const
+        {
+            if (Width != other.Width)
+                return false;
+
+            for (std::size_t i = 0; i < Width; ++i)
+            {
+                if (this[i] != other[i])
+                    return false;
+            }
+
+            return true;
+        }
     };
 
     template<class T, std::size_t W, class _Layout = VectorLayoutAligned<T, W>>
