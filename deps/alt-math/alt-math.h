@@ -160,11 +160,16 @@ namespace alt
 
             for (std::size_t i = 0; i < Width; ++i)
             {
-                if (this[i] != other[i])
+                if ((*this)[i] != other[i])
                     return false;
             }
 
             return true;
+        }
+
+        bool operator!=(const Vector& other) const
+        {
+            return !(*this == other);
         }
     };
 
