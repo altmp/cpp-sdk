@@ -5,6 +5,7 @@
 #include "../types/RGBA.h"
 #include "IEntity.h"
 #include "../script-objects/IHandlingData.h"
+#include "../types/VehicleBadgePosition.h"
 
 namespace alt
 {
@@ -234,6 +235,8 @@ namespace alt
 
 		virtual float GetAccelerationLevel() const = 0;
 		virtual float GetBrakeLevel() const = 0;
+
+		virtual void SetBadge(uint32_t textureDictionary, uint32_t texture, VehicleBadgePosition positions[4]) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
