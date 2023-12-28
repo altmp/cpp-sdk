@@ -380,6 +380,20 @@ namespace alt
 		virtual uint32_t GetPoolSize(const std::string& pool) const = 0;
 		virtual uint32_t GetPoolCount(const std::string& pool) const = 0;
 		virtual std::vector<uint32_t> GetPoolEntities(const std::string& pool) const = 0;
+
+		virtual std::vector<uint32_t> GetVoicePlayers() const = 0;
+
+		virtual void RemoveVoicePlayer(uint32_t player) = 0;
+
+		virtual float GetVoiceSpatialVolume(uint32_t player) const = 0;
+		virtual void SetVoiceSpatialVolume(uint32_t player, float volume) = 0;
+
+		virtual float GetVoiceNonSpatialVolume(uint32_t player) const = 0;
+		virtual void SetVoiceNonSpatialVolume(uint32_t player, float volume) = 0;
+
+		virtual void AddVoiceFilter(uint32_t player, alt::IAudioFilter* filter) = 0;
+		virtual void RemoveVoiceFilter(uint32_t player) = 0;
+		virtual alt::IAudioFilter* GetVoiceFilter(uint32_t player) const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
