@@ -23,7 +23,8 @@ namespace alt
 		virtual std::string GetAuthToken() const = 0;
 		virtual bool GetIsDebug() const = 0;
 		virtual std::string GetBranch() const = 0;
-		virtual uint32_t GetBuild() const = 0;
+		virtual uint16_t GetVersionMajor() const = 0;
+		virtual uint16_t GetVersionMinor() const = 0;
 		virtual std::string GetCdnUrl() const = 0;
 		virtual uint64_t GetPasswordHash() const = 0;
 		virtual std::string GetIp() const = 0;
