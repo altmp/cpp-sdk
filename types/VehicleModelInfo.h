@@ -32,6 +32,7 @@ namespace alt
 
 		bool invalid = false;
 
+		uint32_t modelHash;
 		std::string title;
 		Type modelType;
 		uint8_t wheelsCount;
