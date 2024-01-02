@@ -394,6 +394,7 @@ namespace alt
 		virtual void AddVoiceFilter(uint32_t player, alt::IAudioFilter* filter) = 0;
 		virtual void RemoveVoiceFilter(uint32_t player) = 0;
 		virtual alt::IAudioFilter* GetVoiceFilter(uint32_t player) const = 0;
+		virtual void UpdateClipContext(const std::unordered_map<std::string, std::string>& context) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
