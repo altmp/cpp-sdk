@@ -185,7 +185,7 @@ namespace alt
 		virtual void SetAmmoMax100(uint32_t ammoHash, int32_t ammoMax100) = 0;
 		virtual int32_t GetAmmoMax100(uint32_t ammoHash) const = 0;
 
-		virtual void AddDecoration(uint32_t collection, uint32_t overlay) = 0;
+		virtual void AddDecoration(uint32_t collection, uint32_t overlay, uint8_t count = 1) = 0;
 		virtual void RemoveDecoration(uint32_t collection, uint32_t overlay) = 0;
 		virtual void ClearDecorations() = 0;
 		virtual std::vector<CDecoration> GetDecorations() const = 0;
