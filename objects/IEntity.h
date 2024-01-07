@@ -2,6 +2,7 @@
 
 #include "../deps/alt-math/alt-math.h"
 #include "../types/MValue.h"
+#include "../types/SyncInfo.h"
 #include "IWorldObject.h"
 
 #include <unordered_map>
@@ -58,6 +59,7 @@ namespace alt
 
 #ifdef ALT_CLIENT_API
 		virtual uint32_t GetScriptID() const = 0;
+		virtual SyncInfo GetSyncInfo() const = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
