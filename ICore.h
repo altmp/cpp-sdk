@@ -169,6 +169,7 @@ namespace alt
 		virtual uint32_t GetNetTime() const = 0;
 
 #ifdef ALT_CLIENT_API // Client methods
+		virtual uint64_t GetServerTime() const = 0;
 		virtual IDiscordManager *GetDiscordManager() const = 0;
 		virtual IStatData *GetStatData(const std::string& statname) const = 0;
 		virtual std::shared_ptr<alt::IHandlingData> GetHandlingData(uint32_t modelHash) const = 0;
