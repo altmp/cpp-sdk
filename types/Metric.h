@@ -23,14 +23,34 @@ namespace alt
 			value = _value;
 		}
 
+		void Add(uint64_t _value)
+		{
+			value += _value;
+		}
+
+		void Inc()
+		{
+			++value;
+		}
+
 		void Begin()
 		{
 			lastBegin = Time();
 		}
 
+		// Deprecated old behavior, remove in future
 		void End()
 		{
 			value = Time() - lastBegin;
+		}
+
+		void End2()
+		{
+			if (lastBegin == 0)
+				return; // Warn?
+
+			Add(Time() - lastBegin);
+			lastBegin = 0;
 		}
 
 		void Destroy()
