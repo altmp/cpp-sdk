@@ -95,6 +95,7 @@ namespace alt
 		virtual MValueUInt CreateMValueUInt(uint64_t val) = 0;
 		virtual MValueDouble CreateMValueDouble(double val) = 0;
 		virtual MValueString CreateMValueString(const std::string& val) = 0;
+		virtual MValueString CreateMValueString(const char* val) = 0;
 		virtual MValueList CreateMValueList(Size size = 0) = 0;
 		virtual MValueDict CreateMValueDict() = 0;
 		virtual MValueBaseObject CreateMValueBaseObject(IBaseObject* val) = 0;

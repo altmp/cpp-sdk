@@ -98,42 +98,46 @@ namespace alt
 	};
 
 	// Represents lack of value
-	class IMValueNone : public virtual IMValue { };
+	class IMValueNone : public IMValue
+	{
+	};
 
 	// Represents null value
-	class IMValueNil : public virtual IMValue { };
+	class IMValueNil : public IMValue
+	{
+	};
 
-	class IMValueBool : public virtual IMValue
+	class IMValueBool : public IMValue
 	{
 	public:
 		virtual bool Value() const = 0;
 	};
 
-	class IMValueInt : public virtual IMValue
+	class IMValueInt : public IMValue
 	{
 	public:
 		virtual int64_t Value() const = 0;
 	};
 
-	class IMValueUInt : public virtual IMValue
+	class IMValueUInt : public IMValue
 	{
 	public:
 		virtual uint64_t Value() const = 0;
 	};
 
-	class IMValueDouble : public virtual IMValue
+	class IMValueDouble : public IMValue
 	{
 	public:
 		virtual double Value() const = 0;
 	};
 
-	class IMValueString : public virtual IMValue
+	class IMValueString : public IMValue
 	{
 	public:
 		virtual const std::string& Value() const = 0;
 	};
 
-	class IMValueList : public virtual IMValue
+	class IMValueList : public IMValue
 	{
 	public:
 		virtual Size GetSize() const = 0;
@@ -149,34 +153,40 @@ namespace alt
 		virtual void PushConst(MValueConst val) = 0;
 	};
 
-	class IMValueDict : public virtual IMValue
+	class IMValueDict : public IMValue
 	{
 	public:
 		virtual Size GetSize() const = 0;
 		virtual MValue Get(const std::string& key) = 0;
+		virtual MValue Get(const char* key) = 0;
 		virtual MValueConst Get(const std::string& key) const = 0;
+		virtual MValueConst Get(const char* key) const = 0;
 		virtual bool Has(const std::string& key) const = 0;
+		virtual bool Has(const char* key) const = 0;
 
 		// Transfers ownership of MValue (You should not have any more refs to this copy)
 		virtual void Set(const std::string& key, MValue val) = 0;
+		virtual void Set(const char* key, MValue val) = 0;
 
 		// Will clone an MValueConst
 		virtual void SetConst(const std::string& key, MValueConst val) = 0;
+		virtual void SetConst(const char* key, MValueConst val) = 0;
 
 		virtual void Delete(const std::string& key) = 0;
+		virtual void Delete(const char* key) = 0;
 
-		virtual std::unordered_map<std::string, MValue>::const_iterator Begin() const = 0;
-		virtual std::unordered_map<std::string, MValue>::const_iterator End() const = 0;
+		virtual std::unordered_map<const char*, MValue>::const_iterator Begin() const = 0;
+		virtual std::unordered_map<const char*, MValue>::const_iterator End() const = 0;
 	};
 
-	class IMValueBaseObject : public virtual IMValue
+	class IMValueBaseObject : public IMValue
 	{
 	public:
 		virtual IBaseObject* RawValue() const = 0;
 		virtual std::shared_ptr<IBaseObject> Value() const = 0;
 	};
 
-	class IMValueFunction : public virtual IMValue
+	class IMValueFunction : public IMValue
 	{
 	public:
 		class Impl
@@ -184,12 +194,14 @@ namespace alt
 		public:
 			virtual MValue Call(MValueArgs args) const = 0;
 
-			virtual void AddRef() { ++refCount; }
+			virtual void AddRef()
+			{
+				++refCount;
+			}
 
 			virtual void RemoveRef()
 			{
-				if (--refCount == 0)
-					delete this;
+				if(--refCount == 0) delete this;
 			}
 
 		protected:
@@ -202,29 +214,29 @@ namespace alt
 		virtual MValue Call(MValueArgs args) const = 0;
 	};
 
-	class IMValueVector2 : public virtual IMValue
+	class IMValueVector2 : public IMValue
 	{
 	public:
 		virtual Vector2f Value() const = 0;
 	};
 
-	class IMValueVector3 : public virtual IMValue
+	class IMValueVector3 : public IMValue
 	{
 	public:
 		virtual Vector3f Value() const = 0;
 	};
 
-	class IMValueRGBA : public virtual IMValue
+	class IMValueRGBA : public IMValue
 	{
 	public:
 		virtual RGBA Value() const = 0;
 	};
 
-	class IMValueByteArray : public virtual IMValue
+	class IMValueByteArray : public IMValue
 	{
 	public:
 		virtual Size GetSize() const = 0;
 		virtual const uint8_t* GetData() const = 0;
 		virtual uint8_t* GetData() = 0;
 	};
-}
+}  // namespace alt
