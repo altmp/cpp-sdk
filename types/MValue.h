@@ -175,8 +175,8 @@ namespace alt
 		virtual void Delete(const std::string& key) = 0;
 		virtual void Delete(const char* key) = 0;
 
-		virtual std::unordered_map<const char*, MValue>::const_iterator Begin() const = 0;
-		virtual std::unordered_map<const char*, MValue>::const_iterator End() const = 0;
+		virtual std::unordered_map<std::string, MValue>::const_iterator Begin() const = 0;
+		virtual std::unordered_map<std::string, MValue>::const_iterator End() const = 0;
 	};
 
 	class IMValueBaseObject : public IMValue
