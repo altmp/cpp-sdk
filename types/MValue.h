@@ -94,7 +94,7 @@ namespace alt
 		virtual std::string ToString() const = 0;
 		virtual double ToNumber() const = 0;
 		virtual MValue Clone() const = 0;
-		virtual bool Equals(MValueConst other) const = 0;
+		virtual bool Equals(MValueConst other, bool deep) const = 0;
 	};
 
 	// Represents lack of value
