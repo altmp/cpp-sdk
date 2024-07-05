@@ -75,6 +75,9 @@ namespace alt
 	static constexpr int32_t DEFAULT_DIMENSION = 0;
 	static constexpr int32_t GLOBAL_DIMENSION = INT_MIN;
 
+	/**
+	* \brief Interface for API classes
+	*/
 	class ICore
 	{
 	public:
@@ -312,6 +315,7 @@ namespace alt
 		virtual void SetDlcProps(int32_t scriptID, uint8_t component, uint8_t drawable, uint8_t texture, uint32_t dlc) = 0;
 		virtual void ClearProps(int32_t scriptID, uint8_t component) = 0;
 
+		[[deprecated("SetWatermarkPosition is deprected. Please remove. The method will be removed in v17")]]
 		virtual void SetWatermarkPosition(uint8_t pos) = 0;
 
 		virtual uint16_t GetFps() const = 0;
