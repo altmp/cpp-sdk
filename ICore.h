@@ -55,6 +55,8 @@
 #include "types/VoiceChat.h"
 #include "types/Benefit.h"
 
+#include "common/Order.h"
+
 namespace alt
 {
 	class IEntity;
@@ -483,7 +485,20 @@ namespace alt
 
 		virtual std::vector<IBaseObject*> GetEntitiesInDimension(int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
-		virtual std::vector<IBaseObject*> GetClosestEntities(Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes) const = 0;
+
+		/**
+		 * Get closest entities
+		 *
+		 * @param position starting position
+		 * @param range search range
+		 * @param dimension search dimension
+		 * @param limit max size result
+		 * @param allowedTypes types of search objects
+		 * @param sortOrder sort order
+		 */
+        virtual std::vector<IBaseObject*> GetClosestEntities(
+            Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes,
+            common::Order sortOrder = common::Order::kDefault) const = 0;
 
 		/**
 		 * Creates a new object
