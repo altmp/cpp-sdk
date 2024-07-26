@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+#include <string>
+#include <memory>
+
 #include "types/MValue.h"
 #include "types/Permissions.h"
 #include "ILocalStorage.h"
@@ -9,10 +13,6 @@
 #include "script-objects/ICheckpoint.h"
 #include "script-objects/INative.h"
 #include "deps/alt-config/alt-config.h"
-#include <vector>
-#include <set>
-#include <memory>
-
 #include "deps/ConfigBase.h"
 
 namespace alt
@@ -90,10 +90,6 @@ namespace alt
 #endif
 
 		virtual Config::Value::ValuePtr GetConfig() const = 0;
-
-#ifdef ALT_SERVER_API
-		virtual std::set<std::string> GetMatchedFiles(const std::vector<std::string>& patterns) = 0;
-#endif
 
 #ifdef ALT_CLIENT_API
 		virtual void EnableNatives() = 0;
