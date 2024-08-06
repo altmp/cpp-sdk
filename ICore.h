@@ -496,9 +496,9 @@ namespace alt
 		 * @param allowedTypes types of search objects
 		 * @param sortOrder sort order
 		 */
-        virtual std::vector<IBaseObject*> GetClosestEntities(
-            Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes,
-            common::Order sortOrder = common::Order::kDefault) const = 0;
+		virtual std::vector<IBaseObject*> GetClosestEntities(
+ 			Position position, int32_t range, int32_t dimension, int32_t limit, uint64_t allowedTypes,
+ 			common::Order sortOrder = common::Order::kDefault) const = 0;
 
 		/**
 		 * Creates a new object
