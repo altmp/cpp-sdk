@@ -279,6 +279,11 @@ namespace alt
 		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
 		virtual uint32_t GetWheelSurfaceMaterial(uint8_t wheel) const = 0;
 
+		virtual bool GetWheelDynamicFlag(uint8_t wheel, uint32_t flag) const = 0;
+		virtual void SetWheelDynamicFlag(uint8_t wheel, uint32_t flag, bool state) = 0;
+		virtual bool GetWheelConfigFlag(uint8_t wheel, uint32_t flag) const = 0;
+		virtual void SetWheelConfigFlag(uint8_t wheel, uint32_t flag, bool state) = 0;
+
 		virtual float GetEngineTemperature() const = 0;
 		virtual void SetEngineTemperature(float value) = 0;
 		virtual float GetFuelLevel() const = 0;
@@ -298,6 +303,8 @@ namespace alt
 		virtual void ResetDashboardLights() = 0;
 		virtual float GetSuspensionHeight() const = 0;
 		virtual void SetSuspensionHeight(float value) = 0;
+
+		virtual void SetupTransmission() = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
