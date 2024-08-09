@@ -11,10 +11,12 @@ namespace alt
 {
 	class IPlayer;
 
+	/// @brief Game entity interface
+	/// @warning Should use client-safe methods on client side
 	class IEntity : public virtual IWorldObject
 	{
 	protected:
-		virtual ~IEntity() = default;
+		~IEntity() noexcept override = default;
 
 	public:
 		virtual uint16_t GetSyncID() const = 0;
@@ -33,7 +35,9 @@ namespace alt
 
 		virtual bool IsFrozen() const = 0;
 		virtual void SetFrozen(bool state) = 0;
+
 #ifdef ALT_SERVER_API
+		// Should not override and use server-only methods on the client
 		virtual uint32_t GetTimestamp() const = 0;
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;
 
@@ -58,6 +62,7 @@ namespace alt
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
+		// Client-safe methods
 		virtual uint32_t GetScriptID() const = 0;
 		virtual SyncInfo GetSyncInfo() const = 0;
 #endif // ALT_CLIENT_API
