@@ -84,11 +84,11 @@ namespace alt
 		virtual std::string GetVersion() const = 0;
 		virtual std::string GetBranch() const = 0;
 
-		virtual void LogInfo(const std::string& str, IResource* resource = nullptr) = 0;
-		virtual void LogDebug(const std::string& str, IResource* resource = nullptr) = 0;
-		virtual void LogWarning(const std::string& str, IResource* resource = nullptr) = 0;
-		virtual void LogError(const std::string& str, IResource* resource = nullptr) = 0;
-		virtual void LogColored(const std::string& str, IResource* resource = nullptr) = 0;
+		virtual void LogInfo(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
+		virtual void LogDebug(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
+		virtual void LogWarning(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
+		virtual void LogError(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
+		virtual void LogColored(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
 
 		virtual MValueNone CreateMValueNone() = 0;
 		virtual MValueNil CreateMValueNil() = 0;
