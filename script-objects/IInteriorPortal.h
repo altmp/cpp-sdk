@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdint>
 
+#include "cpp-sdk/deps/alt-math/alt-math.h"
+
 namespace alt
 {
 	class IInteriorPortal
