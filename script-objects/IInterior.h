@@ -19,9 +19,9 @@ namespace alt
 			alt::Position max;
 		};
 
-		virtual std::shared_ptr<alt::IInteriorRoom*> GetRoomByHash(uint32_t hash) const = 0;
-		virtual std::shared_ptr<alt::IInteriorRoom*> GetRoomByIndex(uint32_t roomIndex) const = 0;		
-		virtual std::shared_ptr<alt::IInteriorPortal*> GetPortalByIndex(uint32_t portalIndex) const = 0;
+		virtual std::shared_ptr<alt::IInteriorRoom> GetRoomByHash(uint32_t hash) const = 0;
+		virtual std::shared_ptr<alt::IInteriorRoom> GetRoomByIndex(uint32_t roomIndex) const = 0;		
+		virtual std::shared_ptr<alt::IInteriorPortal> GetPortalByIndex(uint32_t portalIndex) const = 0;
 
 		virtual uint16_t GetRoomCount() const = 0;
 		virtual uint16_t GetPortalCount() const = 0;
