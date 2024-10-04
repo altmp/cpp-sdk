@@ -10,6 +10,7 @@ namespace alt
 	protected:
 		virtual ~IInteriorRoom() = default;
 	public:
+		virtual uint32_t GetIndex() const = 0;
 		virtual std::string GetName() const = 0;
 		virtual uint32_t GetNameHash() const = 0;
 		virtual int32_t GetFlag() const = 0;

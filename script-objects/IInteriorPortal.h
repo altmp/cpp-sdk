@@ -11,6 +11,7 @@ namespace alt
 		virtual ~IInteriorPortal() = default;
 		
 	public:
+		virtual uint32_t GetIndex() const = 0;
 		virtual uint16_t GetCornerCount() const = 0;
 		virtual Position GetCornerPosition(uint32_t cornerIndex) const = 0;
 		virtual int32_t GetRoomFrom() const = 0;
