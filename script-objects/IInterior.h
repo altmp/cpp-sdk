@@ -26,7 +26,7 @@ namespace alt
 		virtual uint16_t GetRoomCount() const = 0;
 		virtual uint16_t GetPortalCount() const = 0;
 		virtual alt::Position GetPosition() const = 0;
-		virtual alt::Position GetRotation() const = 0;
+		virtual alt::Rotation GetRotation() const = 0;
 		virtual alt::IInterior::ExtentInfo GetEntitiesExtents() const = 0;
 	};
 }

@@ -22,7 +22,7 @@ namespace alt
 		virtual uint32_t GetEntityArcheType(uint32_t entityIndex) const = 0;
 		virtual int32_t GetEntityFlag(uint32_t entityIndex) const = 0;
 		virtual alt::Position GetEntityPosition(uint32_t entityIndex) const = 0;
-		virtual alt::Position GetEntityRotation(uint32_t entityIndex) const = 0;
+		virtual alt::Rotation GetEntityRotation(uint32_t entityIndex) const = 0;
 
 		
 		virtual void SetCornerPosition(uint32_t cornerIndex,
