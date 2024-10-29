@@ -276,8 +276,8 @@ namespace alt
 		virtual bool TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
-		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr) = 0;
-		virtual IWebView* CreateWebView(const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay, IResource* res = nullptr) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr, const std::unordered_map<std::string, std::string>& headers = {}) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay, IResource* res = nullptr, const std::unordered_map<std::string, std::string>& headers = {}) = 0;
 		virtual IWebSocketClient* CreateWebSocketClient(const std::string& url, IResource* res = nullptr) = 0;
 		virtual IHttpClient* CreateHttpClient(IResource* res = nullptr) = 0;
 		virtual IBlip* CreateBlip(IBlip::BlipType type, Vector3f position, IResource* res = nullptr) = 0;
