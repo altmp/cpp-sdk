@@ -13,7 +13,7 @@ namespace alt
 		virtual ~IInterior() = default;
 
 	public:
-		struct ExtentInfo
+		struct AABB
 		{
 			alt::Position min;
 			alt::Position max;
@@ -27,7 +27,7 @@ namespace alt
 		virtual uint16_t GetPortalCount() const = 0;
 		virtual alt::Position GetPosition() const = 0;
 		virtual alt::Rotation GetRotation() const = 0;
-		virtual alt::IInterior::ExtentInfo GetEntitiesExtents() const = 0;
+		virtual alt::IInterior::AABB GetEntitiesExtents() const = 0;
 	};
 }
 //##endif
