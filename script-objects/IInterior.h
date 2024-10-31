@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <cstdint>
+
+#include "cpp-sdk/types/AABB.h"
 //#ifdef ALT_CLIENT_API
 
 namespace alt
@@ -13,12 +15,6 @@ namespace alt
 		virtual ~IInterior() = default;
 
 	public:
-		struct AABB
-		{
-			alt::Position min;
-			alt::Position max;
-		};
-
 		virtual std::shared_ptr<alt::IInteriorRoom> GetRoomByHash(uint32_t hash) const = 0;
 		virtual std::shared_ptr<alt::IInteriorRoom> GetRoomByIndex(uint32_t roomIndex) const = 0;		
 		virtual std::shared_ptr<alt::IInteriorPortal> GetPortalByIndex(uint32_t portalIndex) const = 0;
@@ -27,7 +23,7 @@ namespace alt
 		virtual uint16_t GetPortalCount() const = 0;
 		virtual alt::Position GetPosition() const = 0;
 		virtual alt::Rotation GetRotation() const = 0;
-		virtual alt::IInterior::AABB GetEntitiesExtents() const = 0;
+		virtual alt::AABB GetEntitiesExtents() const = 0;
 	};
 }
 //##endif
