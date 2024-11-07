@@ -28,6 +28,7 @@
 #include "script-objects/IWebView.h"
 #include "script-objects/IStatData.h"
 #include "script-objects/IHandlingData.h"
+#include "script-objects/IInterior.h"
 #include "script-objects/IAudioCategory.h"
 #include "script-objects/INative.h"
 #include "script-objects/IMapData.h"
@@ -179,6 +180,8 @@ namespace alt
 		virtual std::shared_ptr<alt::IWeaponData> GetWeaponData(uint32_t weaponHash) const = 0;
 		virtual std::vector<std::shared_ptr<alt::IWeaponData>> GetAllWeaponData() const = 0;
 		virtual std::shared_ptr<alt::IAudioCategory> GetAudioCategory(const std::string& name) const = 0;
+
+		virtual std::shared_ptr<alt::IInterior> GetInterior(uint32_t interiorId) const = 0;
 
 		virtual void TriggerServerEvent(const std::string& ev, MValueArgs args) = 0;
 		virtual void TriggerServerEventUnreliable(const std::string& ev, MValueArgs args) = 0;
