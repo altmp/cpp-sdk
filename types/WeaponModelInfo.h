@@ -24,5 +24,7 @@ namespace alt
 		int32_t skillAbove50MaxAmmoMp;
 		int32_t maxSkillMaxAmmoMp;
 		int32_t bonusMaxAmmoMp;
+
+		std::string damageType;
 	};
 }
