@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "cpp-sdk/deps/alt-math/alt-math.h"
+#include "../deps/alt-math/alt-math.h"
 
 namespace alt
 {
