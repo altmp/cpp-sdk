@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <cstdint>
 
-#include "cpp-sdk/types/AABB.h"
+#include "../types/AABB.h"
 //#ifdef ALT_CLIENT_API
 
 namespace alt
