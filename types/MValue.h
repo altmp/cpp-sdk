@@ -205,7 +205,7 @@ namespace alt
 			}
 
 		protected:
-			~Impl() = default;
+			virtual ~Impl() = default;
 
 		private:
 			Size refCount = 0;
