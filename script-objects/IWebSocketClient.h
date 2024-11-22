@@ -9,8 +9,8 @@ namespace alt
     public:
         virtual ~IWebSocketClient() = default;
 
-        virtual const std::string& GetUrl() const = 0;
-        virtual void SetUrl(const std::string& _url) = 0;
+        virtual std::string GetUrl() const = 0;
+        virtual void SetUrl(std::string _url) = 0;
 
         virtual void AddSubProtocol(const std::string& protocol) = 0;
         virtual std::vector<std::string> GetSubProtocols() const = 0;
