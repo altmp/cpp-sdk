@@ -11,6 +11,7 @@
 #include "types/RGBA.h"
 #include "types/MValue.h"
 #include "types/Metric.h"
+#include "types/WebView.h"
 
 #include "events/CEvent.h"
 #include "IResource.h"
@@ -279,8 +280,8 @@ namespace alt
 		virtual bool TakeScreenshotGameOnly(TakeScreenshotCallback callback) const = 0;
 
 
-		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr) = 0;
-		virtual IWebView* CreateWebView(const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay, IResource* res = nullptr) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, uint32_t drawableHash, const std::string& targetTexture, IResource* res = nullptr, const WebViewHeaders& headers = {}, const std::vector<WebViewCookie>& cookies = {}) = 0;
+		virtual IWebView* CreateWebView(const std::string& url, Vector2i position, Vector2i size, bool isVisible, bool isOverlay, IResource* res = nullptr, const WebViewHeaders& headers = {}, const std::vector<WebViewCookie>& cookies = {}) = 0;
 		virtual IWebSocketClient* CreateWebSocketClient(const std::string& url, IResource* res = nullptr) = 0;
 		virtual IHttpClient* CreateHttpClient(IResource* res = nullptr) = 0;
 		virtual IBlip* CreateBlip(IBlip::BlipType type, Vector3f position, IResource* res = nullptr) = 0;
