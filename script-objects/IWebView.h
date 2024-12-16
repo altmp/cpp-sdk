@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include "../objects/IBaseObject.h"
+#include "../types/WebView.h"
 
 namespace alt
 {
@@ -23,6 +24,7 @@ namespace alt
         virtual bool IsLoaded() const = 0;
         virtual bool IsReady() const = 0;
         virtual void SetExtraHeader(const std::string& name, const std::string& value) = 0;
+        virtual void SetCookie(const WebViewCookie& cookie) = 0;
         virtual void SetZoomLevel(double value) = 0;
         virtual Vector2i GetSize() const = 0;
         virtual void SetSize(Vector2i size) = 0;
