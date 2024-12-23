@@ -151,6 +151,7 @@ namespace alt
 		virtual std::vector<Weapon> GetWeapons() const = 0;
 		virtual bool HasWeapon(uint32_t weapon) const = 0;
 
+        virtual std::vector<IBaseObject*> GetStreamedEntities() const = 0;
 		virtual bool HasLocalMetaData(const std::string& key) const = 0;
 		virtual void SetLocalMetaData(const std::string& key, MValue val) = 0;
 		virtual MValueConst GetLocalMetaData(const std::string& key) const = 0;
