@@ -91,6 +91,7 @@ namespace alt
 		virtual std::string GetSocialClubName() const = 0;
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
+		virtual std::string GetHwid3() const = 0;
 		virtual std::string GetAuthToken() const = 0;
 		virtual int64_t GetDiscordId() const = 0;
 
