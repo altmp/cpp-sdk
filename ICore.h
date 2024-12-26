@@ -413,6 +413,8 @@ namespace alt
 		virtual void StopResource(const std::string& name) = 0;
 		virtual void RestartResource(const std::string& name) = 0;
 
+		virtual void InvokeCommand(const std::string& cmd, const std::vector<std::string>& args) = 0;
+
 		/*
 		 * Adds an extra config key that will be passed from resource.toml to client
 		 */
