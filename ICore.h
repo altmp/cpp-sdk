@@ -114,7 +114,7 @@ namespace alt
 		virtual alt::Size GetMValueArgsSize(MValueArgs mValue) = 0;
 
 		virtual IVirtualEntity* CreateVirtualEntity(IVirtualEntityGroup* group, Position pos, uint32_t streamingDistance, std::unordered_map<std::string, MValue> data) = 0;
-		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(const std::string& name, uint32_t maxEntitiesInStream) = 0;
+		virtual IVirtualEntityGroup* CreateVirtualEntityGroup(uint32_t maxEntitiesInStream, const std::string& name = "") = 0;
 
 		virtual IColShape* CreateColShapeCylinder(Position pos, float radius, float height) = 0;
 		virtual IColShape* CreateColShapeSphere(Position pos, float radius) = 0;
