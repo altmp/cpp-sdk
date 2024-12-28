@@ -408,6 +408,8 @@ namespace alt
 		virtual double GetCPULoad() const = 0;
 		virtual uint32_t GetVideoMemoryUsage() const = 0;
 		virtual uint32_t GetRAMUsage() const = 0;
+		virtual uint32_t GetTotalRAM() const = 0;
+		virtual uint32_t GetCurrentProcessRamUsage() const = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
