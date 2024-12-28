@@ -2,8 +2,6 @@
 
 #include <cstddef>
 
-#include "stdafx.h"
-
 namespace alt
 {
 	namespace system
