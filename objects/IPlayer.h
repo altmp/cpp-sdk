@@ -53,6 +53,7 @@ namespace alt
 		virtual bool IsInMelee() const = 0;
 		virtual bool IsInCover() const = 0;
 		virtual bool IsParachuting() const = 0;
+		virtual bool IsInWater() const = 0;
 
 		virtual uint16_t GetArmour() const = 0;
 		virtual uint16_t GetMaxArmour() const = 0;
@@ -91,6 +92,7 @@ namespace alt
 		virtual std::string GetSocialClubName() const = 0;
 		virtual uint64_t GetHwidHash() const = 0;
 		virtual uint64_t GetHwidExHash() const = 0;
+		virtual std::string GetHwid3() const = 0;
 		virtual std::string GetAuthToken() const = 0;
 		virtual int64_t GetDiscordId() const = 0;
 
