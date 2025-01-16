@@ -200,6 +200,8 @@ namespace alt
 
 		virtual std::string GetBloodDamageBase64() const = 0;
 		virtual void SetBloodDamageBase64(const std::string& _base64) = 0;
+		
+		virtual bool IsOnVehicle() const = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API
