@@ -95,6 +95,19 @@ namespace alt
 		virtual Vector3f GetVelocity() const = 0;
 		virtual float GetSteeringAngle() const = 0;
 
+		virtual float GetWheelCamber(uint8_t wheel) const = 0;
+		virtual void SetWheelCamber(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTrackWidth(uint8_t wheel) const = 0;
+		virtual void SetWheelTrackWidth(uint8_t wheel, float value) = 0;
+		virtual float GetWheelHeight(uint8_t wheel) const = 0;
+		virtual void SetWheelHeight(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTyreRadius(uint8_t wheel) const = 0;
+		virtual void SetWheelTyreRadius(uint8_t wheel, float value) = 0;
+		virtual float GetWheelRimRadius(uint8_t wheel) const = 0;
+		virtual void SetWheelRimRadius(uint8_t wheel, float value) = 0;
+		virtual float GetWheelTyreWidth(uint8_t wheel) const = 0;
+		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
+
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
 		virtual bool SetMod(uint8_t category, uint8_t id) = 0;
@@ -264,19 +277,7 @@ namespace alt
 
 		virtual void ToggleTaxiLight(bool state) = 0;
 		virtual bool IsTaxiLightOn() const = 0;
-
-		virtual float GetWheelCamber(uint8_t wheel) const = 0;
-		virtual void SetWheelCamber(uint8_t wheel, float value) = 0;
-		virtual float GetWheelTrackWidth(uint8_t wheel) const = 0;
-		virtual void SetWheelTrackWidth(uint8_t wheel, float value) = 0;
-		virtual float GetWheelHeight(uint8_t wheel) const = 0;
-		virtual void SetWheelHeight(uint8_t wheel, float value) = 0;
-		virtual float GetWheelTyreRadius(uint8_t wheel) const = 0;
-		virtual void SetWheelTyreRadius(uint8_t wheel, float value) = 0;
-		virtual float GetWheelRimRadius(uint8_t wheel) const = 0;
-		virtual void SetWheelRimRadius(uint8_t wheel, float value) = 0;
-		virtual float GetWheelTyreWidth(uint8_t wheel) const = 0;
-		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
+		
 		virtual uint32_t GetWheelSurfaceMaterial(uint8_t wheel) const = 0;
 
 		virtual bool GetWheelDynamicFlag(uint8_t wheel, uint32_t flag) const = 0;
