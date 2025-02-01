@@ -27,7 +27,7 @@ namespace alt
 
 		}
 
-		IPlayer* GetPlayer() const { return player.get(); }
+		std::shared_ptr<IPlayer> GetPlayer() const { return player; }
 		ParachuteState GetOldState() const { return oldState; }
 		ParachuteState GetNewState() const { return newState; }
 	private:		
