@@ -112,6 +112,14 @@ namespace alt
 	class IRmlDocument : public virtual IRmlElement
 	{
 	public:
+		struct CreateOptions
+		{
+			std::string url;
+			std::string currentPath;
+			bool isFullscreen { true };
+			Vector2i size { 0, 0 };
+		};
+
 		virtual ~IRmlDocument() = default;
 
 		virtual void SetTitle(const std::string& title) = 0;
@@ -125,6 +133,7 @@ namespace alt
 		virtual void Show(bool isModal = false, bool focused = true) = 0;
 		virtual bool IsVisible() const override = 0;
 		virtual bool IsModal() const = 0;
+		virtual bool IsFullscreen() const = 0;
 
 		virtual IRmlElement* GetBody() const = 0;
 
