@@ -137,7 +137,8 @@ namespace alt
 
 		virtual IRmlElement* GetBody() const = 0;
 
-		virtual void SetDrawOrigin(Vector3f origin) = 0;
+		virtual void SetDrawOrigin(const alt::Vector3f& origin) = 0;
+		virtual void ClearDrawOrigin() = 0;
 
 		virtual void Update() = 0;
 	};
