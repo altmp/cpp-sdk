@@ -12,5 +12,6 @@ namespace alt
 		virtual ~IVirtualEntityGroup() = default;
 
 		virtual uint32_t GetMaxEntitiesInStream() const = 0;
+		virtual std::string GetName() const = 0;
 	};
 } // namespace alt
