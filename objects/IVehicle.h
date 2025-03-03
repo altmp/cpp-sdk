@@ -108,6 +108,7 @@ namespace alt
 		virtual float GetWheelTyreWidth(uint8_t wheel) const = 0;
 		virtual void SetWheelTyreWidth(uint8_t wheel, float value) = 0;
 
+		virtual uint16_t GetRandomSeed() const = 0;
 #ifdef ALT_SERVER_API
 		virtual void SetFixed() = 0;
 		virtual bool SetMod(uint8_t category, uint8_t id) = 0;
