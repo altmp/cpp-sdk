@@ -36,6 +36,8 @@ namespace alt
 		virtual bool IsFrozen() const = 0;
 		virtual void SetFrozen(bool state) = 0;
 
+		virtual bool IsStaticEntity() const = 0;
+
 #ifdef ALT_SERVER_API
 		// Should not override and use server-only methods on the client
 		virtual uint32_t GetTimestamp() const = 0;
@@ -59,6 +61,8 @@ namespace alt
 
 		virtual uint32_t GetStreamingDistance() const = 0;
 		virtual void SetStreamingDistance(uint32_t streamingDistance) = 0;
+
+		virtual void SetStaticEntity(bool state) = 0;
 #endif // ALT_SERVER_API
 
 #ifdef ALT_CLIENT_API

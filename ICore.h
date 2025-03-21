@@ -456,7 +456,7 @@ namespace alt
 		 * @param rot spawn rotation
 		 * @param streamingDistance streaming distance of the vehicle, when 0 it's 0 server config will be used
 		 */
-		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot, uint32_t streamingDistance = 0) = 0;
+		virtual IVehicle* CreateVehicle(uint32_t model, Position pos, Rotation rot, uint32_t streamingDistance = 0, bool isStatic = false) = 0;
 
 		// TODO make enum for types
 		virtual ICheckpoint* CreateCheckpoint(uint8_t type, Position pos, float radius, float height, RGBA color, uint32_t streamingDistance) = 0;
@@ -491,7 +491,7 @@ namespace alt
 		 * @param rot spawn rotation
 		 * @param streamingDistance streaming distance of the ped, when 0 it's 0 server config will be used
 		 */
-		virtual IPed* CreatePed(uint32_t model, Position pos, Rotation rot, uint32_t streamingDistance = 0) = 0;
+		virtual IPed* CreatePed(uint32_t model, Position pos, Rotation rot, uint32_t streamingDistance = 0, bool isStatic = false) = 0;
 
 		virtual std::vector<IBaseObject*> GetEntitiesInDimension(int32_t dimension, uint64_t allowedTypes) const = 0;
 		virtual std::vector<IBaseObject*> GetEntitiesInRange(Position position, int32_t range, int32_t dimension, uint64_t allowedTypes) const = 0;
@@ -521,7 +521,7 @@ namespace alt
 		 * @param lodDistance lodDistance
 		 * @param streamingDistance streaming distance of the ped, when 0 it's 0 server config will be used
 		 */
-		virtual IObject* CreateObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100, uint32_t streamingDistance = 0) = 0;
+		virtual IObject* CreateObject(uint32_t model, Position pos, Rotation rot, uint8_t alpha = 255, uint8_t textureVariation = 0, uint16_t lodDistance = 100, uint32_t streamingDistance = 0, bool isStatic = false) = 0;
 
 		virtual Metric* RegisterMetric(const std::string& metricName, Metric::Type metricType = Metric::Type::METRIC_TYPE_GAUGE, const std::unordered_map<std::string, std::string>& attributes = {}) = 0;
 
