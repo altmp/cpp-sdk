@@ -33,6 +33,11 @@ namespace alt
 			++value;
 		}
 
+		void Dec()
+		{
+			--value;
+		}
+
 		void Begin()
 		{
 			lastBegin = Time();
