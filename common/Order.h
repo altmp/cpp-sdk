@@ -7,9 +7,9 @@ namespace common {
 * Sorting order
 */
 enum class Order {
-  kDefault = 0,
-  kAsc = 1,
-  kDesc = 2,
+  DEFAULT = 0,
+  ASC = 1,
+  DESC = 2,
 };
 
 }  // namespace common
