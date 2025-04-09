@@ -410,6 +410,9 @@ namespace alt
 		virtual uint32_t GetRAMUsage() const = 0;
 		virtual uint32_t GetTotalRAM() const = 0;
 		virtual uint32_t GetCurrentProcessRamUsage() const = 0;
+
+		virtual void SetIMDepthTesting(bool state) = 0;
+		virtual void DrawSphere(const alt::Vector3f center, float radius, alt::RGBA color, int segments) = 0;
 #endif
 
 #ifdef ALT_SERVER_API // Server methods
