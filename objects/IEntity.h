@@ -69,6 +69,14 @@ namespace alt
 		// Client-safe methods
 		virtual uint32_t GetScriptID() const = 0;
 		virtual SyncInfo GetSyncInfo() const = 0;
+
+		virtual float GetMass() const = 0;
+		virtual void SetMass(float mass) = 0;
+		virtual void ResetMass() = 0;
+
+		virtual alt::Vector3f GetAngInertia() const = 0;
+		virtual void SetAngInertia(const alt::Vector3f& angInertia) = 0;
+		virtual void ResetAngInertia() = 0;
 #endif // ALT_CLIENT_API
 	};
 } // namespace alt
