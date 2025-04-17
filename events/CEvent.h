@@ -117,6 +117,8 @@ namespace alt
 			PED_DEATH,
 			PED_HEAL,
 
+			PARACHUTE_STATE_CHANGE,
+
 			ALL,
 			SIZE
 		};
