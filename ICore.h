@@ -85,7 +85,7 @@ namespace alt
 		// Shared methods
 		virtual std::string GetVersion() const = 0;
 		virtual std::string GetBranch() const = 0;
-
+		
 		virtual void LogInfo(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
 		virtual void LogDebug(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
 		virtual void LogWarning(const std::string& prefix, const std::string& str, IResource* resource = nullptr) = 0;
@@ -198,7 +198,7 @@ namespace alt
 		 */
 		virtual void TriggerServerRPCAnswer(uint16_t answerID, MValue args, const std::string& error) = 0;
 		virtual uint16_t TriggerServerRPCEvent(const std::string& ev, MValueArgs args) = 0;
-
+		
 		virtual ILocalPlayer* GetLocalPlayer() const = 0;
 
 		virtual KeyState GetKeyState(uint32_t keyCode) const = 0;
@@ -421,6 +421,8 @@ namespace alt
 		virtual IResource *StartResource(const std::string& name) = 0;
 		virtual void StopResource(const std::string& name) = 0;
 		virtual void RestartResource(const std::string& name) = 0;
+
+		virtual void SetEventLimit(const std::string& eventName, uint32_t callLimit) = 0;
 
 		/*
 		 * Adds an extra config key that will be passed from resource.toml to client
