@@ -422,7 +422,7 @@ namespace alt
 		virtual void StopResource(const std::string& name) = 0;
 		virtual void RestartResource(const std::string& name) = 0;
 
-		virtual void SetEventLimit(const std::string& eventName, uint32_t callLimit) = 0;
+		virtual void SetClientEventRateLimit(const std::string& eventName, uint32_t callLimit) = 0;
 
 		/*
 		 * Adds an extra config key that will be passed from resource.toml to client
