@@ -521,4 +521,17 @@ namespace alt
     };
 
     using ViewMatrix = Matrix<float, 4, 4, ViewMatrixLayout>;
+
+    inline bool IsValidCoord(float val)
+	{
+		static float MIN_COORD = -32768.f;
+		static float MAX_COORD = 32767.f;
+
+		return !std::isnan(val) && !std::isinf(val) && val <= MAX_COORD && val >= MIN_COORD;
+	}
+
+    inline bool IsValidPosition(const Position& p)
+    {
+		return IsValidCoord(p.x) && IsValidCoord(p.y) && IsValidCoord(p.z);
+    }
 }
