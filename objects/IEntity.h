@@ -39,6 +39,7 @@ namespace alt
 		virtual bool IsStaticEntity() const = 0;
 
 #ifdef ALT_SERVER_API
+		virtual void SetModel(uint32_t model) = 0;
 		// Should not override and use server-only methods on the client
 		virtual uint32_t GetTimestamp() const = 0;
 		virtual void SetNetworkOwner(IPlayer* player, bool disableMigration) = 0;

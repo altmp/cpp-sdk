@@ -98,7 +98,6 @@ namespace alt
 
 		virtual void Spawn(Position pos, uint32_t delayMs) = 0;
 		virtual void Despawn() = 0;
-		virtual void SetModel(uint32_t model) = 0;
 		virtual void SetArmour(uint16_t armor) = 0;
 		virtual void SetMaxArmour(uint16_t armor) = 0;
 		virtual void SetCurrentWeapon(uint32_t weapon) = 0;
