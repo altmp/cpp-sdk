@@ -568,6 +568,8 @@ namespace alt
 		virtual void SetMigrationDistance(uint32_t _distance) = 0;
 
 		virtual bool HasBenefit(Benefit benefit) const = 0;
+
+		virtual uint64_t GetPlayersInQueueCount() const = 0;
 #endif
 
 		static ICore &Instance()
