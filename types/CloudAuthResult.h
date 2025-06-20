@@ -8,6 +8,6 @@ namespace alt
 	{
 		SUCCESS,
 		NO_BENEFIT,
-		VERIFY_FAILED,
+		UNDEFINED
 	};
 } // namespace alt
