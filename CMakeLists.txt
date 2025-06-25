@@ -2,6 +2,10 @@ if(NOT SDK_PROJECT_NAME)
     set(SDK_PROJECT_NAME alt-sdk)
 endif()
 
+if (SDK_SCOPE)
+    set(SDK_PROJECT_NAME alt-sdk-${SDK_SCOPE})
+endif()
+
 if (CMAKE_HOST_WIN32)
   add_custom_target(${SDK_PROJECT_NAME}
     call get-version.bat
