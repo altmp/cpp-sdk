@@ -388,6 +388,7 @@ namespace alt
 		virtual uint32_t GetPoolSize(const std::string& pool) const = 0;
 		virtual uint32_t GetPoolCount(const std::string& pool) const = 0;
 		virtual std::vector<uint32_t> GetPoolEntities(const std::string& pool) const = 0;
+		virtual std::uint32_t GetPoolLoad(const std::string& pool) const = 0;
 
 		virtual std::vector<uint32_t> GetVoicePlayers() const = 0;
 
