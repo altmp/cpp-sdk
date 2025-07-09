@@ -127,6 +127,7 @@
 #include "events/CWindowFocusChangeEvent.h"
 #include "events/CWindowResolutionChangeEvent.h"
 #include "events/CAudioEvent.h"
+#include "events/CParachuteStateChangeEvent.h"
 #endif
 
 #include "IPackage.h"
